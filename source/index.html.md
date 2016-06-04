@@ -13,8 +13,8 @@ includes:
   - establishments
   - transactions
   - management_patrons
-  - management_cashbacks
   - management_transactions
+  - management_settings
   - errors
 
 search: true
