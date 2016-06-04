@@ -52,7 +52,42 @@ Remember — a happy kitten is an authenticated kitten!
 ## Sign Up
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "http://example.com/api/v1/patrons/sign_up"
+  -H "Authorization: meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/patrons/sign_up'
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+email | the email of patron
+password | the password of patron account
+password_confirmation | confirm password again
+
+## Forget Password
+
+```shell
+curl "http://example.com/api/patrons/forget_password"
   -H "Authorization: meowmeowmeow"
 ```
 
