@@ -12,6 +12,8 @@ includes:
   - managers
   - establishments
   - transactions
+  - management_patrons
+  - management_cashbacks
   - errors
 
 search: true
