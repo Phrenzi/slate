@@ -183,25 +183,22 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/v1/patron/sign_in</code></p>
+<p><code class="prettyprint">POST http://example.com/api/v1/patrons/sign_in</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>N/A</td>
 <td>the email of patron account</td>
 </tr>
 <tr>
 <td>password</td>
-<td>N/A</td>
 <td>the password of patron account</td>
 </tr>
 </tbody></table>
@@ -340,7 +337,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/v1/patron/sign_in</code></p>
+<p><code class="prettyprint">POST http://example.com/api/v1/managers/sign_in</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -497,10 +494,10 @@ Remember — a happy kitten is an authenticated kitten!
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
 
-          <h1 id="transactions">Transactions</h1>
+          <h1 id="patron-transactions">Patron / Transactions</h1>
 
-<h2 id="get-all-transactions">get all transactions</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/transactions"</span>
+<h2 id="get-all-transactions-for-patron">get all transactions for patron</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/patrons/transactions"</span>
   -H <span class="s2">"Authorization: your_token"</span>
 </code></pre>
 
@@ -510,6 +507,7 @@ Remember — a happy kitten is an authenticated kitten!
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.63</span><span class="p">,</span><span class="w">
@@ -517,6 +515,7 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">125.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-125.00</span><span class="p">,</span><span class="w">
@@ -524,6 +523,7 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
@@ -531,6 +531,7 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7ESSE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.00</span><span class="p">,</span><span class="w">
@@ -543,7 +544,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/v1/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/v1/patrons/establishments</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
