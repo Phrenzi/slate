@@ -1,9 +1,9 @@
-# Transactions
+# Patron / Transactions
 
-## get all transactions
+## get all transactions for patron
 
 ```shell
-curl "https://phrenzi.com/api/v1/transactions"
+curl "https://phrenzi.com/api/v1/patrons/transactions"
   -H "Authorization: your_token"
 ```
 
@@ -13,6 +13,7 @@ curl "https://phrenzi.com/api/v1/transactions"
 [
   {
     "id": "WE7EASD",
+    "patron_id": "ASDFQWE",
     "type": "sale",
     "sale_amount": 75.00,
     "credit_amount": 2.63,
@@ -20,6 +21,7 @@ curl "https://phrenzi.com/api/v1/transactions"
   },
   {
     "id": "WE7EASS",
+    "patron_id": "ASDFQWE",
     "type": "credit",
     "sale_amount": 125.00,
     "credit_amount": -125.00,
@@ -27,6 +29,7 @@ curl "https://phrenzi.com/api/v1/transactions"
   },
   {
     "id": "WE7EASE",
+    "patron_id": "ASDFQWE",
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": 2.00,
@@ -34,6 +37,7 @@ curl "https://phrenzi.com/api/v1/transactions"
   },
   {
     "id": "WE7ESSE",
+    "patron_id": "ASDFQWE",
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": -20.00,
@@ -46,7 +50,7 @@ This endpoint required user authenticate, and retrieves all transaction for spec
 
 ### HTTP Request
 
-`GET http://example.com/api/v1/establishments`
+`GET http://example.com/api/v1/patrons/establishments`
 
 ### Query Parameters
 

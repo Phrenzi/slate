@@ -11,7 +11,7 @@ includes:
   - patrons
   - managers
   - establishments
-  - transactions
+  - patron_transactions
   - management_patrons
   - management_transactions
   - management_settings
