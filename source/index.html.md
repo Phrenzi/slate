@@ -14,6 +14,7 @@ includes:
   - transactions
   - management_patrons
   - management_cashbacks
+  - management_transactions
   - errors
 
 search: true
