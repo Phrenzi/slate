@@ -12,18 +12,112 @@ curl "https://phrenzi.com/api/v1/establishments"
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "id": "WE7EASD",
+    "phone": "92342333",
+    "desc": "this is a sample description",
+    "address": {
+      "street1": "street 1 example",
+      "street2": "street 2 example",
+      "city": "Hong Kong",
+      "country": "Hong Kong"
+    },
+    "business_hours": [
+      { 
+        "wday": 0,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 1,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 2,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 3,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 4,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 5,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 6,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      }]
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": "WE7EASD",
+    "phone": "92342333",
+    "desc": "this is a sample description",
+    "address": {
+      "street1": "street 1 example",
+      "street2": "street 2 example",
+      "city": "Hong Kong",
+      "country": "Hong Kong"
+    },
+    "business_hours": [
+      { 
+        "wday": 0,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 1,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 2,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 3,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 4,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 5,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      },
+      { 
+        "wday": 6,
+        "open_time": 1234123123,
+        "close_time": 1244444433,
+        "closed": false
+      }]
   }
 ]
 ```
