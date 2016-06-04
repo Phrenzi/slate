@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - patrons
   - managers
+  - establishments
   - errors
 
 search: true
