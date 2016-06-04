@@ -11,6 +11,7 @@ includes:
   - patrons
   - managers
   - establishments
+  - transactions
   - errors
 
 search: true
