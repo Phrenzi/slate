@@ -36,7 +36,7 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`POST http://example.com/api/v1/patron/sign_in`
+`POST http://example.com/api/v1/managers/sign_in`
 
 ### Query Parameters
 

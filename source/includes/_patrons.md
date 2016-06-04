@@ -36,14 +36,14 @@ This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`POST http://example.com/api/v1/patron/sign_in`
+`POST http://example.com/api/v1/patrons/sign_in`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-email | N/A | the email of patron account
-password | N/A | the password of patron account
+Parameter | Description
+--------- | -----------
+email | the email of patron account
+password | the password of patron account
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
