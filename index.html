@@ -211,7 +211,54 @@ Remember — a happy kitten is an authenticated kitten!
 </aside>
 
 <h2 id="sign-up">Sign Up</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/v1/patrons/sign_up"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific kitten.</p>
+
+<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://phrenzi.com/api/patrons/sign_up&rsquo;</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the email of patron</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the password of patron account</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>confirm password again</td>
+</tr>
+</tbody></table>
+
+<h2 id="forget-password">Forget Password</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/forget_password"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre>
 
@@ -319,6 +366,202 @@ Remember — a happy kitten is an authenticated kitten!
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
+
+          <h1 id="establishments">Establishments</h1>
+
+<h2 id="get-all-establishments">get all establishments</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/establishments"</span>
+  -H <span class="s2">"Authorization: your_token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 1 example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 2 example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 1 example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 2 example"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234123123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1244444433</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint required user authenticate, and retrieves all establishments</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/v1/establishments</code></p>
+
+<aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
+
+          <h1 id="transactions">Transactions</h1>
+
+<h2 id="get-all-transactions">get all transactions</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/transactions"</span>
+  -H <span class="s2">"Authorization: your_token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.63</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">125.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-125.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7ESSE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint required user authenticate, and retrieves all transaction for specific user</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/v1/establishments</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
 
           <h1 id="errors">Errors</h1>
 
