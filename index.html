@@ -593,60 +593,6 @@ Remember — a happy kitten is an authenticated kitten!
 
 <p><code class="prettyprint">POST http://phrenzi.com/api/v1/management/patrons</code></p>
 
-          <h1 id="management-cashback">Management / Cashback</h1>
-
-<h2 id="get-cash-back">Get cash back</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/cash_back"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint require manager token, and current cash_back for current establishment.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://phrenzi.com/api/v1/management/cash_back</code></p>
-
-<h2 id="update-cash-back">Update cash back</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/cash_back"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
-  -X PATCH
-  -d <span class="s1">'{
-    "cash_back": 4.5
-    }'</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns HTML status code 200 OK</p>
-</blockquote>
-
-<p>This endpoint require manager token, and update cash_back for current establishment.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">PATCH http://phrenzi.com/api/v1/management/cash_back</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>cash_back</td>
-<td>the cash_back to update, within 0 and 100</td>
-</tr>
-</tbody></table>
-
           <h1 id="management-transactions">Management / Transactions</h1>
 
 <h2 id="get-all-transactions-by-establishment">Get all transactions by establishment</h2>
@@ -853,6 +799,103 @@ patron just need to pay 75.00 ):</p>
 <tr>
 <td>credit_amount</td>
 <td>-125.00</td>
+</tr>
+</tbody></table>
+
+          <h1 id="management-settings">Management / Settings</h1>
+
+<h2 id="get-cash-back">Get cash back</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
+  -H <span class="s2">"Authorization: your_token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint require manager token, and current cash_back for current establishment.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/v1/management/cash_back</code></p>
+
+<h2 id="update-cash-back">Update cash back</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
+  -H <span class="s2">"Authorization: your_token"</span>
+  -X PATCH
+  -d <span class="s1">'{
+    "cash_back": 4.5
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK</p>
+</blockquote>
+
+<p>This endpoint require manager token, and update cash_back for current establishment.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/v1/management/cash_back</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cash_back</td>
+<td>the cash_back to update, within 0 and 100</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-password">Update Password</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/update_password"</span>
+  -H <span class="s2">"Authorization: your_token"</span>
+  -X PATCH
+  -d <span class="s1">'{
+    "current_password": "current_password",
+    "password": "new_password",
+    "password_confirmation": "new_password"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK</p>
+</blockquote>
+
+<p>This endpoint require manager token, and update current password for current manager.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/v1/management/settings/update_password</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>current_password</td>
+<td>the current password for current manager</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the new password for current manager</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>confirmation for the new password</td>
 </tr>
 </tbody></table>
 
