@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Phrenzi API Reference</title>
+    <title>API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -110,8 +110,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-            <li>Copyright Phrenzi 2016</li>
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -124,31 +123,7 @@ information on various establishments, transactions, and challenges in our datab
 
 <p>We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<h2 id="requests">Requests</h2>
-
-<p>All <code class="prettyprint">POST</code> requests should have a JSON encoded body and the <code class="prettyprint">Content-Type: application/json</code> header.</p>
-
-<h2 id="environments">Environments</h2>
-
-<table><thead>
-<tr>
-<th>Staging</th>
-<th>Production</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>https://staging.phrenzi.com/api</td>
-<td>https://www.phrenzi.com/api</td>
-</tr>
-</tbody></table>
-
-<p>Our API is currently versioned. This strategy uses a URL path prefix to request a specific version of the API.</p>
-
-<p><code class="prettyprint">GET /v1/foos</code></p>
-
-<p>Leaving out the version will default to the current version.</p>
-
-<h1 id="oauth">OAuth</h1>
+<h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -263,12 +238,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>123.22</td>
 <td>the current avaliable balance for Patron</td>
 </tr>
-<tr>
-<td>email</td>
-<td>String</td>
-<td>&#39;abc@example.com&rsquo;</td>
-<td>the email from Patron</td>
-</tr>
 </tbody></table>
 
 <h2 id="manager">Manager</h2>
@@ -307,36 +276,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </tbody></table>
 
-<h2 id="basic-manager">Basic Manager</h2>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Manager in Phrenzi</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>&#39;Simon Iong&rsquo;</td>
-<td>the name of Manager</td>
-</tr>
-<tr>
-<td>email</td>
-<td>String</td>
-<td>&#39;abc@example.com&rsquo;</td>
-<td>the email from Manager</td>
-</tr>
-</tbody></table>
-
 <h2 id="establishment">Establishment</h2>
 
 <table><thead>
@@ -366,6 +305,18 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>the phone contact for Establishment</td>
 </tr>
 <tr>
+<td>desc</td>
+<td>String</td>
+<td>&#39;asdfsad&rsquo;</td>
+<td>the desc for Establishment</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>Float</td>
+<td>3.5</td>
+<td>the current cash back setting</td>
+</tr>
+<tr>
 <td>address</td>
 <td>Address object</td>
 <td>see below</td>
@@ -376,6 +327,48 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>Array of Business Hour</td>
 <td>see below</td>
 <td>totally 7 business hour object</td>
+</tr>
+</tbody></table>
+
+<h2 id="basic-establishment">Basic Establishment</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Establishment in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Awesome Bar&rsquo;</td>
+<td>the name of Establishment</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>&#39;123434123&rsquo;</td>
+<td>the phone contact for Establishment</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>String</td>
+<td>&#39;asdfsad&rsquo;</td>
+<td>the desc for Establishment</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>Float</td>
+<td>3.5</td>
+<td>the current cash back setting</td>
 </tr>
 </tbody></table>
 
@@ -491,6 +484,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>7.00</td>
 <td>different meaning for different scenarios</td>
 </tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-1-fully-sale-record">Scenario 1: fully sale record:</h3>
@@ -534,6 +533,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>Float</td>
 <td>7.00</td>
 <td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
 </tr>
 </tbody></table>
 
@@ -579,6 +584,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>2.63</td>
 <td>75 * 0.035 = 2.625</td>
 </tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -618,6 +629,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>Float</td>
 <td>-125.00</td>
 <td>the credit deduct from current balance of Patron</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
 </tr>
 </tbody></table>
 
@@ -663,6 +680,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>-200.00</td>
 <td>the credit deduct from current balance of Patron</td>
 </tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-3-credit-correct">Scenario 3: Credit correct:</h3>
@@ -706,6 +729,12 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>Float</td>
 <td>-200.00</td>
 <td>deduct 200 from system</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
 </tr>
 </tbody></table>
 
@@ -765,8 +794,14 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tbody></table>
 
 <h2 id="sign-up">Sign Up</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/v1/patrons/sign_up"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/v1/patrons/sign_up"</span>
   -H <span class="s2">"Authorization: app_token"</span>
+  -X POST
+  -d <span class="s1">'{
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password" }'</span>
+
 </code></pre>
 
 <blockquote>
@@ -813,29 +848,31 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tbody></table>
 
 <h2 id="forget-password">Forget Password</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/forget_password"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span>
+  -H <span class="s2">"Authorization: app_token"</span>
+  -X POST
+  -d <span class="s1">'{
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password" }'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns HTTP Status Code <code class="prettyprint">201</code> without any json object</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to reset password</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<ul>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">201</code> without any json object</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code></li>
+</ul>
+
+<p>TODO: this seems weird, how can we ensure this user&rsquo;s identity</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://phrenzi.com/api/patrons/sign_up&rsquo;</p>
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons/passwords</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -863,7 +900,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h2 id="login">Login</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/managers/sign_in"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: app_token"</span>
   -X POST
   -d <span class="s1">'{
         "email": "abc@gmail.com",
@@ -871,27 +908,25 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">201</code></p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adafasdszdads"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to authenticate Manager.</p>
+
+<ul>
+<li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">201</code>, then client can use token in that object to consume other apis for Manager only.</li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code></li>
+<li>if manager authenticate failed too many time, it will return HTTP Status Code <code class="prettyprint">429</code></li>
+</ul>
+
+<p>TODO: figure out what to do if user authenticate fail too many times.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -918,15 +953,11 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
           <h1 id="establishments">Establishments</h1>
 
 <h2 id="get-all-establishments">get all establishments</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/establishments"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: app_token"</span>
 </code></pre>
 
 <blockquote>
@@ -935,8 +966,10 @@ Remember — a happy kitten is an authenticated kitten!
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 1 example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 2 example"</span><span class="p">,</span><span class="w">
@@ -989,8 +1022,10 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar 2"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 1 example"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street 2 example"</span><span class="p">,</span><span class="w">
@@ -1044,7 +1079,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint required user authenticate, and retrieves all establishments</p>
+<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and retrieves all establishments</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1056,7 +1091,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <h2 id="get-all-transactions-for-patron">get all transactions for patron</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/patrons/transactions"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: user_token"</span>
 </code></pre>
 
 <blockquote>
@@ -1069,7 +1104,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.63</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASS"</span><span class="p">,</span><span class="w">
@@ -1077,7 +1112,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">125.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-125.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASE"</span><span class="p">,</span><span class="w">
@@ -1085,7 +1120,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7ESSE"</span><span class="p">,</span><span class="w">
@@ -1093,12 +1128,12 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint required user authenticate, and retrieves all transaction for specific user</p>
+<p>This endpoint authenticate by <code class="prettyprint">user_token</code>, and retrieves all transaction for specific user</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1126,37 +1161,37 @@ Remember — a happy kitten is an authenticated kitten!
 
 <h2 id="get-all-patrons">Get all patrons</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/patrons"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns array of <code class="prettyprint">Basic Patron</code> object like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDSDS"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.32</span><span class="w">
+    </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.32</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDDD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">124.44</span><span class="w">
+    </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">124.44</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require manager token, and retrieves all patrons.</p>
+<p>This endpoint require <code class="prettyprint">manager_token</code>, and retrieves all patrons.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://phrenzi.com/api/v1/management/patrons</code></p>
+<p><code class="prettyprint">GET http://phrenzi.com/api/v1/management/patrons</code></p>
 
           <h1 id="management-transactions">Management / Transactions</h1>
 
 <h2 id="get-all-transactions-by-establishment">Get all transactions by establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/transactions"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
 <blockquote>
@@ -1169,7 +1204,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.63</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASS"</span><span class="p">,</span><span class="w">
@@ -1177,7 +1212,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">125.00</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-125.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASE"</span><span class="p">,</span><span class="w">
@@ -1185,7 +1220,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7ESSE"</span><span class="p">,</span><span class="w">
@@ -1193,13 +1228,12 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"track_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint required manager authenticate, and retrieves transaction records by establishment with
-different conditions.</p>
+<p>This endpoint authenticate by <code class="prettyprint">manager_token</code>, and retrieves transaction records by establishment with different conditions.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1210,31 +1244,28 @@ different conditions.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Requred?</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>patron_id</td>
-<td>if this patron_id is present, the result should only return transactions related to this patron</td>
-</tr>
-<tr>
-<td>page</td>
-<td>the page results of all transactions</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>the number of transaction record return per page by api, default to be 20</td>
+<td>N</td>
+<td>if this patron_id is present, the result should only return transactions related to this</td>
 </tr>
 </tbody></table>
 
+<p>patron
+page | N | the page results of all transactions
+per_page | N | the number of transaction record return per page by api, default to be 20</p>
+
 <h2 id="create-transaction">Create Transaction</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/transactions"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
   -X POST
   -d <span class="s1">'{
     "type": "sale",
-    "sale_amount": 200.00,
-    "credit_amount": 0.00
+    "sale_amount": 200.00
     }'</span>
 </code></pre>
 
@@ -1242,7 +1273,7 @@ different conditions.</p>
 <p>The above command returns HTML status code 200 OK if success.</p>
 </blockquote>
 
-<p>This endpoint required manager authenticate, and create transaction records.</p>
+<p>This endpoint required <code class="prettyprint">manager_token</code>, and create transaction records.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1253,19 +1284,23 @@ different conditions.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>type</td>
+<td>Y</td>
 <td>sale/correction</td>
 </tr>
 <tr>
 <td>sale_amount</td>
+<td>Y</td>
 <td>the sale amount</td>
 </tr>
 <tr>
 <td>credit_amount</td>
+<td>N</td>
 <td>the credit amount</td>
 </tr>
 </tbody></table>
@@ -1288,14 +1323,9 @@ different conditions.</p>
 <td>sale_amount</td>
 <td>200.00</td>
 </tr>
-<tr>
-<td>credit_amount</td>
-<td>0.00</td>
-</tr>
 </tbody></table>
 
-<p>sale record, without partially credit redeem ( 200 sale amount, but with 125 credit redeem , so
-patron just need to pay 75.00 ):</p>
+<p>sale record, without partially credit redeem ( 200 sale amount, but with 125 credit redeem , so patron just need to pay 75.00 ):</p>
 
 <table><thead>
 <tr>
@@ -1313,7 +1343,29 @@ patron just need to pay 75.00 ):</p>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>125.00</td>
+<td>-125.00</td>
+</tr>
+</tbody></table>
+
+<p>sale record, fully credit redeem ( 200 sale amount, 200 credit redeem, so patron do not need to pay):</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>&#39;sale&rsquo;</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>200.00</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>-200.00</td>
 </tr>
 </tbody></table>
 
@@ -1365,18 +1417,22 @@ patron just need to pay 75.00 ):</p>
 
 <h2 id="get-cash-back">Get cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns <code class="prettyprint">Basic Establishment</code> object like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require manager token, and current cash_back for current establishment.</p>
+<p>This endpoint require <code class="prettyprint">manager_token</code>, and return whole establishment object</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1384,9 +1440,10 @@ patron just need to pay 75.00 ):</p>
 
 <h2 id="update-cash-back">Update cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
   -X PATCH
   -d <span class="s1">'{
+    "current_password": "current_password",
     "cash_back": 4.5
     }'</span>
 </code></pre>
@@ -1395,7 +1452,7 @@ patron just need to pay 75.00 ):</p>
 <p>The above command returns HTML status code 200 OK</p>
 </blockquote>
 
-<p>This endpoint require manager token, and update cash_back for current establishment.</p>
+<p>This endpoint require <code class="prettyprint">manager_token</code>, and update cash_back for current establishment.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1413,11 +1470,15 @@ patron just need to pay 75.00 ):</p>
 <td>cash_back</td>
 <td>the cash_back to update, within 0 and 100</td>
 </tr>
+<tr>
+<td>current_password</td>
+<td>the current password for current manager</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-password">Update Password</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/update_password"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/passwords"</span>
+  -H <span class="s2">"Authorization: manager_token"</span>
   -X PATCH
   -d <span class="s1">'{
     "current_password": "current_password",
@@ -1430,7 +1491,7 @@ patron just need to pay 75.00 ):</p>
 <p>The above command returns HTML status code 200 OK</p>
 </blockquote>
 
-<p>This endpoint require manager token, and update current password for current manager.</p>
+<p>This endpoint require <code class="prettyprint">manager_token</code>, and update current password for current manager.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
