@@ -1,5 +1,7 @@
 # Json Objects
 
+these object will return by apis provided by Phrenzi if needed.
+
 ## Patron
 
 Key | Type | Example | Description
