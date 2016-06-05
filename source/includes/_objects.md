@@ -19,7 +19,6 @@ Key | Type | Example | Description
 id | String | 'ASDDDD' | the code that uniquly represent Patron in Phrenzi
 name | String | 'Simon Iong' | the name of Patron
 credit_balance | Float | 123.22 | the current avaliable balance for Patron
-email | String | 'abc@example.com' | the email from Patron
 
 ## Manager
 
@@ -30,22 +29,25 @@ name | String | 'Simon Iong' | the name of Manager
 email | String | 'abc@example.com' | the email from Manager
 token | String | 'adsasdafsdafa' | this is the manager token
 
-## Basic Manager
-
-Key | Type | Example | Description
---------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Manager in Phrenzi
-name | String | 'Simon Iong' | the name of Manager
-email | String | 'abc@example.com' | the email from Manager
-
 ## Establishment
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
 id | String | 'ASDDDD' | the code that uniquly represent Establishment in Phrenzi |
 name | String | 'Awesome Bar' | the name of Establishment |
 phone | String | '123434123' | the phone contact for Establishment |
+desc | String | 'asdfsad' | the desc for Establishment |
+cash_back | Float | 3.5 | the current cash back setting |
 address | Address object | see below | the address object attached to this establishment |
 business_hours | Array of Business Hour | see below | totally 7 business hour object | 
+
+## Basic Establishment
+Key | Type | Example | Description
+--------- | --------- | --------- | -----------
+id | String | 'ASDDDD' | the code that uniquly represent Establishment in Phrenzi |
+name | String | 'Awesome Bar' | the name of Establishment |
+phone | String | '123434123' | the phone contact for Establishment |
+desc | String | 'asdfsad' | the desc for Establishment |
+cash_back | Float | 3.5 | the current cash back setting |
 
 ## Address
 Key | Type | Example | Description
@@ -72,6 +74,7 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'sale' | type of transaction, either 'sale', or 'correction' |
 sale_amount | Float | 200.00 | different meaning for different scenarios |
 credit_amount | Float | 7.00 | different meaning for different scenarios |
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 
 ### Scenario 1: fully sale record:
 
@@ -84,6 +87,7 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | Float | 200.00 | the sale amount of this transaction
 credit_amount | Float | 7.00 | the credit patron get from this transaction
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 
 ### Scenario 2: Partially credit redeem:
 
@@ -96,6 +100,7 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'sale' | type of transaction |
 sale_amount | Float | 75.00 | in this case, we deduct 125 credit |
 credit_amount | Float | 2.63 | 75 * 0.035 = 2.625
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
@@ -104,6 +109,7 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'credit' | type of transaction |
 sale_amount | Float | 125.00 | the sale amount redeem by credit |
 credit_amount | Float | -125.00 | the credit deduct from current balance of Patron |
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 
 ### Scenario 3: Fully credit redeem:
 
@@ -116,6 +122,7 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'credit' | type of transaction |
 sale_amount | Float | 200.00 | the sale amount redeem by credit |
 credit_amount | Float | -200.00 | the credit deduct from current balance of Patron |
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 
 ### Scenario 3: Credit correct:
 
@@ -128,3 +135,4 @@ patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is b
 type | String | 'correction' | type of transaction |
 sale_amount | Float | 0.00 | the sale amount redeem by credit |
 credit_amount | Float | -200.00 | deduct 200 from system |
+tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |

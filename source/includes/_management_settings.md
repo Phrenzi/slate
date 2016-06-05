@@ -4,18 +4,22 @@
 
 ```shell
 curl "https://phrenzi.com/api/v1/management/settings/cash_back"
-  -H "Authorization: your_token"
+  -H "Authorization: manager_token"
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns `Basic Establishment` object like this:
 
 ```json
 {
+  "id": "WE7EASD",
+  "name": "Awesome Bar",
+  "phone": "92342333",
+  "desc": "this is a sample description",
   "cash_back": 3.5
 }
 ```
 
-This endpoint require manager token, and current cash_back for current establishment.
+This endpoint require `manager_token`, and return whole establishment object
 
 ### HTTP Request
 
@@ -25,16 +29,17 @@ This endpoint require manager token, and current cash_back for current establish
 
 ```shell
 curl "https://phrenzi.com/api/v1/management/settings/cash_back"
-  -H "Authorization: your_token"
+  -H "Authorization: manager_token"
   -X PATCH
   -d '{
+    "current_password": "current_password",
     "cash_back": 4.5
     }'
 ```
 
 > The above command returns HTML status code 200 OK
 
-This endpoint require manager token, and update cash_back for current establishment.
+This endpoint require `manager_token`, and update cash_back for current establishment.
 
 ### HTTP Request
 
@@ -45,12 +50,13 @@ This endpoint require manager token, and update cash_back for current establishm
 Parameter | Description
 --------- | -----------
 cash_back | the cash_back to update, within 0 and 100
+current_password | the current password for current manager
 
 ## Update Password
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/settings/update_password"
-  -H "Authorization: your_token"
+curl "https://phrenzi.com/api/v1/management/settings/passwords"
+  -H "Authorization: manager_token"
   -X PATCH
   -d '{
     "current_password": "current_password",
@@ -61,7 +67,7 @@ curl "https://phrenzi.com/api/v1/management/settings/update_password"
 
 > The above command returns HTML status code 200 OK
 
-This endpoint require manager token, and update current password for current manager.
+This endpoint require `manager_token`, and update current password for current manager.
 
 ### HTTP Request
 

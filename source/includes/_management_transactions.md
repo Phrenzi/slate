@@ -4,7 +4,7 @@
 
 ```shell
 curl "https://phrenzi.com/api/v1/management/transactions"
-  -H "Authorization: your_token"
+  -H "Authorization: manager_token"
 ```
 
 > The above command returns JSON structured like this:
@@ -17,7 +17,7 @@ curl "https://phrenzi.com/api/v1/management/transactions"
     "type": "sale",
     "sale_amount": 75.00,
     "credit_amount": 2.63,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7EASS",
@@ -25,7 +25,7 @@ curl "https://phrenzi.com/api/v1/management/transactions"
     "type": "credit",
     "sale_amount": 125.00,
     "credit_amount": -125.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7EASE",
@@ -33,7 +33,7 @@ curl "https://phrenzi.com/api/v1/management/transactions"
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": 2.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7ESSE",
@@ -41,13 +41,12 @@ curl "https://phrenzi.com/api/v1/management/transactions"
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": -20.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   }
 ]
 ```
 
-This endpoint required manager authenticate, and retrieves transaction records by establishment with
-different conditions.
+This endpoint authenticate by `manager_token`, and retrieves transaction records by establishment with different conditions.
 
 ### HTTP Request
 
@@ -55,27 +54,27 @@ different conditions.
 
 ### Query Parameters
 
-Parameter | Description
---------- | -----------
-patron_id | if this patron_id is present, the result should only return transactions related to this patron
-page | the page results of all transactions
-per_page | the number of transaction record return per page by api, default to be 20
+Parameter | Requred? | Description
+--------- | ----------- | ---------
+patron_id | N | if this patron_id is present, the result should only return transactions related to this
+patron
+page | N | the page results of all transactions
+per_page | N | the number of transaction record return per page by api, default to be 20
 
 ## Create Transaction
 ```shell
 curl "https://phrenzi.com/api/v1/management/transactions"
-  -H "Authorization: your_token"
+  -H "Authorization: manager_token"
   -X POST
   -d '{
     "type": "sale",
-    "sale_amount": 200.00,
-    "credit_amount": 0.00
+    "sale_amount": 200.00
     }'
 ```
 
 > The above command returns HTML status code 200 OK if success.
 
-This endpoint required manager authenticate, and create transaction records.
+This endpoint required `manager_token`, and create transaction records.
 
 ### HTTP Request
 
@@ -83,11 +82,11 @@ This endpoint required manager authenticate, and create transaction records.
 
 ### Query Parameters
 
-Parameter | Description
---------- | -----------
-type | sale/correction
-sale_amount | the sale amount
-credit_amount | the credit amount
+Parameter | Required | Description
+--------- | ----------- | -----------
+type | Y | sale/correction
+sale_amount | Y | the sale amount
+credit_amount | N | the credit amount
 
 ### Query Exmaple:
 
@@ -97,16 +96,22 @@ Parameter | Description
 --------- | -----------
 type | 'sale'
 sale_amount | 200.00
-credit_amount | 0.00
 
-sale record, without partially credit redeem ( 200 sale amount, but with 125 credit redeem , so
-patron just need to pay 75.00 ):
+sale record, without partially credit redeem ( 200 sale amount, but with 125 credit redeem , so patron just need to pay 75.00 ):
 
 Parameter | Description
 --------- | -----------
 type | 'sale'
 sale_amount | 200.00
-credit_amount | 125.00
+credit_amount | -125.00
+
+sale record, fully credit redeem ( 200 sale amount, 200 credit redeem, so patron do not need to pay):
+
+Parameter | Description
+--------- | -----------
+type | 'sale'
+sale_amount | 200.00
+credit_amount | -200.00
 
 positive correction record:
 

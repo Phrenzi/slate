@@ -4,7 +4,7 @@
 
 ```shell
 curl "https://phrenzi.com/api/v1/patrons/transactions"
-  -H "Authorization: your_token"
+  -H "Authorization: user_token"
 ```
 
 > The above command returns JSON structured like this:
@@ -17,7 +17,7 @@ curl "https://phrenzi.com/api/v1/patrons/transactions"
     "type": "sale",
     "sale_amount": 75.00,
     "credit_amount": 2.63,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7EASS",
@@ -25,7 +25,7 @@ curl "https://phrenzi.com/api/v1/patrons/transactions"
     "type": "credit",
     "sale_amount": 125.00,
     "credit_amount": -125.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7EASE",
@@ -33,7 +33,7 @@ curl "https://phrenzi.com/api/v1/patrons/transactions"
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": 2.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   },
   {
     "id": "WE7ESSE",
@@ -41,12 +41,12 @@ curl "https://phrenzi.com/api/v1/patrons/transactions"
     "type": "correct",
     "sale_amount": 0,
     "credit_amount": -20.00,
-    "track_at": "2016-06-04T07:48:56.050Z"
+    "tracked_at": "2016-06-04T07:48:56.050Z"
   }
 ]
 ```
 
-This endpoint required user authenticate, and retrieves all transaction for specific user
+This endpoint authenticate by `user_token`, and retrieves all transaction for specific user
 
 ### HTTP Request
 

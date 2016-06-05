@@ -4,7 +4,7 @@
 
 ```shell
 curl "https://phrenzi.com/api/v1/establishments"
-  -H "Authorization: your_token"
+  -H "Authorization: app_token"
 ```
 
 > The above command returns JSON structured like this:
@@ -13,8 +13,10 @@ curl "https://phrenzi.com/api/v1/establishments"
 [
   {
     "id": "WE7EASD",
+    "name": "Awesome Bar",
     "phone": "92342333",
     "desc": "this is a sample description",
+    "cash_back": 3.5,
     "address": {
       "street1": "street 1 example",
       "street2": "street 2 example",
@@ -67,8 +69,10 @@ curl "https://phrenzi.com/api/v1/establishments"
   },
   {
     "id": "WE7EASD",
+    "name": "Awesome Bar 2",
     "phone": "92342333",
     "desc": "this is a sample description",
+    "cash_back": 3.5,
     "address": {
       "street1": "street 1 example",
       "street2": "street 2 example",
@@ -122,7 +126,7 @@ curl "https://phrenzi.com/api/v1/establishments"
 ]
 ```
 
-This endpoint required user authenticate, and retrieves all establishments
+This endpoint authenticate by `app_token`, and retrieves all establishments
 
 ### HTTP Request
 
