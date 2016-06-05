@@ -130,28 +130,565 @@ information on various establishments, transactions, and challenges in our datab
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+  -H <span class="s2">"Authorization: secret_token"</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code class="prettyprint">secret_token</code> with your API key.</p>
 </blockquote>
 
-<p>Phrenzi uses API keys to allow access to the API. You can register a new Phrenzi API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Phrenzi uses different type of tokens to allow access various of API.</p>
 
-<p>Phrenzi expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Phrenzi expects for the <code class="prettyprint">token</code> to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<p><code class="prettyprint">Authorization: secret_token</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>secret_token</code> with your personal API key.
 </aside>
+
+<p>In Phrenze, we have 3 type of api token, which will use in different api endpoints.</p>
+
+<h2 id="app-token">App Token</h2>
+
+<p>This is a normal token used in apis that don&rsquo;t need authenticate of Patron or Manager, such as
+Patron login, Patron Sign Up, Manager login</p>
+
+<h2 id="patron-token">Patron Token</h2>
+
+<p>This is a token used apis that need patron authenticate, after successfully Patron login, server
+will return a <code class="prettyprint">user_token</code>, then client can consume the patron related apis using this token.</p>
+
+<h2 id="manager-token">Manager Token</h2>
+
+<p>This is a token used apis that need manager authenticate, after successfully Manager login, server will return a
+<code class="prettyprint">manager_token</code>, then client can consume the manager related apis using this token.</p>
+
+          <h1 id="json-objects">Json Objects</h1>
+
+<p>these object will return by apis provided by Phrenzi if needed.</p>
+
+<h2 id="patron">Patron</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&lsquo;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Patron in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Simon Iong&rsquo;</td>
+<td>the name of Patron</td>
+</tr>
+<tr>
+<td>credit_balance</td>
+<td>Float</td>
+<td>123.22</td>
+<td>the current avaliable balance for Patron</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>&#39;abc@example.com&rsquo;</td>
+<td>the email from Patron</td>
+</tr>
+<tr>
+<td>token</td>
+<td>String</td>
+<td>&#39;adafasdszdads&rsquo;</td>
+<td>this is the user token</td>
+</tr>
+</tbody></table>
+
+<h2 id="basic-patron">Basic Patron</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Patron in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Simon Iong&rsquo;</td>
+<td>the name of Patron</td>
+</tr>
+<tr>
+<td>credit_balance</td>
+<td>Float</td>
+<td>123.22</td>
+<td>the current avaliable balance for Patron</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>&#39;abc@example.com&rsquo;</td>
+<td>the email from Patron</td>
+</tr>
+</tbody></table>
+
+<h2 id="manager">Manager</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Manager in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Simon Iong&rsquo;</td>
+<td>the name of Manager</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>&#39;abc@example.com&rsquo;</td>
+<td>the email from Manager</td>
+</tr>
+<tr>
+<td>token</td>
+<td>String</td>
+<td>&#39;adsasdafsdafa&rsquo;</td>
+<td>this is the manager token</td>
+</tr>
+</tbody></table>
+
+<h2 id="basic-manager">Basic Manager</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Manager in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Simon Iong&rsquo;</td>
+<td>the name of Manager</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>&#39;abc@example.com&rsquo;</td>
+<td>the email from Manager</td>
+</tr>
+</tbody></table>
+
+<h2 id="establishment">Establishment</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that uniquly represent Establishment in Phrenzi</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>&#39;Awesome Bar&rsquo;</td>
+<td>the name of Establishment</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>&#39;123434123&rsquo;</td>
+<td>the phone contact for Establishment</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Address object</td>
+<td>see below</td>
+<td>the address object attached to this establishment</td>
+</tr>
+<tr>
+<td>business_hours</td>
+<td>Array of Business Hour</td>
+<td>see below</td>
+<td>totally 7 business hour object</td>
+</tr>
+</tbody></table>
+
+<h2 id="address">Address</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>street1</td>
+<td>String</td>
+<td>&#39;Ma Wan MainRold&rsquo;</td>
+<td>the street1 for Establishment</td>
+</tr>
+<tr>
+<td>street2</td>
+<td>String</td>
+<td>&#39;Ma Wan&rsquo;</td>
+<td>the street2 for Establishment</td>
+</tr>
+<tr>
+<td>city</td>
+<td>String</td>
+<td>&#39;Hong Kong&rsquo;</td>
+<td>city for Establishment</td>
+</tr>
+<tr>
+<td>country</td>
+<td>String</td>
+<td>&#39;HK&rsquo;</td>
+<td>country name for ISO 3166-1 standard</td>
+</tr>
+</tbody></table>
+
+<h2 id="business-hour">Business Hour</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>open_time</td>
+<td>Integer</td>
+<td>43200</td>
+<td>the integer represent the seconds start from mid night, range from 0..86400</td>
+</tr>
+<tr>
+<td>close_time</td>
+<td>Integer</td>
+<td>63200</td>
+<td>the integer represent the seconds start from mid night, range from 0..129600, means, until 12pm next day</td>
+</tr>
+<tr>
+<td>wday</td>
+<td>Integer</td>
+<td>1</td>
+<td>integer represent the day in the week, 0 for sunday, 1 for monday, etc</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>Boolean</td>
+<td>false</td>
+<td>true/false, true stands for establishment is close this day</td>
+</tr>
+</tbody></table>
+
+<h2 id="transaction">Transaction</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction, either &#39;sale&rsquo;, or &#39;correction&rsquo;</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>200.00</td>
+<td>different meaning for different scenarios</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>7.00</td>
+<td>different meaning for different scenarios</td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-1-fully-sale-record">Scenario 1: fully sale record:</h3>
+
+<p>sale amount is 200, cash_back setting is 3.5%, then earned credit 7.00</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction, either &#39;sale&rsquo;, or &#39;credit&rsquo;, or &#39;correction&rsquo;</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>200.00</td>
+<td>the sale amount of this transaction</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>7.00</td>
+<td>the credit patron get from this transaction</td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-2-partially-credit-redeem">Scenario 2: Partially credit redeem:</h3>
+
+<p>sale amount is 200, 125 credit redeemed, then sale &amp; credit record would be:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>75.00</td>
+<td>in this case, we deduct 125 credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>2.63</td>
+<td>75 * 0.035 = 2.625</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;credit&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>125.00</td>
+<td>the sale amount redeem by credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>-125.00</td>
+<td>the credit deduct from current balance of Patron</td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-3-fully-credit-redeem">Scenario 3: Fully credit redeem:</h3>
+
+<p>sale amount is 200, 200 credit redeemed, then there is no sale record, only credit record.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;credit&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>200.00</td>
+<td>the sale amount redeem by credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>-200.00</td>
+<td>the credit deduct from current balance of Patron</td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-3-credit-correct">Scenario 3: Credit correct:</h3>
+
+<p>manager decide to deduct 200 credit balance for Patron.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>&#39;ASDDDD&rsquo;</td>
+<td>the code that unique represent Transaction in Phrenzi</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>String</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>the unique code for Patron this transaction is belongs to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;correction&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>Float</td>
+<td>0.00</td>
+<td>the sale amount redeem by credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>Float</td>
+<td>-200.00</td>
+<td>deduct 200 from system</td>
+</tr>
+</tbody></table>
 
           <h1 id="patrons">Patrons</h1>
 
 <h2 id="login">Login</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/patrons/sign_in"</span>
-  -H <span class="s2">"Authorization: your_token"</span>
+  -H <span class="s2">"Authorization: app_token"</span>
   -X POST
   -d <span class="s1">'{
         "email": "abc@gmail.com",
@@ -159,27 +696,26 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns <code class="prettyprint">User</code> object structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.23</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adafasdszdads"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to authenticate Patron.</p>
+
+<ul>
+<li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">201</code>, then client can use token in that object to consume other apis for Patron only.</li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code></li>
+<li>if user authenticate failed too many time, it will return HTTP Status Code <code class="prettyprint">429</code></li>
+</ul>
+
+<p>TODO: figure out what to do if user authenticate fail too many times.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -203,34 +739,27 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
 <h2 id="sign-up">Sign Up</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/v1/patrons/sign_up"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+  -H <span class="s2">"Authorization: app_token"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns HTTP Status Code <code class="prettyprint">201</code> if success.</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to register a account for Patron.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<ul>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">201</code> without any json object</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code></li>
+</ul>
+
+<p>TODO: figure out if we need to show validation errors message by different fields</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://phrenzi.com/api/patrons/sign_up&rsquo;</p>
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons/sign_up</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -240,6 +769,10 @@ Remember — a happy kitten is an authenticated kitten!
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>name</td>
+<td>the name of patron</td>
+</tr>
 <tr>
 <td>email</td>
 <td>the email of patron</td>
@@ -902,9 +1435,7 @@ patron just need to pay 75.00 ):</p>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Phrenzi API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -922,15 +1453,15 @@ patron just need to pay 75.00 ):</p>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The resource requested is hidden for administrators only</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; You tried to access a resource with an invalid method</td>
 </tr>
 <tr>
 <td>406</td>
@@ -938,15 +1469,15 @@ patron just need to pay 75.00 ):</p>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td>422</td>
+<td>Unprocessable Entity, this happend while request params have validation errors</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many resources! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
