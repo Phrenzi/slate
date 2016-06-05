@@ -4,35 +4,32 @@
 
 ```shell
 curl "https://phrenzi.com/api/v1/patrons/sign_in"
-  -H "Authorization: your_token"
+  -H "Authorization: app_token"
   -X POST
   -d '{
         "email": "abc@gmail.com",
         "password": "password" }'
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns `User` object structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "id": "ADSFSDA",
+  "name": "Simon Iong",
+  "email": "abc@example.com",
+  "credit_balance": 233.23,
+  "token": "adafasdszdads"
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint authenticate by `app_token`, and try to authenticate Patron.
+
+* if success, it will return `Patron` object with HTTP Status Code `201`, then client can use token in that object to consume other apis for Patron only.
+* if failed to authenticate, it will return HTTP Status Code `401`
+* if user authenticate failed too many time, it will return HTTP Status Code `429`
+
+TODO: figure out what to do if user authenticate fail too many times.
 
 ### HTTP Request
 
@@ -45,41 +42,31 @@ Parameter | Description
 email | the email of patron account
 password | the password of patron account
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
 ## Sign Up
 
 ```shell
 curl "http://example.com/api/v1/patrons/sign_up"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: app_token"
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns HTTP Status Code `201` if success.
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+This endpoint authenticate by `app_token`, and try to register a account for Patron.
 
-This endpoint retrieves a specific kitten.
+* if success, it will return HTTP Status Code `201` without any json object
+* if failed, it will return HTTP Status Code `422`
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+TODO: figure out if we need to show validation errors message by different fields
 
 ### HTTP Request
 
-`POST http://phrenzi.com/api/patrons/sign_up'
+`POST http://phrenzi.com/api/patrons/sign_up`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
+name | the name of patron
 email | the email of patron
 password | the password of patron account
 password_confirmation | confirm password again
