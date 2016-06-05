@@ -45,8 +45,14 @@ password | the password of patron account
 ## Sign Up
 
 ```shell
-curl "http://example.com/api/v1/patrons/sign_up"
+curl "http://phrenzi.com/api/v1/patrons/sign_up"
   -H "Authorization: app_token"
+  -X POST
+  -d '{
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password" }'
+
 ```
 
 > The above command returns HTTP Status Code `201` if success.
@@ -74,29 +80,27 @@ password_confirmation | confirm password again
 ## Forget Password
 
 ```shell
-curl "http://example.com/api/patrons/forget_password"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/patrons/passwords"
+  -H "Authorization: app_token"
+  -X POST
+  -d '{
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password" }'
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns HTTP Status Code `201` without any json object
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+This endpoint authenticate by `app_token`, and try to reset password
 
-This endpoint retrieves a specific kitten.
+* if success, it will return HTTP Status Code `201` without any json object
+* if failed, it will return HTTP Status Code `422`
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+TODO: this seems weird, how can we ensure this user's identity
 
 ### HTTP Request
 
-`POST http://phrenzi.com/api/patrons/sign_up'
+`POST http://phrenzi.com/api/patrons/passwords`
 
 ### URL Parameters
 
