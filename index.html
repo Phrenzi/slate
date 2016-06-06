@@ -812,10 +812,8 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">201</code> without any json object</li>
-<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code></li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, with json message: &ldquo;There&rsquo;s an error while creting account&rdquo;</li>
 </ul>
-
-<p>TODO: figure out if we need to show validation errors message by different fields</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -852,23 +850,19 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
   -H <span class="s2">"Authorization: app_token"</span>
   -X POST
   -d <span class="s1">'{
-        "email": "abc@gmail.com",
-        "password": "password",
-        "password_confirmation": "password" }'</span>
+        "email": "abc@gmail.com" }'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns HTTP Status Code <code class="prettyprint">201</code> without any json object</p>
+<p>The above command returns HTTP Status Code <code class="prettyprint">200</code> without any json object</p>
 </blockquote>
 
 <p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to reset password</p>
 
 <ul>
-<li>if success, it will return HTTP Status Code <code class="prettyprint">201</code> without any json object</li>
-<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code></li>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> without any json object</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, with json message: &ldquo;There&rsquo;s an error resetting password&rdquo;</li>
 </ul>
-
-<p>TODO: this seems weird, how can we ensure this user&rsquo;s identity</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -885,14 +879,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <tr>
 <td>email</td>
 <td>the email of patron</td>
-</tr>
-<tr>
-<td>password</td>
-<td>the password of patron account</td>
-</tr>
-<tr>
-<td>password_confirmation</td>
-<td>confirm password again</td>
 </tr>
 </tbody></table>
 
