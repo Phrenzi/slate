@@ -60,9 +60,7 @@ curl "http://phrenzi.com/api/v1/patrons/sign_up"
 This endpoint authenticate by `app_token`, and try to register a account for Patron.
 
 * if success, it will return HTTP Status Code `201` without any json object
-* if failed, it will return HTTP Status Code `422`
-
-TODO: figure out if we need to show validation errors message by different fields
+* if failed, it will return HTTP Status Code `422`, with json message: "There's an error while creting account"
 
 ### HTTP Request
 
@@ -84,19 +82,15 @@ curl "http://example.com/api/patrons/passwords"
   -H "Authorization: app_token"
   -X POST
   -d '{
-        "email": "abc@gmail.com",
-        "password": "password",
-        "password_confirmation": "password" }'
+        "email": "abc@gmail.com" }'
 ```
 
-> The above command returns HTTP Status Code `201` without any json object
+> The above command returns HTTP Status Code `200` without any json object
 
 This endpoint authenticate by `app_token`, and try to reset password
 
-* if success, it will return HTTP Status Code `201` without any json object
-* if failed, it will return HTTP Status Code `422`
-
-TODO: this seems weird, how can we ensure this user's identity
+* if success, it will return HTTP Status Code `200` without any json object
+* if failed, it will return HTTP Status Code `422`, with json message: "There's an error resetting password"
 
 ### HTTP Request
 
@@ -107,5 +101,3 @@ TODO: this seems weird, how can we ensure this user's identity
 Parameter | Description
 --------- | -----------
 email | the email of patron
-password | the password of patron account
-password_confirmation | confirm password again
