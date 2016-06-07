@@ -741,9 +741,10 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
           <h1 id="patrons">Patrons</h1>
 
 <h2 id="login">Login</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/patrons/sign_in"</span>
-  -H <span class="s2">"Authorization: app_token"</span>
-  -X POST
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
         "password": "password" }'</span>
@@ -773,7 +774,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/v1/patrons/sign_in</code></p>
+<p><code class="prettyprint">POST http://example.com/api/patrons/sign_in</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -794,15 +795,15 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tbody></table>
 
 <h2 id="sign-up">Sign Up</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span>
-  -H <span class="s2">"Authorization: app_token"</span>
-  -X POST
+<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password" }'</span>
-
 </code></pre>
 
 <blockquote>
@@ -847,9 +848,10 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tbody></table>
 
 <h2 id="forget-password">Forget Password</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span>
-  -H <span class="s2">"Authorization: app_token"</span>
-  -X POST
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com" }'</span>
 </code></pre>
@@ -886,9 +888,10 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
           <h1 id="managers">Managers</h1>
 
 <h2 id="login">Login</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/managers/sign_in"</span>
-  -H <span class="s2">"Authorization: app_token"</span>
-  -X POST
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_in"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
         "password": "password" }'</span>
@@ -917,7 +920,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/v1/managers/sign_in</code></p>
+<p><code class="prettyprint">POST http://example.com/api/managers/sign_in</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -943,7 +946,8 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
           <h1 id="establishments">Establishments</h1>
 
 <h2 id="get-all-establishments">get all establishments</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/establishments"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/establishments"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: app_token"</span>
 </code></pre>
 
@@ -1070,14 +1074,15 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/v1/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/establishments</code></p>
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
 
           <h1 id="patron-transactions">Patron / Transactions</h1>
 
 <h2 id="get-all-transactions-for-patron">get all transactions for patron</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/patrons/transactions"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: user_token"</span>
 </code></pre>
 
@@ -1124,7 +1129,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/v1/patrons/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patrons/establishments</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -1147,7 +1152,8 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
           <h1 id="management-patrons">Management / Patrons</h1>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/patrons"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
@@ -1172,12 +1178,13 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://phrenzi.com/api/v1/management/patrons</code></p>
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/patrons</code></p>
 
           <h1 id="management-transactions">Management / Transactions</h1>
 
 <h2 id="get-all-transactions-by-establishment">Get all transactions by establishment</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/transactions"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
@@ -1224,7 +1231,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/v1/management/transactions</code></p>
+<p><code class="prettyprint">GET http://example.com/api/management/transactions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -1247,9 +1254,10 @@ page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20</p>
 
 <h2 id="create-transaction">Create Transaction</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/transactions"</span>
-  -H <span class="s2">"Authorization: manager_token"</span>
-  -X POST
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "type": "sale",
     "sale_amount": 200.00
@@ -1264,7 +1272,7 @@ per_page | N | the number of transaction record return per page by api, default 
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/v1/management/transactions</code></p>
+<p><code class="prettyprint">POST http://example.com/api/management/transactions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -1403,7 +1411,8 @@ per_page | N | the number of transaction record return per page by api, default 
           <h1 id="management-settings">Management / Settings</h1>
 
 <h2 id="get-cash-back">Get cash back</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
@@ -1423,12 +1432,13 @@ per_page | N | the number of transaction record return per page by api, default 
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://phrenzi.com/api/v1/management/cash_back</code></p>
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/cash_back</code></p>
 
 <h2 id="update-cash-back">Update cash back</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/cash_back"</span>
-  -H <span class="s2">"Authorization: manager_token"</span>
-  -X PATCH
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
     "current_password": "current_password",
     "cash_back": 4.5
@@ -1443,7 +1453,7 @@ per_page | N | the number of transaction record return per page by api, default 
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PATCH http://phrenzi.com/api/v1/management/cash_back</code></p>
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/cash_back</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -1464,9 +1474,10 @@ per_page | N | the number of transaction record return per page by api, default 
 </tbody></table>
 
 <h2 id="update-password">Update Password</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/v1/management/settings/passwords"</span>
-  -H <span class="s2">"Authorization: manager_token"</span>
-  -X PATCH
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/passwords"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
     "current_password": "current_password",
     "password": "new_password",
@@ -1482,7 +1493,7 @@ per_page | N | the number of transaction record return per page by api, default 
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PATCH http://phrenzi.com/api/v1/management/settings/update_password</code></p>
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/settings/update_password</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
