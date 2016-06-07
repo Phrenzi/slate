@@ -794,10 +794,11 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tbody></table>
 
 <h2 id="sign-up">Sign Up</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/v1/patrons/sign_up"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span>
   -H <span class="s2">"Authorization: app_token"</span>
   -X POST
   -d <span class="s1">'{
+        "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password" }'</span>
@@ -817,7 +818,7 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://phrenzi.com/api/patrons/sign_up</code></p>
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
