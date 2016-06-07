@@ -3,7 +3,8 @@
 ## Get cash back
 
 ```shell
-curl "https://phrenzi.com/api/management/settings/cash_back"
+curl "https://phrenzi.com/api/management/settings/cash_back" \
+  -H "Content-Type: application/json" \
   -H "Authorization: manager_token"
 ```
 
@@ -28,9 +29,10 @@ This endpoint require `manager_token`, and return whole establishment object
 ## Update cash back
 
 ```shell
-curl "https://phrenzi.com/api/management/settings/cash_back"
-  -H "Authorization: manager_token"
-  -X PATCH
+curl "https://phrenzi.com/api/management/settings/cash_back" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: manager_token" \
+  -X PATCH \
   -d '{
     "current_password": "current_password",
     "cash_back": 4.5
@@ -55,9 +57,10 @@ current_password | the current password for current manager
 ## Update Password
 
 ```shell
-curl "https://phrenzi.com/api/management/settings/passwords"
-  -H "Authorization: manager_token"
-  -X PATCH
+curl "https://phrenzi.com/api/management/settings/passwords" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: manager_token" \
+  -X PATCH \
   -d '{
     "current_password": "current_password",
     "password": "new_password",

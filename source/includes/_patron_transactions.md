@@ -3,7 +3,8 @@
 ## get all transactions for patron
 
 ```shell
-curl "https://phrenzi.com/api/patrons/transactions"
+curl "https://phrenzi.com/api/patrons/transactions" \
+  -H "Content-Type: application/json" \
   -H "Authorization: user_token"
 ```
 

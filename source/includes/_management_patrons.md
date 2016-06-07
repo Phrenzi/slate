@@ -3,7 +3,8 @@
 ## Get all patrons
 
 ```shell
-curl "https://phrenzi.com/api/management/patrons"
+curl "https://phrenzi.com/api/management/patrons" \
+  -H "Content-Type: application/json" \
   -H "Authorization: manager_token"
 ```
 

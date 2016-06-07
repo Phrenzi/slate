@@ -3,7 +3,8 @@
 ## Get all transactions by establishment
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions"
+curl "https://phrenzi.com/api/management/transactions" \
+  -H "Content-Type: application/json" \
   -H "Authorization: manager_token"
 ```
 
@@ -63,9 +64,10 @@ per_page | N | the number of transaction record return per page by api, default 
 
 ## Create Transaction
 ```shell
-curl "https://phrenzi.com/api/management/transactions"
-  -H "Authorization: manager_token"
-  -X POST
+curl "https://phrenzi.com/api/management/transactions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: manager_token" \
+  -X POST \
   -d '{
     "type": "sale",
     "sale_amount": 200.00

@@ -3,7 +3,8 @@
 ## get all establishments
 
 ```shell
-curl "https://phrenzi.com/api/establishments"
+curl "https://phrenzi.com/api/establishments" \
+  -H "Content-Type: application/json" \
   -H "Authorization: app_token"
 ```
 
