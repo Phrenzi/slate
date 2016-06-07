@@ -3,9 +3,10 @@
 ## Login
 
 ```shell
-curl "https://phrenzi.com/api/v1/patrons/sign_in"
-  -H "Authorization: app_token"
-  -X POST
+curl "https://phrenzi.com/api/patrons/sign_in" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
   -d '{
         "email": "abc@gmail.com",
         "password": "password" }'
@@ -33,7 +34,7 @@ TODO: figure out what to do if user authenticate fail too many times.
 
 ### HTTP Request
 
-`POST http://example.com/api/v1/patrons/sign_in`
+`POST http://example.com/api/patrons/sign_in`
 
 ### Query Parameters
 
@@ -45,15 +46,15 @@ password | the password of patron account
 ## Sign Up
 
 ```shell
-curl "http://phrenzi.com/api/patrons"
-  -H "Authorization: app_token"
-  -X POST
+curl "http://phrenzi.com/api/patrons" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
   -d '{
         "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password" }'
-
 ```
 
 > The above command returns HTTP Status Code `201` if success.
@@ -79,9 +80,10 @@ password_confirmation | confirm password again
 ## Forget Password
 
 ```shell
-curl "http://example.com/api/patrons/passwords"
-  -H "Authorization: app_token"
-  -X POST
+curl "http://example.com/api/patrons/passwords" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
   -d '{
         "email": "abc@gmail.com" }'
 ```
