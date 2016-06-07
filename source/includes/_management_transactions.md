@@ -3,7 +3,7 @@
 ## Get all transactions by establishment
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/transactions"
+curl "https://phrenzi.com/api/management/transactions"
   -H "Authorization: manager_token"
 ```
 
@@ -50,7 +50,7 @@ This endpoint authenticate by `manager_token`, and retrieves transaction records
 
 ### HTTP Request
 
-`GET http://example.com/api/v1/management/transactions`
+`GET http://example.com/api/management/transactions`
 
 ### Query Parameters
 
@@ -63,7 +63,7 @@ per_page | N | the number of transaction record return per page by api, default 
 
 ## Create Transaction
 ```shell
-curl "https://phrenzi.com/api/v1/management/transactions"
+curl "https://phrenzi.com/api/management/transactions"
   -H "Authorization: manager_token"
   -X POST
   -d '{
@@ -78,7 +78,7 @@ This endpoint required `manager_token`, and create transaction records.
 
 ### HTTP Request
 
-`POST http://example.com/api/v1/management/transactions`
+`POST http://example.com/api/management/transactions`
 
 ### Query Parameters
 

@@ -3,7 +3,7 @@
 ## get all transactions for patron
 
 ```shell
-curl "https://phrenzi.com/api/v1/patrons/transactions"
+curl "https://phrenzi.com/api/patrons/transactions"
   -H "Authorization: user_token"
 ```
 
@@ -50,7 +50,7 @@ This endpoint authenticate by `user_token`, and retrieves all transaction for sp
 
 ### HTTP Request
 
-`GET http://example.com/api/v1/patrons/establishments`
+`GET http://example.com/api/patrons/establishments`
 
 ### Query Parameters
 

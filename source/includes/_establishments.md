@@ -3,7 +3,7 @@
 ## get all establishments
 
 ```shell
-curl "https://phrenzi.com/api/v1/establishments"
+curl "https://phrenzi.com/api/establishments"
   -H "Authorization: app_token"
 ```
 
@@ -130,6 +130,6 @@ This endpoint authenticate by `app_token`, and retrieves all establishments
 
 ### HTTP Request
 
-`GET http://example.com/api/v1/establishments`
+`GET http://example.com/api/establishments`
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>

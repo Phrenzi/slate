@@ -3,7 +3,7 @@
 ## Get cash back
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/settings/cash_back"
+curl "https://phrenzi.com/api/management/settings/cash_back"
   -H "Authorization: manager_token"
 ```
 
@@ -23,12 +23,12 @@ This endpoint require `manager_token`, and return whole establishment object
 
 ### HTTP Request
 
-`GET http://phrenzi.com/api/v1/management/cash_back`
+`GET http://phrenzi.com/api/management/cash_back`
 
 ## Update cash back
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/settings/cash_back"
+curl "https://phrenzi.com/api/management/settings/cash_back"
   -H "Authorization: manager_token"
   -X PATCH
   -d '{
@@ -43,7 +43,7 @@ This endpoint require `manager_token`, and update cash_back for current establis
 
 ### HTTP Request
 
-`PATCH http://phrenzi.com/api/v1/management/cash_back`
+`PATCH http://phrenzi.com/api/management/cash_back`
 
 ### Query Parameters
 
@@ -55,7 +55,7 @@ current_password | the current password for current manager
 ## Update Password
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/settings/passwords"
+curl "https://phrenzi.com/api/management/settings/passwords"
   -H "Authorization: manager_token"
   -X PATCH
   -d '{
@@ -71,7 +71,7 @@ This endpoint require `manager_token`, and update current password for current m
 
 ### HTTP Request
 
-`PATCH http://phrenzi.com/api/v1/management/settings/update_password`
+`PATCH http://phrenzi.com/api/management/settings/update_password`
 
 ### Query Parameters
 

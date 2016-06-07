@@ -3,7 +3,7 @@
 ## Get all patrons
 
 ```shell
-curl "https://phrenzi.com/api/v1/management/patrons"
+curl "https://phrenzi.com/api/management/patrons"
   -H "Authorization: manager_token"
 ```
 
@@ -28,4 +28,4 @@ This endpoint require `manager_token`, and retrieves all patrons.
 
 ### HTTP Request
 
-`GET http://phrenzi.com/api/v1/management/patrons`
+`GET http://phrenzi.com/api/management/patrons`

@@ -3,7 +3,7 @@
 ## Login
 
 ```shell
-curl "https://phrenzi.com/api/v1/managers/sign_in"
+curl "https://phrenzi.com/api/managers/sign_in"
   -H "Authorization: app_token"
   -X POST
   -d '{
@@ -32,7 +32,7 @@ TODO: figure out what to do if user authenticate fail too many times.
 
 ### HTTP Request
 
-`POST http://example.com/api/v1/managers/sign_in`
+`POST http://example.com/api/managers/sign_in`
 
 ### Query Parameters
 
