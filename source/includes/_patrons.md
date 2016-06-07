@@ -45,10 +45,11 @@ password | the password of patron account
 ## Sign Up
 
 ```shell
-curl "http://phrenzi.com/api/v1/patrons/sign_up"
+curl "http://phrenzi.com/api/patrons"
   -H "Authorization: app_token"
   -X POST
   -d '{
+        "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password" }'
@@ -64,7 +65,7 @@ This endpoint authenticate by `app_token`, and try to register a account for Pat
 
 ### HTTP Request
 
-`POST http://phrenzi.com/api/patrons/sign_up`
+`POST http://phrenzi.com/api/patrons`
 
 ### URL Parameters
 
