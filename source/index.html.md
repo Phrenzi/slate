@@ -45,7 +45,7 @@ curl "api_endpoint_here" \
   -H "expiry: 1466692376"
 ```
 
-> All the header here is required, and can be retrieved from header in last api response.
+> auth header here is required, and can be retrieved from header in last api response.
 
 We take security as a first priority, so following security mechanism is under consider during design API:
 
@@ -54,10 +54,11 @@ We take security as a first priority, so following security mechanism is under c
 * we use securely compared ( to protect against timing attacks )
 * token is invalidate after 2 weeks
 
-## Machanism
+## Auth Header
 
 after authenticate ( for example, sign in api call), the header from api response will have
-following 4 tags, client need to extract out these 4 tags, and pass them into the header for next api call.
+following 4 tags, we call it `Auth Header`, client need to extract out `Auth Header`, and use it in
+next api call. For a exmaple of Auth Header, please have a look at right hand side.
 
 * access-token
 * token-type
