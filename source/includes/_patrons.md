@@ -51,6 +51,11 @@ Parameter | Description
 email | the email of patron account
 password | the password of patron account
 
+
+## Sign Out
+
+this endpoint need `auth header` to authenticate patron login, pending for more information
+
 ## Sign Up
 
 ```shell
