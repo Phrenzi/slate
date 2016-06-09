@@ -28,41 +28,38 @@ information on various establishments, transactions, and challenges in our datab
 
 We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
+# API standard
+
+for apis in Phrenzi, we follow [JSON API](http://jsonapi.org). Clients built around JSON API are able to take advantage of its features around efficiently caching responses, sometimes eliminating network requests entirely.
+
 # Authentication
 
 > To authorize, use this code:
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: secret_token"
+curl "api_endpoint_here" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376"
 ```
 
-> Make sure to replace `secret_token` with your API key.
+> All the header here is required, and can be retrieved from header in last api response.
 
-Phrenzi uses different type of tokens to allow access various of API.
+We take security as a first priority, so following security mechanism is under consider during design API:
 
-Phrenzi expects for the `token` to be included in all API requests to the server in a header that looks like the following:
+* token is change after every request
+* all the token we using during exchanged is hashed using BCrypt ( not plain text stored )
+* we use securely compared ( to protect against timing attacks )
+* token is invalidate after 2 weeks
 
-`Authorization: secret_token`
+## Machanism
 
-<aside class="notice">
-You must replace <code>secret_token</code> with your personal API key.
-</aside>
+after authenticate ( for example, sign in api call), the header from api response will have
+following 4 tags, client need to extract out these 4 tags, and pass them into the header for next api call.
 
-In Phrenze, we have 3 type of api token, which will use in different api endpoints.
-
-## App Token
-
-This is a normal token used in apis that don't need authenticate of Patron or Manager, such as
-Patron login, Patron Sign Up, Manager login
-
-## Patron Token
-
-This is a token used apis that need patron authenticate, after successfully Patron login, server
-will return a `user_token`, then client can consume the patron related apis using this token.
-
-## Manager Token
-
-This is a token used apis that need manager authenticate, after successfully Manager login, server will return a
-`manager_token`, then client can consume the manager related apis using this token.
+* access-token
+* token-type
+* client
+* expiry
