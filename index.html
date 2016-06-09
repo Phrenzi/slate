@@ -123,50 +123,70 @@ information on various establishments, transactions, and challenges in our datab
 
 <p>We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
+<h1 id="api-standard">API standard</h1>
+
+<p>for apis in Phrenzi, we follow <a href="http://jsonapi.org">JSON API</a>. Clients built around JSON API are able to take advantage of its features around efficiently caching responses, sometimes eliminating network requests entirely.</p>
+
 <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: secret_token"</span>
+curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">secret_token</code> with your API key.</p>
+<p>auth header here is required, and can be retrieved from header in last api response.</p>
 </blockquote>
 
-<p>Phrenzi uses different type of tokens to allow access various of API.</p>
+<p>We take security as a first priority, so following security mechanism is under consider during design API:</p>
 
-<p>Phrenzi expects for the <code class="prettyprint">token</code> to be included in all API requests to the server in a header that looks like the following:</p>
+<ul>
+<li>token is change after every request</li>
+<li>all the token we using during exchanged is hashed using BCrypt ( not plain text stored )</li>
+<li>we use securely compared ( to protect against timing attacks )</li>
+<li>token is invalidate after 2 weeks</li>
+</ul>
 
-<p><code class="prettyprint">Authorization: secret_token</code></p>
+<h2 id="auth-header">Auth Header</h2>
 
-<aside class="notice">
-You must replace <code>secret_token</code> with your personal API key.
-</aside>
+<p>after authenticate ( for example, sign in api call), the header from api response will have
+following 4 tags, we call it <code class="prettyprint">Auth Header</code>, client need to extract out <code class="prettyprint">Auth Header</code>, and use it in
+next api call. For a exmaple of Auth Header, please have a look at right hand side.</p>
 
-<p>In Phrenze, we have 3 type of api token, which will use in different api endpoints.</p>
-
-<h2 id="app-token">App Token</h2>
-
-<p>This is a normal token used in apis that don&rsquo;t need authenticate of Patron or Manager, such as
-Patron login, Patron Sign Up, Manager login</p>
-
-<h2 id="patron-token">Patron Token</h2>
-
-<p>This is a token used apis that need patron authenticate, after successfully Patron login, server
-will return a <code class="prettyprint">user_token</code>, then client can consume the patron related apis using this token.</p>
-
-<h2 id="manager-token">Manager Token</h2>
-
-<p>This is a token used apis that need manager authenticate, after successfully Manager login, server will return a
-<code class="prettyprint">manager_token</code>, then client can consume the manager related apis using this token.</p>
+<ul>
+<li>access-token</li>
+<li>token-type</li>
+<li>client</li>
+<li>expiry</li>
+</ul>
 
           <h1 id="json-objects">Json Objects</h1>
 
-<p>these object will return by apis provided by Phrenzi if needed.</p>
+<p>normally, a api response in Phrenzi, will be somehow like this in the right hand side :</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCCDD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.22</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>In <code class="prettyprint">data</code> tag, it represent the important part for client to consuming, either a json object, or
+Array of json objects. It would be easier for us to classify different json object from Phrenzi api
+returned, so we list all the different json object here:</p>
+
+<p>For example, the api response on the right hand side represent a <code class="prettyprint">Patron</code> json object below.</p>
 
 <h2 id="patron">Patron</h2>
 
@@ -179,15 +199,9 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&lsquo;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Patron in Phrenzi</td>
-</tr>
-<tr>
 <td>name</td>
 <td>String</td>
-<td>&#39;Simon Iong&rsquo;</td>
+<td>&lsquo;Simon Iong&rsquo;</td>
 <td>the name of Patron</td>
 </tr>
 <tr>
@@ -202,12 +216,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>&#39;abc@example.com&rsquo;</td>
 <td>the email from Patron</td>
 </tr>
-<tr>
-<td>token</td>
-<td>String</td>
-<td>&#39;adafasdszdads&rsquo;</td>
-<td>this is the user token</td>
-</tr>
 </tbody></table>
 
 <h2 id="basic-patron">Basic Patron</h2>
@@ -220,12 +228,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Patron in Phrenzi</td>
-</tr>
 <tr>
 <td>name</td>
 <td>String</td>
@@ -251,12 +253,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Manager in Phrenzi</td>
-</tr>
-<tr>
 <td>name</td>
 <td>String</td>
 <td>&#39;Simon Iong&rsquo;</td>
@@ -267,12 +263,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>String</td>
 <td>&#39;abc@example.com&rsquo;</td>
 <td>the email from Manager</td>
-</tr>
-<tr>
-<td>token</td>
-<td>String</td>
-<td>&#39;adsasdafsdafa&rsquo;</td>
-<td>this is the manager token</td>
 </tr>
 </tbody></table>
 
@@ -286,12 +276,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Establishment in Phrenzi</td>
-</tr>
 <tr>
 <td>name</td>
 <td>String</td>
@@ -340,12 +324,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that uniquly represent Establishment in Phrenzi</td>
-</tr>
 <tr>
 <td>name</td>
 <td>String</td>
@@ -455,12 +433,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
-<tr>
 <td>patron_id</td>
 <td>String</td>
 <td>&#39;ADSSDD&rsquo;</td>
@@ -504,12 +476,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
 <tr>
 <td>patron_id</td>
 <td>String</td>
@@ -555,12 +521,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
-<tr>
 <td>patron_id</td>
 <td>String</td>
 <td>&#39;ADSSDD&rsquo;</td>
@@ -600,12 +560,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
 <tr>
 <td>patron_id</td>
 <td>String</td>
@@ -651,12 +605,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
-<tr>
 <td>patron_id</td>
 <td>String</td>
 <td>&#39;ADSSDD&rsquo;</td>
@@ -701,12 +649,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>String</td>
-<td>&#39;ASDDDD&rsquo;</td>
-<td>the code that unique represent Transaction in Phrenzi</td>
-</tr>
-<tr>
 <td>patron_id</td>
 <td>String</td>
 <td>&#39;ADSSDD&rsquo;</td>
@@ -743,7 +685,6 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <h2 id="login">Login</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
@@ -751,26 +692,35 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </code></pre>
 
 <blockquote>
-<p>The above command returns <code class="prettyprint">User</code> object structured like this:</p>
+<p>if success, the above command returns <code class="prettyprint">Patron</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.23</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adafasdszdads"</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.23</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to authenticate Patron.</p>
+<blockquote>
+<p>if failed, the above command returns status code <code class="prettyprint">401</code> and json structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Invalid login credentials. Please try again."</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to authenticate Patron</p>
 
 <ul>
-<li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">201</code>, then client can use token in that object to consume other apis for Patron only.</li>
-<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code></li>
-<li>if user authenticate failed too many time, it will return HTTP Status Code <code class="prettyprint">429</code></li>
+<li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
+auth header from reponse to consuming next request that need authentication.</li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code> with <code class="prettyprint">errors</code> message.</li>
 </ul>
-
-<p>TODO: figure out what to do if user authenticate fail too many times.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -794,6 +744,10 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 </tr>
 </tbody></table>
 
+<h2 id="sign-out">Sign Out</h2>
+
+<p>this endpoint need <code class="prettyprint">auth header</code> to authenticate patron login, pending for more information</p>
+
 <h2 id="sign-up">Sign Up</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -803,18 +757,43 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
         "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
-        "password_confirmation": "password" }'</span>
+        "password_confirmation": "password",
+        "confirm_success_url": "phrenzi://"
+        }'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns HTTP Status Code <code class="prettyprint">201</code> if success.</p>
+<p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDDD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to register a account for Patron.</p>
+<blockquote>
+<p>if failed, the above command returns HTTP Status Code <code class="prettyprint">422</code> with following json objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"already in use"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Email already in use"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to register a account for Patron.</p>
 
 <ul>
-<li>if success, it will return HTTP Status Code <code class="prettyprint">201</code> without any json object</li>
-<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, with json message: &ldquo;There&rsquo;s an error while creting account&rdquo;</li>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with <code class="prettyprint">Patron</code> json object</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, and with <code class="prettyprint">errors</code> json message</li>
 </ul>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -845,9 +824,17 @@ will return a <code class="prettyprint">user_token</code>, then client can consu
 <td>password_confirmation</td>
 <td>confirm password again</td>
 </tr>
+<tr>
+<td>confirm_success_url</td>
+<td>the url after confirmation link is click</td>
+</tr>
 </tbody></table>
 
-<h2 id="forget-password">Forget Password</h2>
+<h2 id="confirmation-patron">Confirmation Patron</h2>
+
+<p>client don&rsquo;t need to call this api, pending for more information</p>
+
+<h2 id="forget-password-not-done-yet">Forget Password ( Not Done yet )</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
