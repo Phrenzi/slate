@@ -1,22 +1,39 @@
 # Json Objects
 
-these object will return by apis provided by Phrenzi if needed.
+normally, a api response in Phrenzi, will be somehow like this in the right hand side :
+
+``` json
+{
+  "data": {
+    "id": "ABCCDD",
+    "type": "patrons",
+    "attributes": {
+      "name": "Simon",
+      "email": "abc@example.com",
+      "credit_balance": 123.22
+    }
+  }
+}
+```
+
+In `data` tag, it represent the important part for client to consuming, either a json object, or
+Array of json objects. It would be easier for us to classify different json object from Phrenzi api
+returned, so we list all the different json object here:
+
+For example, the api response on the right hand side represent a `Patron` json object below.
 
 ## Patron
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Patron in Phrenzi
 name | String | 'Simon Iong' | the name of Patron
 credit_balance | Float | 123.22 | the current avaliable balance for Patron
 email | String | 'abc@example.com' | the email from Patron
-token | String | 'adafasdszdads' | this is the user token
 
 ## Basic Patron
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Patron in Phrenzi
 name | String | 'Simon Iong' | the name of Patron
 credit_balance | Float | 123.22 | the current avaliable balance for Patron
 
@@ -24,26 +41,22 @@ credit_balance | Float | 123.22 | the current avaliable balance for Patron
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Manager in Phrenzi
 name | String | 'Simon Iong' | the name of Manager
 email | String | 'abc@example.com' | the email from Manager
-token | String | 'adsasdafsdafa' | this is the manager token
 
 ## Establishment
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Establishment in Phrenzi |
 name | String | 'Awesome Bar' | the name of Establishment |
 phone | String | '123434123' | the phone contact for Establishment |
 desc | String | 'asdfsad' | the desc for Establishment |
 cash_back | Float | 3.5 | the current cash back setting |
 address | Address object | see below | the address object attached to this establishment |
-business_hours | Array of Business Hour | see below | totally 7 business hour object | 
+business_hours | Array of Business Hour | see below | totally 7 business hour object |
 
 ## Basic Establishment
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that uniquly represent Establishment in Phrenzi |
 name | String | 'Awesome Bar' | the name of Establishment |
 phone | String | '123434123' | the phone contact for Establishment |
 desc | String | 'asdfsad' | the desc for Establishment |
@@ -69,7 +82,6 @@ closed | Boolean | false | true/false, true stands for establishment is close th
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'sale' | type of transaction, either 'sale', or 'correction' |
 sale_amount | Float | 200.00 | different meaning for different scenarios |
@@ -82,7 +94,6 @@ sale amount is 200, cash_back setting is 3.5%, then earned credit 7.00
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | Float | 200.00 | the sale amount of this transaction
@@ -95,7 +106,6 @@ sale amount is 200, 125 credit redeemed, then sale & credit record would be:
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'sale' | type of transaction |
 sale_amount | Float | 75.00 | in this case, we deduct 125 credit |
@@ -104,7 +114,6 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'credit' | type of transaction |
 sale_amount | Float | 125.00 | the sale amount redeem by credit |
@@ -117,7 +126,6 @@ sale amount is 200, 200 credit redeemed, then there is no sale record, only cred
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'credit' | type of transaction |
 sale_amount | Float | 200.00 | the sale amount redeem by credit |
@@ -130,7 +138,6 @@ manager decide to deduct 200 credit balance for Patron.
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | String | 'ASDDDD' | the code that unique represent Transaction in Phrenzi |
 patron_id | String | 'ADSSDD' | the unique code for Patron this transaction is belongs to |
 type | String | 'correction' | type of transaction |
 sale_amount | Float | 0.00 | the sale amount redeem by credit |
