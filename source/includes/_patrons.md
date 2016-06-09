@@ -5,32 +5,40 @@
 ```shell
 curl "https://phrenzi.com/api/patrons/sign_in" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com",
         "password": "password" }'
 ```
 
-> The above command returns `User` object structured like this:
+> if success, the above command returns `Patron` object with `200` status code, and structured like this:
 
 ```json
 {
-  "id": "ADSFSDA",
-  "name": "Simon Iong",
-  "email": "abc@example.com",
-  "credit_balance": 233.23,
-  "token": "adafasdszdads"
+  "data": {
+    "id": "ADSFSDA",
+    "attributes": {
+      "name": "Simon Iong",
+      "email": "abc@example.com",
+      "credit_balance": 233.23
+    }
+  }
 }
 ```
 
-This endpoint authenticate by `app_token`, and try to authenticate Patron.
+> if failed, the above command returns status code `401` and json structured like this:
 
-* if success, it will return `Patron` object with HTTP Status Code `201`, then client can use token in that object to consume other apis for Patron only.
-* if failed to authenticate, it will return HTTP Status Code `401`
-* if user authenticate failed too many time, it will return HTTP Status Code `429`
+``` json
+{
+  "errors": [ "Invalid login credentials. Please try again." ]
+}
+```
 
-TODO: figure out what to do if user authenticate fail too many times.
+This endpoint try to authenticate Patron
+
+* if success, it will return `Patron` object with HTTP Status Code `200`, and client can retrive
+auth header from reponse to consuming next request that need authentication.
+* if failed to authenticate, it will return HTTP Status Code `401` with `errors` message.
 
 ### HTTP Request
 
@@ -54,15 +62,42 @@ curl "http://phrenzi.com/api/patrons" \
         "name": "Simon",
         "email": "abc@gmail.com",
         "password": "password",
-        "password_confirmation": "password" }'
+        "password_confirmation": "password",
+        "confirm_success_url": "phrenzi://"
+        }'
 ```
 
-> The above command returns HTTP Status Code `201` if success.
+> if success, the above command returns HTTP Status Code `200` with following json objects:
 
-This endpoint authenticate by `app_token`, and try to register a account for Patron.
+```json
+{
+  "data": {
+    "id": "ABCDDD",
+    "type": "patrons",
+    "attributes": {
+      "name": "Simon",
+      "email": "abc@gmail.com",
+      "credit_balance": 0.0
+    }
+  }
+}
+```
 
-* if success, it will return HTTP Status Code `201` without any json object
-* if failed, it will return HTTP Status Code `422`, with json message: "There's an error while creting account"
+> if failed, the above command returns HTTP Status Code `422` with following json objects:
+
+``` json
+{
+  "errors": {
+    "email": ["already in use"],
+    "full_messages": ["Email already in use"]
+  }
+}
+```
+
+This endpoint try to register a account for Patron.
+
+* if success, it will return HTTP Status Code `200` with `Patron` json object
+* if failed, it will return HTTP Status Code `422`, and with `errors` json message
 
 ### HTTP Request
 
@@ -76,8 +111,13 @@ name | the name of patron
 email | the email of patron
 password | the password of patron account
 password_confirmation | confirm password again
+confirm_success_url | the url after confirmation link is click
 
-## Forget Password
+## Confirmation Patron
+
+client don't need to call this api, pending for more information
+
+## Forget Password ( Not Done yet )
 
 ```shell
 curl "http://example.com/api/patrons/passwords" \
