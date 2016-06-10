@@ -54,7 +54,43 @@ password | the password of patron account
 
 ## Sign Out
 
-this endpoint need `auth header` to authenticate patron login, pending for more information
+```shell
+curl "https://phrenzi.com/api/patrons/sign_out" \
+  -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com"
+  -X DELETE
+```
+
+> if success, the above command returns status code `200`, and json object like this:
+
+```json
+{
+  "success": true
+}
+```
+
+> if failed, the above command returns status code `404`, and errors json like this:
+
+``` json
+{
+  "errors": ["User was not found or was not logged in."]
+}
+```
+
+this endpoint need `Auth Header` to authenticate patron,
+you are going to get it from Patron `Sign In` api request
+or other subsequence request that need authentication.
+
+* if success, it will return HTTP Status Code `200`
+* if failed to authenticate, it will return HTTP Status Code `404` with `errors` message.
+
+### HTTP Request
+
+`DELETE http://example.com/api/patrons/sign_out`
 
 ## Sign Up
 
