@@ -1,5 +1,68 @@
 # Patrons
 
+## Sign Up
+
+```shell
+curl "http://phrenzi.com/api/patrons" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
+  -d '{
+        "name": "Simon",
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password",
+        "confirm_success_url": "phrenzi://"
+        }'
+```
+
+> if success, the above command returns HTTP Status Code `200` with following json objects:
+
+```json
+{
+  "data": {
+    "id": "ABCDDD",
+    "type": "patrons",
+    "attributes": {
+      "name": "Simon",
+      "email": "abc@gmail.com",
+      "credit_balance": 0.0
+    }
+  }
+}
+```
+
+> if failed, the above command returns HTTP Status Code `422` with following json objects:
+
+``` json
+{
+  "errors": {
+    "email": ["already in use"],
+    "full_messages": ["Email already in use"]
+  }
+}
+```
+
+This endpoint try to register a account for Patron.
+
+* if success, it will return HTTP Status Code `200` with `Patron` json object
+* if failed, it will return HTTP Status Code `422`, and with `errors` json message
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/patrons`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+name | the name of patron
+email | the email of patron
+password | the password of patron account
+password_confirmation | confirm password again
+confirm_success_url | the url after confirmation link is click
+
+
 ## Login
 
 ```shell
@@ -91,68 +154,6 @@ or other subsequence request that need authentication.
 ### HTTP Request
 
 `DELETE http://example.com/api/patrons/sign_out`
-
-## Sign Up
-
-```shell
-curl "http://phrenzi.com/api/patrons" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
-  -X POST \
-  -d '{
-        "name": "Simon",
-        "email": "abc@gmail.com",
-        "password": "password",
-        "password_confirmation": "password",
-        "confirm_success_url": "phrenzi://"
-        }'
-```
-
-> if success, the above command returns HTTP Status Code `200` with following json objects:
-
-```json
-{
-  "data": {
-    "id": "ABCDDD",
-    "type": "patrons",
-    "attributes": {
-      "name": "Simon",
-      "email": "abc@gmail.com",
-      "credit_balance": 0.0
-    }
-  }
-}
-```
-
-> if failed, the above command returns HTTP Status Code `422` with following json objects:
-
-``` json
-{
-  "errors": {
-    "email": ["already in use"],
-    "full_messages": ["Email already in use"]
-  }
-}
-```
-
-This endpoint try to register a account for Patron.
-
-* if success, it will return HTTP Status Code `200` with `Patron` json object
-* if failed, it will return HTTP Status Code `422`, and with `errors` json message
-
-### HTTP Request
-
-`POST http://phrenzi.com/api/patrons`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-name | the name of patron
-email | the email of patron
-password | the password of patron account
-password_confirmation | confirm password again
-confirm_success_url | the url after confirmation link is click
 
 ## Confirmation Patron
 
