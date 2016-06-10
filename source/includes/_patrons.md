@@ -282,6 +282,16 @@ retrieve `auth header` from that redirect request.
 
 <aside class="warning">Client don't need to call this API.</aside>
 
+### HTTP Request
+
+`GET http://phrenzi.com/api/patrons/password/edit`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+reset_password_token | reset password token
+redirect_url | a link to redirect back after success operation
 
 ## Update Password
 
@@ -336,3 +346,14 @@ This api endpoint need Patron authenticated.
 * if success, response with http status code `200`
 * if authenticate failed, response with http status code `401`
 * if validation failed, for example, passsord mismatch, response with http status code `422`
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/patrons/password`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+password | the new password of patron
+password_confirmation | confirm again the new password
