@@ -943,27 +943,27 @@ in this endpoint.</p>
 <p>if email not found, return HTTP Status Code `404, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success: false,
-  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">Unable</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">find</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">'abc@gmail.com'."]</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Unable to find user with email 'abc@gmail.com.'"</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
 <p>if email is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success: false,
-  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">You</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address."]</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"You must provide an email address."</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
 <p>if redirect_url is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success: false,
-  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">Missing</span><span class="w"> </span><span class="err">redirect</span><span class="w"> </span><span class="err">URL."]</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Missing redirect URL."</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>This api is used while Patron forget password, and after this api is invoked and is success, a email
@@ -997,6 +997,31 @@ will trigger and sent to Patron&rsquo;s registered email</p>
 <td>the url that is used within reset password email to redirect back to app</td>
 </tr>
 </tbody></table>
+
+<h2 id="password-reset-link">Password Reset Link</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/password/edit"</span> <span class="se">\</span>
+  -X GET
+  -d <span class="s1">'{
+    "reset_password_token": "abcasdfasd",
+    "redirect_url": "phrenzi://"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, it will redirect to the <code class="prettyprint">redirect_url</code> specify in this api</p>
+
+<p>if failed, it will raise an exception ActionController::RoutingError</p>
+</blockquote>
+
+<p>during password reset procedure of patron ( client call Patron request password reset API ), server
+will sent out a password reset email to Patron&rsquo;s mailbox,
+patron will need to click a link in that email,
+which will trigger this call if Patron click that link.
+If every thing is fine, Patron will redirect to app,
+with <code class="prettyprint">auth header</code> in a request, then App can
+retrieve <code class="prettyprint">auth header</code> from that redirect request.</p>
+
+<aside class="warning">Client don&rsquo;t need to call this API.</aside>
 
           <h1 id="managers">Managers</h1>
 
