@@ -191,23 +191,60 @@ confirmation_token | the confirmation token for patron
 redirect_url | the params is pass-in from patron sign up API
 config | the config object, which is `default`
 
-## Forget Password ( Not Done yet )
+## Request Reset Password
 
 ```shell
 curl "http://example.com/api/patrons/passwords" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com" }'
+        "redirect_url": "phrenzi://" }'
 ```
 
-> The above command returns HTTP Status Code `200` without any json object
+> if success, return HTTP Status Code `200` without following json object
 
-This endpoint authenticate by `app_token`, and try to reset password
+``` json
+{
+  "success": true,
+  "message": "An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."
+}
+```
 
-* if success, it will return HTTP Status Code `200` without any json object
-* if failed, it will return HTTP Status Code `422`, with json message: "There's an error resetting password"
+> if email not found, return HTTP Status Code `404, with following json object
+
+``` json
+{
+  "success: false,
+  "errors": ["Unable to find user with email 'abc@gmail.com'."]
+}
+```
+
+> if email is missing, return HTTP Status Code `401`, with following json object
+
+``` json
+{
+  "success: false,
+  "errors": ["You must provide an email address."]
+}
+```
+
+> if redirect_url is missing, return HTTP Status Code `401`, with following json object
+
+``` json
+{
+  "success: false,
+  "errors": ["Missing redirect URL."]
+}
+```
+
+This api is used while Patron forget password, and after this api is invoked and is success, a email
+will trigger and sent to Patron's registered email
+
+* if success, it will return HTTP Status Code `200` without json object
+* if email is missing, it will return HTTP Status Code `401`
+* if redirect_url is missing, it will return HTTP Status Code `401`
+* if email is not found in server, it will return HTTP Status Code `404`
 
 ### HTTP Request
 
@@ -218,3 +255,4 @@ This endpoint authenticate by `app_token`, and try to reset password
 Parameter | Description
 --------- | -----------
 email | the email of patron
+redirect_url | the url that is used within reset password email to redirect back to app
