@@ -1132,10 +1132,9 @@ and with following json object</p>
 
           <h1 id="managers">Managers</h1>
 
-<h2 id="login">Login</h2>
+<h2 id="sign-in">Sign In</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
@@ -1143,25 +1142,43 @@ and with following json object</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">201</code></p>
+<p>if success, the above command returns <code class="prettyprint">Manager</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adafasdszdads"</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to authenticate Manager.</p>
+<blockquote>
+<p>if failed, the above command returns status code <code class="prettyprint">401</code> and json structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Invalid login credentials. Please try again."</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if manager is not confirmed yet, return status code <code class="prettyprint">401</code> and json like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to authenticate Manager</p>
 
 <ul>
-<li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">201</code>, then client can use token in that object to consume other apis for Manager only.</li>
-<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code></li>
-<li>if manager authenticate failed too many time, it will return HTTP Status Code <code class="prettyprint">429</code></li>
+<li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
+auth header from reponse to consuming next request that need authentication.</li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code> with <code class="prettyprint">errors</code> message.</li>
 </ul>
-
-<p>TODO: figure out what to do if user authenticate fail too many times.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1172,21 +1189,58 @@ and with following json object</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>N/A</td>
-<td>the email of patron account</td>
+<td>the email of manager account</td>
 </tr>
 <tr>
 <td>password</td>
-<td>N/A</td>
-<td>the password of patron account</td>
+<td>the password of manager account</td>
 </tr>
 </tbody></table>
+
+<h2 id="sign-out">Sign Out</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_out"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns status code <code class="prettyprint">200</code>, and json object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, the above command returns status code <code class="prettyprint">404</code>, and errors json like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"User was not found or was not logged in."</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>this endpoint need <code class="prettyprint">Auth Header</code> to authenticate manager,
+you are going to get it from Manager <code class="prettyprint">Sign In</code> api request
+or other subsequence request that need authentication.</p>
+
+<ul>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code></li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">404</code> with <code class="prettyprint">errors</code> message.</li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://example.com/api/managers/sign_out</code></p>
 
           <h1 id="establishments">Establishments</h1>
 
