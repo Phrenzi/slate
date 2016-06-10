@@ -42,7 +42,8 @@ curl "api_endpoint_here" \
   -H "access-token: token" \
   -H "token-type: Bearer" \
   -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376"
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com"
 ```
 
 > auth header here is required, and can be retrieved from header in last api response.
@@ -57,10 +58,13 @@ We take security as a first priority, so following security mechanism is under c
 ## Auth Header
 
 after authenticate ( for example, sign in api call), the header from api response will have
-following 4 tags, we call it `Auth Header`, client need to extract out `Auth Header`, and use it in
-next api call. For a exmaple of Auth Header, please have a look at right hand side.
+following 5 tags, we call it `Auth Header`, client need to extract out `Auth Header`,
+and insert it in header of next api call. For a exmaple of Auth Header, please have a look at right hand side.
+
+Noted: Any client can easily extract out this `Auth Header` exchange logic into a library and shared it out.
 
 * access-token
 * token-type
 * client
 * expiry
+* uid
