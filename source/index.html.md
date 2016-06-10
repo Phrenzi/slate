@@ -39,6 +39,7 @@ for apis in Phrenzi, we follow [JSON API](http://jsonapi.org). Clients built aro
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here" \
+  -H "Content-Type: application/json" # this tell server to response with json \
   -H "access-token: token" \
   -H "token-type: Bearer" \
   -H "client: u4N6u_toFnoDR1o318uOVA" \
