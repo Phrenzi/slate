@@ -800,6 +800,15 @@ returned, so we list all the different json object here:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>if patron is not confirmed yet, return status code <code class="prettyprint">401</code> and json like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint try to authenticate Patron</p>
 
 <ul>
