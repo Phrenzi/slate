@@ -181,7 +181,7 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.22</span><span class="w">
+      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.22</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -210,9 +210,9 @@ returned, so we list all the different json object here:</p>
 <td>the name of Patron</td>
 </tr>
 <tr>
-<td>credit_balance</td>
-<td>Float</td>
-<td>123.22</td>
+<td>credit-balance</td>
+<td>String</td>
+<td>&#39;123.22&rsquo;</td>
 <td>the current avaliable balance for Patron</td>
 </tr>
 <tr>
@@ -241,8 +241,8 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>credit_balance</td>
-<td>Float</td>
-<td>123.22</td>
+<td>String</td>
+<td>&#39;123.22&rsquo;</td>
 <td>the current avaliable balance for Patron</td>
 </tr>
 </tbody></table>
@@ -301,8 +301,8 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>cash_back</td>
-<td>Float</td>
-<td>3.5</td>
+<td>String</td>
+<td>&#39;3.5&rsquo;</td>
 <td>the current cash back setting</td>
 </tr>
 <tr>
@@ -349,8 +349,8 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>cash_back</td>
-<td>Float</td>
-<td>3.5</td>
+<td>String</td>
+<td>&#39;3.5&rsquo;</td>
 <td>the current cash back setting</td>
 </tr>
 </tbody></table>
@@ -451,14 +451,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>200.00</td>
+<td>String</td>
+<td>&#39;200.00&rsquo;</td>
 <td>different meaning for different scenarios</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>7.00</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
 <td>different meaning for different scenarios</td>
 </tr>
 <tr>
@@ -495,14 +495,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>200.00</td>
+<td>String</td>
+<td>&#39;200.00&rsquo;</td>
 <td>the sale amount of this transaction</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>7.00</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
 <td>the credit patron get from this transaction</td>
 </tr>
 <tr>
@@ -539,14 +539,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>75.00</td>
+<td>String</td>
+<td>&#39;75.00&rsquo;</td>
 <td>in this case, we deduct 125 credit</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>2.63</td>
+<td>String</td>
+<td>&#39;2.63&rsquo;</td>
 <td>75 * 0.035 = 2.625</td>
 </tr>
 <tr>
@@ -579,14 +579,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>125.00</td>
+<td>String</td>
+<td>&#39;125.00&rsquo;</td>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>-125.00</td>
+<td>String</td>
+<td>&rsquo;-125.00&rsquo;</td>
 <td>the credit deduct from current balance of Patron</td>
 </tr>
 <tr>
@@ -623,14 +623,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>200.00</td>
+<td>String</td>
+<td>&#39;200.00&rsquo;</td>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>-200.00</td>
+<td>String</td>
+<td>&rsquo;-200.00&rsquo;</td>
 <td>the credit deduct from current balance of Patron</td>
 </tr>
 <tr>
@@ -667,14 +667,14 @@ returned, so we list all the different json object here:</p>
 </tr>
 <tr>
 <td>sale_amount</td>
-<td>Float</td>
-<td>0.00</td>
+<td>String</td>
+<td>&#39;0.00&rsquo;</td>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>Float</td>
-<td>-200.00</td>
+<td>String</td>
+<td>&rsquo;-200.00&rsquo;</td>
 <td>deduct 200 from system</td>
 </tr>
 <tr>
@@ -687,7 +687,89 @@ returned, so we list all the different json object here:</p>
 
           <h1 id="patrons">Patrons</h1>
 
-<h2 id="login">Login</h2>
+<h2 id="sign-up">Sign Up</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+        "name": "Simon",
+        "email": "abc@gmail.com",
+        "password": "password",
+        "password_confirmation": "password",
+        "confirm_success_url": "phrenzi://"
+        }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDDD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, the above command returns HTTP Status Code <code class="prettyprint">422</code> with following json objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"already in use"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Email already in use"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to register a account for Patron.</p>
+
+<ul>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with <code class="prettyprint">Patron</code> json object</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, and with <code class="prettyprint">errors</code> json message</li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>the name of patron</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the email of patron</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the password of patron account</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>confirm password again</td>
+</tr>
+<tr>
+<td>confirm_success_url</td>
+<td>the url after confirmation link is click</td>
+</tr>
+</tbody></table>
+
+<h2 id="sign-in">Sign In</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
@@ -705,7 +787,7 @@ returned, so we list all the different json object here:</p>
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.23</span><span class="w">
+      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"233.23"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -789,59 +871,35 @@ or other subsequence request that need authentication.</p>
 
 <p><code class="prettyprint">DELETE http://example.com/api/patrons/sign_out</code></p>
 
-<h2 id="sign-up">Sign Up</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
+<h2 id="confirmation-patron">Confirmation Patron</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/confirmation"</span> <span class="se">\</span>
+  -X GET
   -d <span class="s1">'{
-        "name": "Simon",
-        "email": "abc@gmail.com",
-        "password": "password",
-        "password_confirmation": "password",
-        "confirm_success_url": "phrenzi://"
-        }'</span>
+    "confirmation_token": "abcasdfasd",
+    "redirect_url": "phrenzi://",
+    "config": "default"
+    }'</span>
 </code></pre>
 
 <blockquote>
-<p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
+<p>if success, it will redirect to the <code class="prettyprint">redirect_url</code> specify in this api</p>
+
+<p>if failed, it will raise an exception ActionController::RoutingError</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDDD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
-<blockquote>
-<p>if failed, the above command returns HTTP Status Code <code class="prettyprint">422</code> with following json objects:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"already in use"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Email already in use"</span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p>during sign up procedure of patron ( client call Patron sign up API ),
+server will sent out a confirmation email to Patron&rsquo;s mailbox,
+patron will need to click a link in that email,
+there&rsquo;s a generated confirmation_token in there, which will be use to call
+in this endpoint.</p>
 
-<p>This endpoint try to register a account for Patron.</p>
-
-<ul>
-<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with <code class="prettyprint">Patron</code> json object</li>
-<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, and with <code class="prettyprint">errors</code> json message</li>
-</ul>
+<aside class="warning">Client don&rsquo;t need to call this API.</aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://phrenzi.com/api/patrons</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patrons/confirmation</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -850,49 +908,72 @@ or other subsequence request that need authentication.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>the name of patron</td>
+<td>confirmation_token</td>
+<td>the confirmation token for patron</td>
 </tr>
 <tr>
-<td>email</td>
-<td>the email of patron</td>
+<td>redirect_url</td>
+<td>the params is pass-in from patron sign up API</td>
 </tr>
 <tr>
-<td>password</td>
-<td>the password of patron account</td>
-</tr>
-<tr>
-<td>password_confirmation</td>
-<td>confirm password again</td>
-</tr>
-<tr>
-<td>confirm_success_url</td>
-<td>the url after confirmation link is click</td>
+<td>config</td>
+<td>the config object, which is <code class="prettyprint">default</code></td>
 </tr>
 </tbody></table>
 
-<h2 id="confirmation-patron">Confirmation Patron</h2>
-
-<p>client don&rsquo;t need to call this api, pending for more information</p>
-
-<h2 id="forget-password-not-done-yet">Forget Password ( Not Done yet )</h2>
+<h2 id="request-reset-password">Request Reset Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com" }'</span>
-</code></pre>
+        <span class="s2">"redirect_url"</span>: <span class="s2">"phrenzi://"</span> <span class="o">}</span><span class="s1">'
+</span></code></pre>
 
 <blockquote>
-<p>The above command returns HTTP Status Code <code class="prettyprint">200</code> without any json object</p>
+<p>if success, return HTTP Status Code <code class="prettyprint">200</code> without following json object</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>This endpoint authenticate by <code class="prettyprint">app_token</code>, and try to reset password</p>
+<blockquote>
+<p>if email not found, return HTTP Status Code `404, with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success: false,
+  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">Unable</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">find</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">'abc@gmail.com'."]</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if email is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success: false,
+  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">You</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address."]</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if redirect_url is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success: false,
+  "</span><span class="err">errors</span><span class="nt">": ["</span><span class="err">Missing</span><span class="w"> </span><span class="err">redirect</span><span class="w"> </span><span class="err">URL."]</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>This api is used while Patron forget password, and after this api is invoked and is success, a email
+will trigger and sent to Patron&rsquo;s registered email</p>
 
 <ul>
-<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> without any json object</li>
-<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, with json message: &ldquo;There&rsquo;s an error resetting password&rdquo;</li>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> without json object</li>
+<li>if email is missing, it will return HTTP Status Code <code class="prettyprint">401</code></li>
+<li>if redirect_url is missing, it will return HTTP Status Code <code class="prettyprint">401</code></li>
+<li>if email is not found in server, it will return HTTP Status Code <code class="prettyprint">404</code></li>
 </ul>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -910,6 +991,10 @@ or other subsequence request that need authentication.</p>
 <tr>
 <td>email</td>
 <td>the email of patron</td>
+</tr>
+<tr>
+<td>redirect_url</td>
+<td>the url that is used within reset password email to redirect back to app</td>
 </tr>
 </tbody></table>
 
