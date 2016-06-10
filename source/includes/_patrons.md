@@ -5,7 +5,6 @@
 ```shell
 curl "http://phrenzi.com/api/patrons" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "name": "Simon",
@@ -261,7 +260,8 @@ redirect_url | the url that is used within reset password email to redirect back
 
 ```shell
 curl "https://phrenzi.com/api/patrons/password/edit" \
-  -X GET
+  -H "Content-Type: application/json" \
+  -X GET \
   -d '{
     "reset_password_token": "abcasdfasd",
     "redirect_url": "phrenzi://"
@@ -281,3 +281,58 @@ with `auth header` in a request, then App can
 retrieve `auth header` from that redirect request.
 
 <aside class="warning">Client don't need to call this API.</aside>
+
+
+## Update Password
+
+```shell
+curl "https://phrenzi.com/api/patrons/password" \
+  -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
+  -X PATCH \
+  -d '{
+    "password": "new_password",
+    "password_confirmation": "new_password"
+    }'
+```
+
+> if success, it will response with http status code `200`, and with following json object
+
+``` json
+{
+  "success": true,
+  "message": "Your password has been successfully updated."
+}
+```
+
+> if failed, for example, password mismatch, response with http status code `422`,
+and with following json object
+
+``` json
+{
+  "success": false,
+  "errors": {
+    "password_confirmation": ["doesn't match Password"],
+    "full_messages": ["Password confirmation doesn't match Password"]
+  }
+}
+```
+
+> if not authenticate, response with `401` and following json object,
+
+``` json
+{
+  "success": false,
+  "errors": ["Unauthorized"]
+}
+```
+
+This api endpoint need Patron authenticated.
+
+* if success, response with http status code `200`
+* if authenticate failed, response with http status code `401`
+* if validation failed, for example, passsord mismatch, response with http status code `422`
