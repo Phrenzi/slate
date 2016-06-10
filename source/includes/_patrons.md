@@ -157,7 +157,39 @@ or other subsequence request that need authentication.
 
 ## Confirmation Patron
 
-client don't need to call this api, pending for more information
+```shell
+curl "https://phrenzi.com/api/patrons/confirmation" \
+  -X GET
+  -d '{
+    "confirmation_token": "abcasdfasd",
+    "redirect_url": "phrenzi://",
+    "config": "default"
+    }'
+```
+
+> if success, it will redirect to the `redirect_url` specify in this api
+
+> if failed, it will raise an exception ActionController::RoutingError
+
+during sign up procedure of patron ( client call Patron sign up API ),
+server will sent out a confirmation email to Patron's mailbox,
+patron will need to click a link in that email,
+there's a generated confirmation_token in there, which will be use to call
+in this endpoint.
+
+<aside class="warning">Client don't need to call this API.</aside>
+
+### HTTP Request
+
+`GET http://example.com/api/patrons/confirmation`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+confirmation_token | the confirmation token for patron
+redirect_url | the params is pass-in from patron sign up API
+config | the config object, which is `default`
 
 ## Forget Password ( Not Done yet )
 
