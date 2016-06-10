@@ -63,7 +63,7 @@ password_confirmation | confirm password again
 confirm_success_url | the url after confirmation link is click
 
 
-## Login
+## Sign In
 
 ```shell
 curl "https://phrenzi.com/api/patrons/sign_in" \
