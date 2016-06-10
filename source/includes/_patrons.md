@@ -215,8 +215,8 @@ curl "http://example.com/api/patrons/passwords" \
 
 ``` json
 {
-  "success: false,
-  "errors": ["Unable to find user with email 'abc@gmail.com'."]
+  "success": false,
+  "errors": [ "Unable to find user with email 'abc@gmail.com.'" ]
 }
 ```
 
@@ -224,7 +224,7 @@ curl "http://example.com/api/patrons/passwords" \
 
 ``` json
 {
-  "success: false,
+  "success": false,
   "errors": ["You must provide an email address."]
 }
 ```
@@ -233,8 +233,8 @@ curl "http://example.com/api/patrons/passwords" \
 
 ``` json
 {
-  "success: false,
-  "errors": ["Missing redirect URL."]
+  "success": false,
+  "errors": [ "Missing redirect URL." ]
 }
 ```
 
@@ -256,3 +256,28 @@ Parameter | Description
 --------- | -----------
 email | the email of patron
 redirect_url | the url that is used within reset password email to redirect back to app
+
+## Password Reset Link
+
+```shell
+curl "https://phrenzi.com/api/patrons/password/edit" \
+  -X GET
+  -d '{
+    "reset_password_token": "abcasdfasd",
+    "redirect_url": "phrenzi://"
+    }'
+```
+
+> if success, it will redirect to the `redirect_url` specify in this api
+
+> if failed, it will raise an exception ActionController::RoutingError
+
+during password reset procedure of patron ( client call Patron request password reset API ), server
+will sent out a password reset email to Patron's mailbox,
+patron will need to click a link in that email,
+which will trigger this call if Patron click that link.
+If every thing is fine, Patron will redirect to app,
+with `auth header` in a request, then App can
+retrieve `auth header` from that redirect request.
+
+<aside class="warning">Client don't need to call this API.</aside>
