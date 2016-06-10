@@ -1023,6 +1023,28 @@ retrieve <code class="prettyprint">auth header</code> from that redirect request
 
 <aside class="warning">Client don&rsquo;t need to call this API.</aside>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/patrons/password/edit</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reset_password_token</td>
+<td>reset password token</td>
+</tr>
+<tr>
+<td>redirect_url</td>
+<td>a link to redirect back after success operation</td>
+</tr>
+</tbody></table>
+
 <h2 id="update-password">Update Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/password"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1076,6 +1098,28 @@ and with following json object</p>
 <li>if authenticate failed, response with http status code <code class="prettyprint">401</code></li>
 <li>if validation failed, for example, passsord mismatch, response with http status code <code class="prettyprint">422</code></li>
 </ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/patrons/password</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>password</td>
+<td>the new password of patron</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>confirm again the new password</td>
+</tr>
+</tbody></table>
 
           <h1 id="managers">Managers</h1>
 
