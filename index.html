@@ -134,6 +134,7 @@ information on various establishments, transactions, and challenges in our datab
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="c"># this tell server to response with json \</span>
   -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
   -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
   -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
@@ -749,12 +750,14 @@ auth header from reponse to consuming next request that need authentication.</li
 </tbody></table>
 
 <h2 id="sign-out">Sign Out</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_out"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -d <span class="s1">'{
-        "email": "abc@gmail.com",
-        "password": "password" }'</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span>
+  -X DELETE
 </code></pre>
 
 <blockquote>
