@@ -96,6 +96,15 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 }
 ```
 
+> if patron is not confirmed yet, return status code `401` and json like this:
+
+``` json
+{
+  "success": false,
+  "errors": ["A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"]
+}
+```
+
 This endpoint try to authenticate Patron
 
 * if success, it will return `Patron` object with HTTP Status Code `200`, and client can retrive
