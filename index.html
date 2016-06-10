@@ -137,7 +137,8 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
   -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
   -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
   -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span>
 </code></pre>
 
 <blockquote>
@@ -156,14 +157,17 @@ curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
 <h2 id="auth-header">Auth Header</h2>
 
 <p>after authenticate ( for example, sign in api call), the header from api response will have
-following 4 tags, we call it <code class="prettyprint">Auth Header</code>, client need to extract out <code class="prettyprint">Auth Header</code>, and use it in
-next api call. For a exmaple of Auth Header, please have a look at right hand side.</p>
+following 5 tags, we call it <code class="prettyprint">Auth Header</code>, client need to extract out <code class="prettyprint">Auth Header</code>,
+and insert it in header of next api call. For a exmaple of Auth Header, please have a look at right hand side.</p>
+
+<p>Noted: Any client can easily extract out this <code class="prettyprint">Auth Header</code> exchange logic into a library and shared it out.</p>
 
 <ul>
 <li>access-token</li>
 <li>token-type</li>
 <li>client</li>
 <li>expiry</li>
+<li>uid</li>
 </ul>
 
           <h1 id="json-objects">Json Objects</h1>
@@ -745,6 +749,36 @@ auth header from reponse to consuming next request that need authentication.</li
 </tbody></table>
 
 <h2 id="sign-out">Sign Out</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+        "email": "abc@gmail.com",
+        "password": "password" }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns <code class="prettyprint">Patron</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.23</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, the above command returns status code <code class="prettyprint">401</code> and json structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Invalid login credentials. Please try again."</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>this endpoint need <code class="prettyprint">auth header</code> to authenticate patron login, pending for more information</p>
 
