@@ -26,7 +26,7 @@ curl "http://phrenzi.com/api/patrons" \
     "attributes": {
       "name": "Simon",
       "email": "abc@gmail.com",
-      "credit_balance": 0.0
+      "credit-balance": "0.0"
     }
   }
 }
@@ -83,7 +83,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
     "attributes": {
       "name": "Simon Iong",
       "email": "abc@example.com",
-      "credit_balance": 233.23
+      "credit-balance": "233.23"
     }
   }
 }
