@@ -690,7 +690,6 @@ returned, so we list all the different json object here:</p>
 <h2 id="sign-up">Sign Up</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "name": "Simon",
@@ -1000,7 +999,8 @@ will trigger and sent to Patron&rsquo;s registered email</p>
 
 <h2 id="password-reset-link">Password Reset Link</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/password/edit"</span> <span class="se">\</span>
-  -X GET
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
   -d <span class="s1">'{
     "reset_password_token": "abcasdfasd",
     "redirect_url": "phrenzi://"
@@ -1022,6 +1022,60 @@ with <code class="prettyprint">auth header</code> in a request, then App can
 retrieve <code class="prettyprint">auth header</code> from that redirect request.</p>
 
 <aside class="warning">Client don&rsquo;t need to call this API.</aside>
+
+<h2 id="update-password">Update Password</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/password"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "password": "new_password",
+    "password_confirmation": "new_password"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, it will response with http status code <code class="prettyprint">200</code>, and with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your password has been successfully updated."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, for example, password mismatch, response with http status code <code class="prettyprint">422</code>,
+and with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"doesn't match Password"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Password confirmation doesn't match Password"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if not authenticate, response with <code class="prettyprint">401</code> and following json object,</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Unauthorized"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This api endpoint need Patron authenticated.</p>
+
+<ul>
+<li>if success, response with http status code <code class="prettyprint">200</code></li>
+<li>if authenticate failed, response with http status code <code class="prettyprint">401</code></li>
+<li>if validation failed, for example, passsord mismatch, response with http status code <code class="prettyprint">422</code></li>
+</ul>
 
           <h1 id="managers">Managers</h1>
 
