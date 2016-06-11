@@ -181,7 +181,8 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.22</span><span class="w">
+      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdfw1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -218,8 +219,14 @@ returned, so we list all the different json object here:</p>
 <tr>
 <td>email</td>
 <td>String</td>
-<td>&#39;abc@example.com&rsquo;</td>
+<td>&ldquo;abc@example.com&rdquo;</td>
 <td>the email from Patron</td>
+</tr>
+<tr>
+<td>trans-code</td>
+<td>String</td>
+<td>&ldquo;asdfw1&rdquo;</td>
+<td>6 digit trans code</td>
 </tr>
 </tbody></table>
 
@@ -242,8 +249,14 @@ returned, so we list all the different json object here:</p>
 <tr>
 <td>credit_balance</td>
 <td>String</td>
-<td>&#39;123.22&rsquo;</td>
+<td>&ldquo;123.22&rdquo;</td>
 <td>the current avaliable balance for Patron</td>
+</tr>
+<tr>
+<td>trans-code</td>
+<td>String</td>
+<td>&ldquo;asdfw1&rdquo;</td>
+<td>6 digit trans code</td>
 </tr>
 </tbody></table>
 
