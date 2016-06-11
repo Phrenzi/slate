@@ -25,7 +25,8 @@ curl "http://phrenzi.com/api/patrons" \
     "attributes": {
       "name": "Simon",
       "email": "abc@gmail.com",
-      "credit-balance": "0.0"
+      "credit-balance": "0.0",
+      "trans-code": "addwd1"
     }
   }
 }
