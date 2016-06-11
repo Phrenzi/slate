@@ -10,7 +10,8 @@ normally, a api response in Phrenzi, will be somehow like this in the right hand
     "attributes": {
       "name": "Simon",
       "email": "abc@example.com",
-      "credit-balance": 123.22
+      "credit-balance": "123.22",
+      "trans-code": "asdfw1"
     }
   }
 }
@@ -28,14 +29,16 @@ Key | Type | Example | Description
 --------- | --------- | --------- | -----------
 name | String | 'Simon Iong' | the name of Patron
 credit-balance | String | '123.22' | the current avaliable balance for Patron
-email | String | 'abc@example.com' | the email from Patron
+email | String | "abc@example.com" | the email from Patron
+trans-code | String | "asdfw1" | 6 digit trans code
 
 ## Basic Patron
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
 name | String | 'Simon Iong' | the name of Patron
-credit_balance | String | '123.22' | the current avaliable balance for Patron
+credit_balance | String | "123.22" | the current avaliable balance for Patron
+trans-code | String | "asdfw1" | 6 digit trans code
 
 ## Manager
 
