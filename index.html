@@ -1728,27 +1728,36 @@ or other subsequence request that need authentication.</p>
 <h2 id="get-all-patrons">Get all patrons</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns array of <code class="prettyprint">Basic Patron</code> object like this:</p>
+<p>The above command returns array of <code class="prettyprint">Patron</code> object like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDSDS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.32</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDDD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">124.44</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8654d532-bd5a-4b0f-acf4-08dbbbd0a01f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"773c1a"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25084757-de90-4ed7-88be-e5701f2ff248"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc2@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8c346c"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require <code class="prettyprint">manager_token</code>, and retrieves all patrons.</p>
+<p>This endpoint require <code class="prettyprint">manager authenticate</code>, and retrieves all patrons.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
