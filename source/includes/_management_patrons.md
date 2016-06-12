@@ -5,27 +5,36 @@
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
   -H "Content-Type: application/json" \
-  -H "Authorization: manager_token"
 ```
 
-> The above command returns array of `Basic Patron` object like this:
+> The above command returns array of `Patron` object like this:
 
 ```json
-[
-  {
-    "id": "ASDSDS",
-    "name": "Simon Iong",
-    "credit_balance": 123.32
-  },
-  {
-    "id": "ASDDD",
-    "name": "Max Max",
-    "credit_balance": 124.44
-  }
-]
+{
+  "data": [
+    {
+      "id": "8654d532-bd5a-4b0f-acf4-08dbbbd0a01f",
+      "type": "patrons",
+      "attributes": {
+        "email": "abc1@gmail.com",
+        "credit-balance": "0.0",
+        "trans-code": "773c1a"
+      }
+    },
+    {
+      "id": "25084757-de90-4ed7-88be-e5701f2ff248",
+      "type": "patrons",
+      "attributes": {
+        "email": "abc2@gmail.com",
+        "credit-balance": "0.0",
+        "trans-code": "8c346c"
+      }
+    }
+  ]
+}
 ```
 
-This endpoint require `manager_token`, and retrieves all patrons.
+This endpoint require `manager authenticate`, and retrieves all patrons.
 
 ### HTTP Request
 
