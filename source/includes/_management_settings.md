@@ -101,7 +101,6 @@ password | the current password for current manager
 ```shell
 curl "https://phrenzi.com/api/management/settings/passwords" \
   -H "Content-Type: application/json" \
-  -H "Authorization: manager_token" \
   -X PATCH \
   -d '{
     "current_password": "current_password",
@@ -110,7 +109,30 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
     }'
 ```
 
-> The above command returns HTML status code 200 OK
+> If success, return http status code `200` with following json object
+
+``` json
+{
+  "data": {
+    "id": "6f494237-5507-4e2f-9977-036b344807a7",
+    "type": "managers",
+    "attributes": {
+      "email": "manager1@gmail.com"
+    }
+  }
+}
+```
+
+> if failed, return http status code `422`, with following json object
+
+``` json
+{
+  "errors": {
+    "current_password": [ "is invalid" ],
+    "password_confirmation": [ "doesn't match Password" ]
+  }
+}
+```
 
 This endpoint require `manager_token`, and update current password for current manager.
 
