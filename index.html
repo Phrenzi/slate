@@ -2004,22 +2004,33 @@ per_page | N | the number of transaction record return per page by api, default 
 <h2 id="get-cash-back">Get cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: manager_token"</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns <code class="prettyprint">Basic Establishment</code> object like this:</p>
+<p>if success, return http status code 200 with following json object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92342333"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a sample description"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"452d66ba-1796-4cbc-97dd-9a52830beefa"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require <code class="prettyprint">manager_token</code>, and return whole establishment object</p>
+<blockquote>
+<p>if failed, for example, unauthorized, then return http status code 401 with following json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Authorized users only."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint require <code class="prettyprint">manager authenticate</code></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2028,19 +2039,48 @@ per_page | N | the number of transaction record return per page by api, default 
 <h2 id="update-cash-back">Update cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
-    "current_password": "current_password",
+    "password": "current_password",
     "cash_back": 4.5
     }'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns HTML status code 200 OK</p>
+<p>if success, returns HTML status code 200 OK, with following object:</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36bc3564-81d5-43cc-96e9-a34e405baadb"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.5"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>This endpoint require <code class="prettyprint">manager_token</code>, and update cash_back for current establishment.</p>
+<blockquote>
+<p>if unauthorize, returns HTML status code 401, with following object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Authorized users only."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if password is invalid, return HTML status code 406, with following object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invalid Password"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint require manager authenticate, and update cash_back for current establishment.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2059,7 +2099,7 @@ per_page | N | the number of transaction record return per page by api, default 
 <td>the cash_back to update, within 0 and 100</td>
 </tr>
 <tr>
-<td>current_password</td>
+<td>password</td>
 <td>the current password for current manager</td>
 </tr>
 </tbody></table>
