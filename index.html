@@ -2107,7 +2107,6 @@ per_page | N | the number of transaction record return per page by api, default 
 <h2 id="update-password">Update Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/passwords"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
     "current_password": "current_password",
@@ -2117,8 +2116,29 @@ per_page | N | the number of transaction record return per page by api, default 
 </code></pre>
 
 <blockquote>
-<p>The above command returns HTML status code 200 OK</p>
+<p>If success, return http status code <code class="prettyprint">200</code> with following json object</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f494237-5507-4e2f-9977-036b344807a7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"managers"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager1@gmail.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, return http status code <code class="prettyprint">422</code>, with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"is invalid"</span><span class="w"> </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"doesn't match Password"</span><span class="w"> </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>This endpoint require <code class="prettyprint">manager_token</code>, and update current password for current manager.</p>
 
