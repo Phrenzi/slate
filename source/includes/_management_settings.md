@@ -5,22 +5,33 @@
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
-  -H "Authorization: manager_token"
 ```
 
-> The above command returns `Basic Establishment` object like this:
+> if success, return http status code 200 with following json object:
 
 ```json
 {
-  "id": "WE7EASD",
-  "name": "Awesome Bar",
-  "phone": "92342333",
-  "desc": "this is a sample description",
-  "cash_back": 3.5
+  "data": {
+    "id": "452d66ba-1796-4cbc-97dd-9a52830beefa",
+    "type": "establishments",
+    "attributes": {
+      "cash-back": "3.5"
+    }
+  }
 }
 ```
 
-This endpoint require `manager_token`, and return whole establishment object
+> if failed, for example, unauthorized, then return http status code 401 with following json object:
+
+``` json
+{
+  "errors": [
+    "Authorized users only."
+  ]
+}
+```
+
+This endpoint require `manager authenticate`
 
 ### HTTP Request
 
@@ -31,17 +42,48 @@ This endpoint require `manager_token`, and return whole establishment object
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
-  -H "Authorization: manager_token" \
   -X PATCH \
   -d '{
-    "current_password": "current_password",
+    "password": "current_password",
     "cash_back": 4.5
     }'
 ```
 
-> The above command returns HTML status code 200 OK
+> if success, returns HTML status code 200 OK, with following object:
 
-This endpoint require `manager_token`, and update cash_back for current establishment.
+``` json
+{
+  "data": {
+    "id": "36bc3564-81d5-43cc-96e9-a34e405baadb",
+    "type": "establishments",
+    "attributes": {
+      "cash-back": "4.5"
+    }
+  }
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "Authorized users only."
+  ]
+}
+```
+
+> if password is invalid, return HTML status code 406, with following object:
+
+``` json
+{
+  "errors": [
+    "Invalid Password"
+  ]
+}
+```
+
+This endpoint require manager authenticate, and update cash_back for current establishment.
 
 ### HTTP Request
 
@@ -52,7 +94,7 @@ This endpoint require `manager_token`, and update cash_back for current establis
 Parameter | Description
 --------- | -----------
 cash_back | the cash_back to update, within 0 and 100
-current_password | the current password for current manager
+password | the current password for current manager
 
 ## Update Password
 
