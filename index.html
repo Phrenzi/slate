@@ -1845,21 +1845,180 @@ page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20</p>
 
 <h2 id="create-transaction">Create Transaction</h2>
+
+<blockquote>
+<p>For creating fullay sales transaction</p>
+</blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: manager_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "type": "sale",
-    "sale_amount": 200.00
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 200.00,
+    "credit_amount": 0.0
     }'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns HTML status code 200 OK if success.</p>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a631d16e-4b44-46e8-9009-164968c7830f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e3d405d-d3d4-4afe-90bd-13e06bfc5a1c"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:08:33.304Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>This endpoint required <code class="prettyprint">manager_token</code>, and create transaction records.</p>
+<blockquote>
+<p>For creating partially sales transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "type": "sale",
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 200.00,
+    "credit_amount": -125.0
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6d5acb-e40f-4692-b632-65c75df18e8c"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"082d6018-a787-4d68-9cf3-93273a93c31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:10:28.481Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62d57e1c-f243-4fae-9c93-41abfd3acdeb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"082d6018-a787-4d68-9cf3-93273a93c31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:10:28.481Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6d5acb-e40f-4692-b632-65c75df18e8c"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For creating fully credit redeem transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "type": "sale",
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 200.00,
+    "credit_amount": -200.0
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45a9a86e-0bf4-4b2c-a7ef-8c4f2f6c31d9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3ba82033-53a2-4ec1-9755-3267d29e66c9"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:12:22.047Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For creating correction credit transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "type": "correction",
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 0.0,
+    "credit_amount": -200.0
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acbd64f2-3cba-491a-ac71-55fbd3f04f50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"983a26d0-fbc5-4fcc-9c8c-2920b0501bad"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:13:48.885Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint required manager authentication, and create transaction records.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1875,19 +2034,24 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>trans_type</td>
 <td>Y</td>
-<td>sale/correction</td>
+<td>&lsquo;sales&rsquo;/&#39;correction&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
+<td>sales_amount</td>
 <td>Y</td>
 <td>the sale amount</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>N</td>
+<td>Y</td>
 <td>the credit amount</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>Y</td>
+<td>UUID of patron</td>
 </tr>
 </tbody></table>
 
@@ -1902,16 +2066,24 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>&lsquo;sale&rsquo;</td>
+<td>trans_type</td>
+<td>&#39;sale&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
-<td>200.00</td>
+<td>patron_id</td>
+<td>&ldquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+</tr>
+<tr>
+<td>sales_amount</td>
+<td>200.0</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>0.0</td>
 </tr>
 </tbody></table>
 
-<p>sale record, without partially credit redeem ( 200 sale amount, but with 125 credit redeem , so patron just need to pay 75.00 ):</p>
+<p>sale record, with partially credit redeem ( 200 sale amount, but with 125 credit redeem , so patron just need to pay 75.0 ):</p>
 
 <table><thead>
 <tr>
@@ -1920,16 +2092,20 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>trans_type</td>
 <td>&#39;sale&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
-<td>200.00</td>
+<td>patron_id</td>
+<td>&ldquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+</tr>
+<tr>
+<td>sales_amount</td>
+<td>200.0</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>-125.00</td>
+<td>-125.0</td>
 </tr>
 </tbody></table>
 
@@ -1942,16 +2118,20 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>trans_type</td>
 <td>&#39;sale&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
-<td>200.00</td>
+<td>patron_id</td>
+<td>&ldquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+</tr>
+<tr>
+<td>sales_amount</td>
+<td>200.0</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>-200.00</td>
+<td>-200.0</td>
 </tr>
 </tbody></table>
 
@@ -1964,16 +2144,20 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>trans_type</td>
 <td>&#39;correction&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
-<td>0.00</td>
+<td>patron_id</td>
+<td>&ldquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+</tr>
+<tr>
+<td>sales_amount</td>
+<td>0.0</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>125.00</td>
+<td>125.0</td>
 </tr>
 </tbody></table>
 
@@ -1986,16 +2170,20 @@ per_page | N | the number of transaction record return per page by api, default 
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>trans_type</td>
 <td>&#39;correction&rsquo;</td>
 </tr>
 <tr>
-<td>sale_amount</td>
-<td>0.00</td>
+<td>patron_id</td>
+<td>&ldquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+</tr>
+<tr>
+<td>sales_amount</td>
+<td>0.0</td>
 </tr>
 <tr>
 <td>credit_amount</td>
-<td>-125.00</td>
+<td>-125.0</td>
 </tr>
 </tbody></table>
 
