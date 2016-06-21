@@ -1736,6 +1736,11 @@ or other subsequence request that need authentication.</p>
 <h2 id="get-all-patrons">Get all patrons</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
 </code></pre>
 
 <blockquote>
@@ -1765,7 +1770,8 @@ or other subsequence request that need authentication.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require <code class="prettyprint">manager authenticate</code>, and retrieves all patrons.</p>
+<p>This endpoint require manager authentication, and retrieves all patrons.
+noted that credit_balance returned from specifi patron is by manager&rsquo;s establishment</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
