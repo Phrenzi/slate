@@ -5,6 +5,11 @@
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
   -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
 ```
 
 > The above command returns array of `Patron` object like this:
@@ -34,7 +39,8 @@ curl "https://phrenzi.com/api/management/patrons" \
 }
 ```
 
-This endpoint require `manager authenticate`, and retrieves all patrons.
+This endpoint require manager authentication, and retrieves all patrons.
+noted that credit_balance returned from specifi patron is by manager's establishment
 
 ### HTTP Request
 
