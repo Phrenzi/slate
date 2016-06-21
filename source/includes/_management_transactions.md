@@ -5,49 +5,60 @@
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: manager_token"
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
+  -d '{
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": "WE7EASD",
-    "patron_id": "ASDFQWE",
-    "type": "sale",
-    "sale_amount": 75.00,
-    "credit_amount": 2.63,
-    "tracked_at": "2016-06-04T07:48:56.050Z"
-  },
-  {
-    "id": "WE7EASS",
-    "patron_id": "ASSSFQWE",
-    "type": "credit",
-    "sale_amount": 125.00,
-    "credit_amount": -125.00,
-    "tracked_at": "2016-06-04T07:48:56.050Z"
-  },
-  {
-    "id": "WE7EASE",
-    "patron_id": "ASDFQWE",
-    "type": "correct",
-    "sale_amount": 0,
-    "credit_amount": 2.00,
-    "tracked_at": "2016-06-04T07:48:56.050Z"
-  },
-  {
-    "id": "WE7ESSE",
-    "patron_id": "ASSSFQWE",
-    "type": "correct",
-    "sale_amount": 0,
-    "credit_amount": -20.00,
-    "tracked_at": "2016-06-04T07:48:56.050Z"
-  }
-]
+{
+  "data": [
+    {
+      "id": "8ff07cdc-cd5d-45c6-b273-a3b7845529b0",
+      "type": "transactions",
+      "attributes": {
+        "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+        "establishment-id": "e78f20ad-8f13-473b-856d-6ea09a21a227",
+        "trans-type": "sales",
+        "sales-amount": "100.0",
+        "credit-amount": "3.5",
+        "status": "valid",
+        "cash-back": "3.5",
+        "trans-code": "0abeb8bd89",
+        "group-code": null,
+        "tracked-at": "2016-06-21T11:27:01.330Z",
+        "del-transaction-id": null
+      }
+    },
+    {
+      "id": "7c5e859e-73c3-4eef-9cc2-4bb57780f568",
+      "type": "transactions",
+      "attributes": {
+        "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+        "establishment-id": "e78f20ad-8f13-473b-856d-6ea09a21a227",
+        "trans-type": "sales",
+        "sales-amount": "100.0",
+        "credit-amount": "3.5",
+        "status": "valid",
+        "cash-back": "3.5",
+        "trans-code": "e35fab7b16",
+        "group-code": null,
+        "tracked-at": "2016-06-21T11:27:01.330Z",
+        "del-transaction-id": null
+      }
+    }
+  ]
+}
 ```
 
-This endpoint authenticate by `manager_token`, and retrieves transaction records by establishment with different conditions.
+This endpoint need manager authentication, and retrieves transaction records by establishment by patron
 
 ### HTTP Request
 
@@ -57,8 +68,7 @@ This endpoint authenticate by `manager_token`, and retrieves transaction records
 
 Parameter | Requred? | Description
 --------- | ----------- | ---------
-patron_id | N | if this patron_id is present, the result should only return transactions related to this
-patron
+patron_id | Y | only list transactions that belongs to patron
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
 
