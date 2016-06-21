@@ -69,9 +69,14 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
   -X POST \
   -d '{
-    "type": "sale",
+    "trans_type": "sale",
     "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
     "sales_amount": 200.00,
     "credit_amount": 0.0
@@ -84,18 +89,19 @@ curl "https://phrenzi.com/api/management/transactions" \
 {
   "data": [
     {
-      "id": "a631d16e-4b44-46e8-9009-164968c7830f",
+      "id": "4d585878-38ac-475a-8ed4-d1c837c82fc2",
       "type": "transactions",
       "attributes": {
         "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-        "establishment-id": "7e3d405d-d3d4-4afe-90bd-13e06bfc5a1c",
+        "establishment-id": "93257623-3acf-4c93-9051-91b19f88ca89",
         "trans-type": "sales",
         "sales-amount": "200.0",
         "credit-amount": "7.0",
         "status": "valid",
         "cash-back": "3.5",
-        "tracked-at": "2016-06-20T15:08:33.304Z",
-        "ref-transaction-id": null,
+        "trans-code": "37d298c26e",
+        "group-code": null,
+        "tracked-at": "2016-06-21T09:46:20.513Z",
         "del-transaction-id": null
       }
     }
@@ -108,9 +114,14 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
   -X POST \
   -d '{
-    "type": "sale",
+    "trans_type": "sale",
     "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
     "sales_amount": 200.00,
     "credit_amount": -125.0
@@ -123,34 +134,36 @@ curl "https://phrenzi.com/api/management/transactions" \
 {
   "data": [
     {
-      "id": "9a6d5acb-e40f-4692-b632-65c75df18e8c",
+      "id": "323020e0-daf6-4ce2-8e81-213b76cba704",
       "type": "transactions",
       "attributes": {
         "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-        "establishment-id": "082d6018-a787-4d68-9cf3-93273a93c31a",
+        "establishment-id": "fc8f34e3-2f48-4eb4-9253-9c6b16a2666d",
         "trans-type": "sales",
         "sales-amount": "75.0",
         "credit-amount": "2.63",
         "status": "valid",
         "cash-back": "3.5",
-        "tracked-at": "2016-06-20T15:10:28.481Z",
-        "ref-transaction-id": null,
+        "trans-code": "cf97cd3b95",
+        "group-code": "7d3f193728",
+        "tracked-at": "2016-06-21T09:49:00.313Z",
         "del-transaction-id": null
       }
     },
     {
-      "id": "62d57e1c-f243-4fae-9c93-41abfd3acdeb",
+      "id": "a4ad31ef-9d41-4fff-9b78-a954b4eef7d0",
       "type": "transactions",
       "attributes": {
         "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-        "establishment-id": "082d6018-a787-4d68-9cf3-93273a93c31a",
+        "establishment-id": "fc8f34e3-2f48-4eb4-9253-9c6b16a2666d",
         "trans-type": "credit",
         "sales-amount": "125.0",
         "credit-amount": "-125.0",
         "status": "valid",
         "cash-back": "3.5",
-        "tracked-at": "2016-06-20T15:10:28.481Z",
-        "ref-transaction-id": "9a6d5acb-e40f-4692-b632-65c75df18e8c",
+        "trans-code": "2d3a00a399",
+        "group-code": "7d3f193728",
+        "tracked-at": "2016-06-21T09:49:00.313Z",
         "del-transaction-id": null
       }
     }
@@ -163,6 +176,11 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
   -X POST \
   -d '{
     "type": "sale",
@@ -178,18 +196,19 @@ curl "https://phrenzi.com/api/management/transactions" \
 {
   "data": [
     {
-      "id": "45a9a86e-0bf4-4b2c-a7ef-8c4f2f6c31d9",
+      "id": "e55ee9ce-67d7-4e01-bd2d-3a7f81a817ca",
       "type": "transactions",
       "attributes": {
         "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-        "establishment-id": "3ba82033-53a2-4ec1-9755-3267d29e66c9",
+        "establishment-id": "42f1b39d-beae-4b5e-b8ec-ef0f5a92dac6",
         "trans-type": "credit",
         "sales-amount": "200.0",
         "credit-amount": "-200.0",
         "status": "valid",
         "cash-back": "3.5",
-        "tracked-at": "2016-06-20T15:12:22.047Z",
-        "ref-transaction-id": null,
+        "trans-code": "e32684cf06",
+        "group-code": null,
+        "tracked-at": "2016-06-21T09:51:37.922Z",
         "del-transaction-id": null
       }
     }
@@ -202,6 +221,11 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
   -X POST \
   -d '{
     "type": "correction",
@@ -217,18 +241,19 @@ curl "https://phrenzi.com/api/management/transactions" \
 {
   "data": [
     {
-      "id": "acbd64f2-3cba-491a-ac71-55fbd3f04f50",
+      "id": "5612adbc-9eec-4ece-8018-393b80b6bea1",
       "type": "transactions",
       "attributes": {
         "patron-id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-        "establishment-id": "983a26d0-fbc5-4fcc-9c8c-2920b0501bad",
+        "establishment-id": "f43fdfb3-19bd-4293-9678-e8e88a9bf0ba",
         "trans-type": "correction",
         "sales-amount": "0.0",
         "credit-amount": "-200.0",
         "status": "valid",
         "cash-back": "3.5",
-        "tracked-at": "2016-06-20T15:13:48.885Z",
-        "ref-transaction-id": null,
+        "trans-code": "19431b7947",
+        "group-code": null,
+        "tracked-at": "2016-06-21T09:54:05.348Z",
         "del-transaction-id": null
       }
     }
@@ -250,6 +275,8 @@ trans_type | Y | 'sales'/'correction'
 sales_amount | Y | the sale amount
 credit_amount | Y | the credit amount
 patron_id | Y | UUID of patron
+cash_back | N | cash back for one time use case
+password | N | if cash_back is present, then password of patron must provided
 
 ### Query Exmaple:
 
