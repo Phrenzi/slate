@@ -1851,9 +1851,14 @@ per_page | N | the number of transaction record return per page by api, default 
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
-    "type": "sale",
+    "trans_type": "sale",
     "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
     "sales_amount": 200.00,
     "credit_amount": 0.0
@@ -1866,18 +1871,19 @@ per_page | N | the number of transaction record return per page by api, default 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a631d16e-4b44-46e8-9009-164968c7830f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d585878-38ac-475a-8ed4-d1c837c82fc2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e3d405d-d3d4-4afe-90bd-13e06bfc5a1c"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93257623-3acf-4c93-9051-91b19f88ca89"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:08:33.304Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37d298c26e"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:46:20.513Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1890,9 +1896,14 @@ per_page | N | the number of transaction record return per page by api, default 
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
-    "type": "sale",
+    "trans_type": "sale",
     "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
     "sales_amount": 200.00,
     "credit_amount": -125.0
@@ -1905,34 +1916,36 @@ per_page | N | the number of transaction record return per page by api, default 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6d5acb-e40f-4692-b632-65c75df18e8c"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"323020e0-daf6-4ce2-8e81-213b76cba704"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"082d6018-a787-4d68-9cf3-93273a93c31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc8f34e3-2f48-4eb4-9253-9c6b16a2666d"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:10:28.481Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf97cd3b95"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7d3f193728"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:49:00.313Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62d57e1c-f243-4fae-9c93-41abfd3acdeb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4ad31ef-9d41-4fff-9b78-a954b4eef7d0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"082d6018-a787-4d68-9cf3-93273a93c31a"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc8f34e3-2f48-4eb4-9253-9c6b16a2666d"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:10:28.481Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6d5acb-e40f-4692-b632-65c75df18e8c"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d3a00a399"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7d3f193728"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:49:00.313Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1945,6 +1958,11 @@ per_page | N | the number of transaction record return per page by api, default 
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "type": "sale",
@@ -1960,18 +1978,19 @@ per_page | N | the number of transaction record return per page by api, default 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45a9a86e-0bf4-4b2c-a7ef-8c4f2f6c31d9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e55ee9ce-67d7-4e01-bd2d-3a7f81a817ca"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3ba82033-53a2-4ec1-9755-3267d29e66c9"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42f1b39d-beae-4b5e-b8ec-ef0f5a92dac6"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:12:22.047Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e32684cf06"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:51:37.922Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1984,6 +2003,11 @@ per_page | N | the number of transaction record return per page by api, default 
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "type": "correction",
@@ -1999,18 +2023,19 @@ per_page | N | the number of transaction record return per page by api, default 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acbd64f2-3cba-491a-ac71-55fbd3f04f50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5612adbc-9eec-4ece-8018-393b80b6bea1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"983a26d0-fbc5-4fcc-9c8c-2920b0501bad"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f43fdfb3-19bd-4293-9678-e8e88a9bf0ba"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20T15:13:48.885Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ref-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19431b7947"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:54:05.348Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2052,6 +2077,16 @@ per_page | N | the number of transaction record return per page by api, default 
 <td>patron_id</td>
 <td>Y</td>
 <td>UUID of patron</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>N</td>
+<td>cash back for one time use case</td>
+</tr>
+<tr>
+<td>password</td>
+<td>N</td>
+<td>if cash_back is present, then password of patron must provided</td>
 </tr>
 </tbody></table>
 
