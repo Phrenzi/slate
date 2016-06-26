@@ -717,15 +717,11 @@ returned, so we list all the different json object here:</p>
 <p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDDD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addwd1"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37f335c5-a88c-41a3-a643-fba688c72897"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8cc897"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -795,13 +791,11 @@ returned, so we list all the different json object here:</p>
 <p>if success, the above command returns <code class="prettyprint">Patron</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"233.23"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"288f4f0f-da30-45c4-a531-c0a804628395"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76efd7"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1159,12 +1153,9 @@ and with following json object</p>
 <p>if success, the above command returns <code class="prettyprint">Manager</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADSFSDA"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="err">}</span><span class="w">
+  </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6b586aeb-a53d-476a-9435-659ed9547e6e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1267,385 +1258,111 @@ or other subsequence request that need authentication.</p>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Establishment1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612345671"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"logo-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/establishment/logo/68886374-b477-438a-8313-52aed4b55371/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"banner-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/establishment/banner/68886374-b477-438a-8313-52aed4b55371/thumb_image.jpeg"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"business-hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99d6dd1e-2009-4353-b4b9-180f5f85d079"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d984fee-dcf3-4871-b1ee-a3eb4f71bc17"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d96678eb-352a-4555-9142-5c563a6d9d65"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e7218bce-eeb6-49cd-83e4-4ef7a5cc2051"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a027e983-cb05-4f5a-877f-6ae6ea0f61bd"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8eee2711-534d-4a29-b6ac-6e42b22239d1"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6d783fbd-3226-49f7-b063-3ef19d5e2b4d"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Establishment1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612345671"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/logo/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/banner/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0f238f5-34ee-4ad9-81f5-279598568848"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addresses"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Establishment2"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612345672"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"logo-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/establishment/logo/61fd9d4e-236e-44c5-a4da-dc23bd59bc41/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"banner-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/establishment/banner/61fd9d4e-236e-44c5-a4da-dc23bd59bc41/thumb_image.jpeg"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"business-hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bcf85c12-b68a-441c-ab76-68c9d37aebe8"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3a36ca2-7bd0-4854-a460-28e867da86c4"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"472e0085-59ef-4af6-bac7-f999bd269198"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d32f9c15-1066-4e18-b1d3-d6c826f35ea4"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32714af8-2b6b-4464-a9fc-e203c6fa1537"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4f58ea7-3f09-4539-a2c6-306afb44c31c"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76f720b6-b543-49da-aab0-248ac51811f9"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"872d4265-b2ee-4434-9dc6-ed8d49ce36d2"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addresses"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99d6dd1e-2009-4353-b4b9-180f5f85d079"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d984fee-dcf3-4871-b1ee-a3eb4f71bc17"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0485af50-a837-4545-aeac-db9877637f46"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaWan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HK"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d96678eb-352a-4555-9142-5c563a6d9d65"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0c9d3e1c-9499-472c-8f87-9acd0f8866d2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Establishment2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612345672"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/logo/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/banner/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e7218bce-eeb6-49cd-83e4-4ef7a5cc2051"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a027e983-cb05-4f5a-877f-6ae6ea0f61bd"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8eee2711-534d-4a29-b6ac-6e42b22239d1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6d783fbd-3226-49f7-b063-3ef19d5e2b4d"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0f238f5-34ee-4ad9-81f5-279598568848"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addresses"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"addressable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68886374-b477-438a-8313-52aed4b55371"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bcf85c12-b68a-441c-ab76-68c9d37aebe8"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3a36ca2-7bd0-4854-a460-28e867da86c4"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"472e0085-59ef-4af6-bac7-f999bd269198"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d32f9c15-1066-4e18-b1d3-d6c826f35ea4"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32714af8-2b6b-4464-a9fc-e203c6fa1537"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4f58ea7-3f09-4539-a2c6-306afb44c31c"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76f720b6-b543-49da-aab0-248ac51811f9"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business-hours"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"open-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"close-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"872d4265-b2ee-4434-9dc6-ed8d49ce36d2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addresses"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"addressable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61fd9d4e-236e-44c5-a4da-dc23bd59bc41"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f6eefa86-42d0-4786-bd3c-d4c9ecc4abb1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MaWan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hong Kong"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HK"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -1747,31 +1464,29 @@ or other subsequence request that need authentication.</p>
 <p>The above command returns array of <code class="prettyprint">Patron</code> object like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8654d532-bd5a-4b0f-acf4-08dbbbd0a01f"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"773c1a"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d3d7ecd-585d-4f2f-ad21-1b457e062681"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52553b"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25084757-de90-4ed7-88be-e5701f2ff248"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc2@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8c346c"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcbdd18f-e5ea-4368-8cf4-2e688e604a40"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron2@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25e8ac"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require manager authentication, and retrieves all patrons.
-noted that credit_balance returned from specifi patron is by manager&rsquo;s establishment</p>
+<p>This endpoint require manager authentication, and retrieves all patrons.</p>
+
+<p>Noted that credit_balance returned from patron object is for manager&rsquo;s establishment,
+the <code class="prettyprint">credit_balance</code> return from different manager authenticated should be differernt.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1796,42 +1511,43 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8ff07cdc-cd5d-45c6-b273-a3b7845529b0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e78f20ad-8f13-473b-856d-6ea09a21a227"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0abeb8bd89"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T11:27:01.330Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bf77e8f9-c01d-4dc1-9fba-d79427f1cd8e"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e405f87e-447b-4308-a39f-1e6505ba5503"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"621f3849e5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:22:17.005Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c5e859e-73c3-4eef-9cc2-4bb57780f568"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e78f20ad-8f13-473b-856d-6ea09a21a227"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e35fab7b16"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T11:27:01.330Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e47edfd-fd56-4ceb-ba12-b9e233da8436"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e405f87e-447b-4308-a39f-1e6505ba5503"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c76f93d48b"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:22:17.005Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1858,7 +1574,7 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <tr>
 <td>page</td>
 <td>N</td>
-<td>the page results of all transactions</td>
+<td>the page results of all transactions, default to be page 1</td>
 </tr>
 <tr>
 <td>per_page</td>
@@ -1892,23 +1608,20 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>The above command returns HTML status code 200 OK if success and json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d585878-38ac-475a-8ed4-d1c837c82fc2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93257623-3acf-4c93-9051-91b19f88ca89"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37d298c26e"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:46:20.513Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc3dc0d4-5500-4727-a817-b63e92b8303d"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa7bd5c-2daf-44b4-8abb-9918b2001ca3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5305ec72be"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:14:38.953Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1937,40 +1650,34 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>The above command returns HTML status code 200 OK if success and json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"323020e0-daf6-4ce2-8e81-213b76cba704"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc8f34e3-2f48-4eb4-9253-9c6b16a2666d"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf97cd3b95"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7d3f193728"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:49:00.313Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67c622ae-8048-4ccb-983c-a5e467b8d1ba"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86aef2ae-3651-4dad-90ad-303a8f476638"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9dd87d694"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff84acbaaf"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:16:04.090Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4ad31ef-9d41-4fff-9b78-a954b4eef7d0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc8f34e3-2f48-4eb4-9253-9c6b16a2666d"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d3a00a399"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7d3f193728"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:49:00.313Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9321494-9096-479d-ad74-2c00f1762ac2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86aef2ae-3651-4dad-90ad-303a8f476638"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9afa1212a9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff84acbaaf"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:16:04.090Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1999,23 +1706,20 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>The above command returns HTML status code 200 OK if success and json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e55ee9ce-67d7-4e01-bd2d-3a7f81a817ca"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42f1b39d-beae-4b5e-b8ec-ef0f5a92dac6"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e32684cf06"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:51:37.922Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a2b26425-90da-4273-a57a-a8f5a0d4981a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c01057e7-6e17-4395-9230-eb5204a6dd5a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41c7eed125"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:17:46.515Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2044,23 +1748,20 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>The above command returns HTML status code 200 OK if success and json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5612adbc-9eec-4ece-8018-393b80b6bea1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transactions"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"patron-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"establishment-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f43fdfb3-19bd-4293-9678-e8e88a9bf0ba"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"sales-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"credit-amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19431b7947"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"group-code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"tracked-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-21T09:54:05.348Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"del-transaction-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"371051f9-0214-4ff3-bc82-6cea5b96f9f8"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4999183-fa78-4191-8402-1538eb747c23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1a3f96b921"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:18:36.521Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2245,6 +1946,195 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 </tr>
 </tbody></table>
 
+<h2 id="delete-transaction">Delete Transaction</h2>
+
+<blockquote>
+<p>For delete fullay sales transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3cf13c1d-a1b8-4258-9ae0-4239cd5c81df"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c801514d-8063-4a79-82cc-686747165a85"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af84f935-9ab5-41f9-abe5-37a06a6dfa36"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"362b2882f2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For delete partially sales transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db2a88e1-072b-42ef-a9b9-0af3cd2977ac"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42d7d7c1-c8f6-4444-9472-a34322c091a9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24b0345f-d06b-4fed-b1c6-50bd424028b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-75.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-2.63"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60c1bb42e9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgfhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:39:07.321Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adc33168-1207-4370-9852-da6563a890a5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42d7d7c1-c8f6-4444-9472-a34322c091a9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24b0345f-d06b-4fed-b1c6-50bd424028b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3285af74bb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgfhi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:39:07.321Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For delete fully credit redeem transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2f8cb908-2997-417a-941c-9ccb15da0a29"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4e18a28-9ccc-4e47-bd34-3241998410b1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"744275ee-714d-40eb-8657-880725bbeb9b"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e2dd918c6"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:41:33.685Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>For delete correction credit transaction</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 200 OK if success and json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10d1a032-ca48-4d08-b078-5c74e76fb6cc"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a540cb87-a662-4b89-b1f0-47e4c62eb3c2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4020f704-6ea8-4323-85bf-0a5d9b04140a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb7b042ac2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:42:53.904Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>While specify delete transaction is invalid, or fake, or not belongs to current establishment</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/this-is-a-fake-id"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 406 and following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Transaction is invalid"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint required manager authentication, and delete transaction records.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://example.com/api/management/transactions/#{transaction_id}</code></p>
+
           <h1 id="management-settings">Management / Settings</h1>
 
 <h2 id="get-cash-back">Get cash back</h2>
@@ -2256,12 +2146,8 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>if success, return http status code 200 with following json object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"452d66ba-1796-4cbc-97dd-9a52830beefa"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2296,12 +2182,8 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>if success, returns HTML status code 200 OK, with following object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36bc3564-81d5-43cc-96e9-a34e405baadb"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"establishments"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"cash-back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.5"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.5"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2365,12 +2247,9 @@ noted that credit_balance returned from specifi patron is by manager&rsquo;s est
 <p>If success, return http status code <code class="prettyprint">200</code> with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f494237-5507-4e2f-9977-036b344807a7"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"managers"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager1@gmail.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2544a3af-cda6-4a0d-b760-17e43e1cc165"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager1@gmail.com"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
