@@ -1492,9 +1492,42 @@ the <code class="prettyprint">credit_balance</code> return from different manage
 
 <p><code class="prettyprint">GET http://phrenzi.com/api/management/patrons</code></p>
 
+<h2 id="get-patron">Get patron</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command return <code class="prettyprint">Patron</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"519665"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint require manager authentication, and retrieves patron object.</p>
+
+<p>Noted that credit_balance returned from patron object is for manager&rsquo;s establishment,
+the <code class="prettyprint">credit_balance</code> return from different manager authenticated should be differernt.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585</code></p>
+
           <h1 id="management-transactions">Management / Transactions</h1>
 
-<h2 id="get-all-transactions-by-establishment">Get all transactions by establishment</h2>
+<h2 id="get-all-transactions-by-patron_id-for-current-establishment">Get all transactions by patron_id for current establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
