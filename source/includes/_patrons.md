@@ -19,15 +19,11 @@ curl "http://phrenzi.com/api/patrons" \
 
 ```json
 {
-  "data": {
-    "id": "ABCDDD",
-    "type": "patrons",
-    "attributes": {
-      "name": "Simon",
-      "email": "abc@gmail.com",
-      "credit-balance": "0.0",
-      "trans-code": "addwd1"
-    }
+  "patron": {
+    "id": "37f335c5-a88c-41a3-a643-fba688c72897",
+    "name": "Simon",
+    "email": "abc@example.com",
+    "trans_code": "8cc897"
   }
 }
 ```
@@ -78,13 +74,11 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 
 ```json
 {
-  "data": {
-    "id": "ADSFSDA",
-    "attributes": {
-      "name": "Simon Iong",
-      "email": "abc@example.com",
-      "credit-balance": "233.23"
-    }
+  "patron": {
+    "id": "288f4f0f-da30-45c4-a531-c0a804628395",
+    "name": "Simon",
+    "email": "abc@gmail.com",
+    "trans_code": "76efd7"
   }
 }
 ```

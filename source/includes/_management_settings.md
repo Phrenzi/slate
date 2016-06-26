@@ -11,12 +11,8 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 
 ```json
 {
-  "data": {
-    "id": "452d66ba-1796-4cbc-97dd-9a52830beefa",
-    "type": "establishments",
-    "attributes": {
-      "cash-back": "3.5"
-    }
+  "setting": {
+    "cash_back": "3.5"
   }
 }
 ```
@@ -53,12 +49,8 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 
 ``` json
 {
-  "data": {
-    "id": "36bc3564-81d5-43cc-96e9-a34e405baadb",
-    "type": "establishments",
-    "attributes": {
-      "cash-back": "4.5"
-    }
+  "setting": {
+    "cash_back": "4.5"
   }
 }
 ```
@@ -113,12 +105,9 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
 
 ``` json
 {
-  "data": {
-    "id": "6f494237-5507-4e2f-9977-036b344807a7",
-    "type": "managers",
-    "attributes": {
-      "email": "manager1@gmail.com"
-    }
+  "manager": {
+    "id": "2544a3af-cda6-4a0d-b760-17e43e1cc165",
+    "email": "manager1@gmail.com"
   }
 }
 ```

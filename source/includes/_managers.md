@@ -15,12 +15,9 @@ curl "https://phrenzi.com/api/managers/sign_in" \
 
 ```json
 {
-  "data": {
-    "id": "ADSFSDA",
-    "attributes": {
-      "name": "Simon Iong",
-      "email": "abc@example.com",
-    }
+  "manager": {
+    "id": "6b586aeb-a53d-476a-9435-659ed9547e6e",
+    "email": "abc@gmail.com"
   }
 }
 ```

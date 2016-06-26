@@ -16,31 +16,29 @@ curl "https://phrenzi.com/api/management/patrons" \
 
 ```json
 {
-  "data": [
+  "patrons": [
     {
-      "id": "8654d532-bd5a-4b0f-acf4-08dbbbd0a01f",
-      "type": "patrons",
-      "attributes": {
-        "email": "abc1@gmail.com",
-        "credit-balance": "0.0",
-        "trans-code": "773c1a"
-      }
+      "id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681",
+      "name": "Patron1",
+      "email": "patron1@gmail.com",
+      "credit_balance": "100.23",
+      "trans_code": "52553b"
     },
     {
-      "id": "25084757-de90-4ed7-88be-e5701f2ff248",
-      "type": "patrons",
-      "attributes": {
-        "email": "abc2@gmail.com",
-        "credit-balance": "0.0",
-        "trans-code": "8c346c"
-      }
+      "id": "fcbdd18f-e5ea-4368-8cf4-2e688e604a40",
+      "name": "Patron2",
+      "email": "patron2@gmail.com",
+      "credit_balance": "0.0",
+      "trans_code": "25e8ac"
     }
   ]
 }
 ```
 
 This endpoint require manager authentication, and retrieves all patrons.
-noted that credit_balance returned from specifi patron is by manager's establishment
+
+Noted that credit_balance returned from patron object is for manager's establishment,
+the `credit_balance` return from different manager authenticated should be differernt.
 
 ### HTTP Request
 
