@@ -1,6 +1,6 @@
 # Management / Transactions
 
-## Get all transactions by establishment
+## Get all transactions by patron_id for current establishment
 
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
