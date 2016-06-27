@@ -1247,10 +1247,10 @@ or other subsequence request that need authentication.</p>
 
 <p><code class="prettyprint">DELETE http://example.com/api/managers/sign_out</code></p>
 
-          <h1 id="establishments">Establishments</h1>
+          <h1 id="patronapp-establishments">PatronApp / Establishments</h1>
 
 <h2 id="get-all-establishments">get all establishments</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/establishments"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 </code></pre>
 
@@ -1373,77 +1373,100 @@ or other subsequence request that need authentication.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patron_app/establishments</code></p>
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
 
-          <h1 id="patron-transactions">Patron / Transactions</h1>
+          <h1 id="patronapp-transactions">PatronApp / Transactions</h1>
 
-<h2 id="get-all-transactions-for-patron">get all transactions for patron</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/transactions"</span> <span class="se">\</span>
+<h2 id="get-all-transactions-by-establishment_id">get all transactions by establishment_id</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: user_token"</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "establishment_id": "a66d32c1-b50b-427e-8954-ec945e402f6d"
+    }'</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sale"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.63</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">125.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-125.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7EASE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WE7ESSE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDFQWE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correct"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"sale_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-20.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-04T07:48:56.050Z"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b80221a1-3f91-4979-b14f-f6d477b90561"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a66d32c1-b50b-427e-8954-ec945e402f6d"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62ada2ca5e"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:38:55.455Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a494ed0a-d7f9-4f6a-8dec-3ccc05fddc5e"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a66d32c1-b50b-427e-8954-ec945e402f6d"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f366f03f71"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:38:55.455Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by <code class="prettyprint">user_token</code>, and retrieves all transaction for specific user</p>
+<p>This endpoint authenticate by patron authenticate, and retrieves all transactions for specific
+patron and for specific establishment</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/patrons/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patron_app/establishments</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>establishment_id</td>
+<td>Y</td>
+<td>establishment_id that transactions belongs to</td>
+</tr>
+<tr>
 <td>page</td>
+<td>N</td>
 <td>the page results of all transactions</td>
 </tr>
 <tr>
 <td>per_page</td>
+<td>N</td>
 <td>the number of transaction record return per page by api, default to be 20</td>
 </tr>
 </tbody></table>
@@ -1552,12 +1575,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"621f3849e5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:22:17.005Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e47edfd-fd56-4ceb-ba12-b9e233da8436"</span><span class="p">,</span><span class="w">
@@ -1566,12 +1590,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c76f93d48b"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:22:17.005Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1649,12 +1674,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5305ec72be"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:14:38.953Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1691,12 +1717,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9dd87d694"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff84acbaaf"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:16:04.090Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9321494-9096-479d-ad74-2c00f1762ac2"</span><span class="p">,</span><span class="w">
@@ -1705,12 +1732,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9afa1212a9"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff84acbaaf"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:16:04.090Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1747,12 +1775,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41c7eed125"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:17:46.515Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1789,12 +1818,13 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1a3f96b921"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:18:36.521Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2006,13 +2036,14 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.5"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"362b2882f2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:36:32.563Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2042,13 +2073,14 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-75.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-2.63"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60c1bb42e9"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgfhi"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:39:07.321Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adc33168-1207-4370-9852-da6563a890a5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42d7d7c1-c8f6-4444-9472-a34322c091a9"</span><span class="p">,</span><span class="w">
@@ -2056,13 +2088,14 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3285af74bb"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgfhi"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:39:07.321Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2092,13 +2125,14 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e2dd918c6"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:41:33.685Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2128,13 +2162,14 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb7b042ac2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-26T13:42:53.904Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-27T13:36:32.563Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="err">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
