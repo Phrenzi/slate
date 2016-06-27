@@ -11,7 +11,7 @@ includes:
   - objects
   - patrons
   - managers
-  - establishments
+  - patron_app_establishments
   - patron_app_transactions
   - management_patrons
   - management_transactions

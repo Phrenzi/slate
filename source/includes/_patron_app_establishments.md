@@ -126,6 +126,6 @@ This endpoint retrieves all establishments
 
 ### HTTP Request
 
-`GET http://example.com/api/establishments`
+`GET http://example.com/api/patron_app/establishments`
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
