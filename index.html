@@ -205,16 +205,16 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>String</td>
-<td>&lsquo;Simon Iong&rsquo;</td>
-<td>the name of Patron</td>
+<td>id</td>
+<td>UUID</td>
+<td>&lsquo;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>uniq identifier of Patron</td>
 </tr>
 <tr>
-<td>credit-balance</td>
+<td>name</td>
 <td>String</td>
-<td>&#39;123.22&rsquo;</td>
-<td>the current avaliable balance for Patron</td>
+<td>&#39;Simon Iong&rsquo;</td>
+<td>the name of Patron</td>
 </tr>
 <tr>
 <td>email</td>
@@ -223,42 +223,20 @@ returned, so we list all the different json object here:</p>
 <td>the email from Patron</td>
 </tr>
 <tr>
-<td>trans-code</td>
-<td>String</td>
-<td>&ldquo;asdfw1&rdquo;</td>
-<td>6 digit trans code</td>
-</tr>
-</tbody></table>
-
-<h2 id="basic-patron">Basic Patron</h2>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>&#39;Simon Iong&rsquo;</td>
-<td>the name of Patron</td>
-</tr>
-<tr>
 <td>credit_balance</td>
 <td>String</td>
-<td>&ldquo;123.22&rdquo;</td>
-<td>the current avaliable balance for Patron</td>
+<td>&#39;123.22&rsquo;</td>
+<td>the current avaliable balance by Patron &amp; Establishment</td>
 </tr>
 <tr>
-<td>trans-code</td>
+<td>trans_code</td>
 <td>String</td>
 <td>&ldquo;asdfw1&rdquo;</td>
-<td>6 digit trans code</td>
+<td>6 digit trans code, unique identifier for Patron</td>
 </tr>
 </tbody></table>
+
+<p>Noted that for every patron, could have different credit_balance in different Establishment</p>
 
 <h2 id="manager">Manager</h2>
 
@@ -270,6 +248,12 @@ returned, so we list all the different json object here:</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>uniq identifier of Manager</td>
+</tr>
 <tr>
 <td>name</td>
 <td>String</td>
@@ -295,6 +279,12 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>uniq identifier of Establishment</td>
+</tr>
+<tr>
 <td>name</td>
 <td>String</td>
 <td>&#39;Awesome Bar&rsquo;</td>
@@ -307,16 +297,28 @@ returned, so we list all the different json object here:</p>
 <td>the phone contact for Establishment</td>
 </tr>
 <tr>
+<td>cash_back</td>
+<td>String</td>
+<td>&#39;3.5&rsquo;</td>
+<td>the current cash back setting</td>
+</tr>
+<tr>
 <td>desc</td>
 <td>String</td>
 <td>&#39;asdfsad&rsquo;</td>
 <td>the desc for Establishment</td>
 </tr>
 <tr>
-<td>cash_back</td>
+<td>logo_url</td>
 <td>String</td>
-<td>&#39;3.5&rsquo;</td>
-<td>the current cash back setting</td>
+<td>&#39;http://abc.com/logo.img&rsquo;</td>
+<td>logo url</td>
+</tr>
+<tr>
+<td>banner_url</td>
+<td>String</td>
+<td>&#39;http://abc.com/banner.img&rsquo;</td>
+<td>logo url</td>
 </tr>
 <tr>
 <td>address</td>
@@ -332,42 +334,6 @@ returned, so we list all the different json object here:</p>
 </tr>
 </tbody></table>
 
-<h2 id="basic-establishment">Basic Establishment</h2>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>&#39;Awesome Bar&rsquo;</td>
-<td>the name of Establishment</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>String</td>
-<td>&#39;123434123&rsquo;</td>
-<td>the phone contact for Establishment</td>
-</tr>
-<tr>
-<td>desc</td>
-<td>String</td>
-<td>&#39;asdfsad&rsquo;</td>
-<td>the desc for Establishment</td>
-</tr>
-<tr>
-<td>cash_back</td>
-<td>String</td>
-<td>&#39;3.5&rsquo;</td>
-<td>the current cash back setting</td>
-</tr>
-</tbody></table>
-
 <h2 id="address">Address</h2>
 
 <table><thead>
@@ -378,6 +344,12 @@ returned, so we list all the different json object here:</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>uniq identifier of Address</td>
+</tr>
 <tr>
 <td>street1</td>
 <td>String</td>
@@ -451,16 +423,28 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>uniq identifier of Transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
-<td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID</td>
+<td>&#39;eebd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>UUID for patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ffbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>UUID for establishment</td>
 </tr>
 <tr>
 <td>type</td>
 <td>String</td>
 <td>&#39;sale&rsquo;</td>
-<td>type of transaction, either &#39;sale&rsquo;, or &#39;correction&rsquo;</td>
+<td>type of transaction, either &#39;sale&rsquo;, or &#39;credit&rsquo;, or &#39;correction&rsquo;</td>
 </tr>
 <tr>
 <td>sale_amount</td>
@@ -480,7 +464,47 @@ returned, so we list all the different json object here:</p>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
 </tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td>true means this transaction is already been deleted</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-05T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string, the timestamp that this transaction is being deleted</td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>&ldquo;ggbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
+<td>UUID of origin delete</td>
+</tr>
+<tr>
+<td>transaction</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
+
+<p>NOTED:</p>
+
+<ul>
+<li>if a transaction A is deleted by api, then a reverted transaction B is created. Both transaction A &amp; B exists in Database, transaction A is called <code class="prettyprint">origin deleted transaction</code>, transaction B is called <code class="prettyprint">reverted deleted transaction</code></li>
+<li>server response json object order by tracked_at descending order.</li>
+<li>Client identify <code class="prettyprint">reverted deleted transaction</code> by <code class="prettyprint">deleted_at</code>.
+
+<ul>
+<li>If transaction <code class="prettyprint">deleted_at</code> is present, means that this transaction is <code class="prettyprint">reverted deleted transaction</code>, one can reference <code class="prettyprint">origin deleted transaction</code> by <code class="prettyprint">del_transaction_id</code></li>
+<li><code class="prettyprint">reverted deleted transaction</code> and <code class="prettyprint">origin deleted transaction</code> have the same <code class="prettyprint">tracked_at</code></li>
+<li>If <code class="prettyprint">deleted_at</code> is populated, then <code class="prettyprint">deleted</code> should be true</li>
+<li>if <code class="prettyprint">deleted_at</code> is populated, and client need to display datetime of this record somewhere, then should use <code class="prettyprint">deleted_at</code> instead of <code class="prettyprint">tracked_at</code>.</li>
+</ul></li>
+<li>if transaction <code class="prettyprint">deleted</code> is false, means client call <code class="prettyprint">delete transaction</code> api to delete this transaction</li>
+</ul>
 
 <h3 id="scenario-1-fully-sale-record">Scenario 1: fully sale record:</h3>
 
@@ -495,10 +519,22 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcd&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
+<td>UUID</td>
 <td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
 </tr>
 <tr>
 <td>type</td>
@@ -524,6 +560,24 @@ returned, so we list all the different json object here:</p>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
 </tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-2-partially-credit-redeem">Scenario 2: Partially credit redeem:</h3>
@@ -539,10 +593,22 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcde&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
+<td>UUID</td>
 <td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
 </tr>
 <tr>
 <td>type</td>
@@ -568,6 +634,24 @@ returned, so we list all the different json object here:</p>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
 </tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -579,10 +663,22 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcdf&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
+<td>UUID</td>
 <td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
 </tr>
 <tr>
 <td>type</td>
@@ -608,6 +704,24 @@ returned, so we list all the different json object here:</p>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
 </tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-3-fully-credit-redeem">Scenario 3: Fully credit redeem:</h3>
@@ -623,10 +737,22 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcdg&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
+<td>UUID</td>
 <td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
 </tr>
 <tr>
 <td>type</td>
@@ -652,9 +778,27 @@ returned, so we list all the different json object here:</p>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
 </tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
 </tbody></table>
 
-<h3 id="scenario-3-credit-correct">Scenario 3: Credit correct:</h3>
+<h3 id="scenario-4-credit-correct">Scenario 4: Credit correct:</h3>
 
 <p>manager decide to deduct 200 credit balance for Patron.</p>
 
@@ -667,10 +811,22 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcdh&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
 <td>patron_id</td>
-<td>String</td>
+<td>UUID</td>
 <td>&#39;ADSSDD&rsquo;</td>
-<td>the unique code for Patron this transaction is belongs to</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
 </tr>
 <tr>
 <td>type</td>
@@ -695,6 +851,460 @@ returned, so we list all the different json object here:</p>
 <td>Datetime</td>
 <td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
 <td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-5-delete-full-sale-record-from-scenario-1">Scenario 5: Delete Full Sale Record from Scenario 1</h3>
+
+<p>Original Sale transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcd&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction, either &#39;sale&rsquo;, or &#39;credit&rsquo;, or &#39;correction&rsquo;</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&#39;200.00&rsquo;</td>
+<td>the sale amount of this transaction</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Reverted Sale transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcd2&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction, either &#39;sale&rsquo;, or &#39;credit&rsquo;, or &#39;correction&rsquo;</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&rsquo;-200.00&rsquo;</td>
+<td>the sale amount of this transaction</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&rsquo;-7.00&rsquo;</td>
+<td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-05T07:48:56.050Z&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>&ldquo;abcd&rdquo;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="scenario-6-delete-partial-sale-record-from-scenario-2">Scenario 6: Delete Partial Sale Record from Scenario 2</h3>
+
+<p>Original Sale Transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcde&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&#39;75.00&rsquo;</td>
+<td>in this case, we deduct 125 credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&#39;2.63&rsquo;</td>
+<td>75 * 0.035 = 2.625</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Original Credit Transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcdf&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;credit&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&#39;125.00&rsquo;</td>
+<td>the sale amount redeem by credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&rsquo;-125.00&rsquo;</td>
+<td>the credit deduct from current balance of Patron</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Reverted Sale transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcde2&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;sale&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&rsquo;-75.00&rsquo;</td>
+<td>in this case, we deduct 125 credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&rsquo;-2.63&rsquo;</td>
+<td>75 * 0.035 = 2.625</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-05T07:48:56.050Z&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>&#39;abcde&rsquo;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Reverted Credit transaction</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>&#39;abcdf2&rsquo;</td>
+<td>UUID of transaction</td>
+</tr>
+<tr>
+<td>patron_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of patron</td>
+</tr>
+<tr>
+<td>establishment_id</td>
+<td>UUID</td>
+<td>&#39;ADSSDD&rsquo;</td>
+<td>UUID of establishment</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&#39;credit&rsquo;</td>
+<td>type of transaction</td>
+</tr>
+<tr>
+<td>sale_amount</td>
+<td>String</td>
+<td>&rsquo;-125.00&rsquo;</td>
+<td>the sale amount redeem by credit</td>
+</tr>
+<tr>
+<td>credit_amount</td>
+<td>String</td>
+<td>&#39;125.00&rsquo;</td>
+<td>the credit deduct from current balance of Patron</td>
+</tr>
+<tr>
+<td>tracked_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-04T07:48:56.050Z&rdquo;</td>
+<td>ISO_8601 format datetime string</td>
+</tr>
+<tr>
+<td>deleted_at</td>
+<td>Datetime</td>
+<td>&ldquo;2016-06-05T07:48:56.050Z&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>Boolean</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>del_transaction_id</td>
+<td>UUID</td>
+<td>&#39;abcdf&rsquo;</td>
+<td></td>
 </tr>
 </tbody></table>
 
