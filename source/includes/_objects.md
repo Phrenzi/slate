@@ -1,27 +1,21 @@
-# Json Objects
+# JSON Objects
 
 normally, a api response in Phrenzi, will be somehow like this in the right hand side :
 
 ``` json
 {
-  "data": {
-    "id": "ABCCDD",
-    "type": "patrons",
-    "attributes": {
-      "name": "Simon",
-      "email": "abc@example.com",
-      "credit-balance": "123.22",
-      "trans-code": "asdfw1"
+  "object_name": {
+    "object_attribute_a": "ABCCDD",
+    "object_attribute_b": "Simon",
+    "object_attribute_c": "abc@exmaple.com",
+    "object_attribute_d": "1234.22"
     }
-  }
 }
 ```
 
-In `data` tag, it represent the important part for client to consuming, either a json object, or
+In `object_name` tag, it represent the important part for client to consuming, either a json object, or
 Array of json objects. It would be easier for us to classify different json object from Phrenzi api
 returned, so we list all the different json object here:
-
-For example, the api response on the right hand side represent a `Patron` json object below.
 
 ## Patron
 
