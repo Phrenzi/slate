@@ -28,9 +28,21 @@ information on various establishments, transactions, and challenges in our datab
 
 We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-# API standard
+# API Version
 
-for apis in Phrenzi, we follow [JSON API](http://jsonapi.org). Clients built around JSON API are able to take advantage of its features around efficiently caching responses, sometimes eliminating network requests entirely.
+We have only 1 version of API now in Phrenzi,
+but we are going to increse the API version in the future if we need to.
+So it is better to claim the version of API you are going to call,
+by inserting a special header item in every of your request.
+
+<aside class="success">If client do not specify the api version, then server will assume that client want to request latest version of API. </aside>
+
+> To specify the version of API, simply insert a header `ACCEPT`, with a value with `phrenzi.v#{version_of_api}`, example:
+
+``` shell
+curl "https://phrenzi.com/api_endpoint" \
+  -H "ACCEPT: phrenzi.v1" \
+```
 
 # Authentication
 
