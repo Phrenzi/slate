@@ -66,7 +66,7 @@ patron and for specific establishment
 
 ### HTTP Request
 
-`GET http://example.com/api/patrons/establishments`
+`GET http://example.com/api/patron_app/establishments`
 
 ### Query Parameters
 
