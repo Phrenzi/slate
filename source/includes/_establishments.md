@@ -1,9 +1,9 @@
-# Establishments
+# PatronApp / Establishments
 
 ## get all establishments
 
 ```shell
-curl "https://phrenzi.com/api/establishments" \
+curl "https://phrenzi.com/api/patron_app/establishments" \
   -H "Content-Type: application/json" \
 ```
 
