@@ -123,9 +123,21 @@ information on various establishments, transactions, and challenges in our datab
 
 <p>We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<h1 id="api-standard">API standard</h1>
+<h1 id="api-version">API Version</h1>
 
-<p>for apis in Phrenzi, we follow <a href="http://jsonapi.org">JSON API</a>. Clients built around JSON API are able to take advantage of its features around efficiently caching responses, sometimes eliminating network requests entirely.</p>
+<p>We have only 1 version of API now in Phrenzi,
+but we are going to increse the API version in the future if we need to.
+So it is better to claim the version of API you are going to call,
+by inserting a special header item in every of your request.</p>
+
+<aside class="success">If client do not specify the api version, then server will assume that client want to request latest version of API. </aside>
+
+<blockquote>
+<p>To specify the version of API, simply insert a header <code class="prettyprint">ACCEPT</code>, with a value with <code class="prettyprint">phrenzi.v#{version_of_api}</code>, example:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api_endpoint"</span> <span class="se">\</span>
+  -H <span class="s2">"ACCEPT: phrenzi.v1"</span> <span class="se">\</span>
+</code></pre>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -171,28 +183,22 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
 <li>uid</li>
 </ul>
 
-          <h1 id="json-objects">Json Objects</h1>
+          <h1 id="json-objects">JSON Objects</h1>
 
 <p>normally, a api response in Phrenzi, will be somehow like this in the right hand side :</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCCDD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patrons"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit-balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.22"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"trans-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdfw1"</span><span class="w">
+  </span><span class="nt">"object_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"object_attribute_a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCCDD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"object_attribute_b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"object_attribute_c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@exmaple.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"object_attribute_d"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234.22"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>In <code class="prettyprint">data</code> tag, it represent the important part for client to consuming, either a json object, or
+<p>In <code class="prettyprint">object_name</code> tag, it represent the important part for client to consuming, either a json object, or
 Array of json objects. It would be easier for us to classify different json object from Phrenzi api
 returned, so we list all the different json object here:</p>
-
-<p>For example, the api response on the right hand side represent a <code class="prettyprint">Patron</code> json object below.</p>
 
 <h2 id="patron">Patron</h2>
 
