@@ -27,12 +27,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "sales",
       "sales_amount": "100.0",
       "credit_amount": "3.5",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "621f3849e5",
       "group_code": null,
       "tracked_at": "2016-06-26T13:22:17.005Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     },
     {
       "id": "4e47edfd-fd56-4ceb-ba12-b9e233da8436",
@@ -41,12 +42,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "sales",
       "sales_amount": "100.0",
       "credit_amount": "3.5",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "c76f93d48b",
       "group_code": null,
       "tracked_at": "2016-06-26T13:22:17.005Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     }
   ],
   "meta": {
@@ -106,12 +108,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "sales",
       "sales_amount": "200.0",
       "credit_amount": "7.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "5305ec72be",
       "group_code": null,
       "tracked_at": "2016-06-26T13:14:38.953Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     }
   ]
 }
@@ -148,12 +151,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "sales",
       "sales_amount": "75.0",
       "credit_amount": "2.63",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "b9dd87d694",
       "group_code": "ff84acbaaf",
       "tracked_at": "2016-06-26T13:16:04.090Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     },
     {
       "id": "b9321494-9096-479d-ad74-2c00f1762ac2",
@@ -162,12 +166,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "credit",
       "sales_amount": "125.0",
       "credit_amount": "-125.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "9afa1212a9",
       "group_code": "ff84acbaaf",
       "tracked_at": "2016-06-26T13:16:04.090Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     }
   ]
 }
@@ -204,12 +209,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "credit",
       "sales_amount": "200.0",
       "credit_amount": "-200.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "41c7eed125",
       "group_code": null,
       "tracked_at": "2016-06-26T13:17:46.515Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     }
   ]
 }
@@ -246,12 +252,13 @@ curl "https://phrenzi.com/api/management/transactions" \
       "trans_type": "correction",
       "sales_amount": "0.0",
       "credit_amount": "-200.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "1a3f96b921",
       "group_code": null,
       "tracked_at": "2016-06-26T13:18:36.521Z",
-      "del_transaction_id": null
+      "del_transaction_id": null,
+      "deleted_at": null,
+      "deleted": false
     }
   ]
 }
@@ -348,12 +355,13 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "trans_type": "sales",
       "sales_amount": "-100.0",
       "credit_amount": "-3.5",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "362b2882f2",
       "group_code": null,
       "tracked_at": "2016-06-26T13:36:32.563Z",
-      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+      "deleted_at": "2016-06-27T13:36:32.563Z",
+      "deleted": true,
     }
   ]
 }
@@ -384,12 +392,13 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "trans_type": "sales",
       "sales_amount": "-75.0",
       "credit_amount": "-2.63",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "60c1bb42e9",
       "group_code": "abcdefgfhi",
       "tracked_at": "2016-06-26T13:39:07.321Z",
-      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+      "deleted_at": "2016-06-27T13:36:32.563Z",
+      "deleted": true,
     },
     {
       "id": "adc33168-1207-4370-9852-da6563a890a5",
@@ -398,12 +407,13 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "trans_type": "credit",
       "sales_amount": "-125.0",
       "credit_amount": "125.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "3285af74bb",
       "group_code": "abcdefgfhi",
       "tracked_at": "2016-06-26T13:39:07.321Z",
-      "del_transaction_id": "6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb"
+      "del_transaction_id": "6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb",
+      "deleted_at": "2016-06-27T13:36:32.563Z",
+      "deleted": true,
     }
   ]
 }
@@ -434,12 +444,13 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "trans_type": "credit",
       "sales_amount": "-200.0",
       "credit_amount": "200.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "6e2dd918c6",
       "group_code": null,
       "tracked_at": "2016-06-26T13:41:33.685Z",
-      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+      "deleted_at": "2016-06-27T13:36:32.563Z",
+      "deleted": true,
     }
   ]
 }
@@ -471,12 +482,13 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "trans_type": "correction",
       "sales_amount": "-0.0",
       "credit_amount": "-200.0",
-      "status": "valid",
       "cash_back": "3.5",
       "trans_code": "eb7b042ac2",
       "group_code": null,
       "tracked_at": "2016-06-26T13:42:53.904Z",
-      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+      "deleted_at": "2016-06-27T13:36:32.563Z",
+      "deleted": true,
     }
   ]
 }
