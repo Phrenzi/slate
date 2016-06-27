@@ -12,7 +12,7 @@ includes:
   - patrons
   - managers
   - establishments
-  - patron_transactions
+  - patron_app_transactions
   - management_patrons
   - management_transactions
   - management_settings
