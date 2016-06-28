@@ -40,7 +40,7 @@ curl "http://phrenzi.com/api/patrons" \
 }
 ```
 
-This endpoint try to register a account for Patron.
+This endpoint try to register a account for Patron, and need App Token authenticate.
 
 * if success, it will return HTTP Status Code `200` with `Patron` json object
 * if failed, it will return HTTP Status Code `422`, and with `errors` json message
@@ -102,7 +102,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 }
 ```
 
-This endpoint try to authenticate Patron
+This endpoint try to authenticate Patron, and need App Token authenticate.
 
 * if success, it will return `Patron` object with HTTP Status Code `200`, and client can retrive
 auth header from reponse to consuming next request that need authentication.
@@ -244,8 +244,8 @@ curl "http://example.com/api/patrons/passwords" \
 }
 ```
 
-This api is used while Patron forget password, and after this api is invoked and is success, a email
-will trigger and sent to Patron's registered email
+This api need App Token authenticated and is used while Patron forget password, and after this api is invoked and is success, a email
+will trigger and sent to Patron's registered email.
 
 * if success, it will return HTTP Status Code `200` without json object
 * if email is missing, it will return HTTP Status Code `401`

@@ -40,7 +40,7 @@ curl "https://phrenzi.com/api/managers/sign_in" \
 }
 ```
 
-This endpoint try to authenticate Manager
+This endpoint try to authenticate Manager, and need App Token authenticated.
 
 * if success, it will return `Manager` object with HTTP Status Code `200`, and client can retrive
 auth header from reponse to consuming next request that need authentication.
