@@ -5,6 +5,7 @@
 ```shell
 curl "http://phrenzi.com/api/patrons" \
   -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "name": "Simon",
@@ -64,6 +65,7 @@ confirm_success_url | the url after confirmation link is click
 ```shell
 curl "https://phrenzi.com/api/patrons/sign_in" \
   -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com",
@@ -199,6 +201,7 @@ config | the config object, which is `default`
 ```shell
 curl "http://example.com/api/patrons/passwords" \
   -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com" }'

@@ -81,3 +81,21 @@ Noted: Any client can easily extract out this `Auth Header` exchange logic into 
 * client
 * expiry
 * uid
+
+
+# APP TOKEN
+
+For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,
+
+it's better to add basic level protection as well, by predefine App Token, and inserting a
+`Authorization` header with App Token in your request header for public facing api, we can block anonymous attack.
+
+For the correct App Token, please contact admin of Phrenzi.
+
+> Token Authenticated by insert a `Authorization` header in your api request, following example is a call to patron sign in with App Token inserted.
+
+``` shell
+curl "https://phrenzi.com/patrons/sign_in" \
+  -H "ACCEPT: phrenzi.v1" \
+  -H "Authorization: app_token"
+```

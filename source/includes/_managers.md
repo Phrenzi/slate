@@ -5,6 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/managers/sign_in" \
   -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com",
