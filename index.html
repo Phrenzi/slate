@@ -183,6 +183,23 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
 <li>uid</li>
 </ul>
 
+<h1 id="app-token">APP TOKEN</h1>
+
+<p>For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,</p>
+
+<p>it&rsquo;s better to add basic level protection as well, by predefine App Token, and inserting a
+<code class="prettyprint">Authorization</code> header with App Token in your request header for public facing api, we can block anonymous attack.</p>
+
+<p>For the correct App Token, please contact admin of Phrenzi.</p>
+
+<blockquote>
+<p>Token Authenticated by insert a <code class="prettyprint">Authorization</code> header in your api request, following example is a call to patron sign in with App Token inserted.</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/patrons/sign_in"</span> <span class="se">\</span>
+  -H <span class="s2">"ACCEPT: phrenzi.v1"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span>
+</code></pre>
+
           <h1 id="json-objects">JSON Objects</h1>
 
 <p>normally, a api response in Phrenzi, will be somehow like this in the right hand side :</p>
@@ -1319,6 +1336,7 @@ returned, so we list all the different json object here:</p>
 <h2 id="sign-up">Sign Up</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "name": "Simon",
@@ -1397,6 +1415,7 @@ returned, so we list all the different json object here:</p>
 <h2 id="sign-in">Sign In</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
@@ -1556,6 +1575,7 @@ in this endpoint.</p>
 <h2 id="request-reset-password">Request Reset Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/patrons/passwords"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com" }'</span>
@@ -1759,6 +1779,7 @@ and with following json object</p>
 <h2 id="sign-in">Sign In</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
