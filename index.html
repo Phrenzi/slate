@@ -1371,7 +1371,7 @@ returned, so we list all the different json object here:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint try to register a account for Patron.</p>
+<p>This endpoint try to register a account for Patron, and need App Token authenticate.</p>
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with <code class="prettyprint">Patron</code> json object</li>
@@ -1452,7 +1452,7 @@ returned, so we list all the different json object here:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint try to authenticate Patron</p>
+<p>This endpoint try to authenticate Patron, and need App Token authenticate.</p>
 
 <ul>
 <li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
@@ -1618,8 +1618,8 @@ in this endpoint.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This api is used while Patron forget password, and after this api is invoked and is success, a email
-will trigger and sent to Patron&rsquo;s registered email</p>
+<p>This api need App Token authenticated and is used while Patron forget password, and after this api is invoked and is success, a email
+will trigger and sent to Patron&rsquo;s registered email.</p>
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> without json object</li>
@@ -1814,7 +1814,7 @@ and with following json object</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint try to authenticate Manager</p>
+<p>This endpoint try to authenticate Manager, and need App Token authenticated.</p>
 
 <ul>
 <li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
