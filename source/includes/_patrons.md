@@ -199,7 +199,7 @@ config | the config object, which is `default`
 ## Request Reset Password
 
 ```shell
-curl "http://example.com/api/patrons/passwords" \
+curl "http://example.com/api/patrons/password" \
   -H "Content-Type: application/json" \
   -H "Authorization: app_token" \
   -X POST \
@@ -254,7 +254,7 @@ will trigger and sent to Patron's registered email.
 
 ### HTTP Request
 
-`POST http://phrenzi.com/api/patrons/passwords`
+`POST http://phrenzi.com/api/patrons/password`
 
 ### URL Parameters
 
