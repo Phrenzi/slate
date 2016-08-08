@@ -18,7 +18,8 @@ curl "https://phrenzi.com/api/managers/sign_in" \
 {
   "manager": {
     "id": "6b586aeb-a53d-476a-9435-659ed9547e6e",
-    "email": "abc@gmail.com"
+    "email": "abc@gmail.com",
+    "establishment_name": "Awesome Bar"
   }
 }
 ```

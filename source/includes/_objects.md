@@ -36,6 +36,7 @@ Key | Type | Example | Description
 id | UUID | 'ddbd0c3c-404d-4ce1-9042-9baecb4ef585' | uniq identifier of Manager
 name | String | 'Simon Iong' | the name of Manager
 email | String | 'abc@example.com' | the email from Manager
+establishment_name | String | 'Awesome Bar' | the establishment name of this Manager
 
 ## Establishment
 Key | Type | Example | Description

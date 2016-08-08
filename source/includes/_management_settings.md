@@ -107,7 +107,8 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
 {
   "manager": {
     "id": "2544a3af-cda6-4a0d-b760-17e43e1cc165",
-    "email": "manager1@gmail.com"
+    "email": "manager1@gmail.com",
+    "establishment_name": "Awesome Bar"
   }
 }
 ```
