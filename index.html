@@ -470,6 +470,12 @@ returned, so we list all the different json object here:</p>
 <td>UUID for establishment</td>
 </tr>
 <tr>
+<td>challenge_id</td>
+<td>UUID</td>
+<td>&#39;ffbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
+<td>UUID for challenge, can be NILL</td>
+</tr>
+<tr>
 <td>type</td>
 <td>String</td>
 <td>&#39;sale&rsquo;</td>
@@ -2216,6 +2222,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bf77e8f9-c01d-4dc1-9fba-d79427f1cd8e"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e405f87e-447b-4308-a39f-1e6505ba5503"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
@@ -2231,6 +2238,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e47edfd-fd56-4ceb-ba12-b9e233da8436"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e405f87e-447b-4308-a39f-1e6505ba5503"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
@@ -2315,6 +2323,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fc3dc0d4-5500-4727-a817-b63e92b8303d"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa7bd5c-2daf-44b4-8abb-9918b2001ca3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.0"</span><span class="p">,</span><span class="w">
@@ -2358,6 +2367,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67c622ae-8048-4ccb-983c-a5e467b8d1ba"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86aef2ae-3651-4dad-90ad-303a8f476638"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.63"</span><span class="p">,</span><span class="w">
@@ -2373,6 +2383,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9321494-9096-479d-ad74-2c00f1762ac2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86aef2ae-3651-4dad-90ad-303a8f476638"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
@@ -2416,6 +2427,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a2b26425-90da-4273-a57a-a8f5a0d4981a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c01057e7-6e17-4395-9230-eb5204a6dd5a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
@@ -2459,6 +2471,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"371051f9-0214-4ff3-bc82-6cea5b96f9f8"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4999183-fa78-4191-8402-1538eb747c23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
@@ -2677,6 +2690,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3cf13c1d-a1b8-4258-9ae0-4239cd5c81df"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c801514d-8063-4a79-82cc-686747165a85"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af84f935-9ab5-41f9-abe5-37a06a6dfa36"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.5"</span><span class="p">,</span><span class="w">
@@ -2714,6 +2728,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db2a88e1-072b-42ef-a9b9-0af3cd2977ac"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42d7d7c1-c8f6-4444-9472-a34322c091a9"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24b0345f-d06b-4fed-b1c6-50bd424028b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-75.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-2.63"</span><span class="p">,</span><span class="w">
@@ -2729,6 +2744,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adc33168-1207-4370-9852-da6563a890a5"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42d7d7c1-c8f6-4444-9472-a34322c091a9"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24b0345f-d06b-4fed-b1c6-50bd424028b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-125.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125.0"</span><span class="p">,</span><span class="w">
@@ -2766,6 +2782,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2f8cb908-2997-417a-941c-9ccb15da0a29"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4e18a28-9ccc-4e47-bd34-3241998410b1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"744275ee-714d-40eb-8657-880725bbeb9b"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
@@ -2803,6 +2820,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10d1a032-ca48-4d08-b078-5c74e76fb6cc"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a540cb87-a662-4b89-b1f0-47e4c62eb3c2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4020f704-6ea8-4323-85bf-0a5d9b04140a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
