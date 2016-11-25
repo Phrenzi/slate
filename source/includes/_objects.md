@@ -75,6 +75,7 @@ Key | Type | Example | Description
 id | UUID | 'ddbd0c3c-404d-4ce1-9042-9baecb4ef585' | uniq identifier of Transaction
 patron_id | UUID | 'eebd0c3c-404d-4ce1-9042-9baecb4ef585' | UUID for patron |
 establishment_id | UUID | 'ffbd0c3c-404d-4ce1-9042-9baecb4ef585' | UUID for establishment |
+challenge_id | UUID | 'ffbd0c3c-404d-4ce1-9042-9baecb4ef585' | UUID for challenge, can be NILL |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | String | '200.00' | different meaning for different scenarios |
 credit_amount | String | '7.00' | different meaning for different scenarios |
