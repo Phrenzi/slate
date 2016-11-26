@@ -292,24 +292,29 @@ curl "https://phrenzi.com/api/management/transactions" \
 
 > if establishment is not open, the above command returns status code 406, and errors json like this:
 
+```json
 {
   "errors": ["Current Establishment is not opened"]
 }
+```
 
 > if current credit balance is not enough, then return status code 406, and errors json like this:
 
+```json
 {
   "errors": ["Balance not enough"]
 }
+```
 
 > if input validation is failed
 
+```json
 {
   "errors": {
     "trans_type": ["is not included in the list"]
   }
 }
-
+```
 This endpoint required manager authentication, and create transaction records.
 
 ### HTTP Request
