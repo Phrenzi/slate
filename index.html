@@ -2489,6 +2489,51 @@ the <code class="prettyprint">credit_balance</code> return from different manage
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>Error Scenarios</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "type": "correction",
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 0.0,
+    "credit_amount": -200.0
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if establishment is not open, the above command returns status code 406, and errors json like this:</p>
+</blockquote>
+
+<p>{
+  &ldquo;errors&rdquo;: [&ldquo;Current Establishment is not opened&rdquo;]
+}</p>
+
+<blockquote>
+<p>if current credit balance is not enough, then return status code 406, and errors json like this:</p>
+</blockquote>
+
+<p>{
+  &ldquo;errors&rdquo;: [&ldquo;Balance not enough&rdquo;]
+}</p>
+
+<blockquote>
+<p>if input validation is failed</p>
+</blockquote>
+
+<p>{
+  &ldquo;errors&rdquo;: {
+    &ldquo;trans_type&rdquo;: [&ldquo;is not included in the list&rdquo;]
+  }
+}</p>
+
 <p>This endpoint required manager authentication, and create transaction records.</p>
 
 <h3 id="http-request">HTTP Request</h3>
