@@ -271,6 +271,45 @@ curl "https://phrenzi.com/api/management/transactions" \
 }
 ```
 
+> Error Scenarios
+
+```shell
+curl "https://phrenzi.com/api/management/transactions" \
+  -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
+  -X POST \
+  -d '{
+    "type": "correction",
+    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+    "sales_amount": 0.0,
+    "credit_amount": -200.0
+    }'
+```
+
+> if establishment is not open, the above command returns status code 406, and errors json like this:
+
+{
+  "errors": ["Current Establishment is not opened"]
+}
+
+> if current credit balance is not enough, then return status code 406, and errors json like this:
+
+{
+  "errors": ["Balance not enough"]
+}
+
+> if input validation is failed
+
+{
+  "errors": {
+    "trans_type": ["is not included in the list"]
+  }
+}
+
 This endpoint required manager authentication, and create transaction records.
 
 ### HTTP Request
