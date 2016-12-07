@@ -59,95 +59,100 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
 ```json
 {
   "establishment": {
-    "id": "c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea",
+    "id": "610ce5ee-8ce2-4ad2-9296-3e2bd6ec539a",
     "name": "Establishment1",
     "phone": "612345671",
     "cash_back": "3.5",
     "desc": "This is an example description",
-    "logo_url": "http://abc.com/uploads/establishment/logo/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg",
-    "banner_url": "http://abc.com/uploads/establishment/banner/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg",
+    "logo_url": "http://abc.com/uploads/establishment/logo/e1c3c3b9e1bb587672ed14663c233d2a.jpeg",
+    "banner_url": "http://abc.com/uploads/establishment/banner/cf2731b3f037e081fee8230378290b62.jpeg",
+    "address": {
+      "id": "54f27047-8a98-4304-b7bc-43b2f855a582",
+      "street1": "MyString",
+      "street2": "MyString",
+      "city": "MyString",
+      "country": "MyString"
+    },
     "business_hours": [
       {
         "wday": 0,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 1,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 2,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 3,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 4,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 5,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       },
       {
         "wday": 6,
         "open_time": 39600,
-        "close_time": 86400
+        "close_time": 86400,
+        "closed": false
       }
-    ],
-    "address": {
-      "id": "0485af50-a837-4545-aeac-db9877637f46",
-      "street1": "MaWan",
-      "street2": "",
-      "city": "Hong Kong",
-      "country": "HK"
-    }
+    ]
   },
   "current_challenge": {
-    "winner_percentage": "5.0",
-    "prize_percentage": "25.0",
-    "total_sales": "12345600.0",
-    "start_date": "2016-12-12 00:00:00",
-    "end_date": "2016-12-13 00:00:00"
+    "start_date": "2016-12-06T16:00:00.000Z",
+    "end_date": "2016-12-06T16:00:00.000Z",
+    "winner_percentage": "25.0",
+    "prize_percentage": "5.0",
+    "total_sales": "10000.0",
+    "ranking": [
+      {
+        "id": "f9128d9c-a60c-471d-8e22-761bc0a0a785",
+        "name": "Patron2",
+        "join_time": "2016-12-07T12:30:01.496Z",
+        "point_balance": "20.0",
+        "ranking": 0,
+        "prize": "500"
+      },
+      {
+        "id": "8d7c84fd-c6d1-4c02-b7b6-e5a3d6eebacd",
+        "name": "Patron1",
+        "join_time": "2016-12-07T12:30:01.469Z",
+        "point_balance": "10.0",
+        "ranking": 1,
+        "prize": "0.0"
+      }
+    ]
   },
   "current_boosters": [
-    { "id": "0485af50-a837-4545-aeac-db9877637f56",
-      "status": "scheduled",
-      "booster_type": "check_in",
-      "start_time": "2016-12-12 00:00:00",
-      "end_time": "2016-12-12 01:00:00"
-    },
-    { "id": "0485af50-a837-4545-aeac-dc9877637f56",
-      "status": "finished",
-      "booster_type": "check_in",
-      "start_time": "2016-12-12 00:00:00",
-      "end_time": "2016-12-12 01:00:00"
-    },
-    { "id": "0485af50-a837-4545-aeac-da9877637f56",
+    {
+      "id": "20ac2155-b5f6-440a-aedc-c1c4b0cae8f6",
       "status": "actived",
-      "booster_type": "target_amount",
-      "start_time": "2016-12-12 00:00:00",
-      "end_time": "2016-12-12 01:00:00"
+      "booster_type": "check_in"
     },
-    { "id": "0485af50-a837-4545-aeac-de9877637f56",
-      "status": "scheduled",
-      "booster_type": "target_amount",
-      "start_time": "2016-12-12 00:00:00",
-      "end_time": "2016-12-12 01:00:00"
-    },
-    { "id": "0485af50-a837-4545-aeac-d59877637f56",
-      "status": "scheduled",
-      "booster_type": "invitation",
-      "start_time": "2016-12-12 00:00:00",
-      "end_time": "2016-12-12 01:00:00"
+    {
+      "id": "c74cc563-2119-4fc5-ae86-de4d77b2a25b",
+      "status": "actived",
+      "booster_type": "invitation"
     }
   ]
 }
