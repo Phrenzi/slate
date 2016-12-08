@@ -66,6 +66,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "desc": "This is an example description",
     "logo_url": "http://abc.com/uploads/establishment/logo/e1c3c3b9e1bb587672ed14663c233d2a.jpeg",
     "banner_url": "http://abc.com/uploads/establishment/banner/cf2731b3f037e081fee8230378290b62.jpeg",
+    "active_booster_count": 3,
+    "credit_balance": "20000.0",
     "address": {
       "id": "54f27047-8a98-4304-b7bc-43b2f855a582",
       "street1": "MyString",
