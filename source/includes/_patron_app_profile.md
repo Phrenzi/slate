@@ -36,19 +36,36 @@ For more detail, please visit shrine's plugin [direct_upload](http://shrinerb.co
 ## create patron profile
 
 ```shell
-curl "https://phrenzi.com/api/patron_app/patron_profile" \
+curl "https://phrenzi.com/api/patron_app/profile" \
   -H "Content-Type: application/json" \
   -H "Authorization: app_token" \
   -X POST \
   -d '{
-        "profile": {
-          "id": "349234854924394", # requied
-          "storage": "cache", # requied
+        "profile": '{
+          "id": "349234854924394", # required
+          "storage": "cache", # required
           "metadata": {
             "size": 45461, # optional
             "filename": "foo.jpg", # optional
             "mime_type": "image/jpeg", # optional
           }
-        }
+        }'
       }'
 ```
+
+> The above command returns status code 200
+
+### HTTP Request
+
+`POST http://example.com/api/patron_app/profile`
+
+
+### URL Parameters
+Parameter | Description
+--------- | -----------
+profile | String, json object string demonstrated above
+
+NOTED: id & storage is required in json object string
+
+For full scenario of upload profile with pre-sign, please refer
+[here](https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb)
