@@ -1897,6 +1897,57 @@ or other subsequence request that need authentication.</p>
 
 <p><code class="prettyprint">DELETE http://example.com/api/managers/sign_out</code></p>
 
+          <h1 id="patronapp-profile-image">PatronApp / Profile Image</h1>
+
+<h2 id="pre-sign-url">pre-sign url</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/patron_profile/cache/presign"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzistaging.s3-ap-southeast-1.amazonaws.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"fields"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"policy"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJleHBpcmF0aW9uIjoiMjAxNi0xMi0wOVQxMDoyNzozMVoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJwaHJlbnppc3RhZ2luZyJ9LHsia2V5IjoiY2FjaGUvMmE3OGI3MWI2MGYwMmZjMDk3YzFhYWM1ZTA0MDkxMzgifSx7IngtYW16LWNyZWRlbnRpYWwiOiJBS0lBSlhNM1U3QU02STNPRTM2QS8yMDE2MTIwOS9hcC1zb3V0aGVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MTIwOVQwOTI3MzFaIn1dfQ=="</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS4-HMAC-SHA256"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"cache/2a78b71b60f02fc097c1aac5e0409138"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-signature"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"52956151623087d2a4997462c90055d61e51de3b1a5b8d89f826f1769da3894f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"20161209T092731Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-credential"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"AKIAJXM3U7AM6I3OE36A/20161209/ap-southeast-1/s3/aws4_request"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves pre-sign url for upload image into s3</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/patron_app/patron_profiile/cache/presign</code></p>
+
+<p>After you retrive the presign url, you could be able to make a post request to presign url with the fields this end-point provided. Then you could be able to retrieve an id from S3. Please construct a json object with this id, and this object will going to be used in next API call to create the actual profile image in Phrenzi</p>
+
+<p>For more detail, please visit shrine&rsquo;s plugin <a href="http://shrinerb.com/rdoc/files/doc/direct_s3_md.html">direct_upload</a></p>
+
+<h2 id="create-patron-profile">create patron profile</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/patron_profile"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+        "profile": {
+          "id": "349234854924394", # requied
+          "storage": "cache", # requied
+          "metadata": {
+            "size": 45461, # optional
+            "filename": "foo.jpg", # optional
+            "mime_type": "image/jpeg", # optional
+          }
+        }
+      }'</span>
+</code></pre>
+
           <h1 id="patronapp-establishments">PatronApp / Establishments</h1>
 
 <h2 id="get-all-establishments">get all establishments</h2>
