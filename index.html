@@ -1931,22 +1931,49 @@ or other subsequence request that need authentication.</p>
 <p>For more detail, please visit shrine&rsquo;s plugin <a href="http://shrinerb.com/rdoc/files/doc/direct_s3_md.html">direct_upload</a></p>
 
 <h2 id="create-patron-profile">create patron profile</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/patron_profile"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/profile"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
-        "profile": {
-          "id": "349234854924394", # requied
-          "storage": "cache", # requied
-          "metadata": {
-            "size": 45461, # optional
-            "filename": "foo.jpg", # optional
-            "mime_type": "image/jpeg", # optional
-          }
-        }
+        "profile": '</span><span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"349234854924394"</span>, <span class="c"># required</span>
+          <span class="s2">"storage"</span>: <span class="s2">"cache"</span>, <span class="c"># required</span>
+          <span class="s2">"metadata"</span>: <span class="o">{</span>
+            <span class="s2">"size"</span>: 45461, <span class="c"># optional</span>
+            <span class="s2">"filename"</span>: <span class="s2">"foo.jpg"</span>, <span class="c"># optional</span>
+            <span class="s2">"mime_type"</span>: <span class="s2">"image/jpeg"</span>, <span class="c"># optional</span>
+          <span class="o">}</span>
+        <span class="o">}</span><span class="s1">'
       }'</span>
 </code></pre>
+
+<blockquote>
+<p>The above command returns status code 200</p>
+</blockquote>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/profile</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profile</td>
+<td>String, json object string demonstrated above</td>
+</tr>
+</tbody></table>
+
+<p>NOTED: id &amp; storage is required in json object string</p>
+
+<p>For full scenario of upload profile with pre-sign, please refer
+<a href="https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb">here</a></p>
 
           <h1 id="patronapp-establishments">PatronApp / Establishments</h1>
 
