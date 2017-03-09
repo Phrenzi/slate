@@ -2234,6 +2234,77 @@ patron and for specific establishment</p>
 </tr>
 </tbody></table>
 
+          <h1 id="patronapp-check-in">PatronApp / Check In</h1>
+
+<h2 id="patron-check-in">patron check in</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/check_in"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "lat": "23.2333",
+    "long": "-22.1234"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns status code 200 with response of JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"boosters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If patron&rsquo;s lat &amp; long is closed enough to establishment, return status code 406 and following
+JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Current Location is not near enough"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If patron&rsquo;s lat &amp; long have format error, return status code 422 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"can't be blank"</span><span class="p">],</span><span class="w"> </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"can't be blank"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint check in current logined patron into Establishment specify</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/establishments/:establishment_id/check_in</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>NOTED: establishment_id is the uuid of establishment</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lat</td>
+<td>Y</td>
+<td>latitude of patron&rsquo;s location, example &lsquo;23.233&rsquo;</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Y</td>
+<td>longitude of patron&rsquo;s location, example: &rsquo;-23.233&rsquo;</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-patrons">Management / Patrons</h1>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
