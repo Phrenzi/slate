@@ -1,4 +1,4 @@
-# PatronApp / Invite Patron
+# PatronApp / Invitation
 
 ## Invite Patron
 
