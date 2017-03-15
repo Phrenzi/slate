@@ -2338,6 +2338,90 @@ JSON response:</p>
 </tr>
 </tbody></table>
 
+          <h1 id="patronapp-invite-patron">PatronApp / Invite Patron</h1>
+
+<h2 id="invite-patron">Invite Patron</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/invite"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "invitee_patron_id": "202f96fb-1536-43fa-a6ba-7b0387e90465"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success invited, then returns status code 200 with empty body.</p>
+
+<p>if there&rsquo;s validation error, then return status code 422, and following error JSON
+response, with error explaination:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"invitee_patron_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"does not exist"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If current authenticated patron is not checked-in, then he is not allow to invite, in this case, return status code 406 and following
+JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Can't invite anyone before your check-in"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If invitee is already invited, return status code 406 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Invitee have been invited"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If invitee already checked-in, return status code 406 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Invitee already checked-in"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If host reach invitation limit, return status code 406 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"You have reached invitation limit, can't invite anymore"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint create a invitation for current logined patron to patron specify</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/boosters/:booster_id/invite</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>NOTED: booster_id is the uuid of booster, and must be a invitation booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invitee_patron_id</td>
+<td>Y</td>
+<td>invitee&rsquo;s uuid</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-patrons">Management / Patrons</h1>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
