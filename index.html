@@ -2422,6 +2422,159 @@ JSON response:</p>
 </tr>
 </tbody></table>
 
+<h2 id="invitation-patron-list">Invitation patron list</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/patrons"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>if success invited, then returns status code 200 with following json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"644553a9-35ff-4055-b9d5-d53ecc9c8697"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waiting"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad94291b-1f2b-4e2f-bdb6-8265ce0ed89f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opened"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"709eff27-5942-4530-be8d-de0421e61e5f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelled"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8a89686-84a8-4e65-9712-4be4223bca25"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db8c75ab-a6e9-47dd-9a51-afc3be2f85c8"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zee"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if booster specify is invalid / expired, return status code 406 and following json message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Booster specify is not active now"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint get a patron list with aasm_state which is related to current login patron.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/patron_app/boosters/:booster_id/patrons</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>NOTED: booster_id is the uuid of booster, and must be a invitation booster</p>
+
+<h3 id="patron-response">Patron Response</h3>
+
+<p>returned patron response along with aasm_state, here&rsquo;s a summary of possible values and related description</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>aasm_state</td>
+<td>&lsquo;opened&rsquo;</td>
+<td>patron is not invited by current patron, one can call invite api to invite that patron</td>
+</tr>
+<tr>
+<td>aasm_state</td>
+<td>&#39;waiting&rsquo;</td>
+<td>patron is invited by current patron, can not invite anymore</td>
+</tr>
+<tr>
+<td>aasm_state</td>
+<td>&#39;cancelled&rsquo;</td>
+<td>invitation to that patron is cancelled by current patron in earlier time, one can call invite api to invite that patron again</td>
+</tr>
+<tr>
+<td>aasm_state</td>
+<td>&#39;checked_in&rsquo;</td>
+<td>that patron is already checked-in, either invited by current patron or invited by other patrons, can not invite anymore</td>
+</tr>
+</tbody></table>
+
+<h2 id="inviter-patron-list">Inviter patron list</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/inviters"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>if success invited, then returns status code 200 with following json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0dab179-de3b-486a-87bd-35643242350f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d7bb37d4-873b-4b5d-81eb-46bb023a465e"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if current login patron is already checked-in ( as a host ), then returns status code 200 with empty arrays:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if booster specify is invalid / expired, return status code 406 and following json message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Booster specify is not active now"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint get a host list regarding on invitation booster specify</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/patron_app/boosters/:booster_id/inviters</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>NOTED: <code class="prettyprint">booster_id</code> is the uuid of booster, and must be a invitation booster</p>
+
           <h1 id="management-patrons">Management / Patrons</h1>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
