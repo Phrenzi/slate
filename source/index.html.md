@@ -15,7 +15,7 @@ includes:
   - patron_app_establishments
   - patron_app_transactions
   - patron_app_check_in
-  - patron_app_invite
+  - patron_app_invitation
   - management_patrons
   - management_transactions
   - management_settings
