@@ -45,6 +45,24 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "type": "check_in",
       "status": "success",
       "point": 100
+    },
+    {
+      "id": "39c42912-91cf-48dd-abbf-b911ab86adce",
+      "type": "invitation",
+      "status": "success",
+      "point": 0
+    },
+    {
+      "id": "c3c7fdf5-91cf-48dd-abbf-b911ab86adce",
+      "type": "invitation",
+      "status": "success",
+      "point": 200
+    },
+    {
+      "id": "c3c7fdf5-91cf-48dd-abbf-b911ab86adce",
+      "type": "invitation",
+      "status": "failed",
+      "error_code": "CHECKED_IN"
     }
   ]
 }
