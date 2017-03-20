@@ -74,6 +74,62 @@ Parameter | Required | Description
 --------- | ----------- | -----------
 invitee_patron_id | Y | invitee's uuid
 
+## Cancel Invitation
+
+```shell
+curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/cancel_invite" \
+  -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
+  -X POST \
+  -d '{
+    "invitee_patron_id": "202f96fb-1536-43fa-a6ba-7b0387e90465"
+    }'
+```
+
+> if success, then returns status code 200 with empty body.
+
+> if there's validation error, then return status code 422, and following error JSON
+> response, with error explaination:
+
+```json
+{
+  "errors": { "invitee_patron_id": ["does not exist"] }
+}
+```
+
+> If invitee is not invited, return status code 406 and following JSON response:
+
+```json
+{
+  "errors": ["Invitee is not invited by you"]
+}
+```
+
+> If invitee already checked-in, return status code 406 and following JSON response:
+
+```json
+{
+  "errors": ["Invitee already checked-in"]
+}
+```
+
+This endpoint cancel a invitation from current logined patron to patron specify
+
+### HTTP Request
+
+`POST http://example.com/api/patron_app/boosters/:booster_id/cancel_invite`
+
+### Query Parameters
+
+NOTED: booster_id is the uuid of booster, and must be a invitation booster
+
+Parameter | Required | Description
+--------- | ----------- | -----------
+invitee_patron_id | Y | invitee's uuid
 
 ## Invitation patron list
 
