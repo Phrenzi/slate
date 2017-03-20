@@ -2422,6 +2422,71 @@ JSON response:</p>
 </tr>
 </tbody></table>
 
+<h2 id="cancel-invitation">Cancel Invitation</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/cancel_invite"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "invitee_patron_id": "202f96fb-1536-43fa-a6ba-7b0387e90465"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, then returns status code 200 with empty body.</p>
+
+<p>if there&rsquo;s validation error, then return status code 422, and following error JSON
+response, with error explaination:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"invitee_patron_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"does not exist"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If invitee is not invited, return status code 406 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Invitee is not invited by you"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If invitee already checked-in, return status code 406 and following JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Invitee already checked-in"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint cancel a invitation from current logined patron to patron specify</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/boosters/:booster_id/cancel_invite</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>NOTED: booster_id is the uuid of booster, and must be a invitation booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invitee_patron_id</td>
+<td>Y</td>
+<td>invitee&rsquo;s uuid</td>
+</tr>
+</tbody></table>
+
 <h2 id="invitation-patron-list">Invitation patron list</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
