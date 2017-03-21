@@ -2559,6 +2559,16 @@ response, with error explaination:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>if current patron is not checked-in yet, return status code 406 and following json message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You have not check in to this booster yet"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint get a patron list with aasm_state which is related to current login patron.</p>
 
 <h3 id="http-request">HTTP Request</h3>
