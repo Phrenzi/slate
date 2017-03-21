@@ -23,7 +23,7 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 
 ```json
 {
-  "errors": ["Invitee patron does not exist"] }
+  "errors": ["Invitee patron does not exist"]
 }
 ```
 
@@ -97,7 +97,7 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 
 ```json
 {
-  "errors": ["Invitee patron does not exist"] }
+  "errors": ["Invitee patron does not exist"]
 }
 ```
 
