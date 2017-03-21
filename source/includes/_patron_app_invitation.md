@@ -188,6 +188,17 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 }
 ```
 
+> if current patron is not checked-in yet, return status code 406 and following json message:
+
+
+```json
+{
+  "errors": [
+    "You have not check in to this booster yet"
+  ]
+}
+```
+
 This endpoint get a patron list with aasm_state which is related to current login patron.
 
 ### HTTP Request
