@@ -249,11 +249,13 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 }
 ```
 
-> if current login patron is already checked-in ( as a host ), then returns status code 200 with empty arrays:
+> if current login patron is already checked-in ( as a host ), then returns status code 406 with
+> following json message:
 
 ```json
 {
-  "patrons": [
+  "errors": [
+    "You have been check in"
   ]
 }
 ```
