@@ -2760,10 +2760,12 @@ response, with error explaination:</p>
 </span></code></pre>
 
 <blockquote>
-<p>if current login patron is already checked-in ( as a host ), then returns status code 200 with empty arrays:</p>
+<p>if current login patron is already checked-in ( as a host ), then returns status code 406 with
+following json message:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You have been check in"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
