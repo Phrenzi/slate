@@ -2732,8 +2732,8 @@ response, with error explaination:</p>
 </tr>
 </tbody></table>
 
-<h2 id="inviter-patron-list">Inviter patron list</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/inviters"</span> <span class="se">\</span>
+<h2 id="inviation-host-list">Inviation Host list</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/my_hosts"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
   -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
@@ -2780,11 +2780,11 @@ following json message:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint get a host list regarding on invitation booster specify</p>
+<p>This endpoint get a host list for current login patron regarding on invitation booster specify</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/patron_app/boosters/:booster_id/inviters</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patron_app/boosters/:booster_id/my_hosts</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
