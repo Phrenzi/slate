@@ -220,10 +220,10 @@ aasm_state | 'cancelled' | invitation to that patron is cancelled by current pat
 aasm_state | 'checked_in' | that patron is already checked-in, either invited by current patron or invited by other patrons, can not invite anymore
 
 
-## Inviter patron list
+## Inviation Host list
 
 ```shell
-curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/inviters" \
+curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/my_hosts" \
   -H "Content-Type: application/json" \
   -H "access-token: token" \
   -H "token-type: Bearer" \
@@ -271,11 +271,11 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 }
 ```
 
-This endpoint get a host list regarding on invitation booster specify
+This endpoint get a host list for current login patron regarding on invitation booster specify
 
 ### HTTP Request
 
-`GET http://example.com/api/patron_app/boosters/:booster_id/inviters`
+`GET http://example.com/api/patron_app/boosters/:booster_id/my_hosts`
 
 ### Query Parameters
 NOTED: `booster_id` is the uuid of booster, and must be a invitation booster
