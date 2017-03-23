@@ -17,7 +17,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "booster_type": "check_in",
       "status": "actived",
       "start_time": "2017-03-22T05:55:39.000Z",
-      "point": 100,
+      "point": "100.0",
       "finished_by": "end_time",
       "end_time": "2017-03-22T06:03:59.000Z",
       "patron": {
@@ -29,7 +29,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "booster_type": "check_in",
       "status": "finished",
       "start_time": "2017-03-22T05:57:19.000Z",
-      "point": 100,
+      "point": "100.0",
       "finished_by": "quantity",
       "quantity": 1,
       "claimed_count": 1,
@@ -44,8 +44,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "start_time": "2017-03-22T05:58:59.000Z",
       "end_time": "2017-03-22T05:59:49.000Z",
       "status": "finished",
-      "point": 100,
-      "target_amount": 100,
+      "point": "100.0",
+      "target_amount": "100.0",
       "claimed_count": 1,
       "patron": {
         "redeemed": false
@@ -57,14 +57,14 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "start_time": "2017-03-22T06:02:15.000Z",
       "end_time": "2017-03-22T06:03:05.000Z",
       "status": "finished",
-      "point": 100,
-      "target_amount": 100,
+      "point": "100.0",
+      "target_amount": "100.0",
       "claimed_count": 1,
       "patron": {
         "redeemed": false,
         "number_of_transaction": 1,
-        "total_accumulated_sales": 50,
-        "not_rewarded_sales": 50,
+        "total_accumulated_sales": "50.0",
+        "not_rewarded_sales": "50.0",
         "accumulated_claimed_count": 0
       }
     },
@@ -74,14 +74,14 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "start_time": "2017-03-22T06:03:12.000Z",
       "end_time": "2017-03-22T06:04:02.000Z",
       "status": "finished",
-      "point": 100,
-      "target_amount": 100,
+      "point": "100.0",
+      "target_amount": "100.0",
       "claimed_count": 1,
       "patron": {
         "redeemed": true,
         "number_of_transaction": 2,
-        "total_accumulated_sales": 150,
-        "not_rewarded_sales": 50,
+        "total_accumulated_sales": "150.0",
+        "not_rewarded_sales": "50.0",
         "accumulated_claimed_count": 1
       }
     },
@@ -91,8 +91,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "start_time": "2017-03-22T05:59:49.000Z",
       "status": "actived",
       "end_time": "2017-03-22T06:00:49.000Z",
-      "host_point": 100,
-      "invitee_point": 100,
+      "host_point": "100.0",
+      "invitee_point": "100.0",
       "unlimited": true,
       "claimed_count": 1
     },
@@ -102,8 +102,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "start_time": "2017-03-22T05:59:59.000Z",
       "status": "finished",
       "end_time": "2017-03-22T06:00:34.000Z",
-      "host_point": 100,
-      "invitee_point": 100,
+      "host_point": "100.0",
+      "invitee_point": "100.0",
       "unlimited": false,
       "invitation_limit": 2,
       "claimed_count": 1
