@@ -94,7 +94,11 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": true,
-      "claimed_count": 1
+      "claimed_count": 1,
+      "patron": {
+        "redeemed": false,
+        "host_count": 0
+      }
     },
     {
       "id": "80284ba8-9e0e-447a-bdb7-5ef6b2187c99",
@@ -106,7 +110,47 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "invitee_point": "100.0",
       "unlimited": false,
       "invitation_limit": 2,
-      "claimed_count": 1
+      "claimed_count": 1,
+      "patron": {
+        "redeemed": false,
+        "host_count": 2
+      }
+    },
+    {
+      "id": "aba9872b-6831-4e7e-ba8e-75b711344ba8",
+      "booster_type": "invitation",
+      "start_time": "2017-03-23T09:56:53.000Z",
+      "status": "actived",
+      "end_time": "2017-03-23T09:57:53.000Z",
+      "host_point": "100.0",
+      "invitee_point": "100.0",
+      "unlimited": true,
+      "claimed_count": 1,
+      "patron": {
+        "redeemed": false,
+        "check_in_at": "2017-03-23T17:57:43.605+08:00",
+        "invitation_sent_count": 2,
+        "invited_count": 0,
+        "total_claimed_point": "0.0"
+      }
+    },
+    {
+      "id": "35a81e59-55eb-4f28-8b2f-7f117f06f938",
+      "booster_type": "invitation",
+      "start_time": "2017-03-23T09:58:43.000Z",
+      "status": "actived",
+      "end_time": "2017-03-23T09:59:43.000Z",
+      "host_point": "100.0",
+      "invitee_point": "100.0",
+      "unlimited": true,
+      "claimed_count": 1,
+      "patron": {
+        "redeemed": true,
+        "check_in_at": "2017-03-23T17:59:33.185+08:00",
+        "invitation_sent_count": 2,
+        "invited_count": 1,
+        "total_claimed_point": "100.0"
+      }
     }
   ]
 }
