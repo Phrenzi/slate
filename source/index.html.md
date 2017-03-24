@@ -17,6 +17,7 @@ includes:
   - patron_app_boosters
   - patron_app_check_in
   - patron_app_invitation
+  - patron_app_notification
   - management_patrons
   - management_transactions
   - management_settings
