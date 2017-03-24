@@ -2834,6 +2834,122 @@ following json message:</p>
 
 <p>NOTED: <code class="prettyprint">booster_id</code> is the uuid of booster, and must be a invitation booster</p>
 
+          <h1 id="patronapp-notification">PatronApp / Notification</h1>
+
+<h2 id="subscribe-notification">Subscribe Notification</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
+    "os_type": '</span>ios<span class="s1">'
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success subscribed, then returns status code 200 with empty body.</p>
+
+<p>if there&rsquo;s validation error, then return status code 422, and following error JSON
+response, with error explaination:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Os type is not included in the list"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If current patron is subscribed already, still return status code 200 with empty body.</p>
+</blockquote>
+
+<p>This endpoint subscribe current patron to notification pool</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://example.com/api/patron_app/notification_subscriptions&rsquo;</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_token</td>
+<td>Y</td>
+<td>iOS&rsquo;s device token</td>
+</tr>
+<tr>
+<td>os_type</td>
+<td>Y</td>
+<td>Os type, available value are: &lsquo;ios&rsquo;, &#39;android&rsquo;</td>
+</tr>
+</tbody></table>
+
+<h2 id="unsubscribe-notification">Unsubscribe Notification</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -d <span class="s1">'{
+    "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
+    "os_type": '</span>ios<span class="s1">'
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success unsubscribed, then returns status code 200 with empty body.</p>
+
+<p>if there&rsquo;s validation error, then return status code 422, and following error JSON
+response, with error explaination:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Os type is not included in the list"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If current patron not subscribed before, still return status code 200 with empty body.</p>
+</blockquote>
+
+<p>This endpoint unsubscribe current patron from notification pool</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`DELETE http://example.com/api/patron_app/notification_subscriptions&rsquo;</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_token</td>
+<td>Y</td>
+<td>iOS&rsquo;s device token</td>
+</tr>
+<tr>
+<td>os_type</td>
+<td>Y</td>
+<td>Os type, available value are: &#39;ios&rsquo;, &#39;android&rsquo;</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-patrons">Management / Patrons</h1>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
