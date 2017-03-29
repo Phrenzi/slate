@@ -415,20 +415,23 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 {
   "transactions": [
     {
-      "id": "3cf13c1d-a1b8-4258-9ae0-4239cd5c81df",
-      "patron_id": "c801514d-8063-4a79-82cc-686747165a85",
-      "establishment_id": "af84f935-9ab5-41f9-abe5-37a06a6dfa36",
+      "id": "f4ef1c91-105b-4323-b1cb-2642bb7fa870",
+      "patron_id": "cce8f71d-5eda-4b74-b3ed-bc5fc46edfe3",
+      "establishment_id": "d9b6a80d-309f-49d5-9714-39b80cef43f9",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "-100.0",
-      "credit_amount": "-3.5",
+      "applied_credit": "-0.0",
+      "sales_credit": "-3.5",
+      "credit_subtotal": "-3.5",
+      "remaining_credit": "196.5",
       "cash_back": "3.5",
-      "trans_code": "362b2882f2",
+      "trans_code": "c57d322c62",
       "group_code": null,
-      "tracked_at": "2016-06-26T13:36:32.563Z",
+      "tracked_at": "2017-03-29T18:51:41.470+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "deleted_at": "2016-06-27T13:36:32.563Z",
-      "deleted": true,
+      "deleted_at": "2017-03-29T18:51:42.470+08:00",
+      "deleted": true
     }
   ]
 }
@@ -453,36 +456,42 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 {
   "transactions": [
     {
-      "id": "db2a88e1-072b-42ef-a9b9-0af3cd2977ac",
-      "patron_id": "42d7d7c1-c8f6-4444-9472-a34322c091a9",
-      "establishment_id": "24b0345f-d06b-4fed-b1c6-50bd424028b0",
+      "id": "e78701fa-259c-4608-83d8-ef8701841c07",
+      "patron_id": "f0731af3-d5ce-4e75-a689-fdf13c05968f",
+      "establishment_id": "5e1f01e1-d489-4d62-98d7-19a4d21345cc",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "-75.0",
-      "credit_amount": "-2.63",
+      "applied_credit": "-0.0",
+      "sales_credit": "-2.63",
+      "credit_subtotal": "-2.63",
+      "remaining_credit": "197.37",
       "cash_back": "3.5",
-      "trans_code": "60c1bb42e9",
+      "trans_code": "902c2747aa",
       "group_code": "abcdefgfhi",
-      "tracked_at": "2016-06-26T13:39:07.321Z",
+      "tracked_at": "2017-03-29T18:53:10.256+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "deleted_at": "2016-06-27T13:36:32.563Z",
-      "deleted": true,
+      "deleted_at": "2017-03-29T18:53:12.256+08:00",
+      "deleted": true
     },
     {
-      "id": "adc33168-1207-4370-9852-da6563a890a5",
-      "patron_id": "42d7d7c1-c8f6-4444-9472-a34322c091a9",
-      "establishment_id": "24b0345f-d06b-4fed-b1c6-50bd424028b0",
+      "id": "41c6f8d1-6539-436e-aeef-86d870c7f4c1",
+      "patron_id": "f0731af3-d5ce-4e75-a689-fdf13c05968f",
+      "establishment_id": "5e1f01e1-d489-4d62-98d7-19a4d21345cc",
       "challenge_id": null,
       "trans_type": "credit",
       "sales_amount": "-125.0",
-      "credit_amount": "125.0",
+      "applied_credit": "125.0",
+      "sales_credit": "-4.38",
+      "credit_subtotal": "129.62",
+      "remaining_credit": "326.99",
       "cash_back": "3.5",
-      "trans_code": "3285af74bb",
+      "trans_code": "5fc5031cc8",
       "group_code": "abcdefgfhi",
-      "tracked_at": "2016-06-26T13:39:07.321Z",
-      "del_transaction_id": "6a7b9c7f-f32e-4a9f-905e-057cd4acd9cb",
-      "deleted_at": "2016-06-27T13:36:32.563Z",
-      "deleted": true,
+      "tracked_at": "2017-03-29T18:53:11.256+08:00",
+      "del_transaction_id": "6a2c4670-c588-401a-9f03-a9c8783557be",
+      "deleted_at": "2017-03-29T18:53:12.256+08:00",
+      "deleted": true
     }
   ]
 }
@@ -507,20 +516,23 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 {
   "transactions": [
     {
-      "id": "2f8cb908-2997-417a-941c-9ccb15da0a29",
-      "patron_id": "b4e18a28-9ccc-4e47-bd34-3241998410b1",
-      "establishment_id": "744275ee-714d-40eb-8657-880725bbeb9b",
+      "id": "11408bea-bb4d-460d-8614-9ca74e5419bf",
+      "patron_id": "51b5e8fe-7724-45a7-a118-9eef4d6196cd",
+      "establishment_id": "5ca16c11-5f5e-4fda-ae6f-b485161710ed",
       "challenge_id": null,
       "trans_type": "credit",
       "sales_amount": "-200.0",
-      "credit_amount": "200.0",
+      "applied_credit": "200.0",
+      "sales_credit": "-7.0",
+      "credit_subtotal": "193.0",
+      "remaining_credit": "393.0",
       "cash_back": "3.5",
-      "trans_code": "6e2dd918c6",
+      "trans_code": "12d7967d6e",
       "group_code": null,
-      "tracked_at": "2016-06-26T13:41:33.685Z",
+      "tracked_at": "2017-03-29T18:55:17.344+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "deleted_at": "2016-06-27T13:36:32.563Z",
-      "deleted": true,
+      "deleted_at": "2017-03-29T18:55:18.344+08:00",
+      "deleted": true
     }
   ]
 }
@@ -546,20 +558,23 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 {
   "transactions": [
     {
-      "id": "10d1a032-ca48-4d08-b078-5c74e76fb6cc",
-      "patron_id": "a540cb87-a662-4b89-b1f0-47e4c62eb3c2",
-      "establishment_id": "4020f704-6ea8-4323-85bf-0a5d9b04140a",
+      "id": "6a7cdbcd-7a01-4990-8203-8a8438149dd4",
+      "patron_id": "1b93ed21-05bd-42b4-b099-2f5a6f773cee",
+      "establishment_id": "d9f53914-b5e2-4080-a1f7-960040dcd113",
       "challenge_id": null,
       "trans_type": "correction",
       "sales_amount": "-0.0",
-      "credit_amount": "-200.0",
+      "applied_credit": "-0.0",
+      "sales_credit": "-0.0",
+      "credit_subtotal": "-200.0",
+      "remaining_credit": "0.0",
       "cash_back": "3.5",
-      "trans_code": "eb7b042ac2",
+      "trans_code": "5c90c5c7ce",
       "group_code": null,
-      "tracked_at": "2016-06-26T13:42:53.904Z",
-      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "deleted_at": "2016-06-27T13:36:32.563Z",
-      "deleted": true,
+      "tracked_at": "2017-03-29T18:56:42.339+08:00",
+      "del_transaction_id": "2cd61542-98b1-45eb-bf76-92335257f0f2",
+      "deleted_at": "2017-03-29T18:56:43.339+08:00",
+      "deleted": true
     }
   ]
 }
