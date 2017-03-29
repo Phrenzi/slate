@@ -11,7 +11,7 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
   -H "expiry: 1466692376" \
   -H "uid: abc@example.com" \
   -d '{
-    "establishment_id": "a66d32c1-b50b-427e-8954-ec945e402f6d"
+    "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'
 ```
 
@@ -21,33 +21,39 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
 {
   "transactions": [
     {
-      "id": "b80221a1-3f91-4979-b14f-f6d477b90561",
-      "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "establishment_id": "a66d32c1-b50b-427e-8954-ec945e402f6d",
+      "id": "3e2d1786-3379-4311-93c4-86ac85cb6fc3",
+      "patron_id": "cd4820df-0572-4e06-a60b-2411fd450272",
+      "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "100.0",
-      "credit_amount": "3.5",
+      "applied_credit": "0.0",
+      "sales_credit": "3.5",
+      "credit_subtotal": "3.5",
+      "remaining_credit": "0.0",
       "cash_back": "3.5",
-      "trans_code": "62ada2ca5e",
+      "trans_code": "0cd28c0d26",
       "group_code": null,
-      "tracked_at": "2016-06-27T13:38:55.455Z",
+      "tracked_at": "2017-03-29T19:09:43.791+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false
     },
     {
-      "id": "a494ed0a-d7f9-4f6a-8dec-3ccc05fddc5e",
-      "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "establishment_id": "a66d32c1-b50b-427e-8954-ec945e402f6d",
+      "id": "c294a412-b391-44c5-8cc7-25a4f4b1a7b5",
+      "patron_id": "cd4820df-0572-4e06-a60b-2411fd450272",
+      "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "100.0",
-      "credit_amount": "3.5",
+      "applied_credit": "0.0",
+      "sales_credit": "3.5",
+      "credit_subtotal": "3.5",
+      "remaining_credit": "0.0",
       "cash_back": "3.5",
-      "trans_code": "f366f03f71",
+      "trans_code": "8c36accb11",
       "group_code": null,
-      "tracked_at": "2016-06-27T13:38:55.455Z",
+      "tracked_at": "2017-03-29T19:09:43.791+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false
