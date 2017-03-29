@@ -488,10 +488,28 @@ returned, so we list all the different json object here:</p>
 <td>different meaning for different scenarios</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
 <td>&#39;7.00&rsquo;</td>
-<td>different meaning for different scenarios</td>
+<td>the applied credit to used from credit account</td>
+</tr>
+<tr>
+<td>sales_credit</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>the cash-back from sales_amount</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>sales_credit - applied_credit</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>at the timing of create transaction, the credit_balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -584,10 +602,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount of this transaction</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
+<td>String</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
 <td>String</td>
 <td>&#39;7.00&rsquo;</td>
 <td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -658,10 +694,28 @@ returned, so we list all the different json object here:</p>
 <td>in this case, we deduct 125 credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
-<td>&#39;2.63&rsquo;</td>
-<td>75 * 0.035 = 2.625</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;2.6&rsquo;</td>
+<td>75 * 0.035 = 2.625 ~&gt; 2.6</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;2.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;202.60&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -728,10 +782,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
 <td>&rsquo;-125.00&rsquo;</td>
-<td>the credit deduct from current balance of Patron</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;4.4&rsquo;</td>
+<td>125 * 0.035 = 4.375 ~&gt; 4.4</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&rsquo;-120.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;82.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -802,10 +874,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
 <td>&rsquo;-200.00&rsquo;</td>
-<td>the credit deduct from current balance of Patron</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;7.0&rsquo;</td>
+<td>200 * 0.035 = 7</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&rsquo;-193.0&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -876,10 +966,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
+<td>String</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;0.0&rsquo;</td>
+<td>cash-back generated from sales_amount</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
 <td>String</td>
 <td>&rsquo;-200.00&rsquo;</td>
-<td>deduct 200 from system</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;100.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -950,10 +1058,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount of this transaction</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
+<td>String</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
 <td>String</td>
 <td>&#39;7.00&rsquo;</td>
 <td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;7.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -970,7 +1096,7 @@ returned, so we list all the different json object here:</p>
 <tr>
 <td>deleted</td>
 <td>Boolean</td>
-<td>true</td>
+<td>false</td>
 <td></td>
 </tr>
 <tr>
@@ -1022,10 +1148,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount of this transaction</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
+<td>String</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
 <td>String</td>
 <td>&rsquo;-7.00&rsquo;</td>
 <td>the credit patron get from this transaction</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&rsquo;-7.00&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;100.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -1096,10 +1240,28 @@ returned, so we list all the different json object here:</p>
 <td>in this case, we deduct 125 credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
-<td>&#39;2.63&rsquo;</td>
-<td>75 * 0.035 = 2.625</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;2.6&rsquo;</td>
+<td>75 * 0.035 = 2.625 ~&gt; 2.6</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;2.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;202.60&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -1116,7 +1278,7 @@ returned, so we list all the different json object here:</p>
 <tr>
 <td>deleted</td>
 <td>Boolean</td>
-<td>true</td>
+<td>false</td>
 <td></td>
 </tr>
 <tr>
@@ -1168,10 +1330,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
 <td>&rsquo;-125.00&rsquo;</td>
-<td>the credit deduct from current balance of Patron</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&#39;4.4&rsquo;</td>
+<td>125 * 0.035 = 4.375 ~&gt; 4.4</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&rsquo;-120.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;82.00&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -1188,7 +1368,7 @@ returned, so we list all the different json object here:</p>
 <tr>
 <td>deleted</td>
 <td>Boolean</td>
-<td>true</td>
+<td>false</td>
 <td></td>
 </tr>
 <tr>
@@ -1240,10 +1420,28 @@ returned, so we list all the different json object here:</p>
 <td>in this case, we deduct 125 credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
-<td>&rsquo;-2.63&rsquo;</td>
-<td>75 * 0.035 = 2.625</td>
+<td>&#39;0.00&rsquo;</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&rsquo;-2.6&rsquo;</td>
+<td>75 * 0.035 = 2.625 ~&gt; 2.6</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&rsquo;-2.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;152.6&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
@@ -1312,10 +1510,28 @@ returned, so we list all the different json object here:</p>
 <td>the sale amount redeem by credit</td>
 </tr>
 <tr>
-<td>credit_amount</td>
+<td>applied_credit</td>
 <td>String</td>
 <td>&#39;125.00&rsquo;</td>
-<td>the credit deduct from current balance of Patron</td>
+<td>the applied credit from credit account</td>
+</tr>
+<tr>
+<td>sales_crecit</td>
+<td>String</td>
+<td>&rsquo;-4.4&rsquo;</td>
+<td>125 * 0.035 = 4.375 ~&gt; 4.4</td>
+</tr>
+<tr>
+<td>credit_subtotal</td>
+<td>String</td>
+<td>&#39;120.6&rsquo;</td>
+<td>total credit earned from this transaction</td>
+</tr>
+<tr>
+<td>remaining_credit</td>
+<td>String</td>
+<td>&#39;273.2&rsquo;</td>
+<td>after create this transaction, total balance in credit account</td>
 </tr>
 <tr>
 <td>tracked_at</td>
