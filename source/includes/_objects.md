@@ -78,7 +78,10 @@ establishment_id | UUID | 'ffbd0c3c-404d-4ce1-9042-9baecb4ef585' | UUID for esta
 challenge_id | UUID | 'ffbd0c3c-404d-4ce1-9042-9baecb4ef585' | UUID for challenge, can be NILL |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | String | '200.00' | different meaning for different scenarios |
-credit_amount | String | '7.00' | different meaning for different scenarios |
+applied_credit | String | '7.00' | the applied credit to used from credit account |
+sales_credit | String | '7.00' | the cash-back from sales_amount |
+credit_subtotal | String | '7.00' | sales_credit - applied_credit |
+remaining_credit | String | '7.00' | at the timing of create transaction, the credit_balance in credit account |
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted | Boolean | true | true means this transaction is already been deleted |
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | ISO_8601 format datetime string, the timestamp that this transaction is being deleted |
@@ -107,7 +110,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | String | '200.00' | the sale amount of this transaction
-credit_amount | String | '7.00' | the credit patron get from this transaction
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '7.00' | the credit patron get from this transaction
+credit_subtotal | String | '7.00' | total credit earned from this transaction
+remaining_credit | String | '7.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
@@ -124,7 +130,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction |
 sale_amount | String | '75.00' | in this case, we deduct 125 credit |
-credit_amount | String | '2.63' | 75 * 0.035 = 2.625 |
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '2.6' | 75 * 0.035 = 2.625 ~> 2.6
+credit_subtotal | String | '2.6' | total credit earned from this transaction
+remaining_credit | String | '202.60' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
@@ -137,7 +146,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'credit' | type of transaction |
 sale_amount | String | '125.00' | the sale amount redeem by credit |
-credit_amount | String | '-125.00' | the credit deduct from current balance of Patron |
+applied_credit | String | '-125.00' | the applied credit from credit account
+sales_crecit | String | '4.4' | 125 * 0.035 = 4.375 ~> 4.4
+credit_subtotal | String | '-120.6' | total credit earned from this transaction
+remaining_credit | String | '82.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
@@ -154,7 +166,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'credit' | type of transaction |
 sale_amount | String | '200.00' | the sale amount redeem by credit |
-credit_amount | String | '-200.00' | the credit deduct from current balance of Patron |
+applied_credit | String | '-200.00' | the applied credit from credit account
+sales_crecit | String | '7.0' | 200 * 0.035 = 7
+credit_subtotal | String | '-193.0' | total credit earned from this transaction
+remaining_credit | String | '7.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
@@ -171,7 +186,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'correction' | type of transaction |
 sale_amount | String | '0.00' | the sale amount redeem by credit |
-credit_amount | String | '-200.00' | deduct 200 from system |
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '0.0' | cash-back generated from sales_amount
+credit_subtotal | String | '-200.00' | total credit earned from this transaction
+remaining_credit | String | '100.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
@@ -188,10 +206,13 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | String | '200.00' | the sale amount of this transaction
-credit_amount | String | '7.00' | the credit patron get from this transaction
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '7.00' | the credit patron get from this transaction
+credit_subtotal | String | '7.00' | total credit earned from this transaction
+remaining_credit | String | '7.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
-deleted | Boolean | true | |
+deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
 
 Reverted Sale transaction
@@ -203,7 +224,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction, either 'sale', or 'credit', or 'correction' |
 sale_amount | String | '-200.00' | the sale amount of this transaction
-credit_amount | String | '-7.00' | the credit patron get from this transaction
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '-7.00' | the credit patron get from this transaction
+credit_subtotal | String | '-7.00' | total credit earned from this transaction
+remaining_credit | String | '100.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
@@ -220,10 +244,13 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction |
 sale_amount | String | '75.00' | in this case, we deduct 125 credit |
-credit_amount | String | '2.63' | 75 * 0.035 = 2.625 |
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '2.6' | 75 * 0.035 = 2.625 ~> 2.6
+credit_subtotal | String | '2.6' | total credit earned from this transaction
+remaining_credit | String | '202.60' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
-deleted | Boolean | true | |
+deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
 
 Original Credit Transaction
@@ -235,10 +262,13 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'credit' | type of transaction |
 sale_amount | String | '125.00' | the sale amount redeem by credit |
-credit_amount | String | '-125.00' | the credit deduct from current balance of Patron |
+applied_credit | String | '-125.00' | the applied credit from credit account
+sales_crecit | String | '4.4' | 125 * 0.035 = 4.375 ~> 4.4
+credit_subtotal | String | '-120.6' | total credit earned from this transaction
+remaining_credit | String | '82.00' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | null | |
-deleted | Boolean | true | |
+deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
 
 Reverted Sale transaction
@@ -250,7 +280,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'sale' | type of transaction |
 sale_amount | String | '-75.00' | in this case, we deduct 125 credit |
-credit_amount | String | '-2.63' | 75 * 0.035 = 2.625 |
+applied_credit | String | '0.00' | the applied credit from credit account
+sales_crecit | String | '-2.6' | 75 * 0.035 = 2.625 ~> 2.6
+credit_subtotal | String | '-2.6' | total credit earned from this transaction
+remaining_credit | String | '152.6' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
@@ -265,7 +298,10 @@ patron_id | UUID | 'ADSSDD' | UUID of patron |
 establishment_id | UUID | 'ADSSDD' | UUID of establishment |
 type | String | 'credit' | type of transaction |
 sale_amount | String | '-125.00' | the sale amount redeem by credit |
-credit_amount | String | '125.00' | the credit deduct from current balance of Patron |
+applied_credit | String | '125.00' | the applied credit from credit account
+sales_crecit | String | '-4.4' | 125 * 0.035 = 4.375 ~> 4.4
+credit_subtotal | String | '120.6' | total credit earned from this transaction
+remaining_credit | String | '273.2' | after create this transaction, total balance in credit account
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
