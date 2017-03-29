@@ -11,7 +11,7 @@ curl "https://phrenzi.com/api/management/transactions" \
   -H "expiry: 1466692376" \
   -H "uid: abc@example.com" \
   -d '{
-    "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
+    "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
     }'
 ```
 
@@ -21,33 +21,39 @@ curl "https://phrenzi.com/api/management/transactions" \
 {
   "transactions": [
     {
-      "id": "bf77e8f9-c01d-4dc1-9fba-d79427f1cd8e",
-      "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "establishment_id": "e405f87e-447b-4308-a39f-1e6505ba5503",
+      "id": "15477325-11fa-4b85-87a9-30f6272656be",
+      "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de",
+      "establishment_id": "277e92b3-3332-4ccc-92e3-c17eb6e7c507",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "100.0",
-      "credit_amount": "3.5",
+      "applied_credit": "0.0",
+      "sales_credit": "3.5",
+      "credit_subtotal": "3.5",
+      "remaining_credit": "0.0",
       "cash_back": "3.5",
-      "trans_code": "621f3849e5",
+      "trans_code": "9a47366866",
       "group_code": null,
-      "tracked_at": "2016-06-26T13:22:17.005Z",
+      "tracked_at": "2017-03-29T19:04:28.067+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false
     },
     {
-      "id": "4e47edfd-fd56-4ceb-ba12-b9e233da8436",
-      "patron_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "establishment_id": "e405f87e-447b-4308-a39f-1e6505ba5503",
+      "id": "0db22eca-326f-4b8c-b5bc-c517256cc64c",
+      "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de",
+      "establishment_id": "277e92b3-3332-4ccc-92e3-c17eb6e7c507",
       "challenge_id": null,
       "trans_type": "sales",
       "sales_amount": "100.0",
-      "credit_amount": "3.5",
+      "applied_credit": "0.0",
+      "sales_credit": "3.5",
+      "credit_subtotal": "3.5",
+      "remaining_credit": "0.0",
       "cash_back": "3.5",
-      "trans_code": "c76f93d48b",
+      "trans_code": "613ef86f6b",
       "group_code": null,
-      "tracked_at": "2016-06-26T13:22:17.005Z",
+      "tracked_at": "2017-03-29T19:04:28.067+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false
