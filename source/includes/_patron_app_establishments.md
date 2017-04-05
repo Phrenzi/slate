@@ -144,19 +144,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "prize": "0.0"
       }
     ]
-  },
-  "current_boosters": [
-    {
-      "id": "20ac2155-b5f6-440a-aedc-c1c4b0cae8f6",
-      "status": "actived",
-      "booster_type": "check_in"
-    },
-    {
-      "id": "c74cc563-2119-4fc5-ae86-de4d77b2a25b",
-      "status": "actived",
-      "booster_type": "invitation"
-    }
-  ]
+  }
 }
 ```
 
