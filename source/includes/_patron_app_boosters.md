@@ -32,7 +32,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "point": "100.0",
       "finished_by": "quantity",
       "quantity": 1,
-      "claimed_count": 1,
+      "redeem_count": 1,
       "patron": {
         "redeemed": true,
         "check_in_at": "2017-03-22T04:03:12.000Z"
@@ -46,7 +46,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
-      "claimed_count": 1,
       "patron": {
         "redeemed": false
       }
@@ -59,7 +58,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
-      "claimed_count": 1,
       "patron": {
         "redeemed": false,
         "number_of_transaction": 1,
@@ -76,7 +74,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
-      "claimed_count": 1,
       "patron": {
         "redeemed": true,
         "number_of_transaction": 2,
@@ -94,7 +91,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": true,
-      "claimed_count": 1,
       "patron": {
         "redeemed": false,
         "host_count": 0
@@ -110,7 +106,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "invitee_point": "100.0",
       "unlimited": false,
       "invitation_limit": 2,
-      "claimed_count": 1,
       "patron": {
         "redeemed": false,
         "host_count": 2
@@ -125,7 +120,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": true,
-      "claimed_count": 1,
       "patron": {
         "redeemed": false,
         "check_in_at": "2017-03-23T17:57:43.605+08:00",
@@ -143,7 +137,6 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": true,
-      "claimed_count": 1,
       "patron": {
         "redeemed": true,
         "check_in_at": "2017-03-23T17:59:33.185+08:00",
