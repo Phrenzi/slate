@@ -63,7 +63,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "number_of_transaction": 1,
         "total_accumulated_sales": "50.0",
         "not_rewarded_sales": "50.0",
-        "accumulated_claimed_count": 0
+        "accumulated_redeemed_count": 0
       }
     },
     {
@@ -79,7 +79,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "number_of_transaction": 2,
         "total_accumulated_sales": "150.0",
         "not_rewarded_sales": "50.0",
-        "accumulated_claimed_count": 1
+        "accumulated_redeemed_count": 1
       }
     },
     {
