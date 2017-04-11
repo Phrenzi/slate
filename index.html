@@ -3972,6 +3972,29 @@ the <code class="prettyprint">credit_balance</code> return from different manage
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>While specify delete transaction is created 30 days before,</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTML status code 406 and following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Can not delete transaction created 30 days before"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint required manager authentication, and delete transaction records.</p>
 
 <h3 id="http-request">HTTP Request</h3>
