@@ -609,6 +609,29 @@ curl "https://phrenzi.com/api/management/transactions/this-is-a-fake-id" \
 }
 ```
 
+> While specify delete transaction is created 30 days before,
+
+```shell
+curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+  -H "Content-Type: application/json" \
+  -H "access-token: token" \
+  -H "token-type: Bearer" \
+  -H "client: u4N6u_toFnoDR1o318uOVA" \
+  -H "expiry: 1466692376" \
+  -H "uid: abc@example.com" \
+  -X DELETE
+```
+
+> The above command returns HTML status code 406 and following json object
+
+``` json
+{
+  "errors": [
+    "Can not delete transaction created 30 days before"
+  ]
+}
+```
+
 This endpoint required manager authentication, and delete transaction records.
 
 ### HTTP Request
