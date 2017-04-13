@@ -3039,6 +3039,41 @@ following json message:</p>
 
           <h1 id="patronapp-notification">PatronApp / Notification</h1>
 
+<h2 id="notification-list">Notification List</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
+  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
+  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: abc@example.com"</span>
+</code></pre>
+
+<blockquote>
+<p>if success then returns status code 200 with subscriptions detail objects.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b62efad0-5ae8-42c7-b11b-860ae3078952"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"os_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-13T10:02:49.575Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"device_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38cbc5fe-d051-4015-b8dc-7857334c61b5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"os_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-13T10:04:29.575Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint return all subscriptions record for current patron</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/patron_app/notification_subscriptions</code></p>
+
 <h2 id="subscribe-notification">Subscribe Notification</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -3073,7 +3108,7 @@ response, with error explaination:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://example.com/api/patron_app/notification_subscriptions&rsquo;</p>
+<p><code class="prettyprint">POST http://example.com/api/patron_app/notification_subscriptions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -3130,7 +3165,7 @@ response, with error explaination:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`DELETE http://example.com/api/patron_app/notification_subscriptions&rsquo;</p>
+<p><code class="prettyprint">DELETE http://example.com/api/patron_app/notification_subscriptions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
