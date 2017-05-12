@@ -89,7 +89,6 @@ Noted: Any client can easily extract out this `Auth Header` exchange logic into 
 * expiry
 * uid
 
-
 # APP TOKEN
 
 For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,
@@ -106,3 +105,35 @@ curl "https://phrenzi.com/patrons/sign_in" \
   -H "ACCEPT: phrenzi.v1" \
   -H "Authorization: app_token"
 ```
+
+# Link Header ( Result pagination )
+
+For some api, there might to too much data to return in one single response, so we paginate result,
+and provide link for `next` ( next page ), `prev` ( previous page ), or `first` ( first page ), and `last` ( last page ) in the response header. Consumer of Phrenzi api don't need to construct the api string, everything is under response header, here's an example:
+
+``` bash
+$ curl --include 'https://phrenzi.com/managements/patrons?page=5'
+HTTP/1.1 200 OK
+Link: <http://localhost:3000/movies?page=1>; rel="first",
+  <http://localhost:3000/movies?page=173>; rel="last",
+  <http://localhost:3000/movies?page=6>; rel="next",
+  <http://localhost:3000/movies?page=4>; rel="prev"
+Total: 4321
+Per-Page: 10
+Page: 5
+```
+
+## Header Properties
+
+there's a few properties in response headers:
+
+Parameter | Description
+--------- | ----------
+Link | the navigation links
+Per-Page | number of result per page
+Page | current page
+Total | Total result
+
+## Library support
+
+for iOS: [WebLinking.swift](https://github.com/kylef/WebLinking.swift)
