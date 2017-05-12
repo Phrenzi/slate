@@ -200,6 +200,53 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
   -H <span class="s2">"Authorization: app_token"</span>
 </code></pre>
 
+<h1 id="link-header-result-pagination">Link Header ( Result pagination )</h1>
+
+<p>For some api, there might to too much data to return in one single response, so we paginate result,
+and provide link for <code class="prettyprint">next</code> ( next page ), <code class="prettyprint">prev</code> ( previous page ), or <code class="prettyprint">first</code> ( first page ), and <code class="prettyprint">last</code> ( last page ) in the response header. Consumer of Phrenzi api don&rsquo;t need to construct the api string, everything is under response header, here&rsquo;s an example:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>curl --include <span class="s1">'https://phrenzi.com/managements/patrons?page=5'</span>
+HTTP/1.1 200 OK
+Link: &lt;http://localhost:3000/movies?page<span class="o">=</span>1&gt;; <span class="nv">rel</span><span class="o">=</span><span class="s2">"first"</span>,
+  &lt;http://localhost:3000/movies?page<span class="o">=</span>173&gt;; <span class="nv">rel</span><span class="o">=</span><span class="s2">"last"</span>,
+  &lt;http://localhost:3000/movies?page<span class="o">=</span>6&gt;; <span class="nv">rel</span><span class="o">=</span><span class="s2">"next"</span>,
+  &lt;http://localhost:3000/movies?page<span class="o">=</span>4&gt;; <span class="nv">rel</span><span class="o">=</span><span class="s2">"prev"</span>
+Total: 4321
+Per-Page: 10
+Page: 5
+</code></pre>
+
+<h2 id="header-properties">Header Properties</h2>
+
+<p>there&rsquo;s a few properties in response headers:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Link</td>
+<td>the navigation links</td>
+</tr>
+<tr>
+<td>Per-Page</td>
+<td>number of result per page</td>
+</tr>
+<tr>
+<td>Page</td>
+<td>current page</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>Total result</td>
+</tr>
+</tbody></table>
+
+<h2 id="library-support">Library support</h2>
+
+<p>for iOS: <a href="https://github.com/kylef/WebLinking.swift">WebLinking.swift</a></p>
+
           <h1 id="json-objects">JSON Objects</h1>
 
 <p>normally, a api response in Phrenzi, will be somehow like this in the right hand side :</p>
