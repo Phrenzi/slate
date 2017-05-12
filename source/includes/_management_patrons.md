@@ -44,6 +44,13 @@ the `credit_balance` return from different manager authenticated should be diffe
 
 `GET http://phrenzi.com/api/management/patrons`
 
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+page | N | the page results of all transactions
+per_page | N | the number of transaction record return per page by api, default to be 20
+
 ## Get patron
 
 ```shell
