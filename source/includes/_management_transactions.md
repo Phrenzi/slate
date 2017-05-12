@@ -70,6 +70,9 @@ This endpoint need manager authentication, and retrieves transaction records by 
 
 `GET http://example.com/api/management/transactions`
 
+<aside class="info">This API support pagination. please refer to <a
+href="#link-header-result-pagination">Link Header section</a></aside>
+
 ### Query Parameters
 
 Parameter | Requred? | Description

@@ -54,6 +54,9 @@ This endpoint authenticate by patron authenticate, and retrieves all transaction
 
 `GET http://example.com/api/patron_app/point_transactions`
 
+<aside class="info">This API support pagination. please refer to <a
+href="#link-header-result-pagination">Link Header section</a></aside>
+
 ### Query Parameters
 
 Parameter | Required | Description

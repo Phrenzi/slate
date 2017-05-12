@@ -44,6 +44,9 @@ the `credit_balance` return from different manager authenticated should be diffe
 
 `GET http://phrenzi.com/api/management/patrons`
 
+<aside class="info">This API support pagination. please refer to <a
+href="#link-header-result-pagination">Link Header section</a></aside>
+
 ### Query Parameters
 
 Parameter | Required | Description
