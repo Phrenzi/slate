@@ -85,8 +85,8 @@ remaining_credit | String | '7.00' | at the timing of create transaction, the cr
 tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime string |
 deleted | Boolean | true | true means this transaction is already been deleted |
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | ISO_8601 format datetime string, the timestamp that this transaction is being deleted |
-del_transaction_id | UUID | "ggbd0c3c-404d-4ce1-9042-9baecb4ef585" | UUID of origin delete
-transaction |
+del_transaction_id | UUID | "ggbd0c3c-404d-4ce1-9042-9baecb4ef585" | UUID of origin delete transaction |
+action | String | 'Cash Purchase' | action name for transaction |
 
 NOTED:
 
@@ -118,6 +118,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Cash Purchase' |
 
 ### Scenario 2: Partially credit redeem:
 
@@ -138,6 +139,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Cash Purchase' |
 
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
@@ -154,6 +156,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Credit Purchase' |
 
 ### Scenario 3: Fully credit redeem:
 
@@ -174,6 +177,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Credit Purchase' |
 
 ### Scenario 4: Credit correct:
 
@@ -194,6 +198,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Credit Correciton' |
 
 ### Scenario 5: Delete Full Sale Record from Scenario 1 
 
@@ -214,6 +219,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Cash Purchase' |
 
 Reverted Sale transaction
 
@@ -232,6 +238,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
 del_transaction_id | UUID | "abcd" | |
+action | String | 'Cash Purchase Deletion' |
 
 ### Scenario 6: Delete Partial Sale Record from Scenario 2
 
@@ -252,6 +259,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Cash Purchase' |
 
 Original Credit Transaction
 
@@ -270,6 +278,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | null | |
 deleted | Boolean | false | |
 del_transaction_id | UUID | null | |
+action | String | 'Credit Purchase' |
 
 Reverted Sale transaction
 
@@ -288,6 +297,7 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
 del_transaction_id | UUID | 'abcde' | |
+action | String | 'Cash Purchase Deletion' |
 
 Reverted Credit transaction
 
@@ -306,3 +316,4 @@ tracked_at | Datetime | "2016-06-04T07:48:56.050Z" | ISO_8601 format datetime st
 deleted_at | Datetime | "2016-06-05T07:48:56.050Z" | |
 deleted | Boolean | true | |
 del_transaction_id | UUID | 'abcdf' | |
+action | String | 'Credit Purchase Deletion' |

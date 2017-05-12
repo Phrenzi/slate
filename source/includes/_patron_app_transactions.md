@@ -37,7 +37,8 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
       "tracked_at": "2017-03-29T19:09:43.791+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     },
     {
       "id": "c294a412-b391-44c5-8cc7-25a4f4b1a7b5",
@@ -56,7 +57,8 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
       "tracked_at": "2017-03-29T19:09:43.791+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     }
   ]
 }

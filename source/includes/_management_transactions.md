@@ -37,7 +37,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T19:04:28.067+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     },
     {
       "id": "0db22eca-326f-4b8c-b5bc-c517256cc64c",
@@ -56,7 +57,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T19:04:28.067+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     }
   ]
 }
@@ -119,7 +121,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T18:33:58.327+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     }
   ]
 }
@@ -166,7 +169,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T18:36:04.640+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Cash Purchase"
     },
     {
       "id": "441a3707-3015-4bb7-9df9-0d2fae3a4db1",
@@ -185,7 +189,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T18:36:04.640+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Credit Purchase"
     }
   ]
 }
@@ -232,7 +237,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T18:39:44.563+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Credit Purchase"
     }
   ]
 }
@@ -279,7 +285,8 @@ curl "https://phrenzi.com/api/management/transactions" \
       "tracked_at": "2017-03-29T18:40:32.878+08:00",
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "action": "Credit Correction"
     }
   ]
 }
@@ -430,7 +437,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "tracked_at": "2017-03-29T18:51:41.470+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
       "deleted_at": "2017-03-29T18:51:42.470+08:00",
-      "deleted": true
+      "deleted": true,
+      "action": "Cash Purchase Deletion"
     }
   ]
 }
@@ -471,7 +479,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "tracked_at": "2017-03-29T18:53:10.256+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
       "deleted_at": "2017-03-29T18:53:12.256+08:00",
-      "deleted": true
+      "deleted": true,
+      "action": "Cash Purchase Deletion"
     },
     {
       "id": "41c6f8d1-6539-436e-aeef-86d870c7f4c1",
@@ -490,7 +499,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "tracked_at": "2017-03-29T18:53:11.256+08:00",
       "del_transaction_id": "6a2c4670-c588-401a-9f03-a9c8783557be",
       "deleted_at": "2017-03-29T18:53:12.256+08:00",
-      "deleted": true
+      "deleted": true,
+      "action": "Credit Purchase Deletion"
     }
   ]
 }
@@ -531,7 +541,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "tracked_at": "2017-03-29T18:55:17.344+08:00",
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
       "deleted_at": "2017-03-29T18:55:18.344+08:00",
-      "deleted": true
+      "deleted": true,
+      "action": "Credit Purchase Deletion"
     }
   ]
 }
@@ -573,7 +584,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
       "tracked_at": "2017-03-29T18:56:42.339+08:00",
       "del_transaction_id": "2cd61542-98b1-45eb-bf76-92335257f0f2",
       "deleted_at": "2017-03-29T18:56:43.339+08:00",
-      "deleted": true
+      "deleted": true,
+      "action": "Credit Correction Deletion"
     }
   ]
 }
