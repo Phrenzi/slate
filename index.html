@@ -580,13 +580,13 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>&ldquo;ggbd0c3c-404d-4ce1-9042-9baecb4ef585&rdquo;</td>
-<td>UUID of origin delete</td>
+<td>UUID of origin delete transaction</td>
 </tr>
 <tr>
-<td>transaction</td>
-<td></td>
-<td></td>
-<td></td>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase&rsquo;</td>
+<td>action name for transaction</td>
 </tr>
 </tbody></table>
 
@@ -696,6 +696,12 @@ returned, so we list all the different json object here:</p>
 <td>null</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-2-partially-credit-redeem">Scenario 2: Partially credit redeem:</h3>
@@ -788,6 +794,12 @@ returned, so we list all the different json object here:</p>
 <td>null</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -874,6 +886,12 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Credit Purchase&rsquo;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -968,6 +986,12 @@ returned, so we list all the different json object here:</p>
 <td>null</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Credit Purchase&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="scenario-4-credit-correct">Scenario 4: Credit correct:</h3>
@@ -1058,6 +1082,12 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Credit Correciton&rsquo;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1152,6 +1182,12 @@ returned, so we list all the different json object here:</p>
 <td>null</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>Reverted Sale transaction</p>
@@ -1240,6 +1276,12 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>&ldquo;abcd&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase Deletion&rsquo;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1334,6 +1376,12 @@ returned, so we list all the different json object here:</p>
 <td>null</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>Original Credit Transaction</p>
@@ -1422,6 +1470,12 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Credit Purchase&rsquo;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1514,6 +1568,12 @@ returned, so we list all the different json object here:</p>
 <td>&#39;abcde&rsquo;</td>
 <td></td>
 </tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Cash Purchase Deletion&rsquo;</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>Reverted Credit transaction</p>
@@ -1602,6 +1662,12 @@ returned, so we list all the different json object here:</p>
 <td>del_transaction_id</td>
 <td>UUID</td>
 <td>&#39;abcdf&rsquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td>&#39;Credit Purchase Deletion&rsquo;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -2426,7 +2492,8 @@ or other subsequence request that need authentication.</p>
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T19:09:43.791+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c294a412-b391-44c5-8cc7-25a4f4b1a7b5"</span><span class="p">,</span><span class="w">
@@ -2445,7 +2512,8 @@ or other subsequence request that need authentication.</p>
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T19:09:43.791+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3479,7 +3547,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T19:04:28.067+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0db22eca-326f-4b8c-b5bc-c517256cc64c"</span><span class="p">,</span><span class="w">
@@ -3498,7 +3567,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T19:04:28.067+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3579,7 +3649,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:33:58.327+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3626,7 +3697,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:36:04.640+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"441a3707-3015-4bb7-9df9-0d2fae3a4db1"</span><span class="p">,</span><span class="w">
@@ -3645,7 +3717,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:36:04.640+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Purchase"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3692,7 +3765,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:39:44.563+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Purchase"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3739,7 +3813,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:40:32.878+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Correction"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4006,7 +4081,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:51:41.470+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:51:42.470+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase Deletion"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4047,7 +4123,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:53:10.256+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:53:12.256+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash Purchase Deletion"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41c6f8d1-6539-436e-aeef-86d870c7f4c1"</span><span class="p">,</span><span class="w">
@@ -4066,7 +4143,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:53:11.256+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a2c4670-c588-401a-9f03-a9c8783557be"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:53:12.256+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Purchase Deletion"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4107,7 +4185,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:55:17.344+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:55:18.344+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Purchase Deletion"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4148,7 +4227,8 @@ the <code class="prettyprint">credit_balance</code> return from different manage
       </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:56:42.339+08:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2cd61542-98b1-45eb-bf76-92335257f0f2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:56:43.339+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Correction Deletion"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
