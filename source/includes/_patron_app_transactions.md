@@ -58,14 +58,7 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
       "deleted_at": null,
       "deleted": false
     }
-  ],
-  "meta": {
-    "current_page": 1,
-    "next_page": null,
-    "prev_page": null,
-    "total_pages": 1,
-    "total_count": 2
-  }
+  ]
 }
 ```
 

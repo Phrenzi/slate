@@ -14,6 +14,7 @@ includes:
   - patron_app_profile
   - patron_app_establishments
   - patron_app_transactions
+  - patron_app_point_transactions
   - patron_app_boosters
   - patron_app_check_in
   - patron_app_invitation
