@@ -2304,6 +2304,81 @@ or other subsequence request that need authentication.</p>
 <p>For full scenario of upload profile with pre-sign, please refer
 <a href="https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb">here</a></p>
 
+<h2 id="update-patron-profile">update patron profile</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/profile"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+        "profile": '</span><span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"349234854924394"</span>, <span class="c"># required</span>
+          <span class="s2">"storage"</span>: <span class="s2">"cache"</span>, <span class="c"># required</span>
+          <span class="s2">"metadata"</span>: <span class="o">{</span>
+            <span class="s2">"size"</span>: 45461, <span class="c"># optional</span>
+            <span class="s2">"filename"</span>: <span class="s2">"foo.jpg"</span>, <span class="c"># optional</span>
+            <span class="s2">"mime_type"</span>: <span class="s2">"image/jpeg"</span>, <span class="c"># optional</span>
+          <span class="o">}</span>
+        <span class="o">}</span><span class="s1">',
+        "name": "Simon",
+        "email": "manin.iong@gmail.com",
+        "reconfirm_success_url": "phrenzi://"
+      }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns status code 200</p>
+</blockquote>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://example.com/api/patron_app/profile</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profile</td>
+<td>String, json object string demonstrated above</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String, name of current login Patron</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String, new email of current login Patron</td>
+</tr>
+<tr>
+<td>reconfirm_success_url</td>
+<td>after new email is confirmed, specify the url to redirect to, if email is present, reconfirm_success_url must be present.</td>
+</tr>
+</tbody></table>
+
+<p>NOTED:</p>
+
+<ol>
+<li>for <code class="prettyprint">profile</code> json object, <code class="prettyprint">id</code> &amp; <code class="prettyprint">storage</code> is required in json object string</li>
+<li><code class="prettyprint">profile</code>, <code class="prettyprint">name</code>, <code class="prettyprint">email</code> must have at least one present in the payload.</li>
+</ol>
+
+<p>For full scenario of upload profile with pre-sign, please refer
+<a href="https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb">here</a></p>
+
+<h3 id="the-flow-for-update-email">The flow for update email</h3>
+
+<ol>
+<li>current patron call update profile api, with <code class="prettyprint">email</code> &amp; <code class="prettyprint">reconfirm_success_url</code> payload.</li>
+<li>server return success, and at the same time, send a confirmatino email to new email inbox</li>
+<li>At this time being, patron is still authenticated ( not force logout ), patron can still login using old email</li>
+<li>Patron go to new email inbox, click the click there, this will trigger a confirmation request in the server, and patron will redirect to the url specify in <code class="prettyprint">reconfirm_success_url</code> payload.</li>
+<li>At this time being, patron can not login using old email but the new one.</li>
+</ol>
+
           <h1 id="patronapp-establishments">PatronApp / Establishments</h1>
 
 <h2 id="get-all-establishments">get all establishments</h2>
