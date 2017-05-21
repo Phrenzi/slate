@@ -55,6 +55,8 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 
 > The above command returns status code 200
 
+This endpoint authenticate by patron authenticate, and upate patron profile
+
 ### HTTP Request
 
 `POST http://example.com/api/patron_app/profile`
@@ -94,6 +96,8 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 ```
 
 > The above command returns status code 200
+
+This endpoint authenticate by patron authenticate, and upate patron profile
 
 ### HTTP Request
 
