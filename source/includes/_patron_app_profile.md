@@ -69,3 +69,56 @@ NOTED: id & storage is required in json object string
 
 For full scenario of upload profile with pre-sign, please refer
 [here](https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb)
+
+## update patron profile
+
+```shell
+curl "https://phrenzi.com/api/patron_app/profile" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X PATCH \
+  -d '{
+        "profile": '{
+          "id": "349234854924394", # required
+          "storage": "cache", # required
+          "metadata": {
+            "size": 45461, # optional
+            "filename": "foo.jpg", # optional
+            "mime_type": "image/jpeg", # optional
+          }
+        }',
+        "name": "Simon",
+        "email": "manin.iong@gmail.com",
+        "reconfirm_success_url": "phrenzi://"
+      }'
+```
+
+> The above command returns status code 200
+
+### HTTP Request
+
+`PATCH http://example.com/api/patron_app/profile`
+
+### URL Parameters
+Parameter | Description
+--------- | -----------
+profile | String, json object string demonstrated above
+name | String, name of current login Patron
+email | String, new email of current login Patron
+reconfirm_success_url | after new email is confirmed, specify the url to redirect to, if email is present, reconfirm_success_url must be present.
+
+NOTED:
+
+1. for `profile` json object, `id` & `storage` is required in json object string
+2. `profile`, `name`, `email` must have at least one present in the payload.
+
+For full scenario of upload profile with pre-sign, please refer
+[here](https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb)
+
+### The flow for update email
+
+1. current patron call update profile api, with `email` & `reconfirm_success_url` payload.
+2. server return success, and at the same time, send a confirmatino email to new email inbox
+3. At this time being, patron is still authenticated ( not force logout ), patron can still login using old email
+4. Patron go to new email inbox, click the click there, this will trigger a confirmation request in the server, and patron will redirect to the url specify in `reconfirm_success_url` payload.
+5. At this time being, patron can not login using old email but the new one.
