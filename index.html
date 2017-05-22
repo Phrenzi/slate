@@ -2329,7 +2329,25 @@ or other subsequence request that need authentication.</p>
 
 <blockquote>
 <p>The above command returns status code 200</p>
+
+<p>either name, email, or profile need to provided in this api, if none of them is provided, then return error code 422, and following json result:</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"either email, name, profile need to be providedfor update profile action"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if email is provided, then reconfirm_success_url need to provided as well, orelse server will return error code 422, and following json result:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"reconfirmation_success_url and email should be provided at the same time"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>This endpoint authenticate by patron authenticate, and upate patron profile</p>
 
