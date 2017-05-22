@@ -97,6 +97,26 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 
 > The above command returns status code 200
 
+> either name, email, or profile need to provided in this api, if none of them is provided, then return error code 422, and following json result:
+
+```json
+{
+  "errors": [
+    "either email, name, profile need to be providedfor update profile action"
+  ]
+}
+```
+
+> if email is provided, then reconfirm_success_url need to provided as well, orelse server will return error code 422, and following json result:
+
+```json
+{
+  "errors": [
+    "reconfirmation_success_url and email should be provided at the same time"
+  ]
+}
+```
+
 This endpoint authenticate by patron authenticate, and upate patron profile
 
 ### HTTP Request
