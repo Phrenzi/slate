@@ -551,49 +551,6 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 }
 ```
 
-> For delete correction credit transaction
-
-
-```shell
-curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
-  -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
-  -X DELETE
-```
-
-> The above command returns HTML status code 200 OK if success and json object
-
-``` json
-{
-  "transactions": [
-    {
-      "id": "6a7cdbcd-7a01-4990-8203-8a8438149dd4",
-      "patron_id": "1b93ed21-05bd-42b4-b099-2f5a6f773cee",
-      "establishment_id": "d9f53914-b5e2-4080-a1f7-960040dcd113",
-      "challenge_id": null,
-      "trans_type": "correction",
-      "sales_amount": "-0.0",
-      "applied_credit": "-0.0",
-      "sales_credit": "-0.0",
-      "credit_subtotal": "-200.0",
-      "remaining_credit": "0.0",
-      "cash_back": "3.5",
-      "trans_code": "5c90c5c7ce",
-      "group_code": null,
-      "tracked_at": "2017-03-29T18:56:42.339+08:00",
-      "del_transaction_id": "2cd61542-98b1-45eb-bf76-92335257f0f2",
-      "deleted_at": "2017-03-29T18:56:43.339+08:00",
-      "deleted": true,
-      "action": "Credit Correction Deletion"
-    }
-  ]
-}
-```
-
 > While specify delete transaction is invalid, or fake, or not belongs to current establishment
 
 ```shell
