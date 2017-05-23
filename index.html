@@ -4302,48 +4302,6 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span></code></pre>
 
 <blockquote>
-<p>For delete correction credit transaction</p>
-</blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
-  -X DELETE
-</code></pre>
-
-<blockquote>
-<p>The above command returns HTML status code 200 OK if success and json object</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a7cdbcd-7a01-4990-8203-8a8438149dd4"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1b93ed21-05bd-42b4-b099-2f5a6f773cee"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9f53914-b5e2-4080-a1f7-960040dcd113"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"trans_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sales_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"applied_credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sales_credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-200.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"remaining_credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"cash_back"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.5"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c90c5c7ce"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"group_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:56:42.339+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2cd61542-98b1-45eb-bf76-92335257f0f2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-29T18:56:43.339+08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Correction Deletion"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
 <p>While specify delete transaction is invalid, or fake, or not belongs to current establishment</p>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/this-is-a-fake-id"</span> <span class="se">\</span>
