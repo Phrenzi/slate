@@ -77,7 +77,8 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 
 Parameter | Requred? | Description
 --------- | ----------- | ---------
-patron_id | Y | only list transactions that belongs to patron
+patron_id | N | only list transactions that belongs to patron
+trans_code | N | transaction's trans_code
 page | N | the page results of all transactions, default to be page 1
 per_page | N | the number of transaction record return per page by api, default to be 20
 
