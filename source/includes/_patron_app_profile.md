@@ -107,3 +107,39 @@ For full scenario of upload profile with pre-sign, please refer
 3. At this time being, patron is still authenticated ( not force logout ), patron can still login using old email
 4. Patron go to new email inbox, click the click there, this will trigger a confirmation request in the server, and patron will redirect to the url specify in `reconfirm_success_url` payload.
 5. At this time being, patron can not login using old email but the new one.
+
+## patron profile
+
+```shell
+curl "https://phrenzi.com/api/patron_app/profile" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token"
+```
+
+> The above command returns status code 200, and following json
+
+```json
+{
+  "patron": {
+    "id": "d3982f8e-93b0-4be9-9a4d-2ed12d591992",
+    "name": "Patron1",
+    "email": "patron1@gmail.com",
+    "trans_code": "197a14",
+    "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg",
+    "stats": {
+      "challenge_played": 1,
+      "challenge_won": 0,
+      "prize_earned": "23.23",
+      "cash_back_earned": "2.5",
+      "point_earned": "200.0",
+      "booster_earned": 13
+    }
+  }
+}
+```
+
+This endpoint authenticate by patron authenticate, and retrieve current authenticated patron profile
+
+### HTTP Request
+
+`GET http://example.com/api/patron_app/profile`
