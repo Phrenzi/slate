@@ -12,6 +12,7 @@ includes:
   - patrons
   - managers
   - patron_app_profile
+  - patron_app_patrons
   - patron_app_establishments
   - patron_app_transactions
   - patron_app_point_transactions
