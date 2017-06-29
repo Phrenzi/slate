@@ -33,45 +33,6 @@ After you retrive the presign url, you could be able to make a post request to p
 
 For more detail, please visit shrine's plugin [direct_upload](http://shrinerb.com/rdoc/files/doc/direct_s3_md.html)
 
-## create patron profile
-
-```shell
-curl "https://phrenzi.com/api/patron_app/profile" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
-  -X POST \
-  -d '{
-        "profile": '{
-          "id": "349234854924394", # required
-          "storage": "cache", # required
-          "metadata": {
-            "size": 45461, # optional
-            "filename": "foo.jpg", # optional
-            "mime_type": "image/jpeg", # optional
-          }
-        }'
-      }'
-```
-
-> The above command returns status code 200
-
-This endpoint authenticate by patron authenticate, and upate patron profile
-
-### HTTP Request
-
-`POST http://example.com/api/patron_app/profile`
-
-
-### URL Parameters
-Parameter | Description
---------- | -----------
-profile | String, json object string demonstrated above
-
-NOTED: id & storage is required in json object string
-
-For full scenario of upload profile with pre-sign, please refer
-[here](https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb)
-
 ## update patron profile
 
 ```shell
