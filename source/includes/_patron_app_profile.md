@@ -126,6 +126,7 @@ curl "https://phrenzi.com/api/patron_app/profile" \
     "email": "patron1@gmail.com",
     "trans_code": "197a14",
     "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg",
+    "join_date": "2017-06-29T16:34:46Z",
     "stats": {
       "challenge_played": 1,
       "challenge_won": 0,
