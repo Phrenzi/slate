@@ -124,7 +124,7 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
 }
 ```
 
-This endpoint require `manager_token`, and update current password for current manager.
+This endpoint require `manager authenticate`, and update current password for current manager.
 
 ### HTTP Request
 
