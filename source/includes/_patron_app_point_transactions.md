@@ -23,6 +23,7 @@ curl "https://phrenzi.com/api/patron_app/point_transactions" \
     {
       "id": "86649ff8-abb4-4e4f-9a64-16607ccac2f4",
       "patron_id": "437d5272-e694-41cb-8c4f-12c0f37f3588",
+      "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b",
       "booster_id": null,
       "challenge_id": "4972f2df-d378-4f87-b9c9-ac45ab12d0ac",
       "point": "9.99",
@@ -35,6 +36,7 @@ curl "https://phrenzi.com/api/patron_app/point_transactions" \
     {
       "id": "9bea46d0-d077-4d0b-beaa-5b11151601d4",
       "patron_id": "437d5272-e694-41cb-8c4f-12c0f37f3588",
+      "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b",
       "booster_id": null,
       "challenge_id": "4972f2df-d378-4f87-b9c9-ac45ab12d0ac",
       "point": "9.99",
