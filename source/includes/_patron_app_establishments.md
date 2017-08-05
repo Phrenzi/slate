@@ -21,6 +21,7 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "logo_url": "http://abc.com/uploads/establishment/logo/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg",
       "banner_url": "http://abc.com/uploads/establishment/banner/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg",
       "active_booster_count": 3,
+      "user_active_booster_count": 3,
       "credit_balance": "20000.0"
     },
     {
@@ -32,6 +33,7 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "logo_url": "http://abc.com/uploads/establishment/logo/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg",
       "banner_url": "http://abc.com/uploads/establishment/banner/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg",
       "active_booster_count": 0,
+      "user_active_booster_count": 0,
       "credit_balance": "200.0"
     }
   ]
@@ -67,6 +69,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "logo_url": "http://abc.com/uploads/establishment/logo/e1c3c3b9e1bb587672ed14663c233d2a.jpeg",
     "banner_url": "http://abc.com/uploads/establishment/banner/cf2731b3f037e081fee8230378290b62.jpeg",
     "active_booster_count": 3,
+    "user_active_booster_count": 3,
     "credit_balance": "20000.0",
     "address": {
       "id": "54f27047-8a98-4304-b7bc-43b2f855a582",
