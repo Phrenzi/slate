@@ -22,14 +22,16 @@ curl "https://phrenzi.com/api/management/patrons" \
       "name": "Patron1",
       "email": "patron1@gmail.com",
       "credit_balance": "100.23",
-      "trans_code": "52553b"
+      "trans_code": "52553b",
+      "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
     },
     {
       "id": "fcbdd18f-e5ea-4368-8cf4-2e688e604a40",
       "name": "Patron2",
       "email": "patron2@gmail.com",
       "credit_balance": "0.0",
-      "trans_code": "25e8ac"
+      "trans_code": "25e8ac",
+      "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
     }
   ]
 }
@@ -75,7 +77,8 @@ curl "https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4
     "name": "Patron1",
     "email": "patron1@gmail.com",
     "credit_balance": "100.23",
-    "trans_code": "519665"
+    "trans_code": "519665",
+    "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
   }
 }
 ```
