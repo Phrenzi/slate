@@ -131,9 +131,15 @@ curl "https://phrenzi.com/api/patron_app/profile" \
       "challenge_played": 1,
       "challenge_won": 0,
       "prize_earned": "23.23",
-      "cash_back_earned": "2.5",
       "point_earned": "200.0",
-      "booster_earned": 13
+      "booster_earned": 13,
+      "credit_earned_from_correction": "100.0",
+      "credit_loss_from_correction": "100.0",
+      "credit_earned_from_cash": "100.0",
+      "credit_spent": "100.0",
+      "credit_earned_from_deletion": "100.0",
+      "credit_loss_from_deletion": "100.0",
+      "credit_earned_from_prize": "100.0"
     }
   }
 }

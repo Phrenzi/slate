@@ -25,7 +25,13 @@ curl "https://phrenzi.com/api/patron_app/establishments/d51dd6c5-ad0e-445f-b3c5-
     "booster_earned": 2,
     "point_earned": "100.0",
     "prize_earned": "100.0",
-    "cash_back_earned": "10.0"
+    "credit_earned_from_correction": "100.0",
+    "credit_loss_from_correction": "100.0",
+    "credit_earned_from_cash": "100.0",
+    "credit_spent": "100.0",
+    "credit_earned_from_deletion": "100.0",
+    "credit_loss_from_deletion": "100.0",
+    "credit_earned_from_prize": "100.0"
   }
 }
 ```
