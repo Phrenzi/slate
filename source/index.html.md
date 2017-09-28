@@ -54,29 +54,15 @@ curl "https://phrenzi.com/api_endpoint" \
 
 # Authentication
 
-> To authorize, use this code:
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Content-Type: application/json" # this tell server to response with json \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com"
-```
-
-> auth header here is required, and can be retrieved from header in last api response.
-
 We take security as a first priority, so following security mechanism is under consider during design API:
 
-* token is change after every request
-* all the token we using during exchanged is hashed using BCrypt ( not plain text stored )
 * we use securely compared ( to protect against timing attacks )
-* token is invalidate after 2 weeks
+* token is invalidate in 1 hour
+* refresh token mechanism provided to refresh token
 
-# APP TOKEN
+There's 3 kind of token in Phrenzi for now: App token, Patron Token, Manager Token
+
+## APP TOKEN
 
 For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,
 
@@ -93,21 +79,21 @@ curl "https://phrenzi.com/patrons/sign_in" \
   -H "Authorization: app_token"
 ```
 
-# Patron Token
+## Patron Token
 
-For api under `patron_app` namespace, it is protected by patron token.
+For api under `patron_app` namespace, it is protected by Patron Token:
 
-* token is change after every request
-* all the token we using during exchanged is hashed using BCrypt ( not plain text stored )
-* we use securely compared ( to protect against timing attacks )
-* token is invalidate after 2 weeks
+* Patron Token consist of a pair of tokens: `token` and `refresh_token`
+* `token` have 1 hour lifespan, and `refresh_token` have 1 month lifespan
+* client use `token` to consume api
+* if `token` is expired, then client need to use `refresh_token` to refresh token and exchange new pair of Patron Token
 
-For the correct Patron Token, you can get it by authenticate email & password using Patron login api.
+For the correct Patron Token, you can retrieve it by authenticate email & password using Patron login api.
 
 ``` shell
 curl "https://phrenzi.com/patrons/sign_in" \
   -H "ACCEPT: phrenzi.v1" \
-  -H "Authorization: patron_token"
+  -H "Authorization: token"
 ```
 
 # Link Header ( Result pagination )
