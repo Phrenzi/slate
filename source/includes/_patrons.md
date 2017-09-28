@@ -128,7 +128,7 @@ password | the password of patron account
 ```shell
 curl "https://phrenzi.com/api/patrons/sign_out" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
+  -H "Authorization: token" \
   -X DELETE
 ```
 
@@ -309,7 +309,7 @@ redirect_url | a link to redirect back after success operation
 ```shell
 curl "https://phrenzi.com/api/patrons/password" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
+  -H "Authorization: token" \
   -X PATCH \
   -d '{
     "password": "new_password",
