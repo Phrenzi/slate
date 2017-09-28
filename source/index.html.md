@@ -76,20 +76,6 @@ We take security as a first priority, so following security mechanism is under c
 * we use securely compared ( to protect against timing attacks )
 * token is invalidate after 2 weeks
 
-## Auth Header
-
-after authenticate ( for example, sign in api call), the header from api response will have
-following 5 tags, we call it `Auth Header`, client need to extract out `Auth Header`,
-and insert it in header of next api call. For a exmaple of Auth Header, please have a look at right hand side.
-
-Noted: Any client can easily extract out this `Auth Header` exchange logic into a library and shared it out.
-
-* access-token
-* token-type
-* client
-* expiry
-* uid
-
 # APP TOKEN
 
 For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,
@@ -105,6 +91,23 @@ For the correct App Token, please contact admin of Phrenzi.
 curl "https://phrenzi.com/patrons/sign_in" \
   -H "ACCEPT: phrenzi.v1" \
   -H "Authorization: app_token"
+```
+
+# Patron Token
+
+For api under `patron_app` namespace, it is protected by patron token.
+
+* token is change after every request
+* all the token we using during exchanged is hashed using BCrypt ( not plain text stored )
+* we use securely compared ( to protect against timing attacks )
+* token is invalidate after 2 weeks
+
+For the correct Patron Token, you can get it by authenticate email & password using Patron login api.
+
+``` shell
+curl "https://phrenzi.com/patrons/sign_in" \
+  -H "ACCEPT: phrenzi.v1" \
+  -H "Authorization: patron_token"
 ```
 
 # Link Header ( Result pagination )
