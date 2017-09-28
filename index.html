@@ -141,49 +141,17 @@ by inserting a special header item in every of your request.</p>
 
 <h1 id="authentication">Authentication</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="c"># this tell server to response with json \</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span>
-</code></pre>
-
-<blockquote>
-<p>auth header here is required, and can be retrieved from header in last api response.</p>
-</blockquote>
-
 <p>We take security as a first priority, so following security mechanism is under consider during design API:</p>
 
 <ul>
-<li>token is change after every request</li>
-<li>all the token we using during exchanged is hashed using BCrypt ( not plain text stored )</li>
 <li>we use securely compared ( to protect against timing attacks )</li>
-<li>token is invalidate after 2 weeks</li>
+<li>token is invalidate in 1 hour</li>
+<li>refresh token mechanism provided to refresh token</li>
 </ul>
 
-<h2 id="auth-header">Auth Header</h2>
+<p>There&rsquo;s 3 kind of token in Phrenzi for now: App token, Patron Token, Manager Token</p>
 
-<p>after authenticate ( for example, sign in api call), the header from api response will have
-following 5 tags, we call it <code class="prettyprint">Auth Header</code>, client need to extract out <code class="prettyprint">Auth Header</code>,
-and insert it in header of next api call. For a exmaple of Auth Header, please have a look at right hand side.</p>
-
-<p>Noted: Any client can easily extract out this <code class="prettyprint">Auth Header</code> exchange logic into a library and shared it out.</p>
-
-<ul>
-<li>access-token</li>
-<li>token-type</li>
-<li>client</li>
-<li>expiry</li>
-<li>uid</li>
-</ul>
-
-<h1 id="app-token">APP TOKEN</h1>
+<h2 id="app-token">APP TOKEN</h2>
 
 <p>For some public facing api, like patron sign in, patron sign up, request to reset password,  and manager sign in,</p>
 
@@ -198,6 +166,23 @@ and insert it in header of next api call. For a exmaple of Auth Header, please h
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/patrons/sign_in"</span> <span class="se">\</span>
   -H <span class="s2">"ACCEPT: phrenzi.v1"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: app_token"</span>
+</code></pre>
+
+<h2 id="patron-token">Patron Token</h2>
+
+<p>For api under <code class="prettyprint">patron_app</code> namespace, it is protected by Patron Token:</p>
+
+<ul>
+<li>Patron Token consist of a pair of tokens: <code class="prettyprint">token</code> and <code class="prettyprint">refresh_token</code></li>
+<li><code class="prettyprint">token</code> have 1 hour lifespan, and <code class="prettyprint">refresh_token</code> have 1 month lifespan</li>
+<li>client use <code class="prettyprint">token</code> to consume api</li>
+<li>if <code class="prettyprint">token</code> is expired, then client need to use <code class="prettyprint">refresh_token</code> to refresh token and exchange new pair of Patron Token</li>
+</ul>
+
+<p>For the correct Patron Token, you can retrieve it by authenticate email &amp; password using Patron login api.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/patrons/sign_in"</span> <span class="se">\</span>
+  -H <span class="s2">"ACCEPT: phrenzi.v1"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <h1 id="link-header-result-pagination">Link Header ( Result pagination )</h1>
@@ -1771,7 +1756,11 @@ returned, so we list all the different json object here:</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"288f4f0f-da30-45c4-a531-c0a804628395"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76efd7"</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76efd7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1b811b47dc44cbeb8a03b9021f76ac4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506672320</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2c74332c27df44b884b06714f0110f23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1509177920</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1788,7 +1777,6 @@ returned, so we list all the different json object here:</p>
 <p>if patron is not confirmed yet, return status code <code class="prettyprint">401</code> and json like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1797,7 +1785,7 @@ returned, so we list all the different json object here:</p>
 
 <ul>
 <li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
-auth header from reponse to consuming next request that need authentication.</li>
+Patron Token pair from reponse to consuming <code class="prettyprint">patron_app</code> namespace APIs.</li>
 <li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code> with <code class="prettyprint">errors</code> message.</li>
 </ul>
 
@@ -1826,11 +1814,7 @@ auth header from reponse to consuming next request that need authentication.</li
 <h2 id="sign-out">Sign Out</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/sign_out"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
 
@@ -1838,7 +1822,9 @@ auth header from reponse to consuming next request that need authentication.</li
 <p>if success, the above command returns status code <code class="prettyprint">200</code>, and json object like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"successfully logout!"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1850,9 +1836,8 @@ auth header from reponse to consuming next request that need authentication.</li
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>this endpoint need <code class="prettyprint">Auth Header</code> to authenticate patron,
-you are going to get it from Patron <code class="prettyprint">Sign In</code> api request
-or other subsequence request that need authentication.</p>
+<p>this endpoint need <code class="prettyprint">Patron Token</code> to authenticate patron,
+you can retrieve it from Patron <code class="prettyprint">Sign In</code> api request, or Patron <code class="prettyprint">Token</code> api.</p>
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">200</code></li>
@@ -1869,7 +1854,6 @@ or other subsequence request that need authentication.</p>
   -d <span class="s1">'{
     "confirmation_token": "abcasdfasd",
     "redirect_url": "phrenzi://",
-    "config": "default"
     }'</span>
 </code></pre>
 
@@ -1907,10 +1891,6 @@ in this endpoint.</p>
 <td>redirect_url</td>
 <td>the params is pass-in from patron sign up API</td>
 </tr>
-<tr>
-<td>config</td>
-<td>the config object, which is <code class="prettyprint">default</code></td>
-</tr>
 </tbody></table>
 
 <h2 id="request-reset-password">Request Reset Password</h2>
@@ -1927,8 +1907,7 @@ in this endpoint.</p>
 <p>if success, return HTTP Status Code <code class="prettyprint">200</code> without following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1936,7 +1915,6 @@ in this endpoint.</p>
 <p>if email not found, return HTTP Status Code `404, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Unable to find user with email 'abc@gmail.com.'"</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1945,7 +1923,6 @@ in this endpoint.</p>
 <p>if email is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"You must provide an email address."</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1954,7 +1931,6 @@ in this endpoint.</p>
 <p>if redirect_url is missing, return HTTP Status Code <code class="prettyprint">401</code>, with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Missing redirect URL."</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2002,18 +1978,26 @@ will trigger and sent to Patron&rsquo;s registered email.</p>
 </code></pre>
 
 <blockquote>
-<p>if success, it will redirect to the <code class="prettyprint">redirect_url</code> specify in this api</p>
-
-<p>if failed, it will raise an exception ActionController::RoutingError</p>
+<p>if success, it will redirect to the <code class="prettyprint">redirect_url</code> specify in this api, and with Patron&rsquo;s token attached</p>
 </blockquote>
+<pre class="highlight shell"><code>phrenzi://?token<span class="o">=</span>xxxxx
+</code></pre>
+
+<blockquote>
+<p>if failed, it will return with status_code 404, and folloing json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"not found!"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>during password reset procedure of patron ( client call Patron request password reset API ), server
 will sent out a password reset email to Patron&rsquo;s mailbox,
 patron will need to click a link in that email,
 which will trigger this call if Patron click that link.
 If every thing is fine, Patron will redirect to app,
-with <code class="prettyprint">auth header</code> in a request, then App can
-retrieve <code class="prettyprint">auth header</code> from that redirect request.</p>
+with Patron token&rsquo;s <code class="prettyprint">token</code> in a request, then App can
+retrieve <code class="prettyprint">token</code> from that redirect request.</p>
 
 <aside class="warning">Client don&rsquo;t need to call this API.</aside>
 
@@ -2042,11 +2026,7 @@ retrieve <code class="prettyprint">auth header</code> from that redirect request
 <h2 id="update-password">Update Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/password"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
     "password": "new_password",
@@ -2058,8 +2038,7 @@ retrieve <code class="prettyprint">auth header</code> from that redirect request
 <p>if success, it will response with http status code <code class="prettyprint">200</code>, and with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your password has been successfully updated."</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Your password has been successfully updated."</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2068,7 +2047,6 @@ retrieve <code class="prettyprint">auth header</code> from that redirect request
 and with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"doesn't match Password"</span><span class="p">],</span><span class="w">
     </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Password confirmation doesn't match Password"</span><span class="p">]</span><span class="w">
@@ -2080,12 +2058,11 @@ and with following json object</p>
 <p>if not authenticate, response with <code class="prettyprint">401</code> and following json object,</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Unauthorized"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This api endpoint need Patron authenticated.</p>
+<p>This api endpoint need <code class="prettyprint">Patron Token</code> authenticated.</p>
 
 <ul>
 <li>if success, response with http status code <code class="prettyprint">200</code></li>
@@ -2400,7 +2377,8 @@ or other subsequence request that need authentication.</p>
 
 <h2 id="get-all-patrons">Get all patrons</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/patrons"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -2425,7 +2403,7 @@ or other subsequence request that need authentication.</p>
 
 </span></code></pre>
 
-<p>This endpoint require patron authentication, and retrieves all patrons.</p>
+<p>This endpoint require <code class="prettyprint">Patron Token</code> authentication, and retrieves all patrons.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2460,6 +2438,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-all-establishments">get all establishments</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -2495,7 +2474,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all establishments</p>
+<p>This endpoint use <code class="prettyprint">Patron Token</code>, and retrieves all establishments.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2506,6 +2485,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-establishment">get establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -2603,7 +2583,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves establishment detail</p>
+<p>This endpoint use <code class="prettyprint">Patron Token</code> and retrieves establishment detail</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2614,11 +2594,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-all-transactions-by-establishment_id">get all transactions by establishment_id</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'</span>
@@ -2673,7 +2649,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by patron authenticate, and retrieves all transactions for specific
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code>, and retrieves all transactions for specific
 patron and for specific establishment</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -2714,11 +2690,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-all-point-transactions-by-establishment_id">get all point transactions by establishment_id</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/point_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'</span>
@@ -2759,7 +2731,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by patron authenticate, and retrieves all transactions for specific patron and for specific establishment</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code>, and retrieves all transactions for specific patron and for specific establishment</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2799,11 +2771,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-patron-summary-for-specify-establishment_id">get patron summary for specify establishment_id</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b/summary"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'</span>
@@ -2830,7 +2798,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticate by patron authenticate, and retrieves summary statistic data for current authenticated patron and for establishment specified</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code>, and retrieves summary statistic data for current authenticated patron and for establishment specified</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2841,6 +2809,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="get-all-boosters-today">get all boosters today</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/boosters"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -2985,7 +2954,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all boosters, along with booster information connected with current patron</p>
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code>, and retrieves all boosters, along with booster information connected with current patron</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2998,11 +2967,7 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <h2 id="patron-check-in">patron check in</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/check_in"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "lat": "23.2333",
@@ -3086,7 +3051,7 @@ JSON response:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint check in current logined patron into Establishment specify</p>
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code> and check in current logined patron into Establishment specify</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3120,11 +3085,7 @@ JSON response:</p>
 <h2 id="invite-patron">Invite Patron</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/invite"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "invitee_patron_id": "202f96fb-1536-43fa-a6ba-7b0387e90465"
@@ -3175,7 +3136,7 @@ JSON response:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint create a invitation for current logined patron to patron specify</p>
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code> and create a invitation for current logined patron to patron specify</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3202,11 +3163,7 @@ JSON response:</p>
 <h2 id="cancel-invitation">Cancel Invitation</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/cancel_invite"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "invitee_patron_id": "202f96fb-1536-43fa-a6ba-7b0387e90465"
@@ -3240,7 +3197,7 @@ response, with error explaination:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint cancel a invitation from current logined patron to patron specify</p>
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code> and cancel a invitation from current logined patron to patron specify</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3267,11 +3224,7 @@ response, with error explaination:</p>
 <h2 id="invitation-patron-list">Invitation patron list</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -3328,7 +3281,7 @@ response, with error explaination:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint get a patron list with aasm_state which is related to current login patron.</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code> and get a patron list with aasm_state which is related to current login patron.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3374,11 +3327,7 @@ response, with error explaination:</p>
 <h2 id="inviation-host-list">Inviation Host list</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/my_hosts"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -3419,7 +3368,7 @@ following json message:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint get a host list for current login patron regarding on invitation booster specify</p>
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code> and get a host list for current login patron regarding on invitation booster specify</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3434,11 +3383,7 @@ following json message:</p>
 <h2 id="notification-list">Notification List</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span>
+  -H <span class="s2">"Authorization: token"</span>
 </code></pre>
 
 <blockquote>
@@ -3460,7 +3405,7 @@ following json message:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint return all subscriptions record for current patron</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code> and return all subscriptions record for current patron</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3469,11 +3414,7 @@ following json message:</p>
 <h2 id="subscribe-notification">Subscribe Notification</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
@@ -3496,7 +3437,7 @@ response, with error explaination:</p>
 <p>If current patron is subscribed already, still return status code 200 with empty body.</p>
 </blockquote>
 
-<p>This endpoint subscribe current patron to notification pool</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code> and subscribe current patron to notification pool</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -3526,11 +3467,7 @@ response, with error explaination:</p>
 <h2 id="unsubscribe-notification">Unsubscribe Notification</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/notification_subscriptions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X DELETE <span class="se">\</span>
   -d <span class="s1">'{
     "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
@@ -3553,7 +3490,7 @@ response, with error explaination:</p>
 <p>If current patron not subscribed before, still return status code 200 with empty body.</p>
 </blockquote>
 
-<p>This endpoint unsubscribe current patron from notification pool</p>
+<p>This endpoint authenticate by <code class="prettyprint">Patron Token</code> and unsubscribe current patron from notification pool</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
