@@ -2092,6 +2092,53 @@ and with following json object</p>
 </tr>
 </tbody></table>
 
+<h2 id="token-exchange">Token Exchange</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patrons/token"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X POST
+</code></pre>
+
+<blockquote>
+<p>if success, it will response with http status code <code class="prettyprint">200</code>, and with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"314e7168-fe41-4d67-b945-209a3439d7f0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec6eec"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918cf11feba34a58a2f4b8860fb87c60"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506677658</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c6246969fdbb4013a41d5ed04f26e491"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1509183258</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, for example, refresh token is missing or not found, or even refresh token is valid, but expired, response with http status code <code class="prettyprint">401</code>,
+and with following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You need to sign in or sign up before continuing."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This api endpoint authenticated by <code class="prettyprint">Patron Token</code>&rsquo;s <code class="prettyprint">refresh_token</code>, and will exchange with a new pair of <code class="prettyprint">Patron Token</code></p>
+
+<ul>
+<li>if success, response with http status code <code class="prettyprint">200</code></li>
+<li>if authenticate failed, response with http status code <code class="prettyprint">401</code></li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons/token</code></p>
+
           <h1 id="managers">Managers</h1>
 
 <h2 id="sign-in">Sign In</h2>
