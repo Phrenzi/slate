@@ -361,3 +361,50 @@ Parameter | Description
 --------- | -----------
 password | the new password of patron
 password_confirmation | confirm again the new password
+
+## Token Exchange
+
+```shell
+curl "https://phrenzi.com/api/patrons/token" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -X POST
+```
+
+> if success, it will response with http status code `200`, and with following json object
+
+``` json
+{
+  "patron": {
+    "id": "314e7168-fe41-4d67-b945-209a3439d7f0",
+    "name": "Patron1",
+    "email": "patron1@gmail.com",
+    "trans_code": "ec6eec",
+    "profile": null,
+    "token": "918cf11feba34a58a2f4b8860fb87c60",
+    "token_exp_at": 1506677658,
+    "refresh_token": "c6246969fdbb4013a41d5ed04f26e491",
+    "refresh_token_exp_at": 1509183258
+  }
+}
+```
+
+> if failed, for example, refresh token is missing or not found, or even refresh token is valid, but expired, response with http status code `401`,
+and with following json object
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+This api endpoint authenticated by `Patron Token`'s `refresh_token`, and will exchange with a new pair of `Patron Token`
+
+* if success, response with http status code `200`
+* if authenticate failed, response with http status code `401`
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/patrons/token`
