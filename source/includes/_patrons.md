@@ -80,7 +80,11 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
     "id": "288f4f0f-da30-45c4-a531-c0a804628395",
     "name": "Simon",
     "email": "abc@gmail.com",
-    "trans_code": "76efd7"
+    "trans_code": "76efd7",
+    "token": "f1b811b47dc44cbeb8a03b9021f76ac4",
+    "token_exp_at": 1506672320,
+    "refresh_token": "2c74332c27df44b884b06714f0110f23",
+    "refresh_token_exp_at": 1509177920
   }
 }
 ```
@@ -97,7 +101,6 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 
 ``` json
 {
-  "success": false,
   "errors": ["A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"]
 }
 ```
@@ -105,7 +108,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 This endpoint try to authenticate Patron, and need App Token authenticate.
 
 * if success, it will return `Patron` object with HTTP Status Code `200`, and client can retrive
-auth header from reponse to consuming next request that need authentication.
+Patron Token pair from reponse to consuming `patron_app` namespace APIs.
 * if failed to authenticate, it will return HTTP Status Code `401` with `errors` message.
 
 ### HTTP Request
@@ -126,10 +129,6 @@ password | the password of patron account
 curl "https://phrenzi.com/api/patrons/sign_out" \
   -H "Content-Type: application/json" \
   -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com"
   -X DELETE
 ```
 
@@ -137,7 +136,9 @@ curl "https://phrenzi.com/api/patrons/sign_out" \
 
 ```json
 {
-  "success": true
+  "messages": [
+    "successfully logout!"
+  ]
 }
 ```
 
@@ -149,9 +150,8 @@ curl "https://phrenzi.com/api/patrons/sign_out" \
 }
 ```
 
-this endpoint need `Auth Header` to authenticate patron,
-you are going to get it from Patron `Sign In` api request
-or other subsequence request that need authentication.
+this endpoint need `Patron Token` to authenticate patron,
+you can retrieve it from Patron `Sign In` api request, or Patron `Token` api.
 
 * if success, it will return HTTP Status Code `200`
 * if failed to authenticate, it will return HTTP Status Code `404` with `errors` message.
@@ -168,7 +168,6 @@ curl "https://phrenzi.com/api/patrons/confirmation" \
   -d '{
     "confirmation_token": "abcasdfasd",
     "redirect_url": "phrenzi://",
-    "config": "default"
     }'
 ```
 
@@ -194,7 +193,6 @@ Parameter | Description
 --------- | -----------
 confirmation_token | the confirmation token for patron
 redirect_url | the params is pass-in from patron sign up API
-config | the config object, which is `default`
 
 ## Request Reset Password
 
@@ -212,8 +210,7 @@ curl "http://example.com/api/patrons/password" \
 
 ``` json
 {
-  "success": true,
-  "message": "An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."
+  "messages": ["An email has been sent to 'abc@gmail.com' containing instructions for resetting your password."]
 }
 ```
 
@@ -221,7 +218,6 @@ curl "http://example.com/api/patrons/password" \
 
 ``` json
 {
-  "success": false,
   "errors": [ "Unable to find user with email 'abc@gmail.com.'" ]
 }
 ```
@@ -230,7 +226,6 @@ curl "http://example.com/api/patrons/password" \
 
 ``` json
 {
-  "success": false,
   "errors": ["You must provide an email address."]
 }
 ```
@@ -239,7 +234,6 @@ curl "http://example.com/api/patrons/password" \
 
 ``` json
 {
-  "success": false,
   "errors": [ "Missing redirect URL." ]
 }
 ```
@@ -275,17 +269,27 @@ curl "https://phrenzi.com/api/patrons/password/edit" \
     }'
 ```
 
-> if success, it will redirect to the `redirect_url` specify in this api
+> if success, it will redirect to the `redirect_url` specify in this api, and with Patron's token attached
 
-> if failed, it will raise an exception ActionController::RoutingError
+```bash
+phrenzi://?token=xxxxx
+```
+
+> if failed, it will return with status_code 404, and folloing json:
+
+```json
+{
+  "errors": ["not found!"]
+}
+```
 
 during password reset procedure of patron ( client call Patron request password reset API ), server
 will sent out a password reset email to Patron's mailbox,
 patron will need to click a link in that email,
 which will trigger this call if Patron click that link.
 If every thing is fine, Patron will redirect to app,
-with `auth header` in a request, then App can
-retrieve `auth header` from that redirect request.
+with Patron token's `token` in a request, then App can
+retrieve `token` from that redirect request.
 
 <aside class="warning">Client don't need to call this API.</aside>
 
@@ -306,10 +310,6 @@ redirect_url | a link to redirect back after success operation
 curl "https://phrenzi.com/api/patrons/password" \
   -H "Content-Type: application/json" \
   -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
   -X PATCH \
   -d '{
     "password": "new_password",
@@ -321,8 +321,7 @@ curl "https://phrenzi.com/api/patrons/password" \
 
 ``` json
 {
-  "success": true,
-  "message": "Your password has been successfully updated."
+  "messages": ["Your password has been successfully updated."]
 }
 ```
 
@@ -331,7 +330,6 @@ and with following json object
 
 ``` json
 {
-  "success": false,
   "errors": {
     "password_confirmation": ["doesn't match Password"],
     "full_messages": ["Password confirmation doesn't match Password"]
@@ -343,12 +341,11 @@ and with following json object
 
 ``` json
 {
-  "success": false,
   "errors": ["Unauthorized"]
 }
 ```
 
-This api endpoint need Patron authenticated.
+This api endpoint need `Patron Token` authenticated.
 
 * if success, response with http status code `200`
 * if authenticate failed, response with http status code `401`
