@@ -5,11 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/check_in" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -X POST \
   -d '{
     "lat": "23.2333",
@@ -93,7 +89,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
 }
 ```
 
-This endpoint check in current logined patron into Establishment specify
+This endpoint authenticated by `Patron Token` and check in current logined patron into Establishment specify
 
 ### HTTP Request
 

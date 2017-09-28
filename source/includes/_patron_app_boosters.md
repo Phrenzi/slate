@@ -5,6 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/boosters" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
 ```
 
 > The above command returns JSON structured like this:
@@ -149,7 +150,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
 }
 ```
 
-This endpoint retrieves all boosters, along with booster information connected with current patron
+This endpoint authenticated by `Patron Token`, and retrieves all boosters, along with booster information connected with current patron
 
 ### HTTP Request
 

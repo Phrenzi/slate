@@ -4,11 +4,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com"
+  -H "Authorization: token"
 ```
 
 > if success then returns status code 200 with subscriptions detail objects.
@@ -31,7 +27,7 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
 }
 ```
 
-This endpoint return all subscriptions record for current patron
+This endpoint authenticate by `Patron Token` and return all subscriptions record for current patron
 
 ### HTTP Request
 
@@ -42,11 +38,7 @@ This endpoint return all subscriptions record for current patron
 ```shell
 curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -X POST \
   -d '{
     "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
@@ -68,12 +60,11 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
 > If current patron is subscribed already, still return status code 200 with empty body.
 
 
-This endpoint subscribe current patron to notification pool
+This endpoint authenticate by `Patron Token` and subscribe current patron to notification pool
 
 ### HTTP Request
 
 `POST http://example.com/api/patron_app/notification_subscriptions`
-
 
 ### Query Parameters
 
@@ -88,11 +79,7 @@ os_type | Y | Os type, available value are: 'ios', 'android'
 ```shell
 curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -X DELETE \
   -d '{
     "device_token": "202f96fb-1536-43fa-a6ba-7b0387e90465",
@@ -114,7 +101,7 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
 > If current patron not subscribed before, still return status code 200 with empty body.
 
 
-This endpoint unsubscribe current patron from notification pool
+This endpoint authenticate by `Patron Token` and unsubscribe current patron from notification pool
 
 ### HTTP Request
 

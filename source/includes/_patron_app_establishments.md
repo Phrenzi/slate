@@ -5,6 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/establishments" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
 ```
 
 > The above command returns JSON structured like this:
@@ -40,7 +41,7 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
 }
 ```
 
-This endpoint retrieves all establishments
+This endpoint use `Patron Token`, and retrieves all establishments.
 
 ### HTTP Request
 
@@ -48,12 +49,12 @@ This endpoint retrieves all establishments
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
 
-
 ## get establishment
 
 ```shell
 curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
 ```
 
 > The above command returns JSON structured like this:
@@ -151,7 +152,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
 }
 ```
 
-This endpoint retrieves establishment detail
+This endpoint use `Patron Token` and retrieves establishment detail
 
 ### HTTP Request
 

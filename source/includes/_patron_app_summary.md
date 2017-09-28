@@ -5,11 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/establishments/d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b/summary" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -d '{
     "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'
@@ -36,7 +32,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/d51dd6c5-ad0e-445f-b3c5-
 }
 ```
 
-This endpoint authenticate by patron authenticate, and retrieves summary statistic data for current authenticated patron and for establishment specified
+This endpoint authenticate by `Patron Token`, and retrieves summary statistic data for current authenticated patron and for establishment specified
 
 ### HTTP Request
 

@@ -4,7 +4,8 @@
 
 ```shell
 curl "https://phrenzi.com/api/patron_app/patrons" \
-  -H "Content-Type: application/json"
+  -H "Content-Type: application/json" \
+  -H "Authorization: token"
 ```
 
 > The above command returns array of `Patron` object like this:
@@ -29,7 +30,7 @@ curl "https://phrenzi.com/api/patron_app/patrons" \
 
 ```
 
-This endpoint require patron authentication, and retrieves all patrons.
+This endpoint require `Patron Token` authentication, and retrieves all patrons.
 
 ### HTTP Request
 

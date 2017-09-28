@@ -5,11 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/patron_app/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -d '{
     "establishment_id": "d51dd6c5-ad0e-445f-b3c5-06ab8ec8624b"
     }'
@@ -64,7 +60,7 @@ curl "https://phrenzi.com/api/patron_app/transactions" \
 }
 ```
 
-This endpoint authenticate by patron authenticate, and retrieves all transactions for specific
+This endpoint authenticate by `Patron Token`, and retrieves all transactions for specific
 patron and for specific establishment
 
 ### HTTP Request
