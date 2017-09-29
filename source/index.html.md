@@ -90,11 +90,16 @@ For api under `patron_app` namespace, it is protected by Patron Token:
 
 For the correct Patron Token, you can retrieve it by authenticate email & password using Patron login api.
 
-``` shell
-curl "https://phrenzi.com/patrons/sign_in" \
-  -H "ACCEPT: phrenzi.v1" \
-  -H "Authorization: token"
-```
+## Manager Token
+
+For api under `management` namespace, it is protected by Manager Token:
+
+* Manager Token consist of a pair of tokens: `token` and `refresh_token`
+* `token` have 1 hour lifespan, and `refresh_token` have 1 month lifespan
+* client use `token` to consume api
+* if `token` is expired, then client need to use `refresh_token` to refresh token and exchange new pair of Manager Token
+
+For the correct Manager Token, you can retrieve it by authenticate email & password using Manager login api.
 
 # Link Header ( Result pagination )
 
