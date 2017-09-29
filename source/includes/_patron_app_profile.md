@@ -78,7 +78,7 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 }
 ```
 
-This endpoint authenticate by patron authenticate, and upate patron profile
+This endpoint authenticate by `Patron Token`, and upate patron profile
 
 ### HTTP Request
 
@@ -145,7 +145,7 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 }
 ```
 
-This endpoint authenticate by patron authenticate, and retrieve current authenticated patron profile
+This endpoint authenticate by `Patron Token`, and retrieve current authenticated patron profile
 
 ### HTTP Request
 
