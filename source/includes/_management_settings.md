@@ -5,6 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
 ```
 
 > if success, return http status code 200 with following json object:
@@ -27,7 +28,7 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
-This endpoint require `manager authenticate`
+This endpoint require `Manager Token` and return cash back settings
 
 ### HTTP Request
 
@@ -38,6 +39,7 @@ This endpoint require `manager authenticate`
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
   -X PATCH \
   -d '{
     "password": "current_password",
@@ -75,7 +77,7 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
-This endpoint require manager authenticate, and update cash_back for current establishment.
+This endpoint authenticated by `Manager Token`, and update cash_back for current establishment.
 
 ### HTTP Request
 
@@ -93,6 +95,7 @@ password | the current password for current manager
 ```shell
 curl "https://phrenzi.com/api/management/settings/passwords" \
   -H "Content-Type: application/json" \
+  -H "Authorization: token"
   -X PATCH \
   -d '{
     "current_password": "current_password",
@@ -124,7 +127,7 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
 }
 ```
 
-This endpoint require `manager authenticate`, and update current password for current manager.
+This endpoint authenticated by `Manager Token`, and update current password for current manager.
 
 ### HTTP Request
 

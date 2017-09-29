@@ -5,11 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -d '{
     "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
     }'
@@ -64,7 +60,7 @@ curl "https://phrenzi.com/api/management/transactions" \
 }
 ```
 
-This endpoint need manager authentication, and retrieves transaction records by establishment by patron
+This endpoint authenticated by `Manager Token`, and retrieves transaction records by establishment by patron
 
 ### HTTP Request
 
@@ -89,11 +85,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -X POST \
   -d '{
     "trans_type": "sale",
@@ -340,7 +332,7 @@ curl "https://phrenzi.com/api/management/transactions" \
   }
 }
 ```
-This endpoint required manager authentication, and create transaction records.
+This endpoint authenticated by `Manager Token`, and create transaction records.
 
 ### HTTP Request
 
@@ -411,11 +403,7 @@ credit_amount | -125.0
 ```shell
 curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
   -X DELETE
 ```
 
@@ -598,7 +586,7 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 }
 ```
 
-This endpoint required manager authentication, and delete transaction records.
+This endpoint authenticated by `Manager Token`, and delete transaction records.
 
 ### HTTP Request
 
