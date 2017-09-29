@@ -20,7 +20,11 @@ curl "https://phrenzi.com/api/managers/sign_in" \
     "id": "6b586aeb-a53d-476a-9435-659ed9547e6e",
     "email": "abc@gmail.com",
     "establishment_name": "Awesome Bar",
-    "establishment_setup": true
+    "establishment_setup": true,
+    "token": "494a1cff589247d2a0c5375033ac4314",
+    "token_exp_at": "2017-09-30T04:50:10Z",
+    "refresh_token": "a0d4a8c0c47341dc8acc725f66a9bfe8",
+    "refresh_token_exp_at": "2017-10-29T04:50:10Z"
   }
 }
 ```
@@ -37,7 +41,6 @@ curl "https://phrenzi.com/api/managers/sign_in" \
 
 ``` json
 {
-  "success": false,
   "errors": ["A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"]
 }
 ```
@@ -65,11 +68,7 @@ password | the password of manager account
 ```shell
 curl "https://phrenzi.com/api/managers/sign_out" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com"
+  -H "Authorization: token" \
   -X DELETE
 ```
 
@@ -77,21 +76,21 @@ curl "https://phrenzi.com/api/managers/sign_out" \
 
 ```json
 {
-  "success": true
+  "messages": ["successfully logout!"]
 }
 ```
 
-> if failed, the above command returns status code `404`, and errors json like this:
+> if failed, either token is missing, token is expired, or token not found, the above command returns status code `401`, and errors json like this:
 
 ``` json
 {
-  "errors": ["User was not found or was not logged in."]
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
 }
 ```
 
-this endpoint need `Auth Header` to authenticate manager,
-you are going to get it from Manager `Sign In` api request
-or other subsequence request that need authentication.
+this endpoint authenticated by `Manager Token`, you are going to get it from Manager `Sign In` api request.
 
 * if success, it will return HTTP Status Code `200`
 * if failed to authenticate, it will return HTTP Status Code `404` with `errors` message.
