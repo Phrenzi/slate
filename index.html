@@ -180,10 +180,19 @@ by inserting a special header item in every of your request.</p>
 </ul>
 
 <p>For the correct Patron Token, you can retrieve it by authenticate email &amp; password using Patron login api.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/patrons/sign_in"</span> <span class="se">\</span>
-  -H <span class="s2">"ACCEPT: phrenzi.v1"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span>
-</code></pre>
+
+<h2 id="manager-token">Manager Token</h2>
+
+<p>For api under <code class="prettyprint">management</code> namespace, it is protected by Manager Token:</p>
+
+<ul>
+<li>Manager Token consist of a pair of tokens: <code class="prettyprint">token</code> and <code class="prettyprint">refresh_token</code></li>
+<li><code class="prettyprint">token</code> have 1 hour lifespan, and <code class="prettyprint">refresh_token</code> have 1 month lifespan</li>
+<li>client use <code class="prettyprint">token</code> to consume api</li>
+<li>if <code class="prettyprint">token</code> is expired, then client need to use <code class="prettyprint">refresh_token</code> to refresh token and exchange new pair of Manager Token</li>
+</ul>
+
+<p>For the correct Manager Token, you can retrieve it by authenticate email &amp; password using Manager login api.</p>
 
 <h1 id="link-header-result-pagination">Link Header ( Result pagination )</h1>
 
