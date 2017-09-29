@@ -2168,7 +2168,11 @@ and with following json object</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6b586aeb-a53d-476a-9435-659ed9547e6e"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"establishment_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"establishment_setup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nt">"establishment_setup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"494a1cff589247d2a0c5375033ac4314"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30T04:50:10Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0d4a8c0c47341dc8acc725f66a9bfe8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-29T04:50:10Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2185,7 +2189,6 @@ and with following json object</p>
 <p>if manager is not confirmed yet, return status code <code class="prettyprint">401</code> and json like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2223,11 +2226,7 @@ auth header from reponse to consuming next request that need authentication.</li
 <h2 id="sign-out">Sign Out</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_out"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"access-token: token"</span> <span class="se">\</span>
-  -H <span class="s2">"token-type: Bearer"</span> <span class="se">\</span>
-  -H <span class="s2">"client: u4N6u_toFnoDR1o318uOVA"</span> <span class="se">\</span>
-  -H <span class="s2">"expiry: 1466692376"</span> <span class="se">\</span>
-  -H <span class="s2">"uid: abc@example.com"</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
 
@@ -2235,21 +2234,21 @@ auth header from reponse to consuming next request that need authentication.</li
 <p>if success, the above command returns status code <code class="prettyprint">200</code>, and json object like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"successfully logout!"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
-<p>if failed, the above command returns status code <code class="prettyprint">404</code>, and errors json like this:</p>
+<p>if failed, either token is missing, token is expired, or token not found, the above command returns status code <code class="prettyprint">401</code>, and errors json like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"User was not found or was not logged in."</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You need to sign in or sign up before continuing."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>this endpoint need <code class="prettyprint">Auth Header</code> to authenticate manager,
-you are going to get it from Manager <code class="prettyprint">Sign In</code> api request
-or other subsequence request that need authentication.</p>
+<p>this endpoint authenticated by <code class="prettyprint">Manager Token</code>, you are going to get it from Manager <code class="prettyprint">Sign In</code> api request.</p>
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">200</code></li>
