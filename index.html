@@ -3668,6 +3668,162 @@ the <code class="prettyprint">credit_balance</code> return from different manage
 
 <p><code class="prettyprint">GET http://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585</code></p>
 
+          <h1 id="management-tasks">Management / Tasks</h1>
+
+<h2 id="get-all-active-task-boosters">Get all active task boosters</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/tasks"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+  -d <span class="s1">'{
+    "patron_id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681"
+    }'</span>
+
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Task Booster</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25fe526b-04da-407b-84a3-a497c26fb628"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actived"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10T04:53:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"task_desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sing a Song"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10T05:03:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10T05:00:00Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7bd71f62-7f00-40ab-8104-ff9afd8219f3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actived"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10T04:55:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"task_desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sing a love Song"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10T05:03:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves all active task boosters along with redeemed information with patron_id selected</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/tasks</code></p>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-header-result-pagination">Link Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patron_id</td>
+<td>Y</td>
+<td>the patron&rsquo;s id for task booster&rsquo;s redeem information</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+<h2 id="redeem-task">Redeem Task</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/tasks/ddbd0c3c-404d-4ce1-9042-9baecb4ef585/redeem"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "patron_id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681"
+    }'</span>
+
+</code></pre>
+
+<blockquote>
+<p>The above command return status code 200 and json response like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"redeem task successs"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If patron is already redeemed, return status code 406 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Already redeemed"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If patron_id is not provied, return status code 422 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"patron_id is required"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If required task booster is not actived or do not have active challenge right now, return status code 406 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"There is no active Challenge or Booster today"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manger Token</code>, and redeem task booster for patron provieded.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/tasks/:task_id/redeem</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patron_id</td>
+<td>Y</td>
+<td>the patron&rsquo;s id for task booster&rsquo;s redeem information</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-transactions">Management / Transactions</h1>
 
 <h2 id="get-all-transactions-by-patron_id-for-current-establishment">Get all transactions by patron_id for current establishment</h2>
