@@ -145,6 +145,19 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "invited_count": 1,
         "total_claimed_point": "100.0"
       }
+    },
+    {
+      "id": "408270e2-31bc-4cb9-9cdd-4a0c6457bf7b",
+      "booster_type": "task",
+      "status": "actived",
+      "start_time": "2017-10-10T04:59:11Z",
+      "point": "100.0",
+      "finished_by": "end_time",
+      "task_desc": "Sing a Song",
+      "end_time": "2017-10-10T05:03:20Z",
+      "patron": {
+        "redeemed": false
+      }
     }
   ]
 }
