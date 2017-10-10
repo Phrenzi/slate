@@ -22,6 +22,7 @@ includes:
   - patron_app_invitation
   - patron_app_notification
   - management_patrons
+  - management_tasks
   - management_transactions
   - management_settings
   - errors
