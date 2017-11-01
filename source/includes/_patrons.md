@@ -8,7 +8,8 @@ curl "http://phrenzi.com/api/patrons" \
   -H "Authorization: app_token" \
   -X POST \
   -d '{
-        "name": "Simon",
+        "first_name": "Simon",
+        "last_name": "Iong",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password",
@@ -22,7 +23,8 @@ curl "http://phrenzi.com/api/patrons" \
 {
   "patron": {
     "id": "37f335c5-a88c-41a3-a643-fba688c72897",
-    "name": "Simon",
+    "first_name": "Simon",
+    "last_name": "Iong",
     "email": "abc@example.com",
     "trans_code": "8cc897"
   }
@@ -53,7 +55,8 @@ This endpoint try to register a account for Patron, and need App Token authentic
 
 Parameter | Description
 --------- | -----------
-name | the name of patron
+first_name | the first name of patron
+last_name | the last name of patron
 email | the email of patron
 password | the password of patron account
 password_confirmation | confirm password again
@@ -78,7 +81,9 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 {
   "patron": {
     "id": "288f4f0f-da30-45c4-a531-c0a804628395",
-    "name": "Simon",
+    "name": "Simon Iong"
+    "first_name": "Simon",
+    "last_name": "Iong",
     "email": "abc@gmail.com",
     "trans_code": "76efd7",
     "token": "f1b811b47dc44cbeb8a03b9021f76ac4",
@@ -378,6 +383,8 @@ curl "https://phrenzi.com/api/patrons/token" \
   "patron": {
     "id": "314e7168-fe41-4d67-b945-209a3439d7f0",
     "name": "Patron1",
+    "first_name": "Patron",
+    "last_name": "Last Name",
     "email": "patron1@gmail.com",
     "trans_code": "ec6eec",
     "profile": null,
