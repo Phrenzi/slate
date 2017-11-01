@@ -50,7 +50,8 @@ curl "https://phrenzi.com/api/patron_app/profile" \
             "mime_type": "image/jpeg", # optional
           }
         }',
-        "name": "Simon",
+        "first_name": "Simon",
+        "last_name": "Iong",
         "email": "manin.iong@gmail.com",
         "reconfirm_success_url": "phrenzi://"
       }'
@@ -63,7 +64,7 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 ```json
 {
   "errors": [
-    "either email, name, profile need to be providedfor update profile action"
+    "either email, first_name, last_name, profile need to be providedfor update profile action"
   ]
 }
 ```
@@ -88,14 +89,15 @@ This endpoint authenticate by `Patron Token`, and upate patron profile
 Parameter | Description
 --------- | -----------
 profile | String, json object string demonstrated above
-name | String, name of current login Patron
+first_name | String, first name of current login Patron
+last_name | String, last name of current login Patron
 email | String, new email of current login Patron
 reconfirm_success_url | after new email is confirmed, specify the url to redirect to, if email is present, reconfirm_success_url must be present.
 
 NOTED:
 
 1. for `profile` json object, `id` & `storage` is required in json object string
-2. `profile`, `name`, `email` must have at least one present in the payload.
+2. `profile`, `first_name`, `last_name`, `email` must have at least one present in the payload.
 
 For full scenario of upload profile with pre-sign, please refer
 [here](https://github.com/Phrenzi/phrenzi_web/blob/master/spec/requests/api/v1/patron_app/patron_profile_spec.rb)
@@ -122,7 +124,8 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 {
   "patron": {
     "id": "d3982f8e-93b0-4be9-9a4d-2ed12d591992",
-    "name": "Patron1",
+    "first_name": "F1",
+    "last_name": "L1",
     "email": "patron1@gmail.com",
     "trans_code": "197a14",
     "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg",
