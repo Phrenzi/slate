@@ -81,7 +81,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 {
   "patron": {
     "id": "288f4f0f-da30-45c4-a531-c0a804628395",
-    "name": "Simon Iong"
+    "name": "Simon Iong",
     "first_name": "Simon",
     "last_name": "Iong",
     "email": "abc@gmail.com",
