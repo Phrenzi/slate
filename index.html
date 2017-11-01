@@ -1674,7 +1674,8 @@ returned, so we list all the different json object here:</p>
   -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
-        "name": "Simon",
+        "first_name": "Simon",
+        "last_name": "Iong",
         "email": "abc@gmail.com",
         "password": "password",
         "password_confirmation": "password",
@@ -1688,7 +1689,8 @@ returned, so we list all the different json object here:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37f335c5-a88c-41a3-a643-fba688c72897"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8cc897"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1726,8 +1728,12 @@ returned, so we list all the different json object here:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>the name of patron</td>
+<td>first_name</td>
+<td>the first name of patron</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>the last name of patron</td>
 </tr>
 <tr>
 <td>email</td>
@@ -1763,7 +1769,9 @@ returned, so we list all the different json object here:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"288f4f0f-da30-45c4-a531-c0a804628395"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"76efd7"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f1b811b47dc44cbeb8a03b9021f76ac4"</span><span class="p">,</span><span class="w">
@@ -2115,6 +2123,8 @@ and with following json object</p>
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"314e7168-fe41-4d67-b945-209a3439d7f0"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last Name"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec6eec"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2307,7 +2317,8 @@ auth header from reponse to consuming next request that need authentication.</li
             <span class="s2">"mime_type"</span>: <span class="s2">"image/jpeg"</span>, <span class="c"># optional</span>
           <span class="o">}</span>
         <span class="o">}</span><span class="s1">',
-        "name": "Simon",
+        "first_name": "Simon",
+        "last_name": "Iong",
         "email": "manin.iong@gmail.com",
         "reconfirm_success_url": "phrenzi://"
       }'</span>
@@ -2320,7 +2331,7 @@ auth header from reponse to consuming next request that need authentication.</li
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"either email, name, profile need to be providedfor update profile action"</span><span class="w">
+    </span><span class="s2">"either email, first_name, last_name, profile need to be providedfor update profile action"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2354,8 +2365,12 @@ auth header from reponse to consuming next request that need authentication.</li
 <td>String, json object string demonstrated above</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String, name of current login Patron</td>
+<td>first_name</td>
+<td>String, first name of current login Patron</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String, last name of current login Patron</td>
 </tr>
 <tr>
 <td>email</td>
@@ -2371,7 +2386,7 @@ auth header from reponse to consuming next request that need authentication.</li
 
 <ol>
 <li>for <code class="prettyprint">profile</code> json object, <code class="prettyprint">id</code> &amp; <code class="prettyprint">storage</code> is required in json object string</li>
-<li><code class="prettyprint">profile</code>, <code class="prettyprint">name</code>, <code class="prettyprint">email</code> must have at least one present in the payload.</li>
+<li><code class="prettyprint">profile</code>, <code class="prettyprint">first_name</code>, <code class="prettyprint">last_name</code>, <code class="prettyprint">email</code> must have at least one present in the payload.</li>
 </ol>
 
 <p>For full scenario of upload profile with pre-sign, please refer
@@ -2399,7 +2414,8 @@ auth header from reponse to consuming next request that need authentication.</li
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d3982f8e-93b0-4be9-9a4d-2ed12d591992"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"197a14"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"</span><span class="p">,</span><span class="w">
@@ -2443,13 +2459,15 @@ auth header from reponse to consuming next request that need authentication.</li
   </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abfd977f-9f3c-41ef-b920-730ab0adabdc"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fc7cb28-a38c-4830-8488-4a8bd68f552a"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzi.com/uploads/cache/12370be864925f7bddc0bcf93fa89123.jpeg"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3302,27 +3320,32 @@ response, with error explaination:</p>
   </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"644553a9-35ff-4055-b9d5-d53ecc9c8697"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waiting"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad94291b-1f2b-4e2f-bdb6-8265ce0ed89f"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opened"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"709eff27-5942-4530-be8d-de0421e61e5f"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelled"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8a89686-84a8-4e65-9712-4be4223bca25"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F4"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db8c75ab-a6e9-47dd-9a51-afc3be2f85c8"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zee"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F4"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zee"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"aasm_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -3405,11 +3428,13 @@ response, with error explaination:</p>
   </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0dab179-de3b-486a-87bd-35643242350f"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d7bb37d4-873b-4b5d-81eb-46bb023a465e"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ryan"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3600,7 +3625,8 @@ response, with error explaination:</p>
   </span><span class="nt">"patrons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d3d7ecd-585d-4f2f-ad21-1b457e062681"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.23"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52553b"</span><span class="p">,</span><span class="w">
@@ -3608,7 +3634,8 @@ response, with error explaination:</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcbdd18f-e5ea-4368-8cf4-2e688e604a40"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron2@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25e8ac"</span><span class="p">,</span><span class="w">
@@ -3663,7 +3690,8 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patron1@gmail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.23"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"519665"</span><span class="p">,</span><span class="w">
