@@ -138,27 +138,32 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
   "patrons": [
     {
       "id": "644553a9-35ff-4055-b9d5-d53ecc9c8697",
-      "name": "David",
+      "first_name": "F1",
+      "last_name": "David",
       "aasm_state": "waiting"
     },
     {
       "id": "ad94291b-1f2b-4e2f-bdb6-8265ce0ed89f",
-      "name": "Kerry",
+      "first_name": "F2",
+      "last_name": "Kerry",
       "aasm_state": "opened"
     },
     {
       "id": "709eff27-5942-4530-be8d-de0421e61e5f",
-      "name": "Peter",
+      "first_name": "F3",
+      "last_name": "Peter",
       "aasm_state": "cancelled"
     },
     {
       "id": "e8a89686-84a8-4e65-9712-4be4223bca25",
-      "name": "Ryan",
+      "first_name": "F4",
+      "last_name": "Ryan",
       "aasm_state": "checked_in"
     },
     {
       "id": "db8c75ab-a6e9-47dd-9a51-afc3be2f85c8",
-      "name": "Zee",
+      "first_name": "F4",
+      "last_name": "Zee",
       "aasm_state": "checked_in"
     }
   ]
@@ -223,11 +228,13 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
   "patrons": [
     {
       "id": "f0dab179-de3b-486a-87bd-35643242350f",
-      "name": "David"
+      "first_name": "F1",
+      "last_name": "David"
     },
     {
       "id": "d7bb37d4-873b-4b5d-81eb-46bb023a465e",
-      "name": "Ryan"
+      "first_name": "F2",
+      "last_name": "Ryan"
     }
   ]
 }
