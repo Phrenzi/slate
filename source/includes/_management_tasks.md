@@ -122,7 +122,7 @@ This endpoint authenticated by `Manger Token`, and redeem task booster for patro
 
 ### HTTP Request
 
-`GET http://phrenzi.com/api/management/tasks/:task_id/redeem`
+`PATCH http://phrenzi.com/api/management/tasks/:task_id/redeem`
 
 ### Query Parameters
 
