@@ -137,7 +137,7 @@ for iOS: [WebLinking.swift](https://github.com/kylef/WebLinking.swift)
 
 # Staff-Id Request Header
 
-mostly in iPad companion App, API is protected, one can only access those api after sign-in Staff, and using `X-Staff-Id` as a header in the request to call those API, this is so-call Staff-Id header. Example on the right:
+Mostly of the APIs for iPad Companion are not only protected by manager token, but also are staff protected as well, one can only access those api after sign-in as Manager, and then select one of staff to do operations, such as create transaction, confirm task booster. Those APIs using `X-Staff-Id` as a header in the request to represent the currently loged-in staff, this is so-call Staff-Id header. Example on the right:
 
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
@@ -146,4 +146,4 @@ curl "https://phrenzi.com/api/management/patrons" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
-Noted that this patron list api need Manager token, and Staff-Id Header at the same time.
+Noted that example on the right, this api need Manager token, and Staff-Id Header at the same time.
