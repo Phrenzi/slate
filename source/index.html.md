@@ -134,3 +134,16 @@ Total | Total result
 ## Library support
 
 for iOS: [WebLinking.swift](https://github.com/kylef/WebLinking.swift)
+
+# Staff-Id Request Header
+
+mostly in iPad companion App, API is protected, one can only access those api after sign-in Staff, and using `X-Staff-Id` as a header in the request to call those API, this is so-call Staff-Id header. Example:
+
+```shell
+curl "https://phrenzi.com/api/management/patrons" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+```
+
+Noted that this patron list api need Manager token, and Staff-Id Header at the same time.
