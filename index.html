@@ -4595,6 +4595,117 @@ href="#link-header-result-pagination">Link Header section</a></aside>
 
 <p><code class="prettyprint">DELETE http://example.com/api/management/transactions/#{transaction_id}</code></p>
 
+          <h1 id="management-staffs">Management / Staffs</h1>
+
+<h2 id="get-all-staffs">Get all staffs</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/staffs"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Staff</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"staffs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"828055eb-a94d-4f71-aa90-110d5b747468"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"setuped"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10efd10c-22dc-4871-83cc-e8a36c103c85"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"setuped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves all staffs.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/staffs</code></p>
+
+<h2 id="staff-setup">Staff Setup</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85/setup"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span><span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "pin_code": "1234"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">Staff</code> object like this and status code 200 if success:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10efd10c-22dc-4871-83cc-e8a36c103c85"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"setuped"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If requested staff is not found, return 404 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Staff not found"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If requested setup is fail, return 422 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Pin code must be 4 digit"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If requested staff already been setup, return 406 and json response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Staff setup already yet"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and setup staff&rsquo;s pin_code</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/staffs/:staff_id/setup</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pin_code</td>
+<td>the pin code of staff, need to be 4 digit lenght</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-settings">Management / Settings</h1>
 
 <h2 id="get-cash-back">Get cash back</h2>
