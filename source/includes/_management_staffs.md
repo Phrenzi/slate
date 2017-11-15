@@ -174,3 +174,37 @@ Parameter | Description
 --------- | -----------
 staff_id | the uuid of staff
 pin_code | the pin code of staff, need to be 4 digit lenght
+
+## Staff Sign Out
+
+```shell
+curl "https://phrenzi.com/api/management/staffs/sign_out" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token"\
+  -X DELETE \
+  -d '{
+    "staff_id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
+    }'
+```
+
+> The above command returns json response message like this and status code 200 if success:
+
+```json
+{
+  "messages": [
+    "Staff sign out success"
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and sign out staff
+
+### HTTP Request
+
+`DELETE http://phrenzi.com/api/management/staffs/sign_out`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+staff_id | the uuid of staff
