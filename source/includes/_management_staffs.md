@@ -161,3 +161,16 @@ curl "https://phrenzi.com/api/management/staffs/sign_in" \
   ]
 }
 ```
+
+This endpoint authenticated by `Manager Token`, and sign in staff
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/management/staffs/sign_in`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+staff_id | the uuid of staff
+pin_code | the pin code of staff, need to be 4 digit lenght
