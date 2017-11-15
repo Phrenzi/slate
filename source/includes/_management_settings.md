@@ -19,6 +19,24 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
+> if staff is not login, return status code 479, and following json:
+
+```json
+{
+  "errors": [
+    "Staff not signed in"
+  ]
+}
+```
+
+> if staff is not a manager, return status code 479, and following json:
+
+```json
+{
+  "errors": "Current Staff is not a manager"
+}
+```
+
 > if failed, for example, unauthorized, then return http status code 401 with following json object:
 
 ``` json
@@ -60,6 +78,24 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
   "setting": {
     "cash_back": "4.5"
   }
+}
+```
+
+> if staff is not login, return status code 479, and following json:
+
+```json
+{
+  "errors": [
+    "Staff not signed in"
+  ]
+}
+```
+
+> if staff is not a manager, return status code 479, and following json:
+
+```json
+{
+  "errors": "Current Staff is not a manager"
 }
 ```
 
@@ -123,6 +159,24 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
     "email": "manager1@gmail.com",
     "establishment_name": "Awesome Bar"
   }
+}
+```
+
+> if staff is not login, return status code 479, and following json:
+
+```json
+{
+  "errors": [
+    "Staff not signed in"
+  ]
+}
+```
+
+> if staff is not a manager, return status code 479, and following json:
+
+```json
+{
+  "errors": "Current Staff is not a manager"
 }
 ```
 
