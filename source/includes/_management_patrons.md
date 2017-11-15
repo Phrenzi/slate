@@ -45,6 +45,9 @@ the `credit_balance` return from different manager authenticated should be diffe
 
 `GET http://phrenzi.com/api/management/patrons`
 
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
 <aside class="info">This API support pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
 
@@ -84,6 +87,9 @@ This endpoint authenticated by `Manger Token`, and retrieves patron object.
 
 Noted that credit_balance returned from patron object is for manager's establishment,
 the `credit_balance` return from different manager authenticated should be differernt.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 ### HTTP Request
 

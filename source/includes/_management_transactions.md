@@ -6,6 +6,7 @@
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
     }'
@@ -62,12 +63,15 @@ curl "https://phrenzi.com/api/management/transactions" \
 
 This endpoint authenticated by `Manager Token`, and retrieves transaction records by establishment by patron
 
-### HTTP Request
-
-`GET http://example.com/api/management/transactions`
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 <aside class="info">This API support pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
+
+### HTTP Request
+
+`GET http://example.com/api/management/transactions`
 
 ### Query Parameters
 
@@ -86,6 +90,7 @@ per_page | N | the number of transaction record return per page by api, default 
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
     "trans_type": "sale",
@@ -129,11 +134,8 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
     "trans_type": "sale",
@@ -197,11 +199,8 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
     "type": "sale",
@@ -245,11 +244,8 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
     "type": "correction",
@@ -293,11 +289,8 @@ curl "https://phrenzi.com/api/management/transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
     "type": "correction",
@@ -333,6 +326,9 @@ curl "https://phrenzi.com/api/management/transactions" \
 }
 ```
 This endpoint authenticated by `Manager Token`, and create transaction records.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 ### HTTP Request
 
@@ -404,6 +400,7 @@ credit_amount | -125.0
 curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
@@ -441,11 +438,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 ```shell
 curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
@@ -503,11 +497,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 ```shell
 curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
@@ -545,11 +536,8 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 ```shell
 curl "https://phrenzi.com/api/management/transactions/this-is-a-fake-id" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
@@ -568,11 +556,8 @@ curl "https://phrenzi.com/api/management/transactions/this-is-a-fake-id" \
 ```shell
 curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "access-token: token" \
-  -H "token-type: Bearer" \
-  -H "client: u4N6u_toFnoDR1o318uOVA" \
-  -H "expiry: 1466692376" \
-  -H "uid: abc@example.com" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
@@ -587,6 +572,9 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 ```
 
 This endpoint authenticated by `Manager Token`, and delete transaction records.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 ### HTTP Request
 
