@@ -67,7 +67,7 @@ This endpoint authenticated by `Manager Token`, and retrieves transaction record
 `GET http://example.com/api/management/transactions`
 
 <aside class="info">This API support pagination. please refer to <a
-href="#link-header-result-pagination">Link Header section</a></aside>
+href="#link-response-header">Link Response Header section</a></aside>
 
 ### Query Parameters
 

@@ -103,7 +103,7 @@ For api under `management` namespace, it is protected by Manager Token:
 
 For the correct Manager Token, you can retrieve it by authenticate email & password using Manager login api.
 
-# Link Header ( Result pagination )
+# Link Response Header
 
 For some api, there might to too much data to return in one single response, so we paginate result,
 and provide link for `next` ( next page ), `prev` ( previous page ), or `first` ( first page ), and `last` ( last page ) in the response header. Consumer of Phrenzi api don't need to construct the api string, everything is under response header, here's an example:

@@ -55,7 +55,7 @@ This endpoint authenticated by `Manager Token`, and retrieves all active task bo
 `GET http://phrenzi.com/api/management/tasks`
 
 <aside class="info">This API support pagination. please refer to <a
-href="#link-header-result-pagination">Link Header section</a></aside>
+href="#link-response-header">Link Response Header section</a></aside>
 
 ### Query Parameters
 
