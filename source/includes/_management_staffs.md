@@ -88,7 +88,7 @@ curl "https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c10
 ```json
 {
   "errors": [
-    "Staff setup already yet"
+    "Staff setup already"
   ]
 }
 ```
