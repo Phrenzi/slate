@@ -5,7 +5,8 @@
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
 > The above command returns array of `Patron` object like this:
@@ -59,7 +60,8 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
 > The above command return `Patron` object like this:
