@@ -106,7 +106,7 @@ For the correct Manager Token, you can retrieve it by authenticate email & passw
 # Link Response Header
 
 For some api, there might to too much data to return in one single response, so we paginate result,
-and provide link for `next` ( next page ), `prev` ( previous page ), or `first` ( first page ), and `last` ( last page ) in the response header. Consumer of Phrenzi api don't need to construct the api string, everything is under response header, here's an example:
+and provide link for `next` ( next page ), `prev` ( previous page ), or `first` ( first page ), and `last` ( last page ) in the response header. Consumer of Phrenzi api don't need to construct the api string, everything is under response header, example on the right:
 
 ``` bash
 $ curl --include 'https://phrenzi.com/managements/patrons?page=5'
@@ -137,7 +137,7 @@ for iOS: [WebLinking.swift](https://github.com/kylef/WebLinking.swift)
 
 # Staff-Id Request Header
 
-mostly in iPad companion App, API is protected, one can only access those api after sign-in Staff, and using `X-Staff-Id` as a header in the request to call those API, this is so-call Staff-Id header. Example:
+mostly in iPad companion App, API is protected, one can only access those api after sign-in Staff, and using `X-Staff-Id` as a header in the request to call those API, this is so-call Staff-Id header. Example on the right:
 
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
