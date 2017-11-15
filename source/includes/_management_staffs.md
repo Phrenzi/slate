@@ -104,3 +104,60 @@ This endpoint authenticated by `Manager Token`, and setup staff's pin_code
 Parameter | Description
 --------- | -----------
 pin_code | the pin code of staff, need to be 4 digit lenght
+
+## Staff Sign In
+
+```shell
+curl "https://phrenzi.com/api/management/staffs/sign_in" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token"\
+  -X POST \
+  -d '{
+    "staff_id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
+    "pin_code": "1234"
+    }'
+```
+
+> The above command returns `Staff` object like this and status code 200 if success:
+
+```json
+{
+  "staff": {
+    "id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
+    "first_name": "first1",
+    "last_name": "last1",
+    "manager": true,
+    "setuped": true
+  }
+}
+```
+
+> If sign in failed, return 401 unauthorized and response:
+
+```json
+{
+  "errors": [
+    "Invalid login pin code. Please try again."
+  ]
+}
+```
+
+> If requested staff not found, return 404 not_found, and response:
+
+```json
+{
+  "errors": [
+    "Staff not found"
+  ]
+}
+```
+
+> If requested staff do not setup yet, return 479, and response:
+
+```json
+{
+  "errors": [
+    "Staff not setup yet"
+  ]
+}
+```
