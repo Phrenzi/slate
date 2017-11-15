@@ -36,3 +36,71 @@ This endpoint authenticated by `Manager Token`, and retrieves all staffs.
 ### HTTP Request
 
 `GET http://phrenzi.com/api/management/staffs`
+
+## Staff Setup
+
+```shell
+curl "https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85/setup" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token"\
+  -X PATCH \
+  -d '{
+    "pin_code": "1234"
+    }'
+```
+
+> The above command returns `Staff` object like this and status code 200 if success:
+
+```json
+{
+  "staff": {
+    "id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
+    "first_name": "first1",
+    "last_name": "last1",
+    "manager": true,
+    "setuped": true
+  }
+}
+```
+
+> If requested staff is not found, return 404 and json response:
+
+```json
+{
+  "errors": [
+    "Staff not found"
+  ]
+}
+```
+
+> If requested setup is fail, return 422 and json response:
+
+```json
+{
+  "errors": [
+    "Pin code must be 4 digit"
+  ]
+}
+```
+
+> If requested staff already been setup, return 406 and json response:
+
+```json
+{
+  "errors": [
+    "Staff setup already yet"
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and setup staff's pin_code
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/staffs/:staff_id/setup`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+pin_code | the pin code of staff, need to be 4 digit lenght
