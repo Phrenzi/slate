@@ -132,7 +132,7 @@ curl "https://phrenzi.com/api/management/staffs/sign_in" \
 }
 ```
 
-> If sign in failed, return 401 unauthorized and response:
+> If sign in failed, return status code 469 and response:
 
 ```json
 {
