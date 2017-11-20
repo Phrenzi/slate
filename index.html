@@ -4800,46 +4800,6 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
-<h2 id="staff-sign-out">Staff Sign Out</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/staffs/sign_out"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span><span class="se">\</span>
-  -X DELETE <span class="se">\</span>
-  -d <span class="s1">'{
-    "staff_id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
-    }'</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns json response message like this and status code 200 if success:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Staff sign out success"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and sign out staff</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">DELETE http://phrenzi.com/api/management/staffs/sign_out</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>staff_id</td>
-<td>the uuid of staff</td>
-</tr>
-</tbody></table>
-
           <h1 id="management-settings">Management / Settings</h1>
 
 <h2 id="get-cash-back">Get cash back</h2>
