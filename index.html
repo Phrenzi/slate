@@ -1713,8 +1713,7 @@ returned, so we list all the different json object here:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"already in use"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Email already in use"</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"already in use"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2076,8 +2075,7 @@ and with following json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"doesn't match Password"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"full_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Password confirmation doesn't match Password"</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"doesn't match Password"</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3192,11 +3190,20 @@ JSON response:</p>
 <blockquote>
 <p>if success invited, then returns status code 200 with empty body.</p>
 
-<p>if there&rsquo;s validation error, then return status code 422, and following error JSON
+<p>if invitee_patron do not exist, it&rsquo;s validation error, then return status code 422, and following error JSON
 response, with error explaination:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Invitee patron does not exist"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">'invitee_patron_id':</span><span class="w"> </span><span class="err">[</span><span class="nt">"does not exist"</span><span class="err">]</span><span class="w"> </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if patron somehow try to invite himself/herself, it&rsquo;s a validation error, then return status code 422, and following error JSON
+response, with error explaination:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">'base':</span><span class="w"> </span><span class="err">[</span><span class="nt">"can not invite yourself"</span><span class="err">]</span><span class="w"> </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3533,7 +3540,11 @@ following json message:</p>
 response, with error explaination:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Os type is not included in the list"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"os_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"is not included in the list"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3586,7 +3597,11 @@ response, with error explaination:</p>
 response, with error explaination:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Os type is not included in the list"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"os_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"is not included in the list"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3777,6 +3792,18 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>If patron_id missing, return 422 error status code, and return following json error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"is required"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves all active task boosters along with redeemed information with patron_id selected</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -3851,9 +3878,11 @@ href="#link-response-header">Link Response Header section</a></aside>
 <p>If patron_id is not provied, return status code 422 and json response:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"patron_id is required"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"is required"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4685,9 +4714,11 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <p>If requested setup is fail, return 422 and json response:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Pin code must be 4 digit"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"pin_code"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"must be 4 digit"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4750,9 +4781,11 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <p>If sign in failed, return status code 422 and response:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"Invalid login pin code. Please try again."</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"pin_code"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"is invalid."</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
