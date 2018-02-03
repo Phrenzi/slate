@@ -49,6 +49,18 @@ curl "https://phrenzi.com/api/management/tasks" \
 }
 ```
 
+> If patron_id missing, return 422 error status code, and return following json error message:
+
+```json
+{
+  "errors": {
+    "patron_id": [
+      "is required"
+    ]
+  }
+}
+```
+
 This endpoint authenticated by `Manager Token`, and retrieves all active task boosters along with redeemed information with patron_id selected
 
 ### HTTP Request
@@ -107,9 +119,11 @@ curl "https://phrenzi.com/api/management/tasks/ddbd0c3c-404d-4ce1-9042-9baecb4ef
 
 ```json
 {
-  "errors": [
-    "patron_id is required"
-  ]
+  "errors": {
+    "patron_id": [
+      "is required"
+    ]
+  }
 }
 ```
 
