@@ -4867,14 +4867,6 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span></code></pre>
 
 <blockquote>
-<p>if staff is not a manager, return status code 479, and following json:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Staff is not a manager"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
 <p>if failed, for example, unauthorized, then return http status code 401 with following json object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
