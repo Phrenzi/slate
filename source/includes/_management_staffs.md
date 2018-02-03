@@ -138,9 +138,11 @@ curl "https://phrenzi.com/api/management/staffs/sign_in" \
 
 ```json
 {
-  "errors": [
-    "Invalid login pin code. Please try again."
-  ]
+  "errors": {
+    "pin_code": [
+      "is invalid."
+    ]
+  }
 }
 ```
 
