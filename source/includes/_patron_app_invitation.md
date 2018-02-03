@@ -19,7 +19,7 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 
 ```json
 {
-  "errors": { 'invitee_patron_id': ["does not exist"] }
+  "errors": { "invitee_patron_id": ["does not exist"] }
 }
 ```
 
@@ -28,7 +28,7 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 
 ```json
 {
-  "errors": { 'base': ["can not invite yourself"] }
+  "errors": { "base": ["can not invite yourself"] }
 }
 ```
 
