@@ -29,14 +29,6 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
-> if staff is not a manager, return status code 479, and following json:
-
-```json
-{
-  "errors": "Current Staff is not a manager"
-}
-```
-
 > if failed, for example, unauthorized, then return http status code 401 with following json object:
 
 ``` json
