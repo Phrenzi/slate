@@ -14,12 +14,21 @@ curl "https://phrenzi.com/api/patron_app/boosters/c3d12f1a-1f0e-4ade-ae6a-49660d
 
 > if success invited, then returns status code 200 with empty body.
 
-> if there's validation error, then return status code 422, and following error JSON
+> if invitee_patron do not exist, it's validation error, then return status code 422, and following error JSON
 > response, with error explaination:
 
 ```json
 {
-  "errors": ["Invitee patron does not exist"]
+  "errors": { 'invitee_patron_id': ["does not exist"] }
+}
+```
+
+> if patron somehow try to invite himself/herself, it's a validation error, then return status code 422, and following error JSON
+> response, with error explaination:
+
+```json
+{
+  "errors": { 'base': ["can not invite yourself"] }
 }
 ```
 
