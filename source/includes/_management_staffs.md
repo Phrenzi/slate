@@ -77,9 +77,11 @@ curl "https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c10
 
 ```json
 {
-  "errors": [
-    "Pin code must be 4 digit"
-  ]
+  "errors": {
+    "pin_code": [
+      "must be 4 digit"
+    ]
+  }
 }
 ```
 
