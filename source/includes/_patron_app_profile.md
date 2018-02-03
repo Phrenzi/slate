@@ -63,9 +63,11 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 
 ```json
 {
-  "errors": [
-    "either email, first_name, last_name, profile need to be providedfor update profile action"
-  ]
+  "errors": {
+    "base": [
+      "either email, name, profile need to be provided for update profile action"
+    ]
+  }
 }
 ```
 
@@ -73,9 +75,11 @@ curl "https://phrenzi.com/api/patron_app/profile" \
 
 ```json
 {
-  "errors": [
-    "reconfirmation_success_url and email should be provided at the same time"
-  ]
+  "errors": {
+    "base": [
+      "reconfirmation_success_url and email should be provided at the same time"
+    ]
+  }
 }
 ```
 
