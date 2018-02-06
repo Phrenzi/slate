@@ -77,7 +77,10 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
 
 ```json
 {
-  "errors": { "lat": ["can't be blank"], "long": ["can't be blank"] }
+  "errors": [
+    "Lat can't be blank",
+    "Long can't be blank"
+  ]
 }
 ```
 
