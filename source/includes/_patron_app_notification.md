@@ -53,11 +53,9 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
 
 ```json
 {
-  "errors": {
-    "os_type": [
-      "is not included in the list"
-    ]
-  }
+  "errors": [
+    "Os type is not included in the list"
+  ]
 }
 ```
 
@@ -98,11 +96,9 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
 
 ```json
 {
-  "errors": {
-    "os_type": [
-      "is not included in the list"
-    ]
-  }
+  "errors": [
+    "Os type is not included in the list"
+  ]
 }
 ```
 
