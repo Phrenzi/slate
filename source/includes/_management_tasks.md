@@ -117,11 +117,9 @@ curl "https://phrenzi.com/api/management/tasks/ddbd0c3c-404d-4ce1-9042-9baecb4ef
 
 ```json
 {
-  "errors": {
-    "patron_id": [
-      "is required"
-    ]
-  }
+  "errors": [
+    "patron_id is required"
+  ]
 }
 ```
 
