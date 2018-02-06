@@ -35,9 +35,9 @@ curl "http://phrenzi.com/api/patrons" \
 
 ``` json
 {
-  "errors": {
-    "email": ["already in use"]
-  }
+  "errors": [
+    "Email has already been taken"
+  ]
 }
 ```
 
@@ -334,9 +334,9 @@ and with following json object
 
 ``` json
 {
-  "errors": {
-    "password_confirmation": ["doesn't match Password"]
-  }
+  "errors": [
+    "Missing password or password_confirmation."
+  ]
 }
 ```
 
