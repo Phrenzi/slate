@@ -53,11 +53,9 @@ curl "https://phrenzi.com/api/management/tasks" \
 
 ```json
 {
-  "errors": {
-    "patron_id": [
-      "is required"
-    ]
-  }
+  "errors": [
+    "patron_id is required"
+  ]
 }
 ```
 
