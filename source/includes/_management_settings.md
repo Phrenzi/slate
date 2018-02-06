@@ -176,10 +176,10 @@ curl "https://phrenzi.com/api/management/settings/passwords" \
 
 ``` json
 {
-  "errors": {
-    "current_password": [ "is invalid" ],
-    "password_confirmation": [ "doesn't match Password" ]
-  }
+  "errors": [
+    "Current password is invalid",
+    "Password confirmation doesn't match Password"
+  ]
 }
 ```
 
