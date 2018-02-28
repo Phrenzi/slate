@@ -166,3 +166,41 @@ This endpoint use `Patron Token` and retrieves establishment detail
 ### HTTP Request
 
 `GET http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea`
+
+
+## favorite establishment
+
+```shell
+curl
+"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -X POST
+```
+
+> if okay, The above command returns status code 200 and empty json;
+
+This endpoint use `Patron Token` and retrieves establishment detail
+
+### HTTP Request
+
+`POST http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite`
+
+## unfavorite establishment
+
+```shell
+curl
+"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -X DELETE
+```
+
+> if okay, The above command returns status code 200 and empty json;
+
+
+This endpoint use `Patron Token` and retrieves establishment detail
+
+### HTTP Request
+
+`DELETE http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite`
