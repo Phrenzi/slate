@@ -23,7 +23,8 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "banner_url": "http://abc.com/uploads/establishment/banner/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg",
       "active_booster_count": 3,
       "user_active_booster_count": 3,
-      "credit_balance": "20000.0"
+      "credit_balance": "20000.0",
+      "favorite": true
     },
     {
       "id": "0c9d3e1c-9499-472c-8f87-9acd0f8866d2",
@@ -35,7 +36,8 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "banner_url": "http://abc.com/uploads/establishment/banner/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg",
       "active_booster_count": 0,
       "user_active_booster_count": 0,
-      "credit_balance": "200.0"
+      "credit_balance": "200.0",
+      "favorite": true
     }
   ]
 }
@@ -48,6 +50,12 @@ This endpoint use `Patron Token`, and retrieves all establishments.
 `GET http://example.com/api/patron_app/establishments`
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+type | N | 'favorite' or nothing
 
 ## get establishment
 
@@ -72,6 +80,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "active_booster_count": 3,
     "user_active_booster_count": 3,
     "credit_balance": "20000.0",
+    "favorite": false,
     "address": {
       "id": "54f27047-8a98-4304-b7bc-43b2f855a582",
       "street1": "MyString",
