@@ -32,7 +32,8 @@ curl "https://phrenzi.com/api/patron_app/patrons" \
           "logo_url": "/uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg",
           "address_city": "MyString"
         }
-      ]
+      ],
+      "friend_status": "friend"
     },
     {
       "id": "8fc7cb28-a38c-4830-8488-4a8bd68f552a",
@@ -40,7 +41,8 @@ curl "https://phrenzi.com/api/patron_app/patrons" \
       "last_name": "Kerry",
       "profile": "https://phrenzi.com/uploads/cache/12370be864925f7bddc0bcf93fa89123.jpeg",
       "join_date": "2017-06-29T16:34:46Z",
-      "favorite_establishments": []
+      "favorite_establishments": [],
+      "friend_status": "normal"
     }
   ]
 }
@@ -60,5 +62,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 Parameter | Required | Description
 --------- | ----------- | ----------
+type | N | type could be: 'normal', 'pending', 'friend', used to filter patron list result
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
