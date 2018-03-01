@@ -44,7 +44,7 @@ curl "https://phrenzi.com/api/patron_app/friendships" \
 }
 ```
 
-This endpoint authenticated by `Patron Token`, and retrieves all boosters, along with booster information connected with current patron
+This endpoint authenticated by `Patron Token`, and make friendship request to other patrons.
 
 ### HTTP Request
 
@@ -101,7 +101,7 @@ curl "https://phrenzi.com/api/patron_app/friendships" \
 }
 ```
 
-This endpoint authenticated by `Patron Token`, and retrieves all boosters, along with booster information connected with current patron
+This endpoint authenticated by `Patron Token`, and try to cancel friendship established before.
 
 ### HTTP Request
 
