@@ -2471,14 +2471,31 @@ auth header from reponse to consuming next request that need authentication.</li
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"favorite_establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551136c7-11dd-449d-abd1-047f49c0229e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe Roma"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/6f6c813b759d1356b4df3d708cc67b43.jpeg"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0d5cbe6-9319-4f5e-accc-54ad85826054"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"friend_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fc7cb28-a38c-4830-8488-4a8bd68f552a"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kerry"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzi.com/uploads/cache/12370be864925f7bddc0bcf93fa89123.jpeg"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-29T16:34:46Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"favorite_establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"friend_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2504,6 +2521,11 @@ href="#link-response-header">Link Response Header section</a></aside>
 </tr>
 </thead><tbody>
 <tr>
+<td>type</td>
+<td>N</td>
+<td>type could be: &lsquo;normal&rsquo;, &#39;pending&rsquo;, &#39;friend&rsquo;, used to filter patron list result</td>
+</tr>
+<tr>
 <td>page</td>
 <td>N</td>
 <td>the page results of all transactions</td>
@@ -2512,6 +2534,254 @@ href="#link-response-header">Link Response Header section</a></aside>
 <td>per_page</td>
 <td>N</td>
 <td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+          <h1 id="patronapp-friendship">PatronApp / Friendship</h1>
+
+<h2 id="send-friendship-request">Send friendship request</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/friendships"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+  -X POST
+  -d <span class="s1">'{
+    "to_patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status code 200 and empty json.</p>
+
+<p>if invited patron is not there, return 422, and json like:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron is not exist"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if friendship request already been sent out to invited patron, return 422, and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron has already received your friend request, please wait"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if already been friends, return 422, and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron is already your friend"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code>, and make friendship request to other patrons.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/friendships</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to_patron_id</td>
+<td>Y</td>
+<td>Invited Patron&rsquo;s UUID</td>
+</tr>
+</tbody></table>
+
+<h2 id="cancel-friendship">Cancel friendship</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/friendships"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+  -X DELETE
+  -d <span class="s1">'{
+    "to_patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>If okay, return 200 and empty json.</p>
+
+<p>If Invited Patron is not ther, return 422, and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron is not exist"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If friendship request send out, but invited patron do not accept/reject it yet, return 422 and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron still not accept your friendship request"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If there&rsquo;s no friendship between current loged in patron &amp; invited patron, return 422 and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Invited Patron is not your friend"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code>, and try to cancel friendship established before.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://example.com/api/patron_app/friendship</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to_patron_id</td>
+<td>Y</td>
+<td>Invited Patron&rsquo;s UUID</td>
+</tr>
+</tbody></table>
+
+<h2 id="accept-friendship">Accept friendship</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/friendships/accept"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+  -X POST
+  -d <span class="s1">'{
+    "host_patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>If okay, return 200 and empty json.</p>
+
+<p>If Host Patron is not there, return 422, and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Patron is not exist"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If friendship is already established, return 422 and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Patron is already your friend"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If host patron do not make any request to current authenticated patron, return 422 and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Patron do not make a friendship request"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code>, and accept friendship request.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/friendship/accept</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>host_patron_id</td>
+<td>Y</td>
+<td>Host Patron&rsquo;s UUID</td>
+</tr>
+</tbody></table>
+
+<h2 id="reject-friendship">Reject friendship</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/friendships/reject"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+  -X POST
+  -d <span class="s1">'{
+    "host_patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>If okay, return 200 and empty json.</p>
+
+<p>If Host Patron is not there, return 422, and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Patron is not exist"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If there is no friendships, return 422 and json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Patron do not make a friendship request"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Patron Token</code>, and reject friendship request.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/friendship/reject</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>host_patron_id</td>
+<td>Y</td>
+<td>Host Patron&rsquo;s UUID</td>
 </tr>
 </tbody></table>
 
@@ -2538,7 +2808,8 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/banner/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000.0"</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0c9d3e1c-9499-472c-8f87-9acd0f8866d2"</span><span class="p">,</span><span class="w">
@@ -2550,7 +2821,8 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.com/uploads/establishment/banner/0c9d3e1c-9499-472c-8f87-9acd0f8866d2/thumb_image.jpeg"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="w">
+      </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2563,6 +2835,22 @@ href="#link-response-header">Link Response Header section</a></aside>
 <p><code class="prettyprint">GET http://example.com/api/patron_app/establishments</code></p>
 
 <aside class="warning">We will add pagination parameter later, but for this phase, we just skip it.</aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>N</td>
+<td>&lsquo;favorite&rsquo; or nothing</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-establishment">get establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea"</span> <span class="se">\</span>
@@ -2585,6 +2873,7 @@ href="#link-response-header">Link Response Header section</a></aside>
     </span><span class="nt">"active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54f27047-8a98-4304-b7bc-43b2f855a582"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
@@ -2670,6 +2959,42 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea</code></p>
+
+<h2 id="favorite-establishment">favorite establishment</h2>
+<pre class="highlight shell"><code>curl
+<span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X POST
+</code></pre>
+
+<blockquote>
+<p>if okay, The above command returns status code 200 and empty json;</p>
+</blockquote>
+
+<p>This endpoint use <code class="prettyprint">Patron Token</code> and retrieves establishment detail</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite</code></p>
+
+<h2 id="unfavorite-establishment">unfavorite establishment</h2>
+<pre class="highlight shell"><code>curl
+<span class="s2">"https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>if okay, The above command returns status code 200 and empty json;</p>
+</blockquote>
+
+<p>This endpoint use <code class="prettyprint">Patron Token</code> and retrieves establishment detail</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite</code></p>
 
           <h1 id="patronapp-transactions">PatronApp / Transactions</h1>
 
@@ -4637,6 +4962,93 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">DELETE http://example.com/api/management/transactions/#{transaction_id}</code></p>
+
+          <h1 id="management-point-transactions">Management / Point Transactions</h1>
+
+<h2 id="get-all-transactions-for-current-establishment">Get all transactions for current establishment</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/point_transactions"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "patron_id": "602247e3-9a20-4862-b772-a7fd617fc227"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7883337f-2353-4195-ae45-c8c554a916f5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602247e3-9a20-4862-b772-a7fd617fc227"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f4c1f46-0e9b-4526-9bdf-1f85ba7f2869"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7417f876-a72f-490c-9324-f4b81003cbf3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase Points"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9993bad9ec"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-05T13:39:03.447Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"correction"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61227894-84f1-452d-8c4f-d5979f607097"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602247e3-9a20-4862-b772-a7fd617fc227"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"establishment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f4c1f46-0e9b-4526-9bdf-1f85ba7f2869"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"challenge_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7417f876-a72f-490c-9324-f4b81003cbf3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase Points"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa5c8f5c95"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tracked_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-05T13:39:02.447Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"correction"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"del_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves point transaction records by establishment by patron</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/management/point_transactions</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Requred?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patron_id</td>
+<td>N</td>
+<td>only list transactions that belongs to patron</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions, default to be page 1</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
 
           <h1 id="management-staffs">Management / Staffs</h1>
 
