@@ -25,6 +25,7 @@ includes:
   - management_patrons
   - management_tasks
   - management_transactions
+  - management_point_transactions
   - management_staffs
   - management_settings
   - errors
