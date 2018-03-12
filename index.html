@@ -2996,10 +2996,10 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 <p><code class="prettyprint">DELETE http://example.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-49660db2b2ea/favorite</code></p>
 
-          <h1 id="patronapp-transactions">PatronApp / Transactions</h1>
+          <h1 id="patronapp-sales-transactions">PatronApp / Sales Transactions</h1>
 
-<h2 id="get-all-transactions-by-establishment_id">get all transactions by establishment_id</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/transactions"</span> <span class="se">\</span>
+<h2 id="get-all-sales-transactions-by-establishment_id">get all sales transactions by establishment_id</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -d <span class="s1">'{
@@ -3061,7 +3061,7 @@ patron and for specific establishment</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/patron_app/establishments</code></p>
+<p><code class="prettyprint">GET http://example.com/api/patron_app/sales_transactions</code></p>
 
 <aside class="info">This API support pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
@@ -4245,10 +4245,10 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
-          <h1 id="management-transactions">Management / Transactions</h1>
+          <h1 id="management-sales-transactions">Management / Sales Transactions</h1>
 
-<h2 id="get-all-transactions-by-patron_id-for-current-establishment">Get all transactions by patron_id for current establishment</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<h2 id="get-all-sales-transactions-by-patron_id-for-current-establishment">Get all sales transactions by patron_id for current establishment</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4316,7 +4316,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/management/transactions</code></p>
+<p><code class="prettyprint">GET http://example.com/api/management/sales_transactions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4354,7 +4354,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <blockquote>
 <p>For creating fullay sales transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4399,7 +4399,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <blockquote>
 <p>For creating partially sales transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4464,7 +4464,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <blockquote>
 <p>For creating fully credit redeem transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4509,7 +4509,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <blockquote>
 <p>For creating correction credit transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4554,7 +4554,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <blockquote>
 <p>Error Scenarios</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4600,7 +4600,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/management/transactions</code></p>
+<p><code class="prettyprint">POST http://example.com/api/management/sales_transactions</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4780,7 +4780,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <blockquote>
 <p>For delete fullay sales transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4819,7 +4819,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <blockquote>
 <p>For delete partially sales transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4878,7 +4878,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <blockquote>
 <p>For delete fully credit redeem transaction</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4917,7 +4917,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <blockquote>
 <p>While specify delete transaction is invalid, or fake, or not belongs to current establishment</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/this-is-a-fake-id"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/this-is-a-fake-id"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4937,7 +4937,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <blockquote>
 <p>While specify delete transaction is created 30 days before,</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
@@ -4961,7 +4961,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE http://example.com/api/management/transactions/#{transaction_id}</code></p>
+<p><code class="prettyprint">DELETE http://example.com/api/management/sales_transactions/#{transaction_id}</code></p>
 
           <h1 id="management-point-transactions">Management / Point Transactions</h1>
 
