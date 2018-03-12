@@ -1,9 +1,9 @@
-# Management / Transactions
+# Management / Sales Transactions
 
-## Get all transactions by patron_id for current establishment
+## Get all sales transactions by patron_id for current establishment
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -71,7 +71,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 ### HTTP Request
 
-`GET http://example.com/api/management/transactions`
+`GET http://example.com/api/management/sales_transactions`
 
 ### Query Parameters
 
@@ -87,7 +87,7 @@ per_page | N | the number of transaction record return per page by api, default 
 > For creating fullay sales transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -132,7 +132,7 @@ curl "https://phrenzi.com/api/management/transactions" \
 > For creating partially sales transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -197,7 +197,7 @@ curl "https://phrenzi.com/api/management/transactions" \
 > For creating fully credit redeem transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -242,7 +242,7 @@ curl "https://phrenzi.com/api/management/transactions" \
 > For creating correction credit transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -287,7 +287,7 @@ curl "https://phrenzi.com/api/management/transactions" \
 > Error Scenarios
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions" \
+curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -332,7 +332,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 ### HTTP Request
 
-`POST http://example.com/api/management/transactions`
+`POST http://example.com/api/management/sales_transactions`
 
 ### Query Parameters
 
@@ -397,7 +397,7 @@ credit_amount | -125.0
 > For delete fullay sales transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -436,7 +436,7 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 > For delete partially sales transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -495,7 +495,7 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 > For delete fully credit redeem transaction
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -534,7 +534,7 @@ curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9b
 > While specify delete transaction is invalid, or fake, or not belongs to current establishment
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions/this-is-a-fake-id" \
+curl "https://phrenzi.com/api/management/sales_transactions/this-is-a-fake-id" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -554,7 +554,7 @@ curl "https://phrenzi.com/api/management/transactions/this-is-a-fake-id" \
 > While specify delete transaction is created 30 days before,
 
 ```shell
-curl "https://phrenzi.com/api/management/transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -578,4 +578,4 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
 ### HTTP Request
 
-`DELETE http://example.com/api/management/transactions/#{transaction_id}`
+`DELETE http://example.com/api/management/sales_transactions/#{transaction_id}`

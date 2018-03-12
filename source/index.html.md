@@ -15,7 +15,7 @@ includes:
   - patron_app_patrons
   - patron_app_friendship
   - patron_app_establishments
-  - patron_app_transactions
+  - patron_app_sales_transactions
   - patron_app_point_transactions
   - patron_app_summary
   - patron_app_boosters
@@ -24,7 +24,7 @@ includes:
   - patron_app_notification
   - management_patrons
   - management_tasks
-  - management_transactions
+  - management_sales_transactions
   - management_point_transactions
   - management_staffs
   - management_settings

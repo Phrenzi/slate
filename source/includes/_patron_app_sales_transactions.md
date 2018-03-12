@@ -1,9 +1,9 @@
-# PatronApp / Transactions
+# PatronApp / Sales Transactions
 
-## get all transactions by establishment_id
+## get all sales transactions by establishment_id
 
 ```shell
-curl "https://phrenzi.com/api/patron_app/transactions" \
+curl "https://phrenzi.com/api/patron_app/sales_transactions" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -d '{
@@ -65,7 +65,7 @@ patron and for specific establishment
 
 ### HTTP Request
 
-`GET http://example.com/api/patron_app/establishments`
+`GET http://example.com/api/patron_app/sales_transactions`
 
 <aside class="info">This API support pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
