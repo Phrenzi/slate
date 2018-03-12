@@ -68,3 +68,68 @@ Parameter | Requred? | Description
 patron_id | N | only list transactions that belongs to patron
 page | N | the page results of all transactions, default to be page 1
 per_page | N | the number of transaction record return per page by api, default to be 20
+
+## Delete Point Transaction
+
+> For delete task redeemed point transaction
+
+```shell
+curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X DELETE
+```
+
+> The above command returns HTML status code 200 OK if success and json object
+
+``` json
+{
+  "transactions": [
+    {
+      "id": "008b511b-5d68-454f-9112-619ca2d703ae",
+      "patron_id": "fa2b6e2e-4a61-4254-938b-d00e1114c668",
+      "establishment_id": "ad4f2664-e0ac-4450-aa54-4ff4b1986411",
+      "challenge_id": "e8ad41d9-b98a-4003-b375-ec61b6204a4a",
+      "point": -9,
+      "action": "Task Booster Deletion",
+      "trans_code": "88711d07e0",
+      "tracked_at": "2018-03-12T07:15:58.354Z",
+      "correction": false,
+      "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
+      "deleted_at": "2018-03-12T07:15:58.354Z",
+      "deleted": true
+    }
+  ]
+}
+```
+
+> While specify delete transaction is invalid, or not belongs to current establishment
+
+```shell
+curl "https://phrenzi.com/api/management/point_transactions/this-is-a-fake-id" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X DELETE
+```
+
+> The above command returns HTML status code 406 and following json object
+
+``` json
+{
+  "errors": [
+    "Point Transaction is invalid"
+  ]
+}
+```
+
+
+This endpoint authenticated by `Manager Token`, and delete point transaction records.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+### HTTP Request
+
+`DELETE http://example.com/api/management/point_transactions/#{transaction_id}`
