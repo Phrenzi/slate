@@ -82,7 +82,7 @@ trans_code | N | transaction's trans_code
 page | N | the page results of all transactions, default to be page 1
 per_page | N | the number of transaction record return per page by api, default to be 20
 
-## Create Transaction
+## Create Sales Transaction
 
 > For creating fullay sales transaction
 
@@ -392,7 +392,7 @@ patron_id | "ddbd0c3c-404d-4ce1-9042-9baecb4ef585"
 sales_amount | 0.0
 credit_amount | -125.0
 
-## Delete Transaction
+## Delete Sales Transaction
 
 > For delete fullay sales transaction
 
