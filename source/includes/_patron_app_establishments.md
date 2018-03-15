@@ -137,7 +137,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "start_date": "2016-12-06T16:00:00.000Z",
     "end_date": "2016-12-06T16:00:00.000Z",
     "winner_percentage": "25.0",
-    "prize_percentage": "5.0",
+    "max_payout_rank": 5,
     "total_sales": "10000.0",
     "ranking": [
       {
