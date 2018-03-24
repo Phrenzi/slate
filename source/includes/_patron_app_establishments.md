@@ -142,7 +142,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "ranking": [
       {
         "id": "f9128d9c-a60c-471d-8e22-761bc0a0a785",
-        "name": "Patron2",
+        "first_name": "Patron2",
+        "last_name": "Last2",
         "join_time": "2016-12-07T12:30:01.496Z",
         "point_balance": "20.0",
         "ranking": 0,
@@ -150,7 +151,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       },
       {
         "id": "8d7c84fd-c6d1-4c02-b7b6-e5a3d6eebacd",
-        "name": "Patron1",
+        "first_name": "Patron1",
+        "last_name": "Last1",
         "join_time": "2016-12-07T12:30:01.469Z",
         "point_balance": "10.0",
         "ranking": 1,
