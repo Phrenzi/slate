@@ -29,7 +29,8 @@ curl "https://phrenzi.com/api/management/boosters" \
       "point": 100,
       "status": "scheduled",
       "booster_type": "task",
-      "task_desc": null
+      "task_desc": null,
+      "redeem_count": 0
     },
     {
       "id": "a9bd28d9-a7a2-44e4-8752-88a154783f1f",
@@ -41,7 +42,12 @@ curl "https://phrenzi.com/api/management/boosters" \
       "invitee_point": 100,
       "unlimited": true,
       "status": "scheduled",
-      "booster_type": "invitation"
+      "booster_type": "invitation",
+      "number_of_invitation_sent": 0,
+      "number_of_invitation_redeemed": 0,
+      "number_of_invitation_not_redeemed": 0,
+      "number_of_host": 0,
+      "number_of_invitee": 0
     }
   ]
 }
@@ -100,7 +106,8 @@ curl "https://phrenzi.com/api/management/booster" \
     "end_time": 54000,
     "point": 100,
     "status": "scheduled",
-    "booster_type": "check_in"
+    "booster_type": "check_in",
+    "redeem_count": 0
   }
 }
 ```
@@ -205,7 +212,8 @@ curl "https://phrenzi.com/api/management/boosters/from_booster_template" \
     "end_time": 54000,
     "point": 100,
     "status": "scheduled",
-    "booster_type": "check_in"
+    "booster_type": "check_in",
+    "redeem_count": 0
   }
 }
 ```
@@ -267,7 +275,8 @@ curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44
     "end_time": 79200,
     "point": 100,
     "status": "scheduled",
-    "booster_type": "check_in"
+    "booster_type": "check_in",
+    "redeem_count": 0
   }
 }
 ```
