@@ -178,6 +178,64 @@ point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
 title | Y | Title of booster
 
+## Create Booster From Booster Template
+
+```shell
+curl "https://phrenzi.com/api/management/boosters/from_booster_template" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X POST \
+  -d '{
+    "id": "4e92881c-6aa8-47c7-afb2-00bddb909c32",
+    "date": "2018-03-01"
+    }'
+```
+
+> if okay, return status coce 200 and `Booster` objects:
+
+``` json
+{
+  "booster": {
+    "id": "0d028b17-e0c7-47ee-a951-3884b39e0603",
+    "title": "CheckIn and Play",
+    "date": "2018-03-01",
+    "start_time": 46800,
+    "finished_by": "end_time",
+    "end_time": 54000,
+    "point": 100,
+    "status": "scheduled",
+    "booster_type": "check_in"
+  }
+}
+```
+
+> if invalid, return status coce 422 and object:
+
+``` json
+{
+  "errors": [
+    "Date can't be blank"
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster from existing booster_template id
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/management/boosters/from_booster_template`
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+id | Y | booster template's id
+date | Y | booster scheduled date
+
 ## Update Booster
 
 ```shell
