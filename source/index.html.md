@@ -24,6 +24,7 @@ includes:
   - patron_app_notification
   - management_challenges
   - management_boosters
+  - management_holidays
   - management_patrons
   - management_tasks
   - management_sales_transactions

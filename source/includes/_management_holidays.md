@@ -67,7 +67,7 @@ curl "https://phrenzi.com/api/management/holidays" \
   -d '{
     "start_date": "2018-03-01",
     "end_date": "2018-03-07",
-    "title": 'X-Max'
+    "title": "X-Max"
     }'
 ```
 
@@ -103,9 +103,6 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -125,7 +122,7 @@ curl "https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44
   -d '{
     "start_date": "2018-03-01",
     "end_date": "2018-03-07",
-    "title": 'X-max'
+    "title": "X-max"
     }'
 ```
 
@@ -135,7 +132,7 @@ curl "https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44
 {
   "holiday": {
     "id": "a635683c-87d3-4531-a5b5-f58d44d053b8",
-    "title": "X-max
+    "title": "X-max",
     "start_date": "2018-03-01",
     "end_date": "2018-03-07"
   }
@@ -160,9 +157,6 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
-
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
 
 ### Query Parameters
 
@@ -192,6 +186,3 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
-
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>

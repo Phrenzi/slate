@@ -107,9 +107,6 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -168,9 +165,6 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -211,9 +205,6 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 ## Stop Challenge
 
 ```shell
@@ -244,6 +235,3 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
-
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
