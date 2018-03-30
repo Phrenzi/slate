@@ -178,7 +178,7 @@ point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
 title | Y | Title of booster
 
-## Update Challenge
+## Update Booster
 
 ```shell
 curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8" \
@@ -287,7 +287,7 @@ title | Y | Title of booster
 * If booster status is 'actived', nothing can be updated
 * booster_type can not been changed
 
-## Delete Challenge
+## Delete Booster
 
 ```shell
 curl "https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d053b8" \
@@ -318,7 +318,7 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-## Stop Challenge
+## Stop Booster
 
 ```shell
 curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop" \
@@ -340,7 +340,7 @@ curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge
+This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster
 
 ### HTTP Request
 
