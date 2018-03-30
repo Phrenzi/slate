@@ -136,7 +136,7 @@ Parameter | Required | Description
 date | Y | date of booster
 booster_type | Y | should be 'check_in'
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | N | if finished_by is 'end_time', required. end_time date of booster, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required. end_time of booster, it's second to the begining of the day
 finished_by | Y | either 'end_time' or 'quantity'
 quantity | N | if finished_by is 'quantity', required. the maximum time for redemption.
 title | Y | Title of booster
@@ -149,7 +149,7 @@ Parameter | Required | Description
 date | Y | date of booster
 booster_type | Y | should be 'task'
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | N | if finished_by is 'end_time', required. end_time date of booster, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required. end_time of booster, it's second to the begining of the day
 finished_by | Y | either 'end_time' or 'quantity'
 quantity | N | if finished_by is 'quantity', required. the maximum time for redemption.
 title | Y | Title of booster
@@ -162,7 +162,7 @@ Parameter | Required | Description
 date | Y | date of booster
 booster_type | Y | should be 'invitation'
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | Y | end_time date of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
 host_point | Y | redemption point as a host
 invitee_point | Y | redemption point as a invitee
 unlimited | Y | either true or false
@@ -176,7 +176,7 @@ Parameter | Required | Description
 date | Y | date of booster
 booster_type | Y | should be 'target_amount'
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | Y | end_time date of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
 point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
 title | Y | Title of booster
@@ -246,7 +246,7 @@ Parameter | Required | Description
 --------- | ----------- | ----------
 date | Y | date of booster
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | N | if finished_by is 'end_time', required. end_time date of booster, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required. end_time of booster, it's second to the begining of the day
 finished_by | Y | either 'end_time' or 'quantity'
 quantity | N | if finished_by is 'quantity', required. the maximum time for redemption.
 title | Y | Title of booster
@@ -258,7 +258,7 @@ Parameter | Required | Description
 --------- | ----------- | ----------
 date | Y | date of booster
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | N | if finished_by is 'end_time', required. end_time date of booster, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required. end_time of booster, it's second to the begining of the day
 finished_by | Y | either 'end_time' or 'quantity'
 quantity | N | if finished_by is 'quantity', required. the maximum time for redemption.
 title | Y | Title of booster
@@ -270,7 +270,7 @@ Parameter | Required | Description
 --------- | ----------- | ----------
 date | Y | date of booster
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | Y | end_time date of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
 host_point | Y | redemption point as a host
 invitee_point | Y | redemption point as a invitee
 unlimited | Y | either true or false
@@ -283,7 +283,7 @@ Parameter | Required | Description
 --------- | ----------- | ----------
 date | Y | date of booster
 start_time | Y | start time of booster, it's second to the begining of the day
-end_time | Y | end_time date of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
 point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
 title | Y | Title of booster
