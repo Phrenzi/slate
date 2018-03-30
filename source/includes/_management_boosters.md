@@ -74,6 +74,108 @@ end | Y | end range of query, format: 'YYYY-MM-DD'
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
 
+## Get booster
+
+```shell
+curl "https://phrenzi.com/api/management/boosters/0cb43edf-4623-4086-99a0-50554af32baa" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+```
+
+> The above command returns `Booster` objects:
+
+```json
+{
+  "booster": {
+    "id": "0cb43edf-4623-4086-99a0-50554af32baa",
+    "title": "Dummy Title",
+    "date": "2018-03-30",
+    "start_time": 39600,
+    "finished_by": "end_time",
+    "end_time": 72000,
+    "point": 100,
+    "status": "actived",
+    "booster_type": "check_in",
+    "redeem_count": 0
+  }
+}
+
+```
+
+This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats
+
+### HTTP Request
+
+`GET http://phrenzi.com/api/management/boosters/:booster_id`
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+### Response Parameters
+
+For CheckIn Booster
+
+Parameter | Description
+--------- | ----------- | ----------
+date | date of booster
+booster_type | should be 'check_in'
+start_time | start time of booster
+end_time | if finished_by is 'end_time', would be present here. End time of booster
+finished_by | either 'end_time' or 'quantity'
+quantity | if finished_by is 'quantity', would be present here. The maximum time for redemption.
+title | Title of booster
+point | redemption point
+redeem_count | number of redemption so far
+
+For Task Booster
+
+Parameter | Description
+--------- | ----------- | ----------
+date | date of booster
+booster_type | should be 'task'
+start_time | start time of booster
+end_time | if finished_by is 'end_time', would be present here. End time of booster
+finished_by | either 'end_time' or 'quantity'
+quantity | if finished_by is 'quantity', would be present here. The maximum time for redemption.
+title | Title of booster
+point | redemption point
+redeem_count | number of redemption so far
+
+For Invitation Booster
+
+Parameter | Description
+--------- | ----------- | ----------
+date | date of booster
+booster_type | should be 'invitation'
+start_time | start time of booster
+end_time | end time of booster
+host_point | redemption point as a host
+invitee_point | redemption point as a invitee
+unlimited | either true or false
+title | Title of booster
+invitation_limit | if unlimited is false, would be present here. Maximum of Invitaiton host can sent
+number_of_invitation_sent | number of invitation sent out
+number_of_invitation_redeemed | number of invitation that have been redeemed
+number_of_invitation_not_redeemed | number of invitation that have not been redeemed
+number_of_host | number of host
+number_of_invitee | number of invitee
+
+For Target Amount Booster
+
+Parameter | Description
+--------- | ----------- | ----------
+date | date of booster
+booster_type | should be 'target_amount'
+start_time | start time of booster
+end_time | End time of booster
+point | redemption point
+target_amount | target_amount that patron purchase to redeem the point
+title | Title of booster
+redeem_count | Title of booster
+redeem_count | number of redemption so far
+number_of_redeemed_player | number of redeemed player so far
+
 ## Create Boosters
 
 ```shell
