@@ -2935,7 +2935,8 @@ href="#link-response-header">Link Response Header section</a></aside>
     </span><span class="nt">"ranking"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9128d9c-a60c-471d-8e22-761bc0a0a785"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last2"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-07T12:30:01.496Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"point_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2943,7 +2944,8 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d7c84fd-c6d1-4c02-b7b6-e5a3d6eebacd"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patron1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last1"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-07T12:30:01.469Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"point_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3963,6 +3965,292 @@ response, with error explaination:</p>
 <td>Os type, available value are: &#39;ios&rsquo;, &#39;android&rsquo;</td>
 </tr>
 </tbody></table>
+
+          <h1 id="management-challenges">Management / Challenges</h1>
+
+<h2 id="get-all-challenges">Get all challenges</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "start": "2018-03-01",
+    "end": "2018-03-28"
+    }'</span>
+
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Challenge</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"challenges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"651b9916-53e4-4db9-8ccb-8d4108fbfed8"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"651b9916"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107acf53-d591-4a9b-aea4-580936d542ce"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107acf53"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/challenges</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>Y</td>
+<td>start range of query, format: &lsquo;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>end</td>
+<td>Y</td>
+<td>end range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-challenge">Create Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-03-01",
+    "end_date": "2018-03-07",
+    "max_payout_rank": 10,
+    "prize_percentage": 15
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">Challenge</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c-87d3-4531-a5b5-f58d44d053b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Challenge</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/management/challenges</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start date of challenge</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end date of challenge</td>
+</tr>
+<tr>
+<td>max_payout_rank</td>
+<td>N</td>
+<td>the maximum payout ranking, if not present, system setting will be used</td>
+</tr>
+<tr>
+<td>prize_percentage</td>
+<td>N</td>
+<td>the prize percentage, if not present, system setting will be used</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-challenge">Update Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-03-01",
+    "end_date": "2018-03-07",
+    "max_payout_rank": 10,
+    "prize_percentage": 15
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">Challenge</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c-87d3-4531-a5b5-f58d44d053b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/challenges/:challenge_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start date of challenge</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end date of challenge</td>
+</tr>
+<tr>
+<td>max_payout_rank</td>
+<td>N</td>
+<td>the maximum payout ranking, if not present, system setting will be used</td>
+</tr>
+<tr>
+<td>prize_percentage</td>
+<td>N</td>
+<td>the prize percentage, if not present, system setting will be used</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-challenge">Delete Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+
+<p>If failed, return 406 status code with error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"can not delete non-scheduled challenges"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://phrenzi.com/api/management/challenges/:challenge_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h2 id="stop-challenge">Stop Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+
+<p>If failed, return 406 status code with error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"can not stop challenge that is not active"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/challenges/:challenge_id/stop</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
 
           <h1 id="management-patrons">Management / Patrons</h1>
 
