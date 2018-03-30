@@ -4093,9 +4093,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
@@ -4174,9 +4171,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
@@ -4237,9 +4231,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 <h2 id="stop-challenge">Stop Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -4268,9 +4259,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
-
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
 
           <h1 id="management-boosters">Management / Boosters</h1>
 
@@ -4415,9 +4403,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
-
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4678,9 +4663,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 <h3 id="query-parameters">Query Parameters</h3>
 
 <p>For CheckIn Booster</p>
@@ -4903,9 +4885,6 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
-href="#link-response-header">Link Response Header section</a></aside>
-
 <h2 id="stop-challenge">Stop Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -4935,8 +4914,246 @@ href="#link-response-header">Link Response Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
+          <h1 id="management-holidays">Management / Holidays</h1>
+
+<h2 id="get-all-holidays">Get all holidays</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "start": "2018-03-01",
+    "end": "2018-03-28"
+    }'</span>
+
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Holiday</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"holidays"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5d76c3ee-193b-4504-bfbf-c19ee217fa19"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39f44649-cb0d-44f3-8e47-a4bfdaa9dd83"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all holidays.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/holidays</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
 <aside class="info">This API support pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>Y</td>
+<td>start range of query, format: &lsquo;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>end</td>
+<td>Y</td>
+<td>end range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-holiday">Create Holiday</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-03-01",
+    "end_date": "2018-03-07",
+    "title": "X-Max"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status coce 200 and <code class="prettyprint">Holiday</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"holiday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3bde6c6c-d856-4ce2-8879-2f8eec024547"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Max"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-07"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start date can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Holiday</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/management/holidays</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start date of holiday</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end date of holiday</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>the title displayed for Holiday</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-holiday">Update Holiday</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-03-01",
+    "end_date": "2018-03-07",
+    "title": "X-max"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status code 200 and returns <code class="prettyprint">Holiday</code> object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"holiday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c-87d3-4531-a5b5-f58d44d053b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-max"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-07"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start date can't be blank"</span><span class="p">,</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Holiday</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/holidays/:holiday_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start date of holiday</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end date of holiday</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>the title displayed for Holiday</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-holiday">Delete Holiday</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+</blockquote>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Holiday</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://phrenzi.com/api/management/holidays/:holiday_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
           <h1 id="management-patrons">Management / Patrons</h1>
 
