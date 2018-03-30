@@ -58,6 +58,59 @@ end | Y | end range of query, format: 'YYYY-MM-DD'
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
 
+## Get Challenge
+
+```shell
+curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6e2d2f64a" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+```
+
+> The above command returns array of `Challenge` objects:
+
+```json
+{
+  "challenge": {
+    "id": "7a6cd829-1328-44dc-abdd-eda6e2d2f64a",
+    "identity": "7a6cd829",
+    "start_date": "2018-03-30",
+    "end_date": "2018-03-31",
+    "status": "actived",
+    "total_sales": "10000.0",
+    "ranking": [
+      {
+        "id": "db3d1772-c934-47b1-ad28-c7e4582d74e3",
+        "first_name": "Frist002",
+        "last_name": "Last002",
+        "join_time": "2018-03-30T10:55:52.273Z",
+        "point_balance": 20,
+        "prize": "500.0",
+        "ranking": 0
+      },
+      {
+        "id": "31f8330c-cf7c-43dc-939c-f00d4c140042",
+        "first_name": "Frist001",
+        "last_name": "Last001",
+        "join_time": "2018-03-30T10:55:52.187Z",
+        "point_balance": 10,
+        "prize": "0.0",
+        "ranking": 1
+      }
+    ]
+  }
+}
+```
+
+This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves challenge detail.
+
+### HTTP Request
+
+`GET http://phrenzi.com/api/management/challenges/:challenge_id`
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
 ## Create Challenge
 
 ```shell
