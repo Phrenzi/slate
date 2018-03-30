@@ -4610,7 +4610,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
-<h2 id="update-challenge">Update Challenge</h2>
+<h2 id="update-booster">Update Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
@@ -4856,7 +4856,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <li>booster_type can not been changed</li>
 </ul>
 
-<h2 id="delete-challenge">Delete Challenge</h2>
+<h2 id="delete-booster">Delete Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
@@ -4885,7 +4885,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<h2 id="stop-challenge">Stop Challenge</h2>
+<h2 id="stop-booster">Stop Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
@@ -4905,11 +4905,552 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge</p>
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">PATCH http://phrenzi.com/api/management/boosters/:booster_id/stop</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+          <h1 id="management-booster-templates">Management / Booster Templates</h1>
+
+<h2 id="get-all-booster-templates">Get all booster templates</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">BoosterTemplate</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768877b9-55fd-4fc0-bc21-4d73d1af6fb6"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"random title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acca7b24-a29f-4143-be85-442f47d0f204"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"random title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"task_desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task desc"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4c2e31e-9e0a-4cb7-a255-875da0877a88"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"random title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invitee_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unlimited"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invitation"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all booster templates</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/booster_templates</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h2 id="create-booster-templates">Create Booster Templates</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "booster_type": "check_in",
+    "start_time": 39600,
+    "finished_by": "end_time",
+    "end_time": 79200,
+    "point": 100,
+    "title": "CheckIn and Play"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status coce 200 and <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d028b17-e0c7-47ee-a951-3884b39e0603"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckIn and Play"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">46800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">54000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start time can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster Template</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/management/booster_templates</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>For CheckIn Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &lsquo;check_in&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Task Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;task&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Invitation Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;invitation&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>Y</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>Y</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>Y</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Target Amount Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;target_amount&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>target_amount</td>
+<td>Y</td>
+<td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-booster-template">Update Booster Template</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_time": 39600,
+    "finished_by": "end_time",
+    "end_time": 79200,
+    "point": 100,
+    "title": "CheckIn and Play"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status code 200 and returns <code class="prettyprint">BoosterTemplate</code> object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c-87d3-4531-a5b5-f58d44d053b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckIn and Play"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">79200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start time can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster Template</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/booster_templates/:booster_template_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>For CheckIn Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Task Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Invitation Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>Y</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>Y</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>Y</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Target Amount Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>target_amount</td>
+<td>Y</td>
+<td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+</tbody></table>
+
+<p><em>NOTED:</em></p>
+
+<ul>
+<li>booster_type can not been changed</li>
+</ul>
+
+<h2 id="delete-booster-template">Delete Booster Template</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_template/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+</blockquote>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster Template</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://phrenzi.com/api/management/booster_templates/:booster_template_id</code></p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
