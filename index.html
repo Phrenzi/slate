@@ -4061,7 +4061,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </code></pre>
 
 <blockquote>
-<p>The above command returns <code class="prettyprint">Challenge</code> objects:</p>
+<p>if okay, return status coce 200 and <code class="prettyprint">Challenge</code> objects:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4071,6 +4071,16 @@ href="#link-response-header">Link Response Header section</a></aside>
     </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start date can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4132,7 +4142,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </code></pre>
 
 <blockquote>
-<p>The above command returns <code class="prettyprint">Challenge</code> objects:</p>
+<p>if okay, return status code 200 and returns <code class="prettyprint">Challenge</code> object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4142,6 +4152,16 @@ href="#link-response-header">Link Response Header section</a></aside>
     </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Start date can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -4245,6 +4265,672 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">PATCH http://phrenzi.com/api/management/challenges/:challenge_id/stop</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+          <h1 id="management-boosters">Management / Boosters</h1>
+
+<h2 id="get-all-boosters">Get all boosters</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "start": "2018-03-01",
+    "end": "2018-03-28"
+    }'</span>
+
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"boosters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4a4bd792-d962-4304-bafd-4faccfd5be89"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dummy Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">56686</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">56888</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"task_desc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9bd28d9-a7a2-44e4-8752-88a154783f1f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dummy Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invitee_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unlimited"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invitation"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all boosters within range.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/boosters</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>Y</td>
+<td>start range of query, format: &lsquo;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>end</td>
+<td>Y</td>
+<td>end range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-boosters">Create Boosters</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "booster_type": "check_in",
+    "date": "2018-03-01",
+    "start_time": 39600,
+    "finished_by": "end_time",
+    "end_time": 79200,
+    "point": 100,
+    "title": "CheckIn and Play"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status coce 200 and <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d028b17-e0c7-47ee-a951-3884b39e0603"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckIn and Play"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">46800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">54000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Date can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/management/boosters</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>For CheckIn Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;check_in&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Task Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;task&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Invitation Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;invitation&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>Y</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>Y</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>Y</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Target Amount Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;target_amount&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>target_amount</td>
+<td>Y</td>
+<td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-challenge">Update Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "date": "2018-03-01",
+    "start_time": 39600,
+    "finished_by": "end_time",
+    "end_time": 79200,
+    "point": 100,
+    "title": "CheckIn and Play"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if okay, return status code 200 and returns <code class="prettyprint">Booster</code> object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a635683c-87d3-4531-a5b5-f58d44d053b8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckIn and Play"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">79200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if invalid, return status coce 422 and object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Date can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/boosters/:booster_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>For CheckIn Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Task Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required. end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required. the maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+</tbody></table>
+
+<p>For Invitation Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>Y</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>Y</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>Y</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Target Amount Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>target_amount</td>
+<td>Y</td>
+<td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+</tbody></table>
+
+<p><em>NOTED:</em></p>
+
+<ul>
+<li>If booster status is &#39;actived&rsquo;, nothing can be updated</li>
+<li>booster_type can not been changed</li>
+</ul>
+
+<h2 id="delete-challenge">Delete Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X DELETE
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+
+<p>If failed, return 406 status code with error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"can not delete booster that is already been actived"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://phrenzi.com/api/management/boosters/:booster_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h2 id="stop-challenge">Stop Challenge</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+
+<blockquote>
+<p>If success, return 200 status code with empty response.</p>
+
+<p>If failed, return 406 status code with error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"can not stop booster that is not active"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/boosters/:booster_id/stop</code></p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
