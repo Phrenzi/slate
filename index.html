@@ -4407,6 +4407,252 @@ href="#link-response-header">Link Response Header section</a></aside>
 </tr>
 </tbody></table>
 
+<h2 id="get-booster">Get booster</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/0cb43edf-4623-4086-99a0-50554af32baa"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"booster"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0cb43edf-4623-4086-99a0-50554af32baa"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dummy Title"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actived"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check_in"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"redeem_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/boosters/:booster_id</code></p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>For CheckIn Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;check_in&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>if finished_by is &#39;end_time&rsquo;, would be present here. End time of booster</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>if finished_by is &#39;quantity&rsquo;, would be present here. The maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>redeem_count</td>
+<td>number of redemption so far</td>
+</tr>
+</tbody></table>
+
+<p>For Task Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;task&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>if finished_by is &#39;end_time&rsquo;, would be present here. End time of booster</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>either &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>if finished_by is &#39;quantity&rsquo;, would be present here. The maximum time for redemption.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>redeem_count</td>
+<td>number of redemption so far</td>
+</tr>
+</tbody></table>
+
+<p>For Invitation Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;invitation&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>end time of booster</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>if unlimited is false, would be present here. Maximum of Invitaiton host can sent</td>
+</tr>
+<tr>
+<td>number_of_invitation_sent</td>
+<td>number of invitation sent out</td>
+</tr>
+<tr>
+<td>number_of_invitation_redeemed</td>
+<td>number of invitation that have been redeemed</td>
+</tr>
+<tr>
+<td>number_of_invitation_not_redeemed</td>
+<td>number of invitation that have not been redeemed</td>
+</tr>
+<tr>
+<td>number_of_host</td>
+<td>number of host</td>
+</tr>
+<tr>
+<td>number_of_invitee</td>
+<td>number of invitee</td>
+</tr>
+</tbody></table>
+
+<p>For Target Amount Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;target_amount&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>End time of booster</td>
+</tr>
+<tr>
+<td>point</td>
+<td>redemption point</td>
+</tr>
+<tr>
+<td>target_amount</td>
+<td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>redeem_count</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>redeem_count</td>
+<td>number of redemption so far</td>
+</tr>
+<tr>
+<td>number_of_redeemed_player</td>
+<td>number of redeemed player so far</td>
+</tr>
+</tbody></table>
+
 <h2 id="create-boosters">Create Boosters</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
