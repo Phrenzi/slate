@@ -74,7 +74,7 @@ curl "https://phrenzi.com/api/management/challenges" \
     }'
 ```
 
-> The above command returns `Challenge` objects:
+> if okay, return status coce 200 and `Challenge` objects:
 
 ```json
 {
@@ -85,6 +85,16 @@ curl "https://phrenzi.com/api/management/challenges" \
     "end_date": "2018-04-01",
     "status": "scheduled"
   }
+}
+```
+
+> if invalid, return status coce 422 and object:
+
+``` json
+{
+  "errors": [
+    "Start date can't be blank"
+  ]
 }
 ```
 
@@ -125,7 +135,7 @@ curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d
     }'
 ```
 
-> The above command returns `Challenge` objects:
+> if okay, return status code 200 and returns `Challenge` object:
 
 ```json
 {
@@ -136,6 +146,16 @@ curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d
     "end_date": "2018-04-01",
     "status": "scheduled"
   }
+}
+```
+
+> if invalid, return status coce 422 and object:
+
+``` json
+{
+  "errors": [
+    "Start date can't be blank"
+  ]
 }
 ```
 
