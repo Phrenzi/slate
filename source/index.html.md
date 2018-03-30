@@ -23,6 +23,7 @@ includes:
   - patron_app_invitation
   - patron_app_notification
   - management_challenges
+  - management_boosters
   - management_patrons
   - management_tasks
   - management_sales_transactions
