@@ -152,6 +152,23 @@ unlimited | Y | either true or false
 title | Y | Title of booster template
 invitation_limit | N | if unlimited is false, then required. maximum of Invitaiton host can sent
 
+For Tiered Check In Booster Template
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+booster_type | Y | should be 'tiered_check_in'
+finished_by | Y | should be 'end_time' or 'quantity'
+start_time | Y | start time of booster template, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required, specify end_time of booster template, it's second to the begining of the day
+quantity | N | if finished_by is 'quantity', required, quantity of booster that can redeemed
+point | Y | check-in point
+enable_invitation | Y | true or false
+host_point | N | if enable_invitation, required, redemption point as a host
+invitee_point | N | if enable_invitation, required, redemption point as a invitee
+unlimited | N | if enable_invitation, required, either true or false
+title | Y | Title of booster template
+invitation_limit | N | if unlimited is false, then required. maximum of Invitaiton host can sent
+
 For Target Amount Booster Template
 
 Parameter | Required | Description
@@ -248,6 +265,22 @@ end_time | Y | end_time of booster template, it's second to the begining of the 
 host_point | Y | redemption point as a host
 invitee_point | Y | redemption point as a invitee
 unlimited | Y | either true or false
+title | Y | Title of booster template
+invitation_limit | N | if unlimited is false, then required. maximum of Invitaiton host can sent
+
+For Tiered Check In Booster Template
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+finished_by | Y | should be 'end_time' or 'quantity'
+start_time | Y | start time of booster template, it's second to the begining of the day
+end_time | N | if finished_by is 'end_time', required, specify end_time of booster template, it's second to the begining of the day
+quantity | N | if finished_by is 'quantity', required, quantity of booster that can redeemed
+point | Y | check-in point
+enable_invitation | Y | true or false
+host_point | N | if enable_invitation, required, redemption point as a host
+invitee_point | N | if enable_invitation, required, redemption point as a invitee
+unlimited | N | if enable_invitation, required, either true or false
 title | Y | Title of booster template
 invitation_limit | N | if unlimited is false, then required. maximum of Invitaiton host can sent
 
