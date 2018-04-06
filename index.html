@@ -3371,6 +3371,24 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a3f227c-355a-41f4-bee8-64f19e842bd3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dummy Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tiered_check_in"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T04:59:21Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actived"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"finished_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end_time"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T05:03:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"enable_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invitee_point"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unlimited"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"host_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4603,6 +4621,88 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
+<p>For Tiered Check In Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;tiered_check_in&rsquo;</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>&#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>if finished_by is end_time, specify end time of booster</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>if finished_by is quantity, specify quantity here</td>
+</tr>
+<tr>
+<td>point</td>
+<td>redemption point as for check-in</td>
+</tr>
+<tr>
+<td>enable_invitation</td>
+<td>enable or not invitation feature</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>if unlimited is false, would be present here. Maximum of Invitaiton host can sent</td>
+</tr>
+<tr>
+<td>number_of_invitation_sent</td>
+<td>number of invitation sent out</td>
+</tr>
+<tr>
+<td>number_of_invitation_redeemed</td>
+<td>number of invitation that have been redeemed</td>
+</tr>
+<tr>
+<td>number_of_invitation_not_redeemed</td>
+<td>number of invitation that have not been redeemed</td>
+</tr>
+<tr>
+<td>number_of_host</td>
+<td>number of host</td>
+</tr>
+<tr>
+<td>number_of_invitee</td>
+<td>number of invitee</td>
+</tr>
+</tbody></table>
+
 <p>For Target Amount Booster</p>
 
 <table><thead>
@@ -4860,6 +4960,82 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <td>title</td>
 <td>Y</td>
 <td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Tiered Check In Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;tiered_check_in&rsquo;</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>should be &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required, specify end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required, quantity of booster that can redeemed</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>check-in point</td>
+</tr>
+<tr>
+<td>enable_invitation</td>
+<td>Y</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>N</td>
+<td>if enable_invitation, required, either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
 </tr>
 <tr>
 <td>invitation_limit</td>
@@ -5176,6 +5352,77 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <td>title</td>
 <td>Y</td>
 <td>Title of booster</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Tiered Check In Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>should be &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required, specify end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required, quantity of booster that can redeemed</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>check-in point</td>
+</tr>
+<tr>
+<td>enable_invitation</td>
+<td>Y</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>N</td>
+<td>if enable_invitation, required, either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
 </tr>
 <tr>
 <td>invitation_limit</td>
@@ -5546,6 +5793,77 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
+<p>For Tiered Check In Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;tiered_check_in&rsquo;</td>
+</tr>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>should be &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required, specify end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required, quantity of booster that can redeemed</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>check-in point</td>
+</tr>
+<tr>
+<td>enable_invitation</td>
+<td>Y</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>N</td>
+<td>if enable_invitation, required, either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
 <p>For Target Amount Booster Template</p>
 
 <table><thead>
@@ -5755,6 +6073,72 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <td>unlimited</td>
 <td>Y</td>
 <td>either true or false</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster template</td>
+</tr>
+<tr>
+<td>invitation_limit</td>
+<td>N</td>
+<td>if unlimited is false, then required. maximum of Invitaiton host can sent</td>
+</tr>
+</tbody></table>
+
+<p>For Tiered Check In Booster Template</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>finished_by</td>
+<td>Y</td>
+<td>should be &#39;end_time&rsquo; or &#39;quantity&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>N</td>
+<td>if finished_by is &#39;end_time&rsquo;, required, specify end_time of booster template, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>N</td>
+<td>if finished_by is &#39;quantity&rsquo;, required, quantity of booster that can redeemed</td>
+</tr>
+<tr>
+<td>point</td>
+<td>Y</td>
+<td>check-in point</td>
+</tr>
+<tr>
+<td>enable_invitation</td>
+<td>Y</td>
+<td>true or false</td>
+</tr>
+<tr>
+<td>host_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a host</td>
+</tr>
+<tr>
+<td>invitee_point</td>
+<td>N</td>
+<td>if enable_invitation, required, redemption point as a invitee</td>
+</tr>
+<tr>
+<td>unlimited</td>
+<td>N</td>
+<td>if enable_invitation, required, either true or false</td>
 </tr>
 <tr>
 <td>title</td>
