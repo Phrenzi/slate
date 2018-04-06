@@ -158,6 +158,24 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "patron": {
         "redeemed": false
       }
+    },
+    {
+      "id": "9a3f227c-355a-41f4-bee8-64f19e842bd3",
+      "title": "Dummy Title",
+      "booster_type": "tiered_check_in",
+      "start_time": "2018-04-07T04:59:21Z",
+      "status": "actived",
+      "finished_by": "end_time",
+      "end_time": "2018-04-07T05:03:20Z",
+      "point": 100,
+      "enable_invitation": true,
+      "host_point": 100,
+      "invitee_point": 100,
+      "unlimited": true,
+      "patron": {
+        "redeemed": false,
+        "host_count": 0
+      }
     }
   ]
 }
