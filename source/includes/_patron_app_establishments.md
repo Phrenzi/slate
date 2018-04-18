@@ -134,8 +134,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     ]
   },
   "current_challenge": {
-    "start_date": "2016-12-06T16:00:00.000Z",
-    "end_date": "2016-12-06T16:00:00.000Z",
+    "start_date": "2016-12-06T16:00:00Z",
+    "end_date": "2016-12-06T16:00:00Z",
     "prize_percentage": "25.0",
     "max_payout_rank": 5,
     "total_sales": "10000.0",
@@ -144,7 +144,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "id": "f9128d9c-a60c-471d-8e22-761bc0a0a785",
         "first_name": "Patron2",
         "last_name": "Last2",
-        "join_time": "2016-12-07T12:30:01.496Z",
+        "join_time": "2016-12-07T12:30:01Z",
         "point_balance": "20.0",
         "ranking": 0,
         "prize": "500"
@@ -153,7 +153,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "id": "8d7c84fd-c6d1-4c02-b7b6-e5a3d6eebacd",
         "first_name": "Patron1",
         "last_name": "Last1",
-        "join_time": "2016-12-07T12:30:01.469Z",
+        "join_time": "2016-12-07T12:30:01Z",
         "point_balance": "10.0",
         "ranking": 1,
         "prize": "0.0"

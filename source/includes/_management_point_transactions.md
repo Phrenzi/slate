@@ -25,7 +25,7 @@ curl "https://phrenzi.com/api/management/point_transactions" \
       "point": 9,
       "action": "Purchase Points",
       "trans_code": "9993bad9ec",
-      "tracked_at": "2018-03-05T13:39:03.447Z",
+      "tracked_at": "2018-03-05T13:39:03Z",
       "correction": false,
       "del_transaction_id": null,
       "deleted_at": null,
@@ -39,7 +39,7 @@ curl "https://phrenzi.com/api/management/point_transactions" \
       "point": 9,
       "action": "Purchase Points",
       "trans_code": "aa5c8f5c95",
-      "tracked_at": "2018-03-05T13:39:02.447Z",
+      "tracked_at": "2018-03-05T13:39:02Z",
       "correction": false,
       "del_transaction_id": null,
       "deleted_at": null,
@@ -94,10 +94,10 @@ curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9
       "point": -9,
       "action": "Task Booster Deletion",
       "trans_code": "88711d07e0",
-      "tracked_at": "2018-03-12T07:15:58.354Z",
+      "tracked_at": "2018-03-12T07:15:58Z",
       "correction": false,
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
-      "deleted_at": "2018-03-12T07:15:58.354Z",
+      "deleted_at": "2018-03-12T07:15:58Z",
       "deleted": true
     }
   ]

@@ -27,7 +27,7 @@ curl "https://phrenzi.com/api/patron_app/point_transactions" \
       "trans_code": "394548216b",
       "action": "Purchase Points",
       "correction": false,
-      "tracked_at": "2017-05-12T03:02:32.200Z"
+      "tracked_at": "2017-05-12T03:02:32Z"
     },
     {
       "id": "9bea46d0-d077-4d0b-beaa-5b11151601d4",
@@ -40,7 +40,7 @@ curl "https://phrenzi.com/api/patron_app/point_transactions" \
       "trans_code": "a3ace99530",
       "action": "Purchase Points",
       "correction": false,
-      "tracked_at": "2017-05-12T03:02:31.200Z"
+      "tracked_at": "2017-05-12T03:02:31Z"
     }
   ]
 }

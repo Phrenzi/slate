@@ -16,12 +16,12 @@ curl "https://phrenzi.com/api/patron_app/notification_subscriptions" \
     {
       "device_token": "b62efad0-5ae8-42c7-b11b-860ae3078952",
       "os_type": "ios",
-      "subscribed_at": "2017-04-13T10:02:49.575Z"
+      "subscribed_at": "2017-04-13T10:02:49Z"
     },
     {
       "device_token": "38cbc5fe-d051-4015-b8dc-7857334c61b5",
       "os_type": "android",
-      "subscribed_at": "2017-04-13T10:04:29.575Z"
+      "subscribed_at": "2017-04-13T10:04:29Z"
     }
   ]
 }
