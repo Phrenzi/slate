@@ -176,6 +176,19 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "redeemed": false,
         "host_count": 0
       }
+    },
+    {
+      "id": "1aec2260-a8d6-4022-a6e2-cdfb09ffb1d0",
+      "title": "Dummy Title",
+      "booster_type": "credit",
+      "status": "actived",
+      "start_time": "2018-05-02T04:59:31Z",
+      "end_time": "2018-05-02T05:03:20Z",
+      "cash_back": "3.5",
+      "redeem_count": 1,
+      "patron": {
+        "redeemed": false
+      }
     }
   ]
 }
