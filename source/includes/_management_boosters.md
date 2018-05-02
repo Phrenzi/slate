@@ -195,9 +195,20 @@ end_time | End time of booster
 point | redemption point
 target_amount | target_amount that patron purchase to redeem the point
 title | Title of booster
-redeem_count | Title of booster
 redeem_count | number of redemption so far
 number_of_redeemed_player | number of redeemed player so far
+
+For Credit Booster
+
+Parameter | Description
+--------- | ----------- | ----------
+date | date of booster
+booster_type | should be 'credit'
+start_time | start time of booster
+end_time | End time of booster
+cash_back | cash back percentage, for instance 3.5% cash back, value is 3.5
+title | Title of booster
+redeem_count | number of redeemed so far
 
 ## Create Boosters
 
@@ -327,6 +338,17 @@ start_time | Y | start time of booster, it's second to the begining of the day
 end_time | Y | end_time of booster, it's second to the begining of the day
 point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
+title | Y | Title of booster
+
+For Credit Booster
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+date | Y | date of booster
+booster_type | Y | should be 'credit'
+start_time | Y | start time of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
+cash_back | Y | cash_back of sales
 title | Y | Title of booster
 
 ## Create Booster From Booster Template
@@ -508,6 +530,16 @@ start_time | Y | start time of booster, it's second to the begining of the day
 end_time | Y | end_time of booster, it's second to the begining of the day
 point | Y | redemption point
 target_amount | Y | target_amount that patron purchase to redeem the point
+title | Y | Title of booster
+
+For Credit Booster
+
+Parameter | Required | Description
+--------- | ----------- | ----------
+date | Y | date of booster
+start_time | Y | start time of booster, it's second to the begining of the day
+end_time | Y | end_time of booster, it's second to the begining of the day
+cash_back | Y | cash bach of sales
 title | Y | Title of booster
 
 *NOTED:*
