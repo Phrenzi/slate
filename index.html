@@ -4741,15 +4741,49 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 <tr>
 <td>redeem_count</td>
-<td>Title of booster</td>
-</tr>
-<tr>
-<td>redeem_count</td>
 <td>number of redemption so far</td>
 </tr>
 <tr>
 <td>number_of_redeemed_player</td>
 <td>number of redeemed player so far</td>
+</tr>
+</tbody></table>
+
+<p>For Credit Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>should be &#39;credit&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>start time of booster</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>End time of booster</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>cash back percentage, for instance 3.5% cash back, value is 3.5</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of booster</td>
+</tr>
+<tr>
+<td>redeem_count</td>
+<td>number of redeemed so far</td>
 </tr>
 </tbody></table>
 
@@ -5082,6 +5116,47 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <td>target_amount</td>
 <td>Y</td>
 <td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+</tbody></table>
+
+<p>For Credit Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>booster_type</td>
+<td>Y</td>
+<td>should be &#39;credit&rsquo;</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>Y</td>
+<td>cash_back of sales</td>
 </tr>
 <tr>
 <td>title</td>
@@ -5464,6 +5539,42 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <td>target_amount</td>
 <td>Y</td>
 <td>target_amount that patron purchase to redeem the point</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Y</td>
+<td>Title of booster</td>
+</tr>
+</tbody></table>
+
+<p>For Credit Booster</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>Y</td>
+<td>date of booster</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Y</td>
+<td>start time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Y</td>
+<td>end_time of booster, it&rsquo;s second to the begining of the day</td>
+</tr>
+<tr>
+<td>cash_back</td>
+<td>Y</td>
+<td>cash bach of sales</td>
 </tr>
 <tr>
 <td>title</td>
