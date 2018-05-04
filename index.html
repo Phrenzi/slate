@@ -7909,6 +7909,54 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </tr>
 </tbody></table>
 
+          <h1 id="management-supreme-establishment-list">Management / Supreme / Establishment List</h1>
+
+<h2 id="get-all-establishments">Get all establishments</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/supreme/establishments"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Establishment</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d3d7ecd-585d-4f2f-ad21-1b457e062681"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcbdd18f-e5ea-4368-8cf4-2e688e604a40"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe Roma"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and manager need to be a super manager, this endpoint will retrieve all establishments.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/supreme/establishments</code></p>
+
+<h2 id="select-establishment">Select Establishment</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/supreme/ddbd0c3c-404d-4ce1-9042-9baecb4ef585/select"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+
+<blockquote>
+<p>If success, The above command return status code 200 with empty json object</p>
+</blockquote>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manger Token</code>, and manager need to be a super manager, this endpoint will update manager&rsquo;s establishment.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/supreme/ddbd0c3c-404d-4ce1-9042-9baecb4ef585/select</code></p>
+
           <h1 id="management-settings">Management / Settings</h1>
 
 <h2 id="get-cash-back">Get cash back</h2>
