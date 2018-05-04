@@ -31,6 +31,7 @@ includes:
   - management_sales_transactions
   - management_point_transactions
   - management_staffs
+  - management_supreme
   - management_settings
   - errors
 
