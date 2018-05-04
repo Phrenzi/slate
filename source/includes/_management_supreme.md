@@ -1,6 +1,6 @@
 # Management / Supreme / Establishment List
 
-## Get all establishments
+## Get all establishments list
 
 ```shell
 curl "https://phrenzi.com/api/management/supreme/establishments" \
