@@ -18,5 +18,6 @@ Error Code | Meaning
 490 | Super Manager not signed any establishment yet
 491 | Super Manager not allow to operate as current Establishment owner to update/delete
 492 | Current Manager is not a super manager
+499 | Current Patron do not have profile image uploaded
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
