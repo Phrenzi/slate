@@ -13,6 +13,7 @@ Error Code | Meaning
 410 | Gone -- The resource requested has been removed from our servers
 422 | Unprocessable Entity, this happend while request params have validation errors
 429 | Too Many Requests -- You're requesting too many resources! Slow down!
+470 | Establishment do not setup yet
 479 | Staff Not Login / Staff Not Setup -- the endpoint protected by staff authenticated, you got to login staff first, and make sure staff is properly setup, then call this api
 480 | Only manager staff are authorized to this operation
 490 | Super Manager not signed any establishment yet
