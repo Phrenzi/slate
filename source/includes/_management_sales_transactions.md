@@ -335,8 +335,6 @@ trans_type | Y | 'sales'/'correction'
 sales_amount | Y | the sale amount
 credit_amount | Y | the credit amount
 patron_id | Y | UUID of patron
-cash_back | N | cash back for one time use case
-password | N | if cash_back is present, then password of patron must provided
 
 ### Query Exmaple:
 
