@@ -33,6 +33,7 @@ includes:
   - management_staffs
   - management_supreme
   - management_settings
+  - management_profile
   - errors
 
 search: true
