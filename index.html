@@ -8167,6 +8167,166 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </tr>
 </tbody></table>
 
+          <h1 id="management-profile">Management / Profile</h1>
+
+<h2 id="update-brand">Update brand</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/brand"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "establishment_name": "Awesome Bar",
+    "desc": "Desc",
+    "contact_phone": "66762659",
+    "contact_first_name": "Simon",
+    "contact_last_name": "Iong",
+    "max_payout_rank": 10,
+    "prize_percentage": 30
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, returns HTML status code 200 OK, with empty json</p>
+
+<p>if error, return HTML status code 422, with following json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Max payout rank can't be blank"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Max payout rank is not a number"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if unauthorize, returns HTML status code 401, with following object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Authorized users only."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update cash_back for current establishment.</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/profile/brand</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>establishment_name</td>
+<td>Establishment Name</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>Description of Establishment</td>
+</tr>
+<tr>
+<td>contact_phone</td>
+<td>contact phone of Establishment</td>
+</tr>
+<tr>
+<td>contact_first_name</td>
+<td>Contact First name</td>
+</tr>
+<tr>
+<td>contact_last_name</td>
+<td>Contact Last name</td>
+</tr>
+<tr>
+<td>max_payout_rank</td>
+<td>Default Maximum Payout Ranking setting</td>
+</tr>
+<tr>
+<td>prize_percentage</td>
+<td>Default Prize percentage</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-address">Update Address</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/address"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "street1": "Street 1",
+    "street2": "Street 2",
+    "city": "Mawan",
+    "country": "HK",
+    "lat": 123.3223323,
+    "long": 123.3223323
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>If success, return http status code <code class="prettyprint">200</code> with empty json object</p>
+
+<p>if error return 422, and following json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Street1 can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update profile address</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/profile/address</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>street1</td>
+<td>Street address 1</td>
+</tr>
+<tr>
+<td>street2</td>
+<td>Street address 2</td>
+</tr>
+<tr>
+<td>city</td>
+<td>City of Establishment</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Country code of Establishment</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>latitude of Establishment</td>
+</tr>
+<tr>
+<td>long</td>
+<td>longtitude of Establishment</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <p>The Phrenzi API uses the following error codes:</p>
