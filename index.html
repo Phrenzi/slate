@@ -8169,7 +8169,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
           <h1 id="management-profile">Management / Profile</h1>
 
-<h2 id="update-brand">Update brand</h2>
+<h2 id="update-brand">Update Brand</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/brand"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
@@ -8324,6 +8324,102 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <tr>
 <td>long</td>
 <td>longtitude of Establishment</td>
+</tr>
+</tbody></table>
+
+<h2 id="pre-sign-url-for-logo-amp-banner">Pre-sign url for Logo &amp; Banner</h2>
+
+<p>For profile logo</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/profile_logo/cache/presign"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+
+<p>For profile banner</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/profile_banner/cache/presign"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://phrenzistaging.s3-ap-southeast-1.amazonaws.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"fields"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"policy"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJleHBpcmF0aW9uIjoiMjAxNi0xMi0wOVQxMDoyNzozMVoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJwaHJlbnppc3RhZ2luZyJ9LHsia2V5IjoiY2FjaGUvMmE3OGI3MWI2MGYwMmZjMDk3YzFhYWM1ZTA0MDkxMzgifSx7IngtYW16LWNyZWRlbnRpYWwiOiJBS0lBSlhNM1U3QU02STNPRTM2QS8yMDE2MTIwOS9hcC1zb3V0aGVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MTIwOVQwOTI3MzFaIn1dfQ=="</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS4-HMAC-SHA256"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"cache/2a78b71b60f02fc097c1aac5e0409138"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-signature"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"52956151623087d2a4997462c90055d61e51de3b1a5b8d89f826f1769da3894f"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"20161209T092731Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"x-amz-credential"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"AKIAJXM3U7AM6I3OE36A/20161209/ap-southeast-1/s3/aws4_request"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves pre-sign url for upload image into s3</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/profile_#{logo|banner}/cache/presign</code></p>
+
+<p>After you retrive the presign url, you could be able to make a post request to presign url with the fields this end-point provided. Then you could be able to retrieve an id from S3. Please construct a json object with this id, and this object will going to be used in next API call to create the actual profile logo/banner in Phrenzi</p>
+
+<p>For more detail, please visit shrine&rsquo;s plugin <a href="http://shrinerb.com/rdoc/files/doc/direct_s3_md.html">direct_upload</a></p>
+
+<h2 id="update-logo-or-banner">Update Logo or Banner</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/images"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="s1">'{
+    "logo":'</span><span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"349234854924394"</span>, <span class="c"># required</span>
+          <span class="s2">"storage"</span>: <span class="s2">"cache"</span>, <span class="c"># required</span>
+          <span class="s2">"metadata"</span>: <span class="o">{</span>
+            <span class="s2">"size"</span>: 45461, <span class="c"># optional</span>
+            <span class="s2">"filename"</span>: <span class="s2">"foo.jpg"</span>, <span class="c"># optional</span>
+            <span class="s2">"mime_type"</span>: <span class="s2">"image/jpeg"</span>, <span class="c"># optional</span>
+          <span class="o">}</span>
+        <span class="o">}</span><span class="s1">'
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>If success, the above command returns status code 200 </p>
+
+<p>if image formet error, return 422 and following json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Logo isn't of allowed type (allowed types: image/jpg, image/jpeg, image/png, image/gif)"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update establishment profile logo or banner</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/profile/images</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>banner</td>
+<td>Banner image</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>Logo image</td>
 </tr>
 </tbody></table>
 
