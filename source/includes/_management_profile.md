@@ -1,5 +1,110 @@
 # Management / Profile
 
+## Get Profile
+
+```shell
+curl "https://phrenzi.com/api/management/profile" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+```
+
+> if success, returns HTML status code 200 OK, with empty json
+
+```json
+{
+  "establishment": {
+    "id": "84edd55b-26d4-4b2d-b8ca-92601c340f6d",
+    "name": "Establishment1",
+    "contact_first_name": "manager1",
+    "contact_last_name": "manager1",
+    "contact_phone": "612345671",
+    "logo_url": "/uploads/cache/5a1df17481c893b5ae13660df0de9684.jpeg",
+    "banner_url": "/uploads/cache/32a5272a2fdb5100402ff34365a777a1.jpeg",
+    "desc": "This is an example description",
+    "address": {
+      "lat": null,
+      "long": null,
+      "street1": "MyString",
+      "street2": "MyString",
+      "city": "MyString",
+      "country": "MyString"
+    },
+    "setting": {
+      "max_payout_rank": 10
+    },
+    "business_hours": [
+      {
+        "id": "4d6fdd48-9309-4591-b421-800c5b1376c1",
+        "wday": 0,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "7412f175-721c-47da-a9f9-b0b18695c862",
+        "wday": 1,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "c513c75b-60d2-458b-8b20-5329a6847752",
+        "wday": 2,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "27c1a90b-8167-478f-8f97-c020cf543731",
+        "wday": 3,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "09bad649-bdd1-405e-966d-975c8168c962",
+        "wday": 4,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "08fae7f3-5053-4aea-93e1-d19bda14494e",
+        "wday": 5,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      },
+      {
+        "id": "919a0340-4016-46e0-944a-0698d3bdfe75",
+        "wday": 6,
+        "closed": false,
+        "open_time": 39600,
+        "close_time": 86400
+      }
+    ],
+    "setup": false,
+    "setup_flags": {
+      "brand": false,
+      "address": false,
+      "hours": false,
+      "images": false,
+      "billing": false
+    }
+  }
+}
+```
+
+This endpoint authenticated by `Manager Token`, and get latest profile information for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`GET http://phrenzi.com/api/management/profile`
+
 ## Update Brand
 
 ```shell
