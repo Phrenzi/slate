@@ -8169,6 +8169,109 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
           <h1 id="management-profile">Management / Profile</h1>
 
+<h2 id="get-profile">Get Profile</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
+</code></pre>
+
+<blockquote>
+<p>if success, returns HTML status code 200 OK, with empty json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"establishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84edd55b-26d4-4b2d-b8ca-92601c340f6d"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Establishment1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contact_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contact_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contact_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612345671"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/5a1df17481c893b5ae13660df0de9684.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/32a5272a2fdb5100402ff34365a777a1.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"max_payout_rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d6fdd48-9309-4591-b421-800c5b1376c1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7412f175-721c-47da-a9f9-b0b18695c862"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c513c75b-60d2-458b-8b20-5329a6847752"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27c1a90b-8167-478f-8f97-c020cf543731"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09bad649-bdd1-405e-966d-975c8168c962"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08fae7f3-5053-4aea-93e1-d19bda14494e"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919a0340-4016-46e0-944a-0698d3bdfe75"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"closed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"open_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">39600</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"close_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"setup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"setup_flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and get latest profile information for current establishment.</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/profile</code></p>
+
 <h2 id="update-brand">Update Brand</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/brand"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
