@@ -308,3 +308,100 @@ Parameter | Description
 --------- | -----------
 banner | Banner image
 logo | Logo image
+
+## Update Business Hours
+
+```shell
+curl "https://phrenzi.com/api/management/profile/hours" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X PATCH \
+  -d '{
+    "business_hours": [
+    {
+      "id": "262bfa0f-325c-433d-95bc-3c418d1f3b31",
+      "wday": 0,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "e9a15246-8b7f-4e99-be65-9a3ca5d00e90",
+      "wday": 1,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "eb6728c3-d2f2-428c-aa98-e138481547c8",
+      "wday": 2,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "a7639d26-e5a9-49ba-a02a-f1462d6bb489",
+      "wday": 3,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "0e294591-277a-4157-84bf-dba428076ff3",
+      "wday": 4,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "740c4c28-e94c-4812-958f-a0ec3b7bc6fb",
+      "wday": 5,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 3600,
+      "close_time": 86400
+    },
+    {
+      "id": "20970c7b-e366-4269-a17d-17c489395d12",
+      "wday": 6,
+      "closed": false,
+      "extra_day": false,
+      "open_time": 39600,
+      "close_time": 86400
+    }]
+    }'
+```
+
+> If success, the above command returns status code 200
+
+> if error, return 422 and following json object:
+
+```json
+{
+  "errors": [
+    "Sunday Open Time must be less than 86400",
+    "Sunday Close Time must be greater than open time"
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and update establishment profile business hours
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/profile/hours`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+business_hours | Array of Business Hour setting
