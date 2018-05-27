@@ -3997,6 +3997,107 @@ response, with error explaination:</p>
 </tr>
 </tbody></table>
 
+          <h1 id="management-sign-up">Management / Sign Up</h1>
+
+<h2 id="sign-up">Sign Up</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sign_up"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+        "establishment_name": "Awesome Bar",
+        "establishment_phone": "+85366762659",
+        "manager_first_name": "Simon",
+        "manager_last_name": "Iong",
+        "email": "abc@example.com",
+        "password": "password",
+        "password_confirmation": "password" }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns <code class="prettyprint">Manager</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d603ac2a-beae-4bd2-ae31-05db4895c001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"establishment_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"establishment_setup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if failed, the above command returns status code <code class="prettyprint">422</code> and json object with error message like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Manager first name can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if token is invalid, return 401 and following json object</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Bad credentials"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is for sign up, and need App Token authenticated.</p>
+
+<ul>
+<li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">200</code></li>
+<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code> with <code class="prettyprint">errors</code> message.</li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/management/sign_up</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>establishment_name</td>
+<td>Name of Establishment</td>
+</tr>
+<tr>
+<td>establishment_phone</td>
+<td>Phont of Establishment</td>
+</tr>
+<tr>
+<td>manager_first_name</td>
+<td>Manager First Name</td>
+</tr>
+<tr>
+<td>manager_last_name</td>
+<td>Manager Last Name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Manager&rsquo;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Manager&rsquo;s password</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>Manager&rsquo;s password confirmation</td>
+</tr>
+</tbody></table>
+
           <h1 id="management-challenges">Management / Challenges</h1>
 
 <h2 id="get-all-challenges">Get all challenges</h2>
