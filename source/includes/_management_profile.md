@@ -405,3 +405,54 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 Parameter | Description
 --------- | -----------
 business_hours | Array of Business Hour setting
+
+## Update Billing Info
+
+```shell
+curl "https://phrenzi.com/api/management/profile/billing" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X PATCH \
+  -d '{
+    "establishment_name": "Awesome Bar",
+    "token": "billing_token"
+    }'
+```
+
+> if success, returns HTML status code 200 OK, with empty json
+
+> if error, return HTML status code 422, with following json:
+
+```json
+{
+  "errors": [
+    "Token can't be blank"
+  ]
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "Authorized users only."
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and update billing token for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/profile/billing`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+token | Billing token
