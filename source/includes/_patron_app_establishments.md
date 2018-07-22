@@ -25,7 +25,7 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "user_active_booster_count": 3,
       "credit_balance": "20000.0",
       "favorite": true,
-      "address: {
+      "address": {
         "city": "Macau"
       }
     },
@@ -41,7 +41,7 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "user_active_booster_count": 0,
       "credit_balance": "200.0",
       "favorite": true,
-      "address: {
+      "address": {
         "city": "Macau"
       }
     }
