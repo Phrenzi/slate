@@ -2314,7 +2314,7 @@ auth header from reponse to consuming next request that need authentication.</li
 <h2 id="update-patron-profile">update patron profile</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/profile"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: patron_token"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
         "profile": '</span><span class="o">{</span>
@@ -2414,7 +2414,7 @@ auth header from reponse to consuming next request that need authentication.</li
 <h2 id="patron-profile">patron profile</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/profile"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span>
+  -H <span class="s2">"Authorization: patron_token"</span>
 </code></pre>
 
 <blockquote>
