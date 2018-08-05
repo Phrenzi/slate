@@ -38,7 +38,7 @@ For more detail, please visit shrine's plugin [direct_upload](http://shrinerb.co
 ```shell
 curl "https://phrenzi.com/api/patron_app/profile" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
+  -H "Authorization: patron_token" \
   -X PATCH \
   -d '{
         "profile": '{
@@ -115,7 +115,7 @@ For full scenario of upload profile with pre-sign, please refer
 ```shell
 curl "https://phrenzi.com/api/patron_app/profile" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token"
+  -H "Authorization: patron_token"
 ```
 
 > The above command returns status code 200, and following json
