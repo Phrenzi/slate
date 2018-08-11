@@ -21,6 +21,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "point": "100.0",
       "finished_by": "end_time",
       "end_time": "2017-03-22T06:03:59.000Z",
+      "redeem_count": 1,
       "patron": {
         "redeemed": false
       }
@@ -47,6 +48,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
+      "redeem_count": 1,
       "patron": {
         "redeemed": false
       }
@@ -59,6 +61,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
+      "redeem_count": 1,
       "patron": {
         "redeemed": false,
         "number_of_transaction": 1,
@@ -75,6 +78,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "status": "finished",
       "point": "100.0",
       "target_amount": "100.0",
+      "redeem_count": 1,
       "patron": {
         "redeemed": true,
         "number_of_transaction": 2,
@@ -92,6 +96,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": true,
+      "host_redeem_count": 3,
+      "invitee_redeem_count": 2,
       "patron": {
         "redeemed": false,
         "host_count": 0
@@ -106,6 +112,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": "100.0",
       "invitee_point": "100.0",
       "unlimited": false,
+      "host_redeem_count": 3,
+      "invitee_redeem_count": 2,
       "invitation_limit": 2,
       "patron": {
         "redeemed": false,
@@ -120,6 +128,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "end_time": "2017-03-23T09:57:53.000Z",
       "host_point": "100.0",
       "invitee_point": "100.0",
+      "host_redeem_count": 3,
+      "invitee_redeem_count": 2,
       "unlimited": true,
       "patron": {
         "redeemed": false,
@@ -137,6 +147,8 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "end_time": "2017-03-23T09:59:43.000Z",
       "host_point": "100.0",
       "invitee_point": "100.0",
+      "host_redeem_count": 3,
+      "invitee_redeem_count": 2,
       "unlimited": true,
       "patron": {
         "redeemed": true,
@@ -155,6 +167,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "finished_by": "end_time",
       "task_desc": "Sing a Song",
       "end_time": "2017-10-10T05:03:20Z",
+      "redeem_count": 1,
       "patron": {
         "redeemed": false
       }
@@ -172,6 +185,9 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
       "host_point": 100,
       "invitee_point": 100,
       "unlimited": true,
+      "check_in_redeem_count": 2,
+      "host_redeem_count": 3,
+      "invitee_redeem_count": 2,
       "patron": {
         "redeemed": false,
         "host_count": 0
