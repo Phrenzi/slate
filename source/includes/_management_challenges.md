@@ -84,6 +84,7 @@ curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6
         "first_name": "Frist002",
         "last_name": "Last002",
         "join_time": "2018-03-30T10:55:52.273Z",
+        "profile_url": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
         "point_balance": 20,
         "prize": "500.0",
         "ranking": 0
@@ -93,6 +94,7 @@ curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6
         "first_name": "Frist001",
         "last_name": "Last001",
         "join_time": "2018-03-30T10:55:52.187Z",
+        "profile_url": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
         "point_balance": 10,
         "prize": "0.0",
         "ranking": 1

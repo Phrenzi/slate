@@ -151,7 +151,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "first_name": "Patron2",
         "last_name": "Last2",
         "join_time": "2016-12-07T12:30:01Z",
-        "profile": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
+        "profile_url": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
         "point_balance": "20.0",
         "ranking": 0,
         "prize": "500"
@@ -161,7 +161,7 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
         "first_name": "Patron1",
         "last_name": "Last1",
         "join_time": "2016-12-07T12:30:01Z",
-        "profile": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
+        "profile_url": "http://abc.com/uploads/patron/profile/cf2731b3f037e081fee8230378290b62.jpeg",
         "point_balance": "10.0",
         "ranking": 1,
         "prize": "0.0"
