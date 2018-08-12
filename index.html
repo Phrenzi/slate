@@ -2523,7 +2523,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <tr>
 <td>type</td>
 <td>N</td>
-<td>type could be: &lsquo;normal&rsquo;, &#39;pending&rsquo;, &#39;friend&rsquo;, used to filter patron list result</td>
+<td>type could be: &lsquo;normal&rsquo;, &#39;pending&rsquo;, &#39;friend&rsquo;, used to filter patron list result, noted that <code class="prettyprint">pending</code> will return both <code class="prettyprint">requesting</code> and <code class="prettyprint">pending</code> status</td>
 </tr>
 <tr>
 <td>page</td>
@@ -2534,6 +2534,77 @@ href="#link-response-header">Link Response Header section</a></aside>
 <td>per_page</td>
 <td>N</td>
 <td>the number of transaction record return per page by api, default to be 20</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-patron-detail">Get patron detail</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/patron_app/patrons/8fc7cb28-a38c-4830-8488-4a8bd68f552a"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Patron</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b6914cc6-5b33-467c-8cdd-1d469f0eec64"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frist001 David"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29420d"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frist001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/b0b1563578aecba79ca3604db8cc43d0.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-12T06:49:06Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"favorite_establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"friend_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"challenge_won"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"prize_earned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"point_earned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"booster_earned"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_earned_from_correction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_loss_from_correction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_earned_from_cash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_spent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_earned_from_deletion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_loss_from_deletion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_earned_from_prize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint require <code class="prettyprint">Patron Token</code> authentication, and retrieve patron information.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/patron_app/patrons/#{patron_id}</code></p>
+
+<h3 id="friend-status-meaning">Friend Status Meaning</h3>
+
+<table><thead>
+<tr>
+<th>Status Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>normal</td>
+<td>current patron has not relationship with this patron</td>
+</tr>
+<tr>
+<td>friend</td>
+<td>current patron is a friend of this patron</td>
+</tr>
+<tr>
+<td>pending</td>
+<td>current patron is inviting this patron</td>
+</tr>
+<tr>
+<td>requesting</td>
+<td>this patron is inviting current patron</td>
 </tr>
 </tbody></table>
 
