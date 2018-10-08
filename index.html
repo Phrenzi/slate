@@ -9049,6 +9049,82 @@ href="#link-response-header">Link Response Header section</a></aside>
 </tr>
 </tbody></table>
 
+<h2 id="get-monthly-summaries-monthly-invoices-amp-receipts">Get monthly summaries / monthly invoices &amp; receipts</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/monthly_summaries"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-09-01",
+    "end_date": "2018-11-01"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5522331f-eddd-4bf6-a832-69c1b076eb4d"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invoice_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/2b20eeef5cf2dbf25eac615322cc7eb4.pdf"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d8483110-56f7-4a43-bcae-b5c37cf511f2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invoice_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/9c1138bc4c12f2ac3e796d36c9378c5d.pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"receipt_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/420da87ea611eac320c37b78c2382926.pdf"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10de5f01-84ee-437b-88bf-694d93ffefc2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"invoice_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/18374e5fbbd158e4baed64d0930fd9e2.pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"receipt_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/741c038e73871819e27b8ec0b8e2a7e5.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and return monthly summaries report</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/monthly_summaries</code></p>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 50</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <p>The Phrenzi API uses the following error codes:</p>
