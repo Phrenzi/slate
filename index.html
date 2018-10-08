@@ -8978,6 +8978,77 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </tr>
 </tbody></table>
 
+          <h1 id="management-report">Management / Report</h1>
+
+<h2 id="get-daily-summaries">Get daily summaries</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/daily_summaries"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "start_date": "2018-10-08",
+    "end_date": "2018-10-09"
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns array of <code class="prettyprint">Booster</code> objects:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c05714a2-1929-4183-be62-8051ed869da5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/495efe5be347bdc0c99c303809196731.pdf"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9931bb61-de01-401c-8eff-53ec3cafaed9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"file_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/cache/966551a5526e9bab012e960cedf37786.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and return daily summaries report</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/daily_summaries</code></p>
+
+<aside class="info">This API support pagination. please refer to <a
+href="#link-response-header">Link Response Header section</a></aside>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Y</td>
+<td>start range of query, format: &lsquo;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Y</td>
+<td>end range of query, format: &#39;YYYY-MM-DD&rsquo;</td>
+</tr>
+<tr>
+<td>page</td>
+<td>N</td>
+<td>the page results of all transactions</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>N</td>
+<td>the number of transaction record return per page by api, default to be 50</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <p>The Phrenzi API uses the following error codes:</p>
