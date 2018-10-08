@@ -36,6 +36,7 @@ includes:
   - management_supreme
   - management_settings
   - management_profile
+  - management_summary
   - errors
 
 search: true
