@@ -63,6 +63,8 @@ href="#link-response-header">Link Response Header section</a></aside>
 Parameter | Required | Description
 --------- | ----------- | ----------
 type | N | type could be: 'normal', 'pending', 'friend', used to filter patron list result, noted that `pending` will return both `requesting` and `pending` status
+order_by | N | order_by could be: 'first_name', 'last_name', default is 'last_name'
+order_direction | N | value could be: 'asc', 'desc', default is 'asc'
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
 
