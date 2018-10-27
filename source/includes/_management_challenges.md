@@ -290,3 +290,59 @@ This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, 
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
+
+## Current Challenge
+
+```shell
+curl "https://phrenzi.com/api/management/challenges/current" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X PATCH
+```
+
+> If success, return 200 status code with empty response.
+
+``` json
+{
+  "current_challenge": {
+    "id": "c1c68ae5-6d28-407a-bc45-63172927f0f0",
+    "start_date": "2018-10-26T16:00:00.000Z",
+    "end_date": "2018-10-26T16:00:00.000Z",
+    "prize_percentage": "5.0",
+    "max_payout_rank": 1,
+    "total_sales": "10000.0",
+    "ranking": [
+      {
+        "id": "1ceecdf5-9a56-4826-a4e6-be86b48aea53",
+        "first_name": "Frist002",
+        "last_name": "Last002",
+        "join_time": "2018-10-27T05:14:23.434Z",
+        "profile_url": "/uploads/cache/67bd74d470607a07ad4db7c1cdf375e2.jpeg",
+        "point_balance": 20,
+        "prize": "500.0",
+        "ranking": 0
+      },
+      {
+        "id": "948c227e-a536-4d90-910c-525e810fcd7a",
+        "first_name": "Frist001",
+        "last_name": "Last001",
+        "join_time": "2018-10-27T05:14:23.384Z",
+        "profile_url": "/uploads/cache/2f7bb57312d3616f3d781b16ba6c2aa0.jpeg",
+        "point_balance": 10,
+        "prize": "0.0",
+        "ranking": 1
+      }
+    ]
+  }
+}
+```
+
+This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/challenges/current`
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
