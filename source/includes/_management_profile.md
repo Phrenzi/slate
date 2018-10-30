@@ -28,7 +28,8 @@ curl "https://phrenzi.com/api/management/profile" \
       "street1": "MyString",
       "street2": "MyString",
       "city": "MyString",
-      "country": "MyString"
+      "country": "MyString",
+      "time_zone": "Asia/Macau"
     },
     "setting": {
       "max_payout_rank": 10
