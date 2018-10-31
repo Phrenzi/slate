@@ -85,6 +85,13 @@ curl "https://phrenzi.com/api/management/profile" \
         "close_time": 86400
       }
     ],
+    "manager_staff": {
+      "id": "ffcae3fa-7381-4adf-ac9d-83845ef74fbd",
+      "first_name": "first1",
+      "last_name": "last1",
+      "manager": true,
+      "setuped": false
+    },
     "setup": false,
     "setup_flags": {
       "brand": false,
