@@ -16,6 +16,7 @@ curl "https://phrenzi.com/api/management/patrons" \
   "patrons": [
     {
       "id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681",
+      "name": "F1 L1",
       "first_name": "F1",
       "last_name": "L1",
       "email": "patron1@gmail.com",
@@ -25,12 +26,43 @@ curl "https://phrenzi.com/api/management/patrons" \
     },
     {
       "id": "fcbdd18f-e5ea-4368-8cf4-2e688e604a40",
+      "name": "F2 L2",
       "first_name": "F2",
       "last_name": "L2",
       "email": "patron2@gmail.com",
       "credit_balance": "0.0",
       "trans_code": "25e8ac",
       "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
+    },
+    {
+      "id": "c3335da8-a771-4974-8756-007be2530490",
+      "name": "Frist001 Last001",
+      "first_name": "Frist001",
+      "last_name": "Last001",
+      "email": "patron1@gmail.com",
+      "credit_balance": "100.23",
+      "trans_code": "af019e",
+      "profile": "/uploads/cache/2eb90e2645050f0b6bbcff902c5c3661.jpeg",
+      "challenge": {
+        "point_balance": 10,
+        "prize": "0.0",
+        "ranking": 1
+      }
+    },
+    {
+      "id": "0ea9dedb-4c6e-422d-92fd-ccb8d8db168c",
+      "name": "Frist002 Last002",
+      "first_name": "Frist002",
+      "last_name": "Last002",
+      "email": "patron2@gmail.com",
+      "credit_balance": "0.0",
+      "trans_code": "ad215c",
+      "profile": "/uploads/cache/b12a9a4a1de551aee65a33dba8509692.jpeg",
+      "challenge": {
+        "point_balance": 20,
+        "prize": "500.0",
+        "ranking": 0
+      }
     }
   ]
 }
