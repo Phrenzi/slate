@@ -2,14 +2,13 @@
 
 ## Get all staffs
 
-
 ```shell
 curl "https://phrenzi.com/api/management/staffs" \
   -H "Content-Type: application/json" \
   -H "Authorization: token"
 ```
 
-> The above command returns array of `Staff` object like this:
+> The above command returns array of `Staff` object like following json object:
 
 ```json
 {
