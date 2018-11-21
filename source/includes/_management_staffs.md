@@ -2,6 +2,7 @@
 
 ## Get all staffs
 
+
 ```shell
 curl "https://phrenzi.com/api/management/staffs" \
   -H "Content-Type: application/json" \
