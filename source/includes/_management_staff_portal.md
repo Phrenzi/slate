@@ -1,5 +1,55 @@
 # Management / Staffs Portal
 
+## Create staff
+
+```shell
+curl "https://phrenzi.com/api/management/portal/staffs" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token"\
+  -X POST \
+  -d '{
+    "first_name": "Simon",
+    "last_name": "Iong",
+    }'
+```
+
+> The above command returns with 200 ok status code and with `Staff` object like this:
+
+```json
+{
+  "staff": {
+    "id": "451dad93-71c4-4f8e-8709-ce3faa43e1c8",
+    "first_name": "Simon",
+    "last_name": "Iong",
+    "setuped": false,
+    "manager": false
+  }
+}
+```
+
+> If error happened, return 422 status code, and json object:
+
+``` json
+{
+  "errors": [
+    "First name can't be blank"
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and update staffs.
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/management/portal/staffs`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+first_name | first_name of Staff
+last_name | last_name of Staff
+
 ## Update staff
 
 ```shell
