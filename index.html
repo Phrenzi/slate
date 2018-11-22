@@ -4203,6 +4203,65 @@ response, with error explaination:</p>
 
           <h1 id="management-staffs-portal">Management / Staffs Portal</h1>
 
+<h2 id="create-staff">Create staff</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/portal/staffs"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span><span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+    "first_name": "Simon",
+    "last_name": "Iong",
+    }'</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns with 200 ok status code and with <code class="prettyprint">Staff</code> object like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"451dad93-71c4-4f8e-8709-ce3faa43e1c8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"setuped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If error happened, return 422 status code, and json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"First name can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update staffs.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/management/portal/staffs</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>first_name of Staff</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>last_name of Staff</td>
+</tr>
+</tbody></table>
+
 <h2 id="update-staff">Update staff</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
