@@ -86,3 +86,31 @@ This endpoint authenticated by `Manager Token`, and reset staff's pin_code
 ### HTTP Request
 
 `PATCH http://phrenzi.com/api/management/portal/staffs/:staff_id/reset_pin`
+
+## Delete staff
+
+```shell
+curl "https://phrenzi.com/api/management/portal/staffs/828055eb-a94d-4f71-aa90-110d5b747468" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -X DELETE
+```
+
+> The above command returns 200 status code and empty json
+
+This endpoint authenticated by `Manager Token`, and remove staff.
+
+
+> if not authenticate, return 401 status code and following json message:
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+### HTTP Request
+
+`DELETE http://phrenzi.com/api/management/portal/staffs/#{staff_id}`
