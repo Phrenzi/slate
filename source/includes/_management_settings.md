@@ -190,7 +190,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
 ### HTTP Request
 
-`PATCH http://phrenzi.com/api/management/settings/update_password`
+`PATCH http://phrenzi.com/api/management/settings/passwords`
 
 ### Query Parameters
 
