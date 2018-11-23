@@ -130,7 +130,7 @@ password | the current password for current manager
 ## Update Password
 
 ```shell
-curl "https://phrenzi.com/api/management/settings/passwords" \
+curl "https://phrenzi.com/api/management/settings/password" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
@@ -190,7 +190,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
 ### HTTP Request
 
-`PATCH http://phrenzi.com/api/management/settings/passwords`
+`PATCH http://phrenzi.com/api/management/settings/password`
 
 ### Query Parameters
 
