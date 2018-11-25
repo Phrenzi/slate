@@ -4211,6 +4211,7 @@ response, with error explaination:</p>
   -d <span class="s1">'{
     "first_name": "Simon",
     "last_name": "Iong",
+    "manager": true
     }'</span>
 </code></pre>
 
@@ -4223,7 +4224,7 @@ response, with error explaination:</p>
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"setuped"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4260,6 +4261,10 @@ response, with error explaination:</p>
 <td>last_name</td>
 <td>last_name of Staff</td>
 </tr>
+<tr>
+<td>manager</td>
+<td>true or false</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-staff">Update staff</h2>
@@ -4270,6 +4275,7 @@ response, with error explaination:</p>
   -d <span class="s1">'{
     "first_name": "Simon",
     "last_name": "Iong",
+    "manager": true
     }'</span>
 </code></pre>
 
@@ -4318,6 +4324,10 @@ response, with error explaination:</p>
 <tr>
 <td>last_name</td>
 <td>last_name of Staff</td>
+</tr>
+<tr>
+<td>manager</td>
+<td>true or false</td>
 </tr>
 </tbody></table>
 
