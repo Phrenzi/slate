@@ -10,6 +10,7 @@ curl "https://phrenzi.com/api/management/portal/staffs" \
   -d '{
     "first_name": "Simon",
     "last_name": "Iong",
+    "manager": true
     }'
 ```
 
@@ -22,7 +23,7 @@ curl "https://phrenzi.com/api/management/portal/staffs" \
     "first_name": "Simon",
     "last_name": "Iong",
     "setuped": false,
-    "manager": false
+    "manager": true
   }
 }
 ```
@@ -49,6 +50,7 @@ Parameter | Description
 --------- | -----------
 first_name | first_name of Staff
 last_name | last_name of Staff
+manager | true or false
 
 ## Update staff
 
@@ -60,6 +62,7 @@ curl "https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e
   -d '{
     "first_name": "Simon",
     "last_name": "Iong",
+    "manager": true
     }'
 ```
 
@@ -99,6 +102,7 @@ Parameter | Description
 --------- | -----------
 first_name | first_name of Staff
 last_name | last_name of Staff
+manager | true or false
 
 ## Reset Staff Pin Code
 
