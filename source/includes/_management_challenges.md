@@ -78,6 +78,8 @@ curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6
     "end_date": "2018-03-31",
     "status": "actived",
     "total_sales": "10000.0",
+    "max_payout_rank": 5,
+    "prize_percentage": "10.0",
     "ranking": [
       {
         "id": "db3d1772-c934-47b1-ad28-c7e4582d74e3",
