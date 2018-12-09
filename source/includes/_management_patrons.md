@@ -110,7 +110,21 @@ curl "https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4
     "email": "patron1@gmail.com",
     "credit_balance": "100.23",
     "trans_code": "519665",
-    "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
+    "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg",
+    "stats": {
+      "challenge_played": 1,
+      "challenge_won": 0,
+      "prize_earned": "23.23",
+      "point_earned": "200.0",
+      "booster_earned": 13,
+      "credit_earned_from_correction": "100.0",
+      "credit_loss_from_correction": "100.0",
+      "credit_earned_from_cash": "100.0",
+      "credit_spent": "100.0",
+      "credit_earned_from_deletion": "100.0",
+      "credit_loss_from_deletion": "100.0",
+      "credit_earned_from_prize": "100.0"
+    }
   }
 }
 ```
