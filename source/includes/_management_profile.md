@@ -92,6 +92,7 @@ curl "https://phrenzi.com/api/management/profile" \
       "manager": true,
       "setuped": false
     },
+    "terms": true,
     "setup": false,
     "setup_flags": {
       "brand": false,
