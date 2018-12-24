@@ -465,3 +465,30 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 Parameter | Description
 --------- | -----------
 token | Billing token
+
+## Accept Terms
+
+```shell
+curl "https://phrenzi.com/api/management/profile/terms" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token" \
+  -X PATCH
+```
+
+> if success, returns HTML status code 200 OK, with empty json
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "Authorized users only."
+  ]
+}
+```
+
+This endpoint authenticated by `Manager Token`, and accept terms for current establishment.
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/profile/terms`
