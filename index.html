@@ -9195,6 +9195,31 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </tr>
 </tbody></table>
 
+<h2 id="accept-terms">Accept Terms</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/terms"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+
+<blockquote>
+<p>if success, returns HTML status code 200 OK, with empty json</p>
+
+<p>if unauthorize, returns HTML status code 401, with following object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Authorized users only."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and accept terms for current establishment.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://phrenzi.com/api/management/profile/terms</code></p>
+
           <h1 id="management-report">Management / Report</h1>
 
 <h2 id="get-daily-summaries">Get daily summaries</h2>
