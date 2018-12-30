@@ -98,8 +98,8 @@ curl "https://phrenzi.com/api/management/profile" \
       "address": false,
       "hours": false,
       "images": false,
-      "billing": false
-      "terms": false,
+      "billing": false,
+      "terms": false
     }
   }
 }
