@@ -92,7 +92,6 @@ curl "https://phrenzi.com/api/management/profile" \
       "manager": true,
       "setuped": false
     },
-    "terms": true,
     "setup": false,
     "setup_flags": {
       "brand": false,
@@ -100,6 +99,7 @@ curl "https://phrenzi.com/api/management/profile" \
       "hours": false,
       "images": false,
       "billing": false
+      "terms": false,
     }
   }
 }
