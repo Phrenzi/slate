@@ -2278,6 +2278,72 @@ auth header from reponse to consuming next request that need authentication.</li
 
 <p><code class="prettyprint">DELETE http://example.com/api/managers/sign_out</code></p>
 
+<h2 id="resend-confirmation-email">Resend Confirmation Email</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/confirmation"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{ "email": "abc@gmail.com" }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns <code class="prettyprint">Manager</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"An email has been sent to 'abc@gmail.com' containing instructions for activate your account."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>if email is missing, return status code <code class="prettyprint">422</code> and json object:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You must provide an email address."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if manager with request email can not been found, return status code <code class="prettyprint">404</code> and json like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Unable to find user with email 'abc@gmail.com'."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if manager is already confirmed, return status code <code class="prettyprint">406</code> and json like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Already confirmed."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to authenticate Manager, and need App Token authenticated.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://example.com/api/managers/confirmation</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the email of manager</td>
+</tr>
+</tbody></table>
+
           <h1 id="patronapp-profile-image">PatronApp / Profile Image</h1>
 
 <h2 id="pre-sign-url">pre-sign url</h2>
