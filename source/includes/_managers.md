@@ -120,7 +120,8 @@ curl "https://phrenzi.com/api/managers/confirmation" \
 }
 ```
 
-if email is missing, return status code `422` and json object:
+
+> if email is missing, return status code `422` and json object:
 
 
 ``` json
