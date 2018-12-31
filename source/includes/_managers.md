@@ -98,3 +98,67 @@ this endpoint authenticated by `Manager Token`, you are going to get it from Man
 ### HTTP Request
 
 `DELETE http://example.com/api/managers/sign_out`
+
+
+## Resend Confirmation Email
+
+```shell
+curl "https://phrenzi.com/api/managers/confirmation" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
+  -d '{ "email": "abc@gmail.com" }'
+```
+
+> if success, the above command returns `Manager` object with `200` status code, and structured like this:
+
+```json
+{
+  "messages": [
+    "An email has been sent to 'abc@gmail.com' containing instructions for activate your account."
+  ]
+}
+```
+
+if email is missing, return status code `422` and json object:
+
+
+``` json
+{
+  "errors": [
+    "You must provide an email address."
+  ]
+}
+```
+
+> if manager with request email can not been found, return status code `404` and json like this:
+
+``` json
+{
+  "errors": [
+    "Unable to find user with email 'abc@gmail.com'."
+  ]
+}
+```
+
+> if manager is already confirmed, return status code `406` and json like this:
+
+``` json
+{
+  "errors": [
+    "Already confirmed."
+  ]
+}
+```
+
+This endpoint try to authenticate Manager, and need App Token authenticated.
+
+### HTTP Request
+
+`POST http://example.com/api/managers/confirmation`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+email | the email of manager
