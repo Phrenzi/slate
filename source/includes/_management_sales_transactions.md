@@ -34,6 +34,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false,
+      "staff_name": "staff A",
       "action": "Cash Purchase"
     },
     {
@@ -53,6 +54,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
       "del_transaction_id": null,
       "deleted_at": null,
       "deleted": false,
+      "staff_name": "staff A",
       "action": "Cash Purchase"
     }
   ]
