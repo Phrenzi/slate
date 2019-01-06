@@ -20,6 +20,7 @@ curl "https://phrenzi.com/api/management/point_transactions" \
     {
       "id": "7883337f-2353-4195-ae45-c8c554a916f5",
       "patron_id": "602247e3-9a20-4862-b772-a7fd617fc227",
+      "patron_name": "Frist001 Last001",
       "establishment_id": "5f4c1f46-0e9b-4526-9bdf-1f85ba7f2869",
       "challenge_id": "7417f876-a72f-490c-9324-f4b81003cbf3",
       "point": 9,
@@ -29,11 +30,13 @@ curl "https://phrenzi.com/api/management/point_transactions" \
       "correction": false,
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "staff_name": null
     },
     {
       "id": "61227894-84f1-452d-8c4f-d5979f607097",
       "patron_id": "602247e3-9a20-4862-b772-a7fd617fc227",
+      "patron_name": "Frist002 Last002",
       "establishment_id": "5f4c1f46-0e9b-4526-9bdf-1f85ba7f2869",
       "challenge_id": "7417f876-a72f-490c-9324-f4b81003cbf3",
       "point": 9,
@@ -43,7 +46,8 @@ curl "https://phrenzi.com/api/management/point_transactions" \
       "correction": false,
       "del_transaction_id": null,
       "deleted_at": null,
-      "deleted": false
+      "deleted": false,
+      "staff_name": "peter"
     }
   ]
 }
@@ -89,6 +93,7 @@ curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9
     {
       "id": "008b511b-5d68-454f-9112-619ca2d703ae",
       "patron_id": "fa2b6e2e-4a61-4254-938b-d00e1114c668",
+      "patron_name": "Frist001 Last001",
       "establishment_id": "ad4f2664-e0ac-4450-aa54-4ff4b1986411",
       "challenge_id": "e8ad41d9-b98a-4003-b375-ec61b6204a4a",
       "point": -9,
@@ -98,7 +103,8 @@ curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9
       "correction": false,
       "del_transaction_id": "ddbd0c3c-404d-4ce1-9042-9baecb4ef585",
       "deleted_at": "2018-03-12T07:15:58Z",
-      "deleted": true
+      "deleted": true,
+      "staff_name": "first1 last1"
     }
   ]
 }
