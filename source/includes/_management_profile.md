@@ -103,6 +103,7 @@ curl "https://phrenzi.com/api/management/profile" \
         "owner": true
       }
     ],
+    "favorite_patrons_count": 0,
     "setup": false,
     "setup_flags": {
       "brand": false,
