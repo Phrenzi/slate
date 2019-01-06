@@ -87,6 +87,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 Parameter | Required | Description
 --------- | ----------- | ----------
+filter | N | filter options, for now, only accept 'favorite'
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
 
