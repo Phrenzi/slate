@@ -112,8 +112,14 @@ curl "https://phrenzi.com/api/management/profile" \
       "images": false,
       "billing": false,
       "terms": false
+    },
+    "current_challenge": {
+      "start_date": "2016-12-06T16:00:00Z",
+      "end_date": "2016-12-06T16:00:00Z",
+      "prize_percentage": "25.0",
+      "max_payout_rank": 5,
+      "total_sales": "10000.0"
     }
-  }
 }
 ```
 
