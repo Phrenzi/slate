@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/booster_templates" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
 ```
 
@@ -47,7 +47,7 @@ curl "https://phrenzi.com/api/management/booster_templates" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all booster templates
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all booster templates
 
 ### HTTP Request
 
@@ -64,7 +64,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 ```shell
 curl "https://phrenzi.com/api/management/booster_templates" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -104,7 +104,7 @@ curl "https://phrenzi.com/api/management/booster_templates" \
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster Template
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster Template
 
 ### HTTP Request
 
@@ -185,7 +185,7 @@ title | Y | Title of booster template
 ```shell
 curl "https://phrenzi.com/api/management/booster_templates/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -224,7 +224,7 @@ curl "https://phrenzi.com/api/management/booster_templates/a635683c-87d3-4531-a5
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Booster Template
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Booster Template
 
 ### HTTP Request
 
@@ -303,14 +303,14 @@ title | Y | Title of booster template
 ```shell
 curl "https://phrenzi.com/api/management/booster_template/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
 > If success, return 200 status code with empty response.
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster Template
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster Template
 
 ### HTTP Request
 

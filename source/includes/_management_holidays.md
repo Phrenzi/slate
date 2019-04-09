@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/holidays" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "start": "2018-03-01",
@@ -35,7 +35,7 @@ curl "https://phrenzi.com/api/management/holidays" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all holidays.
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all holidays.
 
 ### HTTP Request
 
@@ -61,7 +61,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/holidays" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -94,7 +94,7 @@ curl "https://phrenzi.com/api/management/holidays" \
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Holiday
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Holiday
 
 ### HTTP Request
 
@@ -116,7 +116,7 @@ title | Y | the title displayed for Holiday
 ```shell
 curl "https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -149,7 +149,7 @@ curl "https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Holiday
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Holiday
 
 ### HTTP Request
 
@@ -171,14 +171,14 @@ title | Y | the title displayed for Holiday
 ```shell
 curl "https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
 
 > If success, return 200 status code with empty response.
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Holiday
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Holiday
 
 ### HTTP Request
 

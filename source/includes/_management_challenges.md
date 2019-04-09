@@ -5,13 +5,12 @@
 ```shell
 curl "https://phrenzi.com/api/management/challenges" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "start": "2018-03-01",
     "end": "2018-03-28"
     }'
-
 ```
 
 > The above command returns array of `Challenge` objects:
@@ -37,7 +36,7 @@ curl "https://phrenzi.com/api/management/challenges" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.
 
 ### HTTP Request
 
@@ -63,7 +62,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6e2d2f64a" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: "Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
@@ -106,7 +105,7 @@ curl "https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves challenge detail.
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves challenge detail.
 
 ### HTTP Request
 
@@ -120,7 +119,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 ```shell
 curl "https://phrenzi.com/api/management/challenges" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -155,7 +154,7 @@ curl "https://phrenzi.com/api/management/challenges" \
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Challenge
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Challenge
 
 ### HTTP Request
 
@@ -178,7 +177,7 @@ prize_percentage | N | the prize percentage, if not present, system setting will
 ```shell
 curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -213,7 +212,7 @@ curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge
 
 ### HTTP Request
 
@@ -236,7 +235,7 @@ prize_percentage | N | the prize percentage, if not present, system setting will
 ```shell
 curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -253,7 +252,7 @@ curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge
 
 ### HTTP Request
 
@@ -267,7 +266,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 ```shell
 curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8/stop" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH
 ```
@@ -284,7 +283,7 @@ curl "https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge
 
 ### HTTP Request
 
@@ -298,7 +297,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 ```shell
 curl "https://phrenzi.com/api/management/challenges/current" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH
 ```
@@ -340,7 +339,7 @@ curl "https://phrenzi.com/api/management/challenges/current" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.
 
 ### HTTP Request
 

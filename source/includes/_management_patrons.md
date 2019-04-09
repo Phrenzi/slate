@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/patrons" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
@@ -68,7 +68,7 @@ curl "https://phrenzi.com/api/management/patrons" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and retrieves all patrons.
+This endpoint authenticated by `Access Token`, and retrieves all patrons.
 
 Noted that credit_balance returned from patron object is for manager's establishment,
 the `credit_balance` return from different manager authenticated should be differernt.
@@ -96,7 +96,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
@@ -130,7 +130,7 @@ curl "https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4
 }
 ```
 
-This endpoint authenticated by `Manger Token`, and retrieves patron object.
+This endpoint authenticated by `Access Token`, and retrieves patron object.
 
 Noted that credit_balance returned from patron object is for manager's establishment,
 the `credit_balance` return from different manager authenticated should be differernt.
