@@ -4463,13 +4463,12 @@ response, with error explaination:</p>
 <h2 id="get-all-challenges">Get all challenges</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "start": "2018-03-01",
     "end": "2018-03-28"
     }'</span>
-
 </code></pre>
 
 <blockquote>
@@ -4495,7 +4494,7 @@ response, with error explaination:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4541,9 +4540,9 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h2 id="get-challenge">Get Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/7a6cd829-1328-44dc-abdd-eda6e2d2f64a"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
-  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
-</code></pre>
+  -H <span class="s2">"Authorization: "</span>Bearer access_token<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -H "</span>X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468<span class="s2">"
+</span></code></pre>
 
 <blockquote>
 <p>The above command returns array of <code class="prettyprint">Challenge</code> objects:</p>
@@ -4584,7 +4583,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves challenge detail.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves challenge detail.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4596,7 +4595,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="create-challenge">Create Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -4631,7 +4630,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Challenge</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Challenge</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4674,7 +4673,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="update-challenge">Update Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -4709,7 +4708,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4752,7 +4751,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="delete-challenge">Delete Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -4769,7 +4768,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Challenge</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4781,7 +4780,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="stop-challenge">Stop Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH
 </code></pre>
@@ -4798,7 +4797,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Challenge</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4810,7 +4809,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="current-challenge">Current Challenge</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/challenges/current"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH
 </code></pre>
@@ -4852,7 +4851,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all challenges.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6185,7 +6184,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-booster-templates">Get all booster templates</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
 </code></pre>
 
@@ -6227,7 +6226,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all booster templates</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all booster templates</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6242,7 +6241,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h2 id="create-booster-templates">Create Booster Templates</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -6282,7 +6281,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster Template</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster Template</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6551,7 +6550,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="update-booster-template">Update Booster Template</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_templates/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -6590,7 +6589,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster Template</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster Template</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6840,7 +6839,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="delete-booster-template">Delete Booster Template</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster_template/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -6849,7 +6848,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <p>If success, return 200 status code with empty response.</p>
 </blockquote>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster Template</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster Template</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6863,7 +6862,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-holidays">Get all holidays</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "start": "2018-03-01",
@@ -6893,7 +6892,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all holidays.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all holidays.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6939,7 +6938,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h2 id="create-holiday">Create Holiday</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -6972,7 +6971,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Holiday</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Holiday</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -7010,7 +7009,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="update-holiday">Update Holiday</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -7043,7 +7042,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Holiday</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Holiday</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -7081,7 +7080,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="delete-holiday">Delete Holiday</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/holidays/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -7090,7 +7089,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <p>If success, return 200 status code with empty response.</p>
 </blockquote>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Holiday</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Holiday</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -7104,7 +7103,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-patrons">Get all patrons</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
 </code></pre>
 
@@ -7167,7 +7166,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves all patrons.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and retrieves all patrons.</p>
 
 <p>Noted that credit_balance returned from patron object is for manager&rsquo;s establishment,
 the <code class="prettyprint">credit_balance</code> return from different manager authenticated should be differernt.</p>
@@ -7211,7 +7210,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h2 id="get-patron">Get patron</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/patrons/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
 </code></pre>
 
@@ -7245,7 +7244,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manger Token</code>, and retrieves patron object.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and retrieves patron object.</p>
 
 <p>Noted that credit_balance returned from patron object is for manager&rsquo;s establishment,
 the <code class="prettyprint">credit_balance</code> return from different manager authenticated should be differernt.</p>
