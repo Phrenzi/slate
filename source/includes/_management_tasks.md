@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/tasks" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "patron_id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681"
@@ -59,7 +59,7 @@ curl "https://phrenzi.com/api/management/tasks" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and retrieves all active task boosters along with redeemed information with patron_id selected
+This endpoint authenticated by `Access Token`, and retrieves all active task boosters along with redeemed information with patron_id selected
 
 ### HTTP Request
 
@@ -84,7 +84,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/tasks/ddbd0c3c-404d-4ce1-9042-9baecb4ef585/redeem" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
