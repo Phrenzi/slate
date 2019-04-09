@@ -4866,7 +4866,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-boosters">Get all boosters</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "start": "2018-03-01",
@@ -4914,7 +4914,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all boosters within range.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves all boosters within range.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -4960,7 +4960,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 <h2 id="get-booster">Get booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/0cb43edf-4623-4086-99a0-50554af32baa"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
 </code></pre>
 
@@ -4984,7 +4984,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -5322,7 +5322,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="create-boosters">Create Boosters</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -5365,7 +5365,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -5700,7 +5700,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="create-booster-from-booster-template">Create Booster From Booster Template</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/from_booster_template"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -5738,7 +5738,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster from existing booster_template id</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and create Booster from existing booster_template id</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -5771,7 +5771,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="update-booster">Update Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -5813,7 +5813,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and update Booster</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6125,7 +6125,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="delete-booster">Delete Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d053b8"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -6142,7 +6142,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6154,7 +6154,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="stop-booster">Stop Booster</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH
 </code></pre>
@@ -6171,7 +6171,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code> ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
