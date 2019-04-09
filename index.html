@@ -2170,29 +2170,24 @@ and with following json object</p>
           <h1 id="managers">Managers</h1>
 
 <h2 id="sign-in">Sign In</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_in"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/oauth/token"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "email": "abc@gmail.com",
-        "password": "password" }'</span>
+        "password": "password",
+        "grant_type: "password",
+        "user_type": "manager" }'</span>
 </code></pre>
 
 <blockquote>
 <p>if success, the above command returns <code class="prettyprint">Manager</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"manager"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6b586aeb-a53d-476a-9435-659ed9547e6e"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"establishment_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"establishment_setup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"494a1cff589247d2a0c5375033ac4314"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30T04:50:10Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0d4a8c0c47341dc8acc725f66a9bfe8"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"refresh_token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-29T04:50:10Z"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca838e1ba512074fa61d1d14d1f2c25dacb6e45c3cba69e902b78ed4b64cd29e"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2629746</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554812886</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2208,21 +2203,20 @@ and with following json object</p>
 <p>if manager is not confirmed yet, return status code <code class="prettyprint">401</code> and json like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A confirmation email was sent to your email. You must follow the instructions in the email before your account can be activated"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint try to authenticate Manager, and need App Token authenticated.</p>
+<p>This endpoint try to authenticate Manager using Oauth &ldquo;Resource Owner Password Credentials&rdquo;.</p>
 
 <ul>
-<li>if success, it will return <code class="prettyprint">Manager</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
-auth header from reponse to consuming next request that need authentication.</li>
+<li>if success, it will return object with access_token and HTTP Status Code <code class="prettyprint">200</code>, and client can consuming any protected (start with management namespace ) request with this access token.</li>
 <li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">401</code> with <code class="prettyprint">errors</code> message.</li>
 </ul>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://example.com/api/managers/sign_in</code></p>
+<p><code class="prettyprint">POST http://example.com/api/managers/oauth/token</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -2240,43 +2234,46 @@ auth header from reponse to consuming next request that need authentication.</li
 <td>password</td>
 <td>the password of manager account</td>
 </tr>
+<tr>
+<td>grant_type</td>
+<td>must be &ldquo;password&rdquo;</td>
+</tr>
+<tr>
+<td>user_type</td>
+<td>must be &ldquo;manager&rdquo;</td>
+</tr>
 </tbody></table>
 
 <h2 id="sign-out">Sign Out</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/sign_out"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/oauth/revoke"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
-  -X DELETE
+  -X POST
 </code></pre>
 
 <blockquote>
 <p>if success, the above command returns status code <code class="prettyprint">200</code>, and json object like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"successfully logout!"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
-<p>if failed, either token is missing, token is expired, or token not found, the above command returns status code <code class="prettyprint">401</code>, and errors json like this:</p>
+<p>if failed, either token is missing, token is expired, or token not found, the above command returns status code <code class="prettyprint">200</code> as well, with empty json object</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"You need to sign in or sign up before continuing."</span><span class="w">
-  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>this endpoint authenticated by <code class="prettyprint">Manager Token</code>, you are going to get it from Manager <code class="prettyprint">Sign In</code> api request.</p>
+<p>this endpoint authenticated by <code class="prettyprint">Access Token</code>, you are going to get it from Manager <code class="prettyprint">Sign In</code> api request.</p>
 
 <ul>
-<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code></li>
-<li>if failed to authenticate, it will return HTTP Status Code <code class="prettyprint">404</code> with <code class="prettyprint">errors</code> message.</li>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code>, and revoke access_token</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">200</code> as well, but not revoke access_token</li>
 </ul>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE http://example.com/api/managers/sign_out</code></p>
+<p><code class="prettyprint">POST http://example.com/api/managers/revoke</code></p>
 
 <h2 id="resend-confirmation-email">Resend Confirmation Email</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/managers/confirmation"</span> <span class="se">\</span>
