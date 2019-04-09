@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/profile" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
@@ -123,7 +123,7 @@ curl "https://phrenzi.com/api/management/profile" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and get latest profile information for current establishment.
+This endpoint authenticated by `Access Token`, and get latest profile information for current establishment.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -137,7 +137,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 ```shell
 curl "https://phrenzi.com/api/management/profile/brand" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -174,7 +174,7 @@ curl "https://phrenzi.com/api/management/profile/brand" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update cash_back for current establishment.
+This endpoint authenticated by `Access Token`, and update cash_back for current establishment.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -200,7 +200,7 @@ prize_percentage | Default Prize percentage
 ```shell
 curl "https://phrenzi.com/api/management/profile/address" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -225,7 +225,7 @@ curl "https://phrenzi.com/api/management/profile/address" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update profile address
+This endpoint authenticated by `Access Token`, and update profile address
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -292,7 +292,7 @@ For more detail, please visit shrine's plugin [direct_upload](http://shrinerb.co
 ```shell
 curl "https://phrenzi.com/api/management/profile/images" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -320,7 +320,7 @@ curl "https://phrenzi.com/api/management/profile/images" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update establishment profile logo or banner
+This endpoint authenticated by `Access Token`, and update establishment profile logo or banner
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -341,7 +341,7 @@ logo | Logo image
 ```shell
 curl "https://phrenzi.com/api/management/profile/business_hours" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -418,7 +418,7 @@ curl "https://phrenzi.com/api/management/profile/business_hours" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update establishment profile business hours
+This endpoint authenticated by `Access Token`, and update establishment profile business hours
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -438,7 +438,7 @@ business_hours | Array of Business Hour setting
 ```shell
 curl "https://phrenzi.com/api/management/profile/billing" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -469,7 +469,7 @@ curl "https://phrenzi.com/api/management/profile/billing" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update billing token for current establishment.
+This endpoint authenticated by `Access Token`, and update billing token for current establishment.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -489,7 +489,7 @@ token | Billing token
 ```shell
 curl "https://phrenzi.com/api/management/profile/terms" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -X PATCH
 ```
 
@@ -505,7 +505,7 @@ curl "https://phrenzi.com/api/management/profile/terms" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and accept terms for current establishment.
+This endpoint authenticated by `Access Token`, and accept terms for current establishment.
 
 ### HTTP Request
 

@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/point_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "patron_id": "602247e3-9a20-4862-b772-a7fd617fc227"
@@ -53,7 +53,7 @@ curl "https://phrenzi.com/api/management/point_transactions" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and retrieves point transaction records by establishment by patron
+This endpoint authenticated by `Access Token`, and retrieves point transaction records by establishment by patron
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -80,7 +80,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -115,7 +115,7 @@ curl "https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9
 ```shell
 curl "https://phrenzi.com/api/management/point_transactions/this-is-a-fake-id" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -131,7 +131,7 @@ curl "https://phrenzi.com/api/management/point_transactions/this-is-a-fake-id" \
 ```
 
 
-This endpoint authenticated by `Manager Token`, and delete point transaction records.
+This endpoint authenticated by `Access Token`, and delete point transaction records.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>

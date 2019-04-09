@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
@@ -61,7 +61,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and retrieves transaction records by establishment by patron
+This endpoint authenticated by `Access Token`, and retrieves transaction records by establishment by patron
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -89,7 +89,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -133,7 +133,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -196,7 +196,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -240,7 +240,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -284,7 +284,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -320,7 +320,7 @@ curl "https://phrenzi.com/api/management/sales_transactions" \
   }
 }
 ```
-This endpoint authenticated by `Manager Token`, and create transaction records.
+This endpoint authenticated by `Access Token`, and create transaction records.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -392,7 +392,7 @@ credit_amount | -125.0
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -430,7 +430,7 @@ curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -487,7 +487,7 @@ curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -525,7 +525,7 @@ curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions/this-is-a-fake-id" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -545,7 +545,7 @@ curl "https://phrenzi.com/api/management/sales_transactions/this-is-a-fake-id" \
 ```shell
 curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -560,7 +560,7 @@ curl "https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and delete transaction records.
+This endpoint authenticated by `Access Token`, and delete transaction records.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>

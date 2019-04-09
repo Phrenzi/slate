@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
 ```
 
@@ -39,7 +39,7 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
-This endpoint require `Manager Token` and return cash back settings
+This endpoint require `Access Token` and return cash back settings
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -54,7 +54,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 ```shell
 curl "https://phrenzi.com/api/management/settings/cash_back" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -111,7 +111,7 @@ curl "https://phrenzi.com/api/management/settings/cash_back" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update cash_back for current establishment.
+This endpoint authenticated by `Access Token`, and update cash_back for current establishment.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -132,7 +132,7 @@ password | the current password for current manager
 ```shell
 curl "https://phrenzi.com/api/management/settings/password" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -183,7 +183,7 @@ curl "https://phrenzi.com/api/management/settings/password" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update current password for current manager.
+This endpoint authenticated by `Access Token`, and update current password for current manager.
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -198,4 +198,5 @@ Parameter | Description
 --------- | -----------
 current_password | the current password for current manager
 password | the new password for current manager
+P
 password_confirmation | confirmation for the new password
