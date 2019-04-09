@@ -7435,7 +7435,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-sales-transactions-by-patron_id-for-current-establishment">Get all sales transactions by patron_id for current establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "patron_id": "a9ce92dd-1b1d-498a-b7d0-77fffccd20de"
@@ -7491,7 +7491,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves transaction records by establishment by patron</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and retrieves transaction records by establishment by patron</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -7541,7 +7541,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -7585,7 +7585,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -7648,7 +7648,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -7692,7 +7692,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -7736,7 +7736,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'{
@@ -7773,7 +7773,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and create transaction records.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and create transaction records.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -7952,7 +7952,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -7990,7 +7990,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8047,7 +8047,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8085,7 +8085,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/this-is-a-fake-id"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8105,7 +8105,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/sales_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8120,7 +8120,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and delete transaction records.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and delete transaction records.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -8134,7 +8134,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-all-transactions-for-current-establishment">Get all transactions for current establishment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/point_transactions"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "patron_id": "602247e3-9a20-4862-b772-a7fd617fc227"
@@ -8182,7 +8182,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and retrieves point transaction records by establishment by patron</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and retrieves point transaction records by establishment by patron</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -8227,7 +8227,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/point_transactions/ddbd0c3c-404d-4ce1-9042-9baecb4ef585"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8262,7 +8262,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </blockquote>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/point_transactions/this-is-a-fake-id"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X DELETE
 </code></pre>
@@ -8277,7 +8277,7 @@ href="#link-response-header">Link Response Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and delete point transaction records.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and delete point transaction records.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
@@ -8529,7 +8529,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 <h2 id="get-cash-back">Get cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
 </code></pre>
 
@@ -8563,7 +8563,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint require <code class="prettyprint">Manager Token</code> and return cash back settings</p>
+<p>This endpoint require <code class="prettyprint">Access Token</code> and return cash back settings</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -8575,7 +8575,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-cash-back">Update cash back</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/cash_back"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -8632,7 +8632,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update cash_back for current establishment.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update cash_back for current establishment.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -8662,7 +8662,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-password">Update Password</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/settings/password"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -8713,7 +8713,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update current password for current manager.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update current password for current manager.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -8738,18 +8738,17 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <td>password</td>
 <td>the new password for current manager</td>
 </tr>
-<tr>
-<td>password_confirmation</td>
-<td>confirmation for the new password</td>
-</tr>
 </tbody></table>
+
+<p>P
+password_confirmation | confirmation for the new password</p>
 
           <h1 id="management-profile">Management / Profile</h1>
 
 <h2 id="get-profile">Get Profile</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
 </code></pre>
 
@@ -8867,7 +8866,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and get latest profile information for current establishment.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and get latest profile information for current establishment.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -8879,7 +8878,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-brand">Update Brand</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/brand"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -8916,7 +8915,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update cash_back for current establishment.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update cash_back for current establishment.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -8966,7 +8965,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-address">Update Address</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/address"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -8991,7 +8990,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update profile address</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update profile address</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -9075,7 +9074,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-logo-or-banner">Update Logo or Banner</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/images"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -9103,7 +9102,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update establishment profile logo or banner</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update establishment profile logo or banner</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -9133,7 +9132,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-business-hours">Update Business Hours</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/business_hours"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -9210,7 +9209,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update establishment profile business hours</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update establishment profile business hours</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -9236,7 +9235,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="update-billing-info">Update Billing Info</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/billing"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span> <span class="se">\</span>
   -X PATCH <span class="se">\</span>
   -d <span class="s1">'{
@@ -9267,7 +9266,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and update billing token for current establishment.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and update billing token for current establishment.</p>
 
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
@@ -9293,7 +9292,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 <h2 id="accept-terms">Accept Terms</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/terms"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: token"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
   -X PATCH
 </code></pre>
 
@@ -9309,7 +9308,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint authenticated by <code class="prettyprint">Manager Token</code>, and accept terms for current establishment.</p>
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and accept terms for current establishment.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
