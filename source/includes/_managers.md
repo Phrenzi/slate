@@ -3,29 +3,24 @@
 ## Sign In
 
 ```shell
-curl "https://phrenzi.com/api/managers/sign_in" \
+curl "https://phrenzi.com/api/managers/oauth/token" \
   -H "Content-Type: application/json" \
-  -H "Authorization: app_token" \
   -X POST \
   -d '{
         "email": "abc@gmail.com",
-        "password": "password" }'
+        "password": "password",
+        "grant_type: "password",
+        "user_type": "manager" }'
 ```
 
 > if success, the above command returns `Manager` object with `200` status code, and structured like this:
 
 ```json
 {
-  "manager": {
-    "id": "6b586aeb-a53d-476a-9435-659ed9547e6e",
-    "email": "abc@gmail.com",
-    "establishment_name": "Awesome Bar",
-    "establishment_setup": true,
-    "token": "494a1cff589247d2a0c5375033ac4314",
-    "token_exp_at": "2017-09-30T04:50:10Z",
-    "refresh_token": "a0d4a8c0c47341dc8acc725f66a9bfe8",
-    "refresh_token_exp_at": "2017-10-29T04:50:10Z"
-  }
+  "access_token": "ca838e1ba512074fa61d1d14d1f2c25dacb6e45c3cba69e902b78ed4b64cd29e",
+  "token_type": "Bearer",
+  "expires_in": 2629746,
+  "created_at": 1554812886
 }
 ```
 
@@ -41,19 +36,18 @@ curl "https://phrenzi.com/api/managers/sign_in" \
 
 ``` json
 {
-  "errors": ["A confirmation email was sent to your account at 'abc@gmail.com'. You must follow the instructions in the email before your account can be activated"]
+  "errors": ["A confirmation email was sent to your email. You must follow the instructions in the email before your account can be activated"]
 }
 ```
 
-This endpoint try to authenticate Manager, and need App Token authenticated.
+This endpoint try to authenticate Manager using Oauth "Resource Owner Password Credentials".
 
-* if success, it will return `Manager` object with HTTP Status Code `200`, and client can retrive
-auth header from reponse to consuming next request that need authentication.
+* if success, it will return object with access_token and HTTP Status Code `200`, and client can consuming any protected (start with management namespace ) request with this access token.
 * if failed to authenticate, it will return HTTP Status Code `401` with `errors` message.
 
 ### HTTP Request
 
-`POST http://example.com/api/managers/sign_in`
+`POST http://example.com/api/managers/oauth/token`
 
 ### Query Parameters
 
@@ -61,44 +55,39 @@ Parameter | Description
 --------- | -----------
 email | the email of manager account
 password | the password of manager account
-
+grant_type | must be "password"
+user_type | must be "manager"
 
 ## Sign Out
 
 ```shell
-curl "https://phrenzi.com/api/managers/sign_out" \
+curl "https://phrenzi.com/api/managers/oauth/revoke" \
   -H "Content-Type: application/json" \
   -H "Authorization: token" \
-  -X DELETE
+  -X POST
 ```
 
 > if success, the above command returns status code `200`, and json object like this:
 
 ```json
-{
-  "messages": ["successfully logout!"]
-}
+{}
 ```
 
-> if failed, either token is missing, token is expired, or token not found, the above command returns status code `401`, and errors json like this:
+> if failed, either token is missing, token is expired, or token not found, the above command returns status code `200` as well, with empty json object
 
 ``` json
 {
-  "errors": [
-    "You need to sign in or sign up before continuing."
-  ]
 }
 ```
 
-this endpoint authenticated by `Manager Token`, you are going to get it from Manager `Sign In` api request.
+this endpoint authenticated by `Access Token`, you are going to get it from Manager `Sign In` api request.
 
-* if success, it will return HTTP Status Code `200`
-* if failed to authenticate, it will return HTTP Status Code `404` with `errors` message.
+* if success, it will return HTTP Status Code `200`, and revoke access_token
+* if failed, it will return HTTP Status Code `200` as well, but not revoke access_token
 
 ### HTTP Request
 
-`DELETE http://example.com/api/managers/sign_out`
-
+`POST http://example.com/api/managers/revoke`
 
 ## Resend Confirmation Email
 
