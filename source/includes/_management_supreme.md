@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/supreme/establishments" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"
+  -H "Authorization: Bearer access_token"
 ```
 
 > The above command returns array of `Establishment` object like this:
@@ -25,7 +25,7 @@ curl "https://phrenzi.com/api/management/supreme/establishments" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and manager need to be a super manager, this endpoint will retrieve all establishments.
+This endpoint authenticated by `Access Token`, and manager need to be a super manager, this endpoint will retrieve all establishments.
 
 ### HTTP Request
 
@@ -36,7 +36,7 @@ This endpoint authenticated by `Manager Token`, and manager need to be a super m
 ```shell
 curl "https://phrenzi.com/api/management/supreme/ddbd0c3c-404d-4ce1-9042-9baecb4ef585/select" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -X PATCH
 ```
 

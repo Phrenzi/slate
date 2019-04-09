@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/daily_summaries" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -d '{
     "start_date": "2018-10-08",
     "end_date": "2018-10-09"
@@ -31,7 +31,7 @@ curl "https://phrenzi.com/api/management/daily_summaries" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and return daily summaries report
+This endpoint authenticated by `Access Token`, and return daily summaries report
 
 ### HTTP Request
 
@@ -56,7 +56,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/monthly_summaries" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -d '{
     "start_date": "2018-09-01",
     "end_date": "2018-11-01"
@@ -89,7 +89,7 @@ curl "https://phrenzi.com/api/management/monthly_summaries" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and return monthly summaries report
+This endpoint authenticated by `Access Token`, and return monthly summaries report
 
 ### HTTP Request
 

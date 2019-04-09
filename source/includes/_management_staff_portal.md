@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/portal/staffs" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"\
+  -H "Authorization: Bearer access_token"\
   -X POST \
   -d '{
     "first_name": "Simon",
@@ -38,7 +38,7 @@ curl "https://phrenzi.com/api/management/portal/staffs" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update staffs.
+This endpoint authenticated by `Access Token`, and update staffs.
 
 ### HTTP Request
 
@@ -57,7 +57,7 @@ manager | true or false
 ```shell
 curl "https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"\
+  -H "Authorization: Bearer access_token"\
   -X PATCH \
   -d '{
     "first_name": "Simon",
@@ -90,7 +90,7 @@ curl "https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and update staffs.
+This endpoint authenticated by `Access Token`, and update staffs.
 
 ### HTTP Request
 
@@ -109,7 +109,7 @@ manager | true or false
 ```shell
 curl "https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85/reset_pin" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"\
+  -H "Authorization: Bearer access_token"\
   -X PATCH
 ```
 
@@ -135,7 +135,7 @@ curl "https://phrenzi.com/api/management/portal/staffs/10efd10c-22dc-4871-83cc-e
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and reset staff's pin_code
+This endpoint authenticated by `Access Token`, and reset staff's pin_code
 
 ### HTTP Request
 
@@ -146,13 +146,13 @@ This endpoint authenticated by `Manager Token`, and reset staff's pin_code
 ```shell
 curl "https://phrenzi.com/api/management/portal/staffs/828055eb-a94d-4f71-aa90-110d5b747468" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -X DELETE
 ```
 
 > The above command returns 200 status code and empty json
 
-This endpoint authenticated by `Manager Token`, and remove staff.
+This endpoint authenticated by `Access Token`, and remove staff.
 
 
 > if not authenticate, return 401 status code and following json message:

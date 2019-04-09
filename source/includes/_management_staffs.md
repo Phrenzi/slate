@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/staffs" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"
+  -H "Authorization: Bearer access_token"
 ```
 
 > The above command returns array of `Staff` object like following json object:
@@ -31,7 +31,7 @@ curl "https://phrenzi.com/api/management/staffs" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and retrieves all staffs.
+This endpoint authenticated by `Access Token`, and retrieves all staffs.
 
 ### HTTP Request
 
@@ -42,7 +42,7 @@ This endpoint authenticated by `Manager Token`, and retrieves all staffs.
 ```shell
 curl "https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c103c85/setup" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"\
+  -H "Authorization: Bearer access_token"\
   -X PATCH \
   -d '{
     "pin_code": "1234"
@@ -93,7 +93,7 @@ curl "https://phrenzi.com/api/management/staffs/10efd10c-22dc-4871-83cc-e8a36c10
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and setup staff's pin_code
+This endpoint authenticated by `Access Token`, and setup staff's pin_code
 
 ### HTTP Request
 
@@ -110,7 +110,7 @@ pin_code | the pin code of staff, need to be 4 digit lenght
 ```shell
 curl "https://phrenzi.com/api/management/staffs/sign_in" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token"\
+  -H "Authorization: Bearer access_token"\
   -X POST \
   -d '{
     "staff_id": "10efd10c-22dc-4871-83cc-e8a36c103c85",
@@ -162,7 +162,7 @@ curl "https://phrenzi.com/api/management/staffs/sign_in" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and sign in staff
+This endpoint authenticated by `Access Token`, and sign in staff
 
 ### HTTP Request
 
