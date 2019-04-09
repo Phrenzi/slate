@@ -5,7 +5,7 @@
 ```shell
 curl "https://phrenzi.com/api/management/boosters" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -d '{
     "start": "2018-03-01",
@@ -53,7 +53,7 @@ curl "https://phrenzi.com/api/management/boosters" \
 }
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all boosters within range.
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves all boosters within range.
 
 ### HTTP Request
 
@@ -79,7 +79,7 @@ per_page | N | the number of transaction record return per page by api, default 
 ```shell
 curl "https://phrenzi.com/api/management/boosters/0cb43edf-4623-4086-99a0-50554af32baa" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
 ```
 
@@ -103,7 +103,7 @@ curl "https://phrenzi.com/api/management/boosters/0cb43edf-4623-4086-99a0-50554a
 
 ```
 
-This endpoint authenticated by `Manager Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats
+This endpoint authenticated by `Access Token`, and Staff-ID Request Header, staff should be manager staff, and retrieves booster with stats
 
 ### HTTP Request
 
@@ -215,7 +215,7 @@ redeem_count | number of redeemed so far
 ```shell
 curl "https://phrenzi.com/api/management/booster" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -258,7 +258,7 @@ curl "https://phrenzi.com/api/management/booster" \
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster
 
 ### HTTP Request
 
@@ -356,7 +356,7 @@ title | Y | Title of booster
 ```shell
 curl "https://phrenzi.com/api/management/boosters/from_booster_template" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X POST \
   -d '{
@@ -394,7 +394,7 @@ curl "https://phrenzi.com/api/management/boosters/from_booster_template" \
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster from existing booster_template id
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and create Booster from existing booster_template id
 
 ### HTTP Request
 
@@ -415,7 +415,7 @@ date | Y | booster scheduled date
 ```shell
 curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
@@ -457,7 +457,7 @@ curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Booster
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and update Booster
 
 ### HTTP Request
 
@@ -552,7 +552,7 @@ title | Y | Title of booster
 ```shell
 curl "https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d053b8" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X DELETE
 ```
@@ -569,7 +569,7 @@ curl "https://phrenzi.com/api/management/booster/a635683c-87d3-4531-a5b5-f58d44d
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and delete Booster
 
 ### HTTP Request
 
@@ -583,7 +583,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 ```shell
 curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44d053b8/stop" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token" \
+  -H "Authorization: Bearer access_token" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH
 ```
@@ -600,7 +600,7 @@ curl "https://phrenzi.com/api/management/boosters/a635683c-87d3-4531-a5b5-f58d44
 }
 ```
 
-This endpoint authenticated by `Manager Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster
+This endpoint authenticated by `Access Token` ( using Staff-ID Request Header, staff should be manager staff ) and stop Booster
 
 ### HTTP Request
 
