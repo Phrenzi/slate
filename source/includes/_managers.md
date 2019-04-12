@@ -17,10 +17,19 @@ curl "https://phrenzi.com/api/managers/oauth/token" \
 
 ```json
 {
-  "access_token": "ca838e1ba512074fa61d1d14d1f2c25dacb6e45c3cba69e902b78ed4b64cd29e",
-  "token_type": "Bearer",
-  "expires_in": 2629746,
-  "created_at": 1554812886
+  "manager": {
+    "id": "e31dfa53-6fb4-4053-b6bc-f20d839fba74",
+    "email": "manager1@gmail.com",
+    "first_name": "manager1",
+    "last_name": "manager1",
+    "establishment_name": "Establishment1",
+    "establishment_setup": true,
+    "access_token": "d0d0ac5d26238b769f7895d3faacb532ad455f0c113bcbdd3a92a9e585db5c38",
+    "token_type": "Bearer",
+    "expires_in": 2629746,
+    "refresh_token": "b01f5245e5c1402a0e970921ef01c987f2a75cce8914462b41a5fffdb6a20028",
+    "created_at": 1555065566
+  }
 }
 ```
 
