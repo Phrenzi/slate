@@ -54,7 +54,7 @@ phone_number | HK the phone number, example: '61234567'
 ## Sign Up
 
 ```shell
-curl "http://phrenzi.com/api/patrons" \
+curl "http://phrenzi.com/api/patrons/sign_up" \
   -H "Content-Type: application/json" \
   -H "Authorization: app_token" \
   -X POST \
@@ -143,7 +143,7 @@ There's two kind of sign up method: email, or phone, For every kind of sign up, 
 
 ### HTTP Request
 
-`POST http://phrenzi.com/api/patrons`
+`POST http://phrenzi.com/api/patrons/sign_up`
 
 ### URL Parameters
 
