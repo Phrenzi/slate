@@ -1679,6 +1679,68 @@ returned, so we list all the different json object here:</p>
 
           <h1 id="patrons">Patrons</h1>
 
+<h2 id="pin-code">Pin Code</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons/pin_code"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: app_token"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'{
+        "phone_number": "61234567",
+        "country_code": "852"
+        }'</span>
+</code></pre>
+
+<blockquote>
+<p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with empty json object</p>
+
+<p>if fail, return HTTP Status Code <code class="prettyprint">422</code>, with following error message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Phone number can't be blank"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if phone_number is not a valid phone number, return HTTP Status Code <code class="prettyprint">422</code>, with following error message</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Phone number is not a valid phone number"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint try to send a Pin Code to a phone_number provided.</p>
+
+<ul>
+<li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with empty response</li>
+<li>if failed, it will return HTTP Status Code <code class="prettyprint">422</code>, and with <code class="prettyprint">errors</code> json message</li>
+</ul>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://phrenzi.com/api/patrons/pin_code</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>country_code</td>
+<td>the country_code of phone, like &lsquo;852&rsquo;</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>HK the phone number, example: &#39;61234567&rsquo;</td>
+</tr>
+</tbody></table>
+
 <h2 id="sign-up">Sign Up</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://phrenzi.com/api/patrons"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1695,7 +1757,7 @@ returned, so we list all the different json object here:</p>
 </code></pre>
 
 <blockquote>
-<p>if success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
+<p>if sign up via email and success, the above command returns HTTP Status Code <code class="prettyprint">200</code> with following json objects:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1709,7 +1771,7 @@ returned, so we list all the different json object here:</p>
 </span></code></pre>
 
 <blockquote>
-<p>if failed, the above command returns HTTP Status Code <code class="prettyprint">422</code> with following json objects:</p>
+<p>if sign up via email and failed, the above command returns HTTP Status Code <code class="prettyprint">422</code> with following json objects:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1718,7 +1780,51 @@ returned, so we list all the different json object here:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>if sign up via phone, the command above return HTTP Status Code <code class="prettyprint">200</code>, automatically login patron, and with folloing json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be196b88-dc42-4a6c-b3a1-b208555c34b3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon Iong"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iong"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trans_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15b797"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66762659"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"853"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c8818b8856bf41349e4a09bf938ea87f"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T06:55:37Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2d7801d7eb5467d9638bf5e243b193c"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refresh_token_exp_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-15T05:55:37Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if sign up via phone, but phone_number already registered, the command above return HTTP Status Code <code class="prettyprint">422</code>, with following json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Phone number has already been taken"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if sign up via phone, but pin_code is incorrect, the command above return HTTP Status Code <code class="prettyprint">422</code>, with following json object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Verification Code is invalid"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint try to register a account for Patron, and need App Token authenticate.</p>
+
+<p>There&rsquo;s two kind of sign up method: email, or phone, For every kind of sign up, the requirement paramters is different, please check Query Parameters for more information.</p>
 
 <ul>
 <li>if success, it will return HTTP Status Code <code class="prettyprint">200</code> with <code class="prettyprint">Patron</code> json object</li>
@@ -1735,31 +1841,53 @@ returned, so we list all the different json object here:</p>
 <tr>
 <th>Parameter</th>
 <th>Description</th>
+<th>Sign Up Type</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>first_name</td>
 <td>the first name of patron</td>
+<td>email, phone</td>
 </tr>
 <tr>
 <td>last_name</td>
 <td>the last name of patron</td>
+<td>email, phone</td>
 </tr>
 <tr>
 <td>email</td>
 <td>the email of patron</td>
+<td>email</td>
 </tr>
 <tr>
 <td>password</td>
 <td>the password of patron account</td>
+<td>email</td>
 </tr>
 <tr>
 <td>password_confirmation</td>
 <td>confirm password again</td>
+<td>email</td>
 </tr>
 <tr>
 <td>confirm_success_url</td>
 <td>the url after confirmation link is click</td>
+<td>email</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>the country_code of phone, like &#39;852&rsquo;</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>HK the phone number, example: &#39;61234567&rsquo;</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>pin_code</td>
+<td>Pin Code</td>
+<td>phone</td>
 </tr>
 </tbody></table>
 
@@ -1774,7 +1902,7 @@ returned, so we list all the different json object here:</p>
 </code></pre>
 
 <blockquote>
-<p>if success, the above command returns <code class="prettyprint">Patron</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
+<p>if sign in via email/phone, and success, the command above returns <code class="prettyprint">Patron</code> object with <code class="prettyprint">200</code> status code, and structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"patron"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1793,7 +1921,7 @@ returned, so we list all the different json object here:</p>
 </span></code></pre>
 
 <blockquote>
-<p>if failed, the above command returns status code <code class="prettyprint">401</code> and json structured like this:</p>
+<p>if sign in failed, the above command returns status code <code class="prettyprint">401</code> and json structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Invalid login credentials. Please try again."</span><span class="w"> </span><span class="p">]</span><span class="w">
@@ -1808,7 +1936,19 @@ returned, so we list all the different json object here:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<blockquote>
+<p>if sign in via phone, but pin_code is incorrect, return status code <code class="prettyprint">401</code> and json message:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Verification Code is invalid"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p>This endpoint try to authenticate Patron, and need App Token authenticate.</p>
+
+<p>There&rsquo;s two kind of sign in method: email, or phone, For every kind of sign in, the requirement paramters is different, please check Query Parameters for more information.</p>
 
 <ul>
 <li>if success, it will return <code class="prettyprint">Patron</code> object with HTTP Status Code <code class="prettyprint">200</code>, and client can retrive
@@ -1826,15 +1966,33 @@ Patron Token pair from reponse to consuming <code class="prettyprint">patron_app
 <tr>
 <th>Parameter</th>
 <th>Description</th>
+<th>Sign In Type</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>email</td>
 <td>the email of patron account</td>
+<td>email</td>
 </tr>
 <tr>
 <td>password</td>
 <td>the password of patron account</td>
+<td>email</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>country code of phone number, example: &#39;852&rsquo;</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>phone number, example: &#39;61234567&rsquo;</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>pin_code</td>
+<td>pin_code</td>
+<td>phone</td>
 </tr>
 </tbody></table>
 
