@@ -85,6 +85,8 @@ curl "http://phrenzi.com/api/patrons" \
 
 This endpoint try to register a account for Patron, and need App Token authenticate.
 
+There's two kind of sign up method: email, or phone, For every kind of sign up, the requirement paramters is different, please check Query Parameters for more information.
+
 * if success, it will return HTTP Status Code `200` with `Patron` json object
 * if failed, it will return HTTP Status Code `422`, and with `errors` json message
 
@@ -94,7 +96,7 @@ This endpoint try to register a account for Patron, and need App Token authentic
 
 ### URL Parameters
 
-Parameter | Description | Register Type
+Parameter | Description | Sign Up Type
 --------- | ----------- | ----------------
 first_name | the first name of patron | email, phone
 last_name | the last name of patron | email, phone
@@ -105,7 +107,6 @@ confirm_success_url | the url after confirmation link is click | email
 country_code | the country_code of phone, like '852' | phone
 phone_number | HK the phone number, example: '61234567' | phone
 pin_code | Pin Code | phone
-
 
 ## Sign In
 
@@ -119,7 +120,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
         "password": "password" }'
 ```
 
-> if success, the above command returns `Patron` object with `200` status code, and structured like this:
+> if sign in via email/phone, and success, the command above returns `Patron` object with `200` status code, and structured like this:
 
 ```json
 {
@@ -138,7 +139,7 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 }
 ```
 
-> if failed, the above command returns status code `401` and json structured like this:
+> if sign in failed, the above command returns status code `401` and json structured like this:
 
 ``` json
 {
@@ -154,7 +155,19 @@ curl "https://phrenzi.com/api/patrons/sign_in" \
 }
 ```
 
+> if sign in via phone, but pin_code is incorrect, return status code `401` and json message:
+
+```json
+{
+  "errors": [
+    "Verification Code is invalid"
+  ]
+}
+```
+
 This endpoint try to authenticate Patron, and need App Token authenticate.
+
+There's two kind of sign in method: email, or phone, For every kind of sign in, the requirement paramters is different, please check Query Parameters for more information.
 
 * if success, it will return `Patron` object with HTTP Status Code `200`, and client can retrive
 Patron Token pair from reponse to consuming `patron_app` namespace APIs.
@@ -166,11 +179,13 @@ Patron Token pair from reponse to consuming `patron_app` namespace APIs.
 
 ### Query Parameters
 
-Parameter | Description
---------- | -----------
-email | the email of patron account
-password | the password of patron account
-
+Parameter | Description | Sign In Type
+--------- | ----------- | -----------
+email | the email of patron account | email
+password | the password of patron account | email
+country_code | country code of phone number, example: '852' | phone
+phone_number | phone number, example: '61234567' | phone
+pin_code | pin_code | phone
 
 ## Sign Out
 
