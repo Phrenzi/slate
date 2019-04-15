@@ -17,7 +17,7 @@ curl "http://phrenzi.com/api/patrons" \
         }'
 ```
 
-> if success, the above command returns HTTP Status Code `200` with following json objects:
+> if sign up via email and success, the above command returns HTTP Status Code `200` with following json objects:
 
 ```json
 {
@@ -31,12 +31,54 @@ curl "http://phrenzi.com/api/patrons" \
 }
 ```
 
-> if failed, the above command returns HTTP Status Code `422` with following json objects:
+> if sign up via email and failed, the above command returns HTTP Status Code `422` with following json objects:
 
 ``` json
 {
   "errors": [
     "Email has already been taken"
+  ]
+}
+```
+
+> if sign up via phone, the command above return HTTP Status Code `200`, automatically login patron, and with folloing json object:
+
+```json
+{
+  "patron": {
+    "id": "be196b88-dc42-4a6c-b3a1-b208555c34b3",
+    "name": "Simon Iong",
+    "first_name": "Simon",
+    "last_name": "Iong",
+    "email": null,
+    "trans_code": "15b797",
+    "profile": null,
+    "phone_number": "66762659",
+    "country_code": "853",
+    "token": "c8818b8856bf41349e4a09bf938ea87f",
+    "token_exp_at": "2019-04-15T06:55:37Z",
+    "refresh_token": "b2d7801d7eb5467d9638bf5e243b193c",
+    "refresh_token_exp_at": "2019-05-15T05:55:37Z"
+  }
+}
+```
+
+> if sign up via phone, but phone_number already registered, the command above return HTTP Status Code `422`, with following json object:
+
+```json
+{
+  "errors": [
+    "Phone number has already been taken"
+  ]
+}
+```
+
+> if sign up via phone, but pin_code is incorrect, the command above return HTTP Status Code `422`, with following json object:
+
+```json
+{
+  "errors": [
+    "Verification Code is invalid"
   ]
 }
 ```
@@ -52,14 +94,17 @@ This endpoint try to register a account for Patron, and need App Token authentic
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-first_name | the first name of patron
-last_name | the last name of patron
-email | the email of patron
-password | the password of patron account
-password_confirmation | confirm password again
-confirm_success_url | the url after confirmation link is click
+Parameter | Description | Register Type
+--------- | ----------- | ----------------
+first_name | the first name of patron | email, phone
+last_name | the last name of patron | email, phone
+email | the email of patron | email
+password | the password of patron account | email
+password_confirmation | confirm password again | email
+confirm_success_url | the url after confirmation link is click | email
+country_code | the country_code of phone, like '852' | phone
+phone_number | HK the phone number, example: '61234567' | phone
+pin_code | Pin Code | phone
 
 
 ## Sign In
