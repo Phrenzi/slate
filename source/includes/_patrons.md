@@ -1,5 +1,56 @@
 # Patrons
 
+## Pin Code
+
+```shell
+curl "http://phrenzi.com/api/patrons/pin_code" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: app_token" \
+  -X POST \
+  -d '{
+        "phone_number": "61234567",
+        "country_code": "852"
+        }'
+```
+
+> if success, the above command returns HTTP Status Code `200` with empty json object
+
+> if fail, return HTTP Status Code `422`, with following error message:
+
+```json
+{
+  "errors": [
+    "Phone number can't be blank"
+  ]
+}
+```
+
+> if phone_number is not a valid phone number, return HTTP Status Code `422`, with following error message
+
+```json
+{
+  "errors": [
+    "Phone number is not a valid phone number"
+  ]
+}
+```
+
+This endpoint try to send a Pin Code to a phone_number provided.
+
+* if success, it will return HTTP Status Code `200` with empty response
+* if failed, it will return HTTP Status Code `422`, and with `errors` json message
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/patrons/pin_code`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+country_code | the country_code of phone, like '852'
+phone_number | HK the phone number, example: '61234567'
+
 ## Sign Up
 
 ```shell
