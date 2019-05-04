@@ -524,3 +524,59 @@ This endpoint authenticated by `Access Token`, and accept terms for current esta
 ### HTTP Request
 
 `PATCH http://phrenzi.com/api/management/profile/terms`
+
+
+## Location List
+
+```shell
+curl "https://phrenzi.com/api/management/profile/locations" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer access_token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+```
+
+> if success, returns HTML status code 200 OK, with following json:
+
+```json
+{
+  "locations": [
+    {
+      "id": "e3ff7a2f-cf0f-4c91-af56-2d2d3e9d3f20",
+      "name": "location",
+      "desc": "location desc",
+      "lat": "1.2323",
+      "long": "1.23333",
+      "created_at": "2019-05-04T13:29:51Z",
+      "updated_at": "2019-05-04T13:29:51Z"
+    },
+    {
+      "id": "46bffe78-7049-443b-a27f-49da4689e9d7",
+      "name": "location",
+      "desc": "location desc",
+      "lat": "2.2323",
+      "long": "2.23333",
+      "created_at": "2019-05-04T13:29:51Z",
+      "updated_at": "2019-05-04T13:29:51Z"
+    }
+  ]
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+This endpoint authenticated by `Access Token`, and get locations list for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`GET http://phrenzi.com/api/management/profile/locations`
