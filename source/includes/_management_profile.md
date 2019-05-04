@@ -703,3 +703,45 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 ### HTTP Request
 
 `PATCH http://phrenzi.com/api/management/profile/locations/#{location_id}`
+
+
+## Delete Location
+
+```shell
+curl "https://phrenzi.com/api/management/profile/locations/088ad172-cec4-44a4-b7a0-ebaf280b6c67" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer access_token" \
+  -X DELETE
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+```
+
+> if success, returns HTML status code 200 OK, with empty json
+
+> if error, return HTML status code 406, with following errors:
+
+```json
+{
+  "errors": [
+    "Not allow to delete last location"
+  ]
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+This endpoint authenticated by `Access Token`, and delete location for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`DELETE http://phrenzi.com/api/management/profile/locations/#{location_id}`
