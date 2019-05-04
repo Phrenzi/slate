@@ -23,14 +23,28 @@ curl "https://phrenzi.com/api/management/profile" \
     "banner_url": "/uploads/cache/32a5272a2fdb5100402ff34365a777a1.jpeg",
     "desc": "This is an example description",
     "address": {
-      "lat": null,
-      "long": null,
       "street1": "MyString",
       "street2": "MyString",
       "city": "MyString",
       "country": "MyString",
       "time_zone": "Asia/Macau"
     },
+    "locations": [
+      {
+        "id": "7ce001bd-8268-4a42-85c5-93574b6a6015",
+        "name": "location",
+        "desc": "location desc",
+        "lat": "1.2323",
+        "long": "1.23333"
+      },
+      {
+        "id": "01acdfe6-aaac-4caa-916d-df58c1e113ac",
+        "name": "location",
+        "desc": "location desc",
+        "lat": "1.2323",
+        "long": "1.23333"
+      }
+    ],
     "setting": {
       "max_payout_rank": 10
     },
