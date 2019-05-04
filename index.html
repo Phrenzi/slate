@@ -9495,6 +9495,59 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
 <p><code class="prettyprint">PATCH http://phrenzi.com/api/management/profile/terms</code></p>
 
+<h2 id="location-list">Location List</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://phrenzi.com/api/management/profile/locations"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer access_token"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"</span>
+</code></pre>
+
+<blockquote>
+<p>if success, returns HTML status code 200 OK, with following json:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3ff7a2f-cf0f-4c91-af56-2d2d3e9d3f20"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location desc"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2323"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.23333"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-04T13:29:51Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-04T13:29:51Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46bffe78-7049-443b-a27f-49da4689e9d7"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location desc"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.2323"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.23333"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-04T13:29:51Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-04T13:29:51Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if unauthorize, returns HTML status code 401, with following object:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"You need to sign in or sign up before continuing."</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint authenticated by <code class="prettyprint">Access Token</code>, and get locations list for current establishment.</p>
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://phrenzi.com/api/management/profile/locations</code></p>
+
           <h1 id="management-report">Management / Report</h1>
 
 <h2 id="get-daily-summaries">Get daily summaries</h2>
