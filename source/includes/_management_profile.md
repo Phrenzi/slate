@@ -580,3 +580,126 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 ### HTTP Request
 
 `GET http://phrenzi.com/api/management/profile/locations`
+
+## Create Location
+
+```shell
+curl "https://phrenzi.com/api/management/profile/locations" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer access_token" \
+  -X POST
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+  -d '{
+    "name": "Default Location",
+    "desc": "Default Desc",
+    "lat": "2.33331234",
+    "long": "4.5134213"
+    }'
+```
+
+> if success, returns HTML status code 200 OK, with following json:
+
+```json
+{
+  "location": {
+    "id": "088ad172-cec4-44a4-b7a0-ebaf280b6c67",
+    "name": "Default Location",
+    "desc": "Default Desc",
+    "lat": "2.33331234",
+    "long": "4.5134213",
+    "created_at": "2019-05-04T13:42:44Z",
+    "updated_at": "2019-05-04T13:42:44Z"
+  }
+}
+```
+
+> if error, return HTML status code 422, with following errors:
+
+```json
+{
+  "errors": [
+    "Name can't be blank"
+  ]
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+This endpoint authenticated by `Access Token`, and create location for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/management/profile/locations`
+
+
+## Update Location
+
+```shell
+curl "https://phrenzi.com/api/management/profile/locations/088ad172-cec4-44a4-b7a0-ebaf280b6c67" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer access_token" \
+  -X PATCH
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468"
+  -d '{
+    "name": "Default Location",
+    "desc": "Default Desc",
+    "lat": "2.33331234",
+    "long": "4.5134213"
+    }'
+```
+
+> if success, returns HTML status code 200 OK, with following json:
+
+```json
+{
+  "location": {
+    "id": "088ad172-cec4-44a4-b7a0-ebaf280b6c67",
+    "name": "Default Location",
+    "desc": "Default Desc",
+    "lat": "2.33331234",
+    "long": "4.5134213",
+    "created_at": "2019-05-04T13:42:44Z",
+    "updated_at": "2019-05-04T13:42:44Z"
+  }
+}
+```
+
+> if error, return HTML status code 422, with following errors:
+
+```json
+{
+  "errors": [
+    "Name can't be blank"
+  ]
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "You need to sign in or sign up before continuing."
+  ]
+}
+```
+
+This endpoint authenticated by `Access Token`, and update location for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`PATCH http://phrenzi.com/api/management/profile/locations/#{location_id}`
