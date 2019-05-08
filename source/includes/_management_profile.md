@@ -125,7 +125,8 @@ curl "https://phrenzi.com/api/management/profile" \
       "hours": false,
       "images": false,
       "billing": false,
-      "terms": false
+      "terms": false,
+      "location": false
     },
     "current_challenge": {
       "start_date": "2016-12-06T16:00:00Z",
