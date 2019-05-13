@@ -15,25 +15,69 @@ curl "https://phrenzi.com/api/management/patrons" \
 {
   "patrons": [
     {
-      "id": "8d3d7ecd-585d-4f2f-ad21-1b457e062681",
-      "name": "F1 L1",
-      "first_name": "F1",
-      "last_name": "L1",
-      "email": "patron1@gmail.com",
+      "id": "b6ce5873-49b9-4c01-b8a0-7102a88ed6be",
+      "name": "Frist001 Last001",
+      "first_name": "Frist001",
+      "last_name": "Last001",
+      "email": null,
+      "phone_number": "66762659",
+      "country_code": "853",
       "credit_balance": "100.23",
-      "trans_code": "52553b",
-      "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
+      "trans_code": "b8b458",
+      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg",
     },
     {
-      "id": "fcbdd18f-e5ea-4368-8cf4-2e688e604a40",
-      "name": "F2 L2",
-      "first_name": "F2",
-      "last_name": "L2",
-      "email": "patron2@gmail.com",
-      "credit_balance": "0.0",
-      "trans_code": "25e8ac",
-      "profile": "https://phrenzi.com/uploads/cache/a8a70be864925f7bddc0bcf93fa89986.jpeg"
+      "id": "c6ce5873-49b9-4c01-b8a0-7102a88ed6be",
+      "name": "Frist001 Last001",
+      "first_name": "Frist001",
+      "last_name": "Last001",
+      "email": "patron1@gmail.com",
+      "phone_number": null,
+      "country_code": null,
+      "credit_balance": "100.23",
+      "trans_code": "b8b458",
+      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg",
     },
+
+    {
+      "id": "a6ce5873-49b9-4c01-b8a0-7102a88ed6be",
+      "name": "Frist001 Last001",
+      "first_name": "Frist001",
+      "last_name": "Last001",
+      "email": "patron2@gmail.com",
+      "phone_number": null,
+      "country_code": null,
+      "credit_balance": "100.23",
+      "trans_code": "b8b458",
+      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg",
+      "challenge": {
+        "point_balance": 20,
+        "prize": "500.0",
+        "ranking": 0
+      }
+    },
+    {
+      "id": "c0e4e6af-1591-40aa-bd44-9ba75ea3ba86",
+      "name": "Frist002 Last002",
+      "first_name": "Frist002",
+      "last_name": "Last002",
+      "email": "patron3@gmail.com",
+      "phone_number": null,
+      "country_code": null,
+      "credit_balance": "0.0",
+      "trans_code": "39657e",
+      "profile": "/uploads/cache/0be78d68c1a33a67d2115c5ee8ff902a.jpeg",
+      "challenge": {
+        "point_balance": 10,
+        "prize": "0.0",
+        "ranking": 1
+      }
+    }
+  ]
+}
+
+{
+  "patrons": [
     {
       "id": "c3335da8-a771-4974-8756-007be2530490",
       "name": "Frist001 Last001",
