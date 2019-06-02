@@ -13,6 +13,7 @@ curl "https://phrenzi.com/api/management/patrons" \
 
 ```json
 {
+  "total_count": 4,
   "patrons": [
     {
       "id": "b6ce5873-49b9-4c01-b8a0-7102a88ed6be",
