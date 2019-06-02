@@ -89,13 +89,14 @@ the `credit_balance` return from different manager authenticated should be diffe
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
+<aside class="info">due to technical reason, This API DO NOT SUPPORT Link Response Header pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | ----------- | ----------
+keyword | N | keyword options, for now, buzz search for patron name or phone number
 filter | N | filter options, for now, only accept 'favorite'
 page | N | the page results of all transactions
 per_page | N | the number of transaction record return per page by api, default to be 20
