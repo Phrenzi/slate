@@ -24,7 +24,7 @@ curl "https://phrenzi.com/api/management/patrons" \
       "country_code": "853",
       "credit_balance": "100.23",
       "trans_code": "b8b458",
-      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg",
+      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg"
     },
     {
       "id": "c6ce5873-49b9-4c01-b8a0-7102a88ed6be",
@@ -36,9 +36,8 @@ curl "https://phrenzi.com/api/management/patrons" \
       "country_code": null,
       "credit_balance": "100.23",
       "trans_code": "b8b458",
-      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg",
+      "profile": "/uploads/cache/2b13270129d91b98c1e8ab26b0d08af4.jpeg"
     },
-
     {
       "id": "a6ce5873-49b9-4c01-b8a0-7102a88ed6be",
       "name": "Frist001 Last001",
