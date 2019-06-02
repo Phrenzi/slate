@@ -7354,7 +7354,7 @@ the <code class="prettyprint">credit_balance</code> return from different manage
 <aside class="info">This API require Staff-Id Request Header. please refer to <a
 href="#staff-id-request-header">Staff-Id Request Header section</a></aside>
 
-<aside class="info">This API support pagination. please refer to <a
+<aside class="info">due to technical reason, This API DO NOT SUPPORT Link Response Header pagination. please refer to <a
 href="#link-response-header">Link Response Header section</a></aside>
 
 <h3 id="query-parameters">Query Parameters</h3>
@@ -7366,6 +7366,11 @@ href="#link-response-header">Link Response Header section</a></aside>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>keyword</td>
+<td>N</td>
+<td>keyword options, for now, buzz search for patron name or phone number</td>
+</tr>
 <tr>
 <td>filter</td>
 <td>N</td>
