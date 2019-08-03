@@ -23,14 +23,12 @@ curl "https://phrenzi.com/api/patron_app/patrons" \
         {
           "id": "551136c7-11dd-449d-abd1-047f49c0229e",
           "name": "Cafe Roma",
-          "logo_url": "/uploads/cache/6f6c813b759d1356b4df3d708cc67b43.jpeg",
-          "address_city": "MyString"
+          "logo_url": "/uploads/cache/6f6c813b759d1356b4df3d708cc67b43.jpeg"
         },
         {
           "id": "d0d5cbe6-9319-4f5e-accc-54ad85826054",
           "name": "Awesome Bar",
-          "logo_url": "/uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg",
-          "address_city": "MyString"
+          "logo_url": "/uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg"
         }
       ],
       "friend_status": "friend"

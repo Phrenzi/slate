@@ -48,17 +48,17 @@ cash_back | String | '3.5' | the current cash back setting |
 desc | String | 'asdfsad' | the desc for Establishment |
 logo_url | String | 'http://abc.com/logo.img' | logo url |
 banner_url | String | 'http://abc.com/banner.img' | logo url |
-address | Address object | see below | the address object attached to this establishment |
+location | Location object | see below | the location object attached to this establishment |
 business_hours | Array of Business Hour | see below | totally 7 business hour object |
 
-## Address
+## Location
 Key | Type | Example | Description
 --------- | --------- | --------- | -----------
-id | UUID | 'ddbd0c3c-404d-4ce1-9042-9baecb4ef585' | uniq identifier of Address
-street1 | String | 'Ma Wan MainRold' | the street1 for Establishment |
-street2 | String | 'Ma Wan' | the street2 for Establishment |
-city | String | 'Hong Kong' | city for Establishment |
-country | String | 'HK' | country name for ISO 3166-1 standard |
+id | UUID | 'ddbd0c3c-404d-4ce1-9042-9baecb4ef585' | uniq identifier of Location
+name | String | 'Little Mario' | the name of Location |
+desc | String | 'Ma Wan' | the description for Location |
+lat | String | 1.23232 | latitude for location |
+long | String | 1.2323 | longtitude for location |
 
 ## Business Hour
 Key | Type | Example | Description
