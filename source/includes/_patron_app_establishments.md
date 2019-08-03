@@ -25,9 +25,15 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "user_active_booster_count": 3,
       "credit_balance": "20000.0",
       "favorite": true,
-      "address": {
-        "city": "Macau"
-      }
+      "locations": [
+        {
+          "id": "07b732fd-225f-445a-99ac-23828daaeab1",
+          "name": "location",
+          "desc": "ocation desc",
+          "lat": "1.2323",
+          "long": "1.23333"
+        }
+      ]
     },
     {
       "id": "0c9d3e1c-9499-472c-8f87-9acd0f8866d2",
@@ -41,9 +47,15 @@ curl "https://phrenzi.com/api/patron_app/establishments" \
       "user_active_booster_count": 0,
       "credit_balance": "200.0",
       "favorite": true,
-      "address": {
-        "city": "Macau"
-      }
+      "locations": [
+        {
+          "id": "07b732fd-225f-445a-99ac-23828daaeab1",
+          "name": "another location",
+          "desc": "location desc",
+          "lat": "1.2323",
+          "long": "1.23333"
+        }
+      ]
     }
   ]
 }
@@ -87,13 +99,15 @@ curl "https://phrenzi.com/api/patron_app/establishments/c3d12f1a-1f0e-4ade-ae6a-
     "user_active_booster_count": 3,
     "credit_balance": "20000.0",
     "favorite": false,
-    "address": {
-      "id": "54f27047-8a98-4304-b7bc-43b2f855a582",
-      "street1": "MyString",
-      "street2": "MyString",
-      "city": "MyString",
-      "country": "MyString"
-    },
+    "locations": [
+      {
+        "id": "07b732fd-225f-445a-99ac-23828daaeab1",
+        "name": "another location",
+        "desc": "location desc",
+        "lat": "1.2323",
+        "long": "1.23333"
+      }
+    ],
     "business_hours": [
       {
         "wday": 0,
