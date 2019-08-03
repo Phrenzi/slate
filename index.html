@@ -402,10 +402,10 @@ returned, so we list all the different json object here:</p>
 <td>logo url</td>
 </tr>
 <tr>
-<td>address</td>
-<td>Address object</td>
+<td>location</td>
+<td>Location object</td>
 <td>see below</td>
-<td>the address object attached to this establishment</td>
+<td>the location object attached to this establishment</td>
 </tr>
 <tr>
 <td>business_hours</td>
@@ -415,7 +415,7 @@ returned, so we list all the different json object here:</p>
 </tr>
 </tbody></table>
 
-<h2 id="address">Address</h2>
+<h2 id="location">Location</h2>
 
 <table><thead>
 <tr>
@@ -429,31 +429,31 @@ returned, so we list all the different json object here:</p>
 <td>id</td>
 <td>UUID</td>
 <td>&#39;ddbd0c3c-404d-4ce1-9042-9baecb4ef585&rsquo;</td>
-<td>uniq identifier of Address</td>
+<td>uniq identifier of Location</td>
 </tr>
 <tr>
-<td>street1</td>
+<td>name</td>
 <td>String</td>
-<td>&#39;Ma Wan MainRold&rsquo;</td>
-<td>the street1 for Establishment</td>
+<td>&#39;Little Mario&rsquo;</td>
+<td>the name of Location</td>
 </tr>
 <tr>
-<td>street2</td>
+<td>desc</td>
 <td>String</td>
 <td>&#39;Ma Wan&rsquo;</td>
-<td>the street2 for Establishment</td>
+<td>the description for Location</td>
 </tr>
 <tr>
-<td>city</td>
+<td>lat</td>
 <td>String</td>
-<td>&#39;Hong Kong&rsquo;</td>
-<td>city for Establishment</td>
+<td>1.23232</td>
+<td>latitude for location</td>
 </tr>
 <tr>
-<td>country</td>
+<td>long</td>
 <td>String</td>
-<td>&#39;HK&rsquo;</td>
-<td>country name for ISO 3166-1 standard</td>
+<td>1.2323</td>
+<td>longtitude for location</td>
 </tr>
 </tbody></table>
 
@@ -2708,14 +2708,12 @@ and with following json object</p>
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551136c7-11dd-449d-abd1-047f49c0229e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cafe Roma"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/6f6c813b759d1356b4df3d708cc67b43.jpeg"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
+          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/6f6c813b759d1356b4df3d708cc67b43.jpeg"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0d5cbe6-9319-4f5e-accc-54ad85826054"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Bar"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
+          </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/3f07b695b94bfbfe1a3e9f1086d13db5.jpeg"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"friend_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend"</span><span class="w">
@@ -3123,9 +3121,15 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Macau"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07b732fd-225f-445a-99ac-23828daaeab1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ocation desc"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2323"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.23333"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0c9d3e1c-9499-472c-8f87-9acd0f8866d2"</span><span class="p">,</span><span class="w">
@@ -3139,9 +3143,15 @@ href="#link-response-header">Link Response Header section</a></aside>
       </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Macau"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07b732fd-225f-445a-99ac-23828daaeab1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another location"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location desc"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2323"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.23333"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3193,13 +3203,15 @@ href="#link-response-header">Link Response Header section</a></aside>
     </span><span class="nt">"user_active_booster_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"credit_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000.0"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54f27047-8a98-4304-b7bc-43b2f855a582"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07b732fd-225f-445a-99ac-23828daaeab1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another location"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location desc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2323"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.23333"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"business_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"wday"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -8948,13 +8960,6 @@ password_confirmation | confirmation for the new password</p>
     </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/5a1df17481c893b5ae13660df0de9684.jpeg"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uploads/cache/32a5272a2fdb5100402ff34365a777a1.jpeg"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an example description"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyString"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asia/Macau"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7ce001bd-8268-4a42-85c5-93574b6a6015"</span><span class="p">,</span><span class="w">
