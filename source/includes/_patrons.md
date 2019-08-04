@@ -13,7 +13,13 @@ curl "http://phrenzi.com/api/patrons/pin_code" \
         }'
 ```
 
-> if success, the above command returns HTTP Status Code `200` with empty json object
+> if success, the above command returns HTTP Status Code `200` with json to detect if current phone_number is registered or not
+
+```json
+{
+  registered: true
+}
+```
 
 > if fail, return HTTP Status Code `422`, with following error message:
 
