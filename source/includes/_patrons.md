@@ -17,7 +17,7 @@ curl "http://phrenzi.com/api/patrons/pin_code" \
 
 ```json
 {
-  registered: true
+  "registered": true
 }
 ```
 
