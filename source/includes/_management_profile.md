@@ -23,6 +23,7 @@ curl "https://phrenzi.com/api/management/profile" \
     "banner_url": "/uploads/cache/32a5272a2fdb5100402ff34365a777a1.jpeg",
     "desc": "This is an example description",
     "timezone": "Hong Kong",
+    "utc_offset": 28800,
     "locations": [
       {
         "id": "7ce001bd-8268-4a42-85c5-93574b6a6015",
