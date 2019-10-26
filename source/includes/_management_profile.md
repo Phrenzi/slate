@@ -42,7 +42,7 @@ curl "https://phrenzi.com/api/management/profile" \
     ],
     "setting": {
       "max_payout_rank": 10,
-      "prize_percentage": 5.0,
+      "prize_percentage": 5.0
     },
     "business_hours": [
       {
