@@ -453,8 +453,7 @@ curl "https://phrenzi.com/api/management/profile/billing" \
   -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
   -X PATCH \
   -d '{
-    "establishment_name": "Awesome Bar",
-    "token": "billing_token"
+    "payment_method": "pm_1234567890"
     }'
 ```
 
@@ -465,7 +464,7 @@ curl "https://phrenzi.com/api/management/profile/billing" \
 ```json
 {
   "errors": [
-    "Token can't be blank"
+    "Payment method can't be blank"
   ]
 }
 ```
