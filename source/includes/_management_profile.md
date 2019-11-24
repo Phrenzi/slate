@@ -444,6 +444,43 @@ Parameter | Description
 --------- | -----------
 business_hours | Array of Business Hour setting
 
+## Start Setup Billing
+
+```shell
+curl "https://phrenzi.com/api/management/profile/billing_setup" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer access_token" \
+  -H "X-Staff-Id: 828055eb-a94d-4f71-aa90-110d5b747468" \
+  -X POST
+```
+
+> if success, returns HTML status code 200 OK, with json:
+
+``` json
+{
+  "client_secret": "cs_123456789"
+}
+```
+
+> if unauthorize, returns HTML status code 401, with following object:
+
+``` json
+{
+  "errors": [
+    "Authorized users only."
+  ]
+}
+```
+
+This endpoint authenticated by `Access Token`, and start billing process for current establishment.
+
+<aside class="info">This API require Staff-Id Request Header. please refer to <a
+href="#staff-id-request-header">Staff-Id Request Header section</a>, and please make sure staff is a manager</aside>
+
+### HTTP Request
+
+`POST http://phrenzi.com/api/management/profile/billing_setup`
+
 ## Update Billing Info
 
 ```shell
@@ -492,7 +529,7 @@ href="#staff-id-request-header">Staff-Id Request Header section</a>, and please 
 
 Parameter | Description
 --------- | -----------
-token | Billing token
+payment_method | Billing token
 
 ## Accept Terms
 
